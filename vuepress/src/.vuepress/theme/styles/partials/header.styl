@@ -59,6 +59,20 @@
         background-position 9px 5px
         width auto
 
-.home-link
+.site-name,
+.site-name-switch
+  display inline-block
+  line-height: 1.2 // Not really necessarily. Very little change.
+  vertical-align: top
+.site-name
+  height 20px
+  overflow: hidden
   &:hover
-    color: #000
+    .site-name-switch
+      transform translateY(-50%)
+.site-name-alternate,
+.site-name-main
+  display: block
+.site-name-switch
+  margin-left -4px
+  transition-duration: .3s

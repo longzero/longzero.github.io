@@ -5,7 +5,13 @@
         :to="$localePath"
         class="home-link"
       >
-        <span class="site-name"><strong>long</strong>nguyen</span>
+        <span class="site-name">
+          <strong>long</strong>
+          <span class="site-name-switch">
+            <span class="site-name-main">zero</span>
+            <span class="site-name-alternate">nguyen</span>
+          </span>
+        </span>
         <!-- <img
           v-if="$site.themeConfig.logo"
           class="logo"
