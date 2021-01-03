@@ -1,7 +1,7 @@
 <template lang="pug">
   //- .theme-container(:class="pageClasses")
   .theme-container
-    Header.fade-in.move-up.animation.js-animate
+    Header
 
     Home(v-if="$page.frontmatter.home")
 
@@ -20,7 +20,7 @@
     //- window.location.href is not working
     //- SocialShare(v-if="$page.frontmatter.type == 'article'")
 
-    Footer.fade-in.move-up.animation.js-animate
+    Footer
 </template>
 
 <script>
@@ -61,7 +61,29 @@ export default {
   methods: {
     formatDate(currentDate) {
       return currentDate.substring(0, 10)
+    },
+  },
+  mounted () {
+    // ADD TARGET BLANK TO EXTERNAL LINKS
+    // https://gist.github.com/allybee/5871749
+    // remove subdomain of current site's url and setup regex
+    var internal = location.host.replace("www.", "");
+    internal = new RegExp(internal, "i");
+    var a = document.getElementsByTagName('a'); // then, grab every link on the page
+    for (var i = 0; i < a.length; i++) {
+      var href = a[i].host; // set the host of each link
+      if( !internal.test(href) ) { // make sure the href doesn't contain current site's host
+        a[i].setAttribute('target', '_blank'); // if it doesn't, set attributes
+        a[i].setAttribute('rel', 'noopener noreferrer');
+      }
     }
+    // Alternative way
+    // document.querySelectorAll('a').forEach(link => {
+    //   if (link.hostname !== location.hostname) {
+    //     link.setAttribute('target', '_blank');
+    //     link.setAttribute('rel', 'noopener noreferrer');
+    //   }
+    // })
   }
 }
 </script>

@@ -92,6 +92,15 @@ module.exports = {
 
 
 
+  markdown: {
+    externalLinks: {
+      target: '_blank',
+      rel: 'noopener noreferrer'
+    }
+  },
+
+
+
   /**
    * Theme configuration, here is the default theme configuration for VuePress.
    *
