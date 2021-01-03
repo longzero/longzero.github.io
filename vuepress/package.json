@@ -1,0 +1,25 @@
+{
+  "name": "Longzero",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "authors": {
+    "name": "Long",
+    "email": "long@longzero.com"
+  },
+  "repository": "/Longzero",
+  "scripts": {
+    "dev": "vuepress dev src",
+    "build": "NODE_ENV=production vuepress build src"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "pug": "^3.0.0",
+    "pug-plain-loader": "^1.1.0",
+    "vuepress": "^1.5.3",
+    "vuepress-plugin-feed": "^0.1.9",
+    "vuepress-plugin-fulltext-search": "^2.1.0",
+    "vuepress-plugin-seo": "^0.1.4"
+  },
+  "dependencies": {}
+}
