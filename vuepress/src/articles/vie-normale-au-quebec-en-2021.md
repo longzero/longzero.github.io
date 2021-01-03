@@ -43,6 +43,6 @@ Quand on met ces éléments ensembles, c'est pour ça que je ne vois pas de vie 
 Toutefois, Wuhan a eu une vie normale à la fin 2020 sans vaccin et mes calculs se basent sur deux choses que j'assume:
 
 * Pour être protégé de la COVID-19, 65 à 70% de la population doit être vaccinée.
-* L'objectif de vaccination du Québec est seulement 2,7 millions personnes au lien de 5,57 millions.
+* L'objectif de vaccination du Québec est seulement 2,7 millions personnes au lieu de 5,57 millions.
 
 Alors je serai très heureux d'avoir tort.
