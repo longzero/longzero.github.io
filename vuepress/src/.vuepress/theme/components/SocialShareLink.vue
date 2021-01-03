@@ -13,6 +13,11 @@
 <script>
   export default {
     props: ["network"],
+    computed: {
+      currentUrl() {
+        return this.$themeConfig.domain + this.$page.path
+      }
+    },
     methods: {
       // currentPage() {
       //   let currentPage = this.network ? this.network : this.$page.path;
@@ -20,13 +25,13 @@
       // },
       getShareUrl(network) {
         if (network === 'facebook')
-          return 'https://www.facebook.com/sharer/sharer.php?u=' + window.location.href
+          return 'https://www.facebook.com/sharer/sharer.php?u=' + this.currentUrl
         else if (network === 'linkedin')
-          return 'https://www.linkedin.com/shareArticle?mini=true&url=' + window.location.href + '&title=&summary=&source='
+          return 'https://www.linkedin.com/shareArticle?mini=true&url=' + this.currentUrl + '&title=&summary=&source='
         else if (network === 'pinterest')
-          return 'https://pinterest.com/pin/create/button/?url=' + window.location.href + '&media=&description='
+          return 'https://pinterest.com/pin/create/button/?url=' + this.currentUrl + '&media=&description='
         else if (network === 'twitter')
-          return 'https://twitter.com/intent/tweet?url=' + window.location.href + '&text='
+          return 'https://twitter.com/intent/tweet?url=' + this.currentUrl + '&text='
       }
     }
   };

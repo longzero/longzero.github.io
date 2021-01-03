@@ -10,6 +10,7 @@ let author = 'Longzero'
 
 module.exports = {
   base: '',
+  domain: 'https://longzero.com',
 
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title

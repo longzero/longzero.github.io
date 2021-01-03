@@ -18,7 +18,7 @@
       Content.container(v-else)
 
     //- window.location.href is not working
-    //- SocialShare(v-if="$page.frontmatter.type == 'article'")
+    SocialShare(v-if="$page.frontmatter.type == 'post'")
 
     Footer
 </template>
@@ -29,7 +29,7 @@ import Footer from '@theme/components/Footer.vue'
 import Header from '@theme/components/Header.vue'
 // import Page from '@theme/components/Page.vue'
 // import Sidebar from '@theme/components/Sidebar.vue'
-// import SocialShare from '@theme/components/SocialShare.vue'
+import SocialShare from '@theme/components/SocialShare.vue'
 // import { resolveSidebarItems } from '../util'
 
 export default {
@@ -40,7 +40,7 @@ export default {
     // Sidebar,
     Footer,
     Header,
-    // SocialShare
+    SocialShare
   },
   data () {
     return {}
