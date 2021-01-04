@@ -35,7 +35,7 @@ module.exports = {
     ['meta', { prefix: ogprefix, property: 'og:type', content: 'article' }],
     ['meta', { prefix: ogprefix, property: 'og:url', content: 'https://longzero.com' }],
     ['meta', { prefix: ogprefix, property: 'og:description', content: description }],
-    ['meta', { prefix: ogprefix, property: 'og:image', content: 'https://longzero.com/images/og.png' }],
+    ['meta', { prefix: ogprefix, property: 'og:image', content: 'https://longzero.com/images/og.jpg' }],
     ['meta', { prefix: ogprefix, property: 'og:article:author', content: author }],
     ['link', { rel: 'icon', href: '/images/favicon.png' }],
     ['script', {}, `
