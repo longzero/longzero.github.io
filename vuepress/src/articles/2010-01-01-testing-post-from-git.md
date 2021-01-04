@@ -1,5 +1,5 @@
 ---
-title: 'Testing by post from git'
+title: 'Testing post from git'
 permalink: /articles/testing-post-from-git/
 date: 2010-01-01
 postType: articles
