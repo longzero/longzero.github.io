@@ -176,7 +176,7 @@ module.exports = {
       type: $page => ['articles', 'posts', 'blog'].some(folder => $page.regularPath.startsWith('/' + folder)) ? 'article' : 'website',
       url: (_, $site, path) => ($site.themeConfig.domain || '') + path,
       // image: ($page, $site) => $page.frontmatter.image && (($site.themeConfig.domain && !$page.frontmatter.image.startsWith('http') || '') + $page.frontmatter.image),
-      image: ($page, $site) => $site.themeConfig.domain + '/images/' + ($page.frontmatter.postType || '') + '/' + ($page.frontmatter.image || 'og.png'),
+      image: ($page, $site) => $site.themeConfig.domain + '/images/' + ($page.frontmatter.postType || '') + '/' + ($page.frontmatter.image || 'og.jpg'),
       publishedAt: $page => $page.frontmatter.date && new Date($page.frontmatter.date),
       modifiedAt: $page => $page.lastUpdated && new Date($page.lastUpdated)
     }]
