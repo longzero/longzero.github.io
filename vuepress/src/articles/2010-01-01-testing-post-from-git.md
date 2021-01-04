@@ -3,7 +3,7 @@ title: 'Testing post from git'
 permalink: /articles/testing-post-from-git/
 date: 2010-01-01
 postType: articles
-status: 1
+status: 0
 
 author: Long
 # description:
