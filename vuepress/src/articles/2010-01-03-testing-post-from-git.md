@@ -1,7 +1,7 @@
 ---
 title: 'Testing post from git'
 permalink: /articles/testing-post-from-git/
-date: 2010-01-01
+date: 2021-01-03
 postType: articles
 status: 0
 

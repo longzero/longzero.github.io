@@ -53,6 +53,11 @@
             if (language != 'en') folder = '/' + language + folder
             let conditions = post.path.startsWith(folder)
 
+            // Check date and include only if it is from today or before.
+            let postDate = new Date(post.frontmatter.date)
+            let today = new Date()
+            conditions = conditions && postDate.getTime() <= today.getTime()
+
             // Check if status is 1.
             conditions = conditions && post.frontmatter.status === 1
 
