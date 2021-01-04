@@ -6,10 +6,10 @@ postType: tumblelog
 status: 1
 
 author: Long
-<!-- description:  -->
-<!-- image:  -->
+# description:
+# image:
 pageClass: tumblelog
-<!-- search: false -->
+# search: false
 type: post
 tags:
 - Technology

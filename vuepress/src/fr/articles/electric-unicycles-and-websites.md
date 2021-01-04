@@ -9,7 +9,7 @@ author: Long
 description: A few words on electric unicycles, a broken leg and a new website.
 image: electric-unicycles-and-websites.jpg
 pageClass: article
-<!-- search: false -->
+# search: false
 type: post
 tags:
 - Electric unicycle

@@ -8,7 +8,7 @@ status: 1
 author: Long
 image: an-unexpected-nye-2020.jpg
 pageClass: article
-<!-- search: false -->
+# search: false
 type: post
 tags:
 - General

@@ -9,7 +9,7 @@ author: Long
 description: 2021 starts with the release of season 3 of Cobra Kai on Netflix. I binged-watched it and it turned out to be a great way to start the year.
 image: cobra-kai-season-3.jpg
 pageClass: article
-<!-- search: false -->
+# search: false
 type: post
 tags:
 - Entertainment
