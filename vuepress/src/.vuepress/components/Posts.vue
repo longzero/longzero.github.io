@@ -9,6 +9,7 @@
             img(:src="'/images/articles/thumbnails/' + post.frontmatter.image" alt="" loading="lazy")
         .post-data
           .post-title {{post.frontmatter.title}}
+            //- span.content {{post.content}}
           .post-date(v-if="post.frontmatter.updatedDate") {{ formatDate(post.frontmatter.date) }}<br>
             | Updated: {{ formatDate(post.frontmatter.updatedDate) }}
           .post-date(v-else) {{ formatDate(post.frontmatter.date) }}

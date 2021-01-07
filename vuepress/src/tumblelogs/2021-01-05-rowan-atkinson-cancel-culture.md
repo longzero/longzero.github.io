@@ -1,12 +1,12 @@
 ---
-title: 'Rowan Atkison on cancel culture and the division of society'
+title: 'Rowan Atkinson on cancel culture and the division of society'
 permalink: /tumblelogs/rowan-atkinson-cancel-culture/
 date: 2021-01-05
 postType: tumblelog
 status: 1
 
 author: Long
-description: 'Rowan Atkison on cancel culture and the division of society'
+description: 'Rowan Atkinson on cancel culture and the division of society'
 # image:
 pageClass: tumblelog
 # search: false
