@@ -6,7 +6,7 @@ postType: tumblelog
 status: 1
 
 author: Long
-description: 'I wish I posted somewhere in 2016 that “Trump will win”. I wasn't surprised when he did.'
+description: I wish I posted somewhere in 2016 that “Trump will win”. I wasn't surprised when he did.
 # image:
 pageClass: tumblelog
 # search: false
