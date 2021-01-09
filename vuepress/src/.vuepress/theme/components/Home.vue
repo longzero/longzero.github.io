@@ -27,7 +27,7 @@
           kPsFCF5De2koqUD2nCetwrN22JO7kgmoUs5mSVDj0z3cg
           Bearer token
           AAAAAAAAAAAAAAAAAAAAAC8JAgAAAAAAMry1dEXxeOMCpAoEB6pEeKot6tQ%3DVMlgEU6InKyncjvau5ItMbNtyd5Sq1awYlp2vNKZje6IInLWZP
-        .twitter-widget
+        //- .twitter-widget
           a(class="twitter-timeline" data-tweet-limit="9" data-lang="en" data-theme="light" data-chrome="noheader transparent" href="https://twitter.com/Longzero?ref_src=twsrc%5Etfw")
           script(async src="https://platform.twitter.com/widgets.js" charset="utf-8")
 </template>
