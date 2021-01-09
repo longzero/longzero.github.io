@@ -38,8 +38,8 @@ module.exports = {
     // ['meta', { prefix: ogprefix, property: 'og:image', content: 'https://longzero.com/images/og.jpg' }],
     ['meta', { prefix: ogprefix, property: 'og:article:author', content: author }],
     ['link', { rel: 'icon', href: '/images/favicon.png' }],
+    // https://stackoverflow.com/a/62563532/2716287
     ['script', {}, `
-      // https://stackoverflow.com/a/62563532/2716287
       // Tracking code for longzero.com
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -48,19 +48,19 @@ module.exports = {
       ga('create', 'UA-25351410-3', 'auto');
       ga('send', 'pageview');
     `],
-    ['script', {}, `
-      // Facebook Pixel Code
-      !function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', '373089603434494');
-      fbq('track', 'PageView');
-    `],
+    // ['script', {}, `
+    //   // Facebook Pixel Code
+    //   !function(f,b,e,v,n,t,s)
+    //   {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    //   n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    //   if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    //   n.queue=[];t=b.createElement(e);t.async=!0;
+    //   t.src=v;s=b.getElementsByTagName(e)[0];
+    //   s.parentNode.insertBefore(t,s)}(window, document,'script',
+    //   'https://connect.facebook.net/en_US/fbevents.js');
+    //   fbq('init', '373089603434494');
+    //   fbq('track', 'PageView');
+    // `],
   ],
 
 
