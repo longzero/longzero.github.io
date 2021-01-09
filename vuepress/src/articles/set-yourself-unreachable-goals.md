@@ -6,7 +6,7 @@ postType: articles
 status: 1
 
 author: Long
-image: set-yourself-unreachable-goals.png
+image: set-yourself-unreachable-goals.jpg
 pageClass: article
 type: post
 tags:
