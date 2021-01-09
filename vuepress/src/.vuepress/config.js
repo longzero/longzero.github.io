@@ -38,6 +38,8 @@ module.exports = {
     // ['meta', { prefix: ogprefix, property: 'og:image', content: 'https://longzero.com/images/og.jpg' }],
     ['meta', { prefix: ogprefix, property: 'og:article:author', content: author }],
     ['link', { rel: 'icon', href: '/images/favicon.png' }],
+    ['link', { rel: 'preload', crossorigin: 'anonymous', as: 'font', href: '/fonts/oxygen-v10-latin-regular.woff2' }],
+    ['link', { rel: 'preload', crossorigin: 'anonymous', as: 'font', href: '/fonts/oxygen-v10-latin-700.woff2' }],
     // https://stackoverflow.com/a/62563532/2716287
     ['script', {}, `
       // Tracking code for longzero.com
