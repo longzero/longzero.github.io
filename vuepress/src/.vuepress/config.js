@@ -2,7 +2,7 @@
 
 // https://gist.github.com/MartinMuzatko/cc86b3f168630c05978d65c36169b129
 let ogprefix = 'og: http://ogp.me/ns#'
-let title = 'Longzero'
+let title = 'Longzero ~ Long Nguyen'
 let description = 'My name is Long Nguyen. I am a Front-End Web Developer obsessed with UX. I am experienced in building simple, clean and user-friendly websites for clients across the globe. Reach me on Instagram or Twitter or by email long@longzero.com.'
 let color = '#336699'
 let author = 'Longzero'
@@ -15,7 +15,7 @@ module.exports = {
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
-  title: 'Longzero',
+  title: title,
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#description
    */
