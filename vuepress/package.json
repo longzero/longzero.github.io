@@ -9,7 +9,7 @@
   },
   "repository": "/Longzero",
   "scripts": {
-    "dev": "vuepress dev src",
+    "dev": "NODE_ENV=development vuepress dev src",
     "build": "NODE_ENV=production vuepress build src"
   },
   "license": "MIT",
