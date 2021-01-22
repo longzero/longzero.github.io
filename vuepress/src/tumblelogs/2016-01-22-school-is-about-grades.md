@@ -13,6 +13,8 @@ pageClass: tumblelog
 type: post
 tags:
 - Education
+
+originalPost: https://www.facebook.com/longzero/posts/545207633591
 ---
 
 Students, don't be fooled. School is about grades. They don't get to say it isn't about grades, then judge you based on grades.
