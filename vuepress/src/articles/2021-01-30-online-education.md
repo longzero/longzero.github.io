@@ -6,7 +6,7 @@ postType: articles
 status: 1
 
 author: Long
-description:
+description: With online education on the rise, exacerbated by the pandemic, we can see that the cost of university is merely for a diploma—a piece of paper, because whatever we want to learn, we can do it for free through YouTube or articles written by passionate professionals. We can also do it at a cost on reputable websites like LinkedIn Learning and Skillshare.
 image: 2021-01-30-online-education.jpg
 pageClass: tumblelog
 # search: false
