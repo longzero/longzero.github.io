@@ -1,7 +1,7 @@
 <template lang="pug">
   a.social-link(target="_blank" :href="getShareUrl(network)")
-    svg(v-if="network=='facebook'" viewBox="0 0 13 24" width="13" height="24" fill="none" xmlns="http://www.w3.org/2000/svg")
-      path(d="M12.078 13.5l.656-4.313H8.563V6.376c0-1.219.562-2.344 2.437-2.344h1.922V.328S11.187 0 9.547 0C6.125 0 3.875 2.11 3.875 5.86v3.327H.031V13.5h3.844V24h4.688V13.5h3.515z" fill="#231F20")
+    svg(v-if="network=='facebook'" viewBox="0 0 19 19" width="24" height="24" xmlns="http://www.w3.org/2000/svg")
+      path(d="M19 9.558C19 4.28 14.747 0 9.5 0S0 4.28 0 9.558c0 4.77 3.474 8.725 8.016 9.442v-6.68H5.604V9.559h2.412V7.452c0-2.395 1.418-3.718 3.588-3.718 1.04 0 2.126.186 2.126.186v2.352h-1.197c-1.18 0-1.549.737-1.549 1.493v1.793h2.635l-.421 2.763h-2.214V19C15.526 18.283 19 14.329 19 9.558" fill="#3A3A3A" fill-rule="evenodd")
     svg(v-else-if="network=='linkedin'" viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg")
       path(d="M19 0H5a5 5 0 00-5 5v14a5 5 0 005 5h14a5 5 0 005-5V5a5 5 0 00-5-5zM8 19H5V8h3v11zM6.5 6.732c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zM20 19h-3v-5.604c0-3.368-4-3.113-4 0V19h-3V8h3v1.765c1.396-2.586 7-2.777 7 2.476V19z")
     svg(v-else-if="network=='pinterest'" viewBox="0 0 19 24" width="19" height="24" fill="none" xmlns="http://www.w3.org/2000/svg")
