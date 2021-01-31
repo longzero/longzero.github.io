@@ -1,5 +1,5 @@
 ---
-title: Online education
+title: Tibia/Fibula frature • Progress on week 9 day 2
 permalink: /articles/2021-01-31-tibia-fibula-fracture-electric-unicycle/
 date: 2021-01-31
 postType: articles
