@@ -6,7 +6,7 @@ postType: articles
 status: 1
 
 author: Long
-description:
+description: I bought a phone for less than 500$ before taxes and there is another even better one for cheaper, except for the camera.
 image: getting-a-new-phone-under-500.jpg
 pageClass: article
 # search: false
