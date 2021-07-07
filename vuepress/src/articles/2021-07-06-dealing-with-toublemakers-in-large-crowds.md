@@ -18,7 +18,7 @@ tags:
 - Sports
 ---
 
-«Lundi, par exemple, certains individus ont jeté des bouteilles vers les policiers, ou ont allumé des feux d’artifice.»
+«Lundi, par exemple, certains individus ont jeté des bouteilles vers les policiers, ou ont allumé des feux d’artifice.»<br>
 Reference: <a href="https://journalmetro.com/actualites/2665014/canadiens-lutilisation-dirritants-chimiques-par-le-spvm-critiquee/">L’utilisation d’irritants chimiques par le SPVM après les victoires du CH critiquée</a>
 
 Reading this, combined with the heavy rain that just took place, gives me the idea that cops should wear a body armor during these events, especially cops on bikes.
