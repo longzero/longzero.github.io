@@ -7,7 +7,7 @@ status: 1
 
 author: Long
 description: Going through this article is like reading a sequel to the documentary The Social Dilemma.
-image: 
+image: 2021-11-08-facebook-the-social-dilemma-sequel.jpg
 pageClass: article
 # search: false
 type: post
