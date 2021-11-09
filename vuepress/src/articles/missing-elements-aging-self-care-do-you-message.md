@@ -27,4 +27,4 @@ If you are going to tell people “Do you”, then you have to let them.
 
 See what eyes can't see and listen to what ears can't hear. You will find crucial things.
 
-Reference: <a href="https://www.cnn.com/2021/11/08/entertainment/sarah-jessica-parker-aging/index.html">Sarah Jessica Parker is not here for your 'misogynist' ageism</a>
+Reference/Trigger: <a href="https://www.cnn.com/2021/11/08/entertainment/sarah-jessica-parker-aging/index.html">Sarah Jessica Parker is not here for your 'misogynist' ageism</a>
