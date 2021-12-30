@@ -1,0 +1,19 @@
+.social-networks {
+  display: flex;
+  align-items: center;
+}
+.social-networks a {
+  display: block;
+  margin-left: 15px;
+}
+.social-networks a:hover path {
+  fill: #000;
+}
+.social-networks path {
+  fill: #fff;
+  transition-duration: 0.3s;
+}
+.social-networks svg {
+  display: block;
+  height: 19px;
+}
