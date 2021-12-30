@@ -7,7 +7,7 @@ const feed_options = {
   },
   canonical_base: 'https://longzero.com',
   count: 100,
-  posts_directories: ['/articles/', '/tumblelogs/'],
+  posts_directories: ['/all/'],
 };
 
 module.exports = {

@@ -1,5 +1,7 @@
 <template lang="pug">
-  .container.container--fluid.layout-2
+  .container.container--fluid
+    Posts(type="articles")
+  //- .container.container--fluid.layout-2
     .column-main
       Posts(type="articles")
     .column-sidebar

@@ -3,7 +3,8 @@
   .post-list(v-if="posts.length")
     .post-item.fade-in.move-up.animation.js-animate(v-for="post in paginatedPosts" v-if="(post.frontmatter.status == 1)")
       router-link.post-link(:to="post.path")
-        .post-image(v-if="(post.frontmatter.postType == 'articles')")
+        //- .post-image(v-if="(post.frontmatter.postType == 'articles')")
+        .post-image
           picture(v-if="post.frontmatter.image")
             source(:srcset="'/images/articles/thumbnails/' + post.frontmatter.image")
             img(:src="'/images/articles/thumbnails/' + post.frontmatter.image" alt="" loading="lazy")

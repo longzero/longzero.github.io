@@ -3,46 +3,79 @@
 .post-date
   color color-grey
   font-size: .8em
-  margin-bottom: 2em
 .post-header
   h1
     margin-bottom: 10px
 .post-image
-  background-color #dedede
-  // border 1px solid #000
+  background-color alpha(color-1, .5)
+  border 0 solid color-1
   flex-shrink 0
   margin-right 20px
+  position: relative
   transition-duration: .3s
   width: 80px
   height 80px
   overflow hidden
   @media (min-width breakpoint-desktop)
     margin-bottom 10px
-    width: 250px
-    height 250px
+    width: 100%
+    height auto
+  &::before
+    content ''
+    display: block
+    padding-bottom 100%
+    width 100%
+  &::after
+  img
+    position absolute
+    top 0
+    left 0
+    width 100%
+    height 100%
+  &::after
+    color alpha(#fff, .5)
+    content 'L'
+    display: flex
+    align-items: center
+    justify-content: center
+    font-size 3em
+    font-weight 700
+    line-height: 1
   img
     display: block
     object-fit cover
-    width 100%
-    height 100%
+    z-index: 1
 .post-item
-  margin-bottom: 20px
+  // margin-bottom: 20px
   transition-duration: .3s
   width 100%
-  @media (min-width breakpoint-desktop)
-    margin-right: 30px
-    width 250px
   &:hover
-    transform scale(1.05)
+    // transform scale(1.05)
     .post-image
+      background-color color-1
+      border 4px solid color-1
       box-shadow shadow //0 1px 10px 5px rgba(0,0,0,0.1)
+      &::after
+        color #fff
+    .post-title
+      color color-1
+  &:nth-child(1)
+    @media (min-width breakpoint-desktop)
+      grid-column 1 / span 2
+      grid-row 1 / span 2
+      .post-title
+        font-size 2em
 .post-link
   display: flex
   @media (min-width breakpoint-desktop)
     display block
+    height 100%
 .post-list
-  display: flex
-  flex-wrap wrap
+  display: grid
+  grid-gap: 40px /* Safari 10-11 */
+  gap: grid-gap /* Safari 12+ */
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr))
+  // flex-wrap wrap
 .post-title
   color #000
   display block
