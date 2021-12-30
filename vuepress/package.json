@@ -10,7 +10,7 @@
   "repository": "/Longzero",
   "scripts": {
     "dev": "NODE_ENV=development NODE_OPTIONS=--openssl-legacy-provider vuepress dev src",
-    "build": "NODE_ENV=production NODE_OPTIONS=--openssl-legacy-provider vuepress build src"
+    "build": "NODE_ENV=production vuepress build src"
   },
   "license": "MIT",
   "devDependencies": {
