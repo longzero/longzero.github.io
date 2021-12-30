@@ -184,6 +184,9 @@ video {
   display: flex;
   flex-wrap: wrap;
 }
+.show-article .post-list {
+  display: none;
+}
 .post-title {
   color: #000;
   display: block;

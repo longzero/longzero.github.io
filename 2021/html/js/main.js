@@ -43,12 +43,19 @@ const articlesContainer = document.querySelector('[data-articles]')
 const articleWrapper = document.querySelector('[data-article]')
 if (articlesContainer && articleWrapper) {
   const imagePath = '/images/articles/'
+  const imageThumbnailPath = '/images/articles/thumbnails/'
   let photoUrl
   let thumbnailUrl
   fetch("/data/articles.json")
   .then(response => response.json())
   .then(data => {
     let articles = data
+    let articlesSorted = []
+    // DEBUG && console.log(articles)
+
+    // for(var i in data) {
+    //   articles.push([i, data[i]])
+    // }
 
     for (const key in articles) {
       if (articles.hasOwnProperty(key)) {
@@ -56,8 +63,23 @@ if (articlesContainer && articleWrapper) {
         // DEBUG && console.log(articles[key].slug)
 
         if (articles[key].status == 1) {
+          articlesSorted.push(articles[key])
+        }
+      }
+    }
+
+    articlesSorted.sort(dynamicSort('date'))
+    // articlesSorted.sort()
+    articlesSorted.reverse()
+    DEBUG && console.log(articlesSorted)
+
+    for (const key in articlesSorted) {
+      if (articlesSorted.hasOwnProperty(key)) {
+
+        if (articlesSorted[key].status == 1) {
           // let link = '/#/articles/' + articles[key].slug
-          let link = '/#/articles/' + key // Use the file name as the slug
+          // let link = '/#/articles/' + key // Use the file name as the slug (this line is for a JSON object)
+          let link = '/#' + articlesSorted[key].permalink // Use this line if the JSON object is in an array.
 
           let postItem = document.createElement('div')
           postItem.classList.add('post-item','fade-in','move-up','animation','js-animate')
@@ -72,10 +94,10 @@ if (articlesContainer && articleWrapper) {
           postImage.classList.add('post-image')
           let postPictureElement = document.createElement('picture')
           let postPictureSourceElement = document.createElement('source')
-          postPictureSourceElement.setAttribute('srcset', imagePath + articles[key].image)
+          postPictureSourceElement.setAttribute('srcset', imageThumbnailPath + articlesSorted[key].image)
           let postPictureImgElement = document.createElement('img')
           postPictureImgElement.setAttribute('loading', 'lazy')
-          postPictureImgElement.setAttribute('src', imagePath + articles[key].image)
+          postPictureImgElement.setAttribute('src', imageThumbnailPath + articlesSorted[key].image)
           postPictureElement.appendChild(postPictureSourceElement);
           postPictureElement.appendChild(postPictureImgElement);
           postImage.appendChild(postPictureElement);
@@ -85,17 +107,16 @@ if (articlesContainer && articleWrapper) {
           postData.classList.add('post-data')
           let postTitle = document.createElement('div')
           postTitle.classList.add('post-title')
-          postTitle.innerHTML = articles[key].title
+          postTitle.innerHTML = articlesSorted[key].title
           let postDate = document.createElement('div')
           postDate.classList.add('post-date')
-          postDate.innerHTML = articles[key].date
+          postDate.innerHTML = articlesSorted[key].date
           postData.appendChild(postTitle)
           postData.appendChild(postDate)
           articleLink.appendChild(postData)
         }
       }
     }
-
 
     let articleBodyClass = 'article-body'
     let articleTitleClass = 'article-title'
@@ -115,8 +136,10 @@ if (articlesContainer && articleWrapper) {
         isArticle = true
         document.body.classList.add('show-article')
         let key = slug.split("/");
-        key = key[key.length - 1]
+        if (key[key.length - 1] === "") key = key[key.length - 2]
+        else key = key[key.length - 1]
 
+        // DEBUG && console.warn(slug)
         // DEBUG && console.warn(key)
         // DEBUG && console.log(articles)
         // DEBUG && console.log(articles[key].title)
@@ -146,6 +169,9 @@ if (articlesContainer && articleWrapper) {
 
         let articleBody = document.createElement('div')
         articleBody.classList.add(articleBodyClass)
+
+        // In article markdown files, image source value is just the file name.
+        // This needs to be corrected to provide the correct path to the image.
         articleBody.innerHTML = correctImagePaths(articles[key].body)
 
         articleWrapper.appendChild(articleImageWrapper)
@@ -165,6 +191,20 @@ if (articlesContainer && articleWrapper) {
       img.src = imageSrc;
     }
 
+    function dynamicSort(property) {
+      var sortOrder = 1;
+      if(property[0] === "-") {
+        sortOrder = -1;
+        property = property.substr(1);
+      }
+      return function (a,b) {
+        /* next line works with strings and numbers,
+         * and you may want to customize it to your needs
+         */
+        var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
+        return result * sortOrder;
+      }
+    }
 
     // When page loads, if there is a hash, do stuff
     if (window.location.hash) {
