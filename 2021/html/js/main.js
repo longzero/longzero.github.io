@@ -42,6 +42,7 @@ if (photosContainer) {
 const articlesContainer = document.querySelector('[data-articles]')
 const articleWrapper = document.querySelector('[data-article]')
 if (articlesContainer && articleWrapper) {
+  const imagePath = '/images/articles/'
   let photoUrl
   let thumbnailUrl
   fetch("/data/articles.json")
@@ -58,12 +59,39 @@ if (articlesContainer && articleWrapper) {
           // let link = '/#/articles/' + articles[key].slug
           let link = '/#/articles/' + key // Use the file name as the slug
 
+          let postItem = document.createElement('div')
+          postItem.classList.add('post-item','fade-in','move-up','animation','js-animate')
           let articleLink = document.createElement('a')
-          articleLink.classList.add('article-link')
+          articleLink.classList.add('post-link')
           articleLink.href = link
-          articleLink.innerHTML = articles[key].title
           articleLink.setAttribute('data-article-link', link)
-          articlesContainer.appendChild(articleLink);
+          postItem.appendChild(articleLink);
+          articlesContainer.appendChild(postItem);
+
+          let postImage = document.createElement('div')
+          postImage.classList.add('post-image')
+          let postPictureElement = document.createElement('picture')
+          let postPictureSourceElement = document.createElement('source')
+          postPictureSourceElement.setAttribute('srcset', imagePath + articles[key].image)
+          let postPictureImgElement = document.createElement('img')
+          postPictureImgElement.setAttribute('loading', 'lazy')
+          postPictureImgElement.setAttribute('src', imagePath + articles[key].image)
+          postPictureElement.appendChild(postPictureSourceElement);
+          postPictureElement.appendChild(postPictureImgElement);
+          postImage.appendChild(postPictureElement);
+          articleLink.appendChild(postImage)
+
+          let postData = document.createElement('div')
+          postData.classList.add('post-data')
+          let postTitle = document.createElement('div')
+          postTitle.classList.add('post-title')
+          postTitle.innerHTML = articles[key].title
+          let postDate = document.createElement('div')
+          postDate.classList.add('post-date')
+          postDate.innerHTML = articles[key].date
+          postData.appendChild(postTitle)
+          postData.appendChild(postDate)
+          articleLink.appendChild(postData)
         }
       }
     }
@@ -74,7 +102,7 @@ if (articlesContainer && articleWrapper) {
 
     function correctImagePaths(articleBodyContent) {
       let string = '<img src="'
-      let path = string + window.location.origin + '/images/articles/'
+      let path = string + window.location.origin + imagePath
       return articleBodyContent.replace(/<img src="/g, path);
     }
 
@@ -97,7 +125,7 @@ if (articlesContainer && articleWrapper) {
 
         let articleImage = document.createElement('img')
         articleImage.classList.add('article-image')
-        articleImage.src = '/images/articles/' + articles[key].image
+        articleImage.src = imagePath + articles[key].image
 
         let articleImageWrapper = document.createElement('div')
         articleImageWrapper.classList.add('article-main-media')
