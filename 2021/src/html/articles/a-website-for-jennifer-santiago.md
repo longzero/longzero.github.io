@@ -1,7 +1,7 @@
 ---
 title: A website for Jennifer Santiago
 permalink: /articles/a-website-for-jennifer-santiago
-date: 2010-10-19
+date: "2010-10-19"
 postType: articles
 status: No longer available
 

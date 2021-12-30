@@ -1,7 +1,7 @@
 ---
 title: Traffic isn't caused by anything other than those who are in it
 permalink: /articles/traffic-isnt-caused-by-anything-other-than-those-who-are-in-it/
-date: 2021-06-18
+date: "2021-06-18"
 postType: articles
 status: 1
 

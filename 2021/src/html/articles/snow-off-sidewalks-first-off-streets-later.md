@@ -1,7 +1,7 @@
 ---
 title: Snow off sidewalks first; off streets later
 permalink: /articles/snow-off-sidewalks-first-off-streets-later
-date: 2019-01-03
+date: "2019-01-03"
 postType: articles
 status: 1
 

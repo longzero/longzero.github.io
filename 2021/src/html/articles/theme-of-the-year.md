@@ -1,8 +1,8 @@
 ---
 title: Theme of the year
 permalink: /articles/theme-of-the-year
-date: 2019-12-22
-updatedDate: 2020-12-28
+date: "2019-12-22"
+updatedDate: "2020-12-28"
 postType: articles
 status: 1
 

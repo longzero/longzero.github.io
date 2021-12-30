@@ -1,7 +1,7 @@
 ---
 title: Amazing life - 2018, my year of amazement
 permalink: /articles/amazing-life-2018-year-amazement
-date: 2018-04-12
+date: "2018-04-12"
 postType: articles
 status: 1
 

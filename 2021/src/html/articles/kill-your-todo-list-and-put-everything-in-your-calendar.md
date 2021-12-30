@@ -1,7 +1,7 @@
 ---
 title: Kill your TODO list and put everything in your calendar
 permalink: /articles/kill-your-todo-list-and-put-everything-in-your-calendar
-date: 2019-02-24
+date: "2019-02-24"
 postType: articles
 status: 1
 

@@ -1,7 +1,7 @@
 ---
 title: Keep your website from being framed
 permalink: /articles/keep-your-website-from-being-framed
-date: 2011-07-14
+date: "2011-07-14"
 postType: articles
 status: 1
 

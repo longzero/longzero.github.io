@@ -1,7 +1,7 @@
 ---
 title: Rebekka’s website, the beginnings (1 of 2)
 permalink: /articles/rebekkas-website-the-beginnings-1-of-2
-date: 2006-10-13
+date: "2006-10-13"
 postType: articles
 status: 1
 

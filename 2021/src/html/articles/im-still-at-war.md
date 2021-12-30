@@ -1,7 +1,7 @@
 ---
 title: “I’m still at war.”
 permalink: /articles/im-still-at-war
-date: 2014-04-19
+date: "2014-04-19"
 postType: articles
 status: 1
 

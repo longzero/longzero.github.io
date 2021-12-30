@@ -1,7 +1,7 @@
 ---
 title: Which computer? Mac vs Windows, I don’t care anymore
 permalink: /articles/mac-vs-windows-i-dont-care-anymore
-date: 2018-07-24
+date: "2018-07-24"
 postType: articles
 status: 1
 

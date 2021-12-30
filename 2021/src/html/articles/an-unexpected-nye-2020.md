@@ -1,7 +1,7 @@
 ---
 title: An unexpected NYE
 permalink: /articles/an-unexpected-nye-2020/
-date: 2021-01-01
+date: "2021-01-01"
 postType: articles
 status: 1
 

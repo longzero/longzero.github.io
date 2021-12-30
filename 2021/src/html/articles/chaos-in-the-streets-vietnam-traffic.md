@@ -1,7 +1,7 @@
 ---
 title: Chaos in the streets
 permalink: /articles/chaos-in-the-streets-vietnam-traffic
-date: 2018-08-05
+date: "2018-08-05"
 postType: articles
 status: 1
 

@@ -1,7 +1,7 @@
 ---
 title: Going out alone
 permalink: /articles/going-out-alone/
-date: 2021-02-07
+date: "2021-02-07"
 postType: articles
 status: 1
 

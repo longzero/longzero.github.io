@@ -1,7 +1,7 @@
 ---
 title: It’s a good idea to have your own website
 permalink: /articles/its-a-good-idea-to-have-your-own-website
-date: 2017-07-13
+date: "2017-07-13"
 postType: articles
 status: 1
 

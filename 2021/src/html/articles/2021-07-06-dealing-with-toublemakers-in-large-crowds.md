@@ -1,7 +1,7 @@
 ---
 title: Dealing with troublemakers in large crowds without tear gas that cause collateral damage
 permalink: /articles/dealing-with-toublemakers-in-large-crowds/
-date: 2021-07-06
+date: "2021-07-06"
 postType: articles
 status: 1
 

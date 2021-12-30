@@ -1,7 +1,7 @@
 ---
 title: Calling out sexual harassment
 permalink: /articles/calling-out-sexual-harassment
-date: 2018-05-26
+date: "2018-05-26"
 postType: articles
 status: 1
 

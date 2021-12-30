@@ -1,7 +1,7 @@
 ---
 title: Cobra Kai Season 3
 permalink: /articles/cobra-kai-season-3/
-date: 2021-01-01
+date: "2021-01-01"
 postType: articles
 status: 1
 

@@ -1,7 +1,7 @@
 ---
 title: Mortal Kombat 2021, quick review
 permalink: /articles/mortal-kombat-2021-quick-review/
-date: 2021-04-23
+date: "2021-04-23"
 postType: articles
 status: 1
 

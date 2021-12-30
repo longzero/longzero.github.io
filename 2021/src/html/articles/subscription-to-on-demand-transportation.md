@@ -1,7 +1,7 @@
 ---
 title: Subscription to on-demand transportation
 permalink: /articles/subscription-to-on-demand-transportation
-date: 2018-06-01
+date: "2018-06-01"
 postType: articles
 status: 1
 

@@ -1,7 +1,7 @@
 ---
 title: All in, without hesitation and without reluctance
 permalink: /articles/all-in-without-hesitation-and-without-reluctance
-date: 2016-12-31
+date: "2016-12-31"
 postType: articles
 status: 1
 

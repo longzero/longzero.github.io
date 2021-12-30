@@ -1,7 +1,7 @@
 ---
 title: Major drawback of Samsung Galaxy S10 and Samsung Galaxy Fold - not pure Android
 permalink: /articles/major-drawback-of-samsung-galaxy-s10-and-samsung-galaxy-fold-not-pure-android
-date: 2019-02-21
+date: "2019-02-21"
 postType: articles
 status: 1
 

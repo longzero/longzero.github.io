@@ -1,7 +1,7 @@
 ---
 title: 'Vie normale au Québec en 2021?'
 permalink: /articles/vie-normale-au-quebec-en-2021/
-date: 2021-01-03
+date: "2021-01-03"
 postType: articles
 status: 1
 

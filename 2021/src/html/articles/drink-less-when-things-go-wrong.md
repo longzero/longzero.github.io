@@ -1,7 +1,7 @@
 ---
 title: Drink less when things go wrong
 permalink: drink-less-when-things-go-wrong
-date: 2018-04-14
+date: "2018-04-14"
 postType: articles
 status: 1
 

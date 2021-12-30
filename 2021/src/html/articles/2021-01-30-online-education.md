@@ -1,7 +1,7 @@
 ---
 title: Online education
 permalink: /articles/2021-01-30-online-education/
-date: 2021-01-30
+date: "2021-01-30"
 postType: articles
 status: 1
 

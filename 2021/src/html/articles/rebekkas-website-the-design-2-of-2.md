@@ -1,7 +1,7 @@
 ---
 title: Rebekka’s website, the design (2 of 2)
 permalink: /articles/rebekkas-website-the-design-2-of-2
-date: 2006-10-17
+date: "2006-10-17"
 postType: articles
 status: 1
 

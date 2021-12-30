@@ -1,7 +1,7 @@
 ---
 title: Testing Google’s Recorder
 permalink: /articles/testing-googles-recorder
-date: 2019-12-12
+date: "2019-12-12"
 postType: articles
 status: 1
 

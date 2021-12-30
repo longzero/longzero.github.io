@@ -1,7 +1,7 @@
 ---
 title: Nothing is too small
 permalink: /articles/nothing-is-too-small
-date: 2014-01-14
+date: "2014-01-14"
 postType: articles
 status: 1
 

@@ -1,7 +1,7 @@
 ---
 title: A sequel to The Social Dilemma documentary?
 permalink: /articles/facebook-the-social-dilemma-sequel/
-date: 2021-11-08
+date: "2021-11-08"
 postType: articles
 status: 1
 

@@ -1,7 +1,7 @@
 ---
 title: Wishing everyone a merry holiday!
 permalink: /articles/wishing-everyone-a-merry-holiday
-date: 2018-11-14
+date: "2018-11-14"
 postType: articles
 status: 1
 

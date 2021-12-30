@@ -1,7 +1,7 @@
 ---
 title: Getting a new phone under 500$
 permalink: /articles/getting-a-new-phone-under-500/
-date: 2021-04-02
+date: "2021-04-02"
 postType: articles
 status: 1
 

@@ -1,7 +1,7 @@
 ---
 title: Respect + Happiness is contagious
 permalink: /articles/respect-happiness-is-contagious
-date: 2019-06-24
+date: "2019-06-24"
 postType: articles
 status: 1
 

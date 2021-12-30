@@ -1,7 +1,7 @@
 ---
 title: If you want to live longer, work more
 permalink: /articles/if-you-want-to-live-longer-work-more
-date: 2019-06-04
+date: "2019-06-04"
 postType: articles
 status: 1
 

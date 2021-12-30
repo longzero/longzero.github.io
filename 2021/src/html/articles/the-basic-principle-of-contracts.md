@@ -1,7 +1,7 @@
 ---
 title: The basic principle of contracts
 permalink: /articles/basic-principle-of-contracts
-date: 2010-04-30
+date: "2010-04-30"
 postType: articles
 status: 1
 

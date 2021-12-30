@@ -1,7 +1,7 @@
 ---
 title: Website - Atlantic City International Film & Music Festival
 permalink: /articles/website-atlantic-city-international-film-music-festival
-date: 2010-07-21
+date: "2010-07-21"
 postType: articles
 status: No longer available
 

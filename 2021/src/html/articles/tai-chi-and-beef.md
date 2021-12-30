@@ -1,7 +1,7 @@
 ---
 title: Tai chi and beef
 permalink: /articles/tai-chi-and-beef
-date: 2019-08-24
+date: "2019-08-24"
 postType: articles
 status: 1
 

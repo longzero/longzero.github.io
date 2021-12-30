@@ -1,7 +1,7 @@
 ---
 title: YouTube thumbnail sizes and URL to get them
 permalink: /articles/youtube-thumbnail-sizes-url
-date: 2018-11-15
+date: "2018-11-15"
 postType: articles
 status: 1
 

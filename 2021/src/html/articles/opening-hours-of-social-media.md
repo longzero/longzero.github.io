@@ -1,7 +1,7 @@
 ---
 title: Opening hours of social media
 permalink: /articles/opening-hours-of-social-media
-date: 2013-09-07
+date: "2013-09-07"
 postType: articles
 status: 1
 
