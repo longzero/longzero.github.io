@@ -1,0 +1,58 @@
+.column-sidebar
+  @media (min-width: breakpoint-tablet)
+    font-size: .8em
+  h3
+    margin-bottom: 1em
+    position: relative
+  .post-item
+    margin 0
+    transform-origin: left center
+  .post-title
+    line-height: 1.6
+    margin-bottom: 0
+
+.h-position-sticky
+  position sticky
+  top 60px //116px
+
+.info-bubble
+  &:hover
+    .info-bubble-details
+      display: block
+.info-bubble-details
+  background-color #fff
+  box-shadow: shadow
+  display: none
+  font-size: .7em
+  padding 20px
+  position absolute
+  right 0
+  z-index: 1
+  width 100%
+  @media (min-width: breakpoint-ipad)
+    width: 200%
+  blockquote
+    font-size: 1em
+    margin 0
+  p:not(:last-child)
+    margin-bottom: 1em
+.info-bubble-symbol
+  background-color #fff
+  border 2px solid color-1
+  border-radius: 50%
+  color color-1
+  display: inline-flex
+  align-items: center
+  justify-content: center
+  font-size: .7em
+  line-height: 1
+  margin-top: 3px
+  margin-left: 10px
+  vertical-align: top
+  width 22px
+  height 22px
+
+.twitter-widget
+  @media (min-width: breakpoint-ipad)
+    // height: 80vh
+    // overflow: auto
