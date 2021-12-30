@@ -1,5 +1,5 @@
 ---
-title: The Morning Show Season 2 is mess and I love it, because life is all over the place
+title: The Morning Show Season 2 is a mess and I love it, because life is all over the place
 permalink: /articles/morning-show-season-2-review-mess-love-real-life/
 date: "2021-12-08"
 postType: articles
