@@ -6,7 +6,7 @@ postType: articles
 status: 1
 
 author: Long
-description:
+description: My upcoming journey is freaking me out!
 image: PXL_20211006_144217821-03.jpg
 pageClass: article
 # search: false
