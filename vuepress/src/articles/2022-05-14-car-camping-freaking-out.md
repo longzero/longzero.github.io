@@ -7,7 +7,7 @@ status: 1
 
 author: Long
 description:
-image: PXL_20211006_144217821-03.jpeg
+image: PXL_20211006_144217821-03.jpg
 pageClass: article
 # search: false
 type: post
