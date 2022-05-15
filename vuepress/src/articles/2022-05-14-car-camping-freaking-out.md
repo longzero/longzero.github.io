@@ -7,7 +7,7 @@ status: 1
 
 author: Long
 description: My upcoming journey is freaking me out!
-image: PXL_20211006_144217821-03.jpg
+image: 2022-05-14-car-camping-freaking-out.jpg
 pageClass: article
 # search: false
 type: post
