@@ -21,9 +21,11 @@ Jurassic Park (1993) was good on many levels, including feminism.
 
 It called out sexism by literally including the word “sexism” in a context of calling it out.
 
-It also had a girl tech need who insists on being called a hacker and she had her part to play in saving everybody.
+It also had a girl tech nerd who insists on being called a hacker and she had her part to play in saving everybody.
 
 While I praise the effort, the movie isn't without issue: it's full of white men and the presence of characters who aren't makes it scream tokenism rather than diversity and inclusivity.
+
+There is a lot of great thing about this movie related to social issues that are very much relevant in 2022.
 
 Something else I like in this movie and its sequel The Lost World is that every greedy character all get eaten. It marks the moment when you stop hearing about money. That's fun.
 
