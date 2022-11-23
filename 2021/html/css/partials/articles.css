@@ -1,0 +1,74 @@
+.post-data {
+  flex-grow: 1;
+}
+.post-date {
+  color: color-grey;
+  font-size: 0.8em;
+  margin-bottom: 2em;
+}
+.post-header h1 {
+  margin-bottom: 10px;
+}
+.post-image {
+  background-color: #dedede;
+  flex-shrink: 0;
+  margin-right: 20px;
+  transition-duration: 0.3s;
+  width: 80px;
+  height: 80px;
+  overflow: hidden;
+}
+@media (min-width: breakpoint-desktop) {
+  .post-image {
+    margin-bottom: 10px;
+    width: 250px;
+    height: 250px;
+  }
+}
+.post-image img {
+  display: block;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.post-item {
+  margin-bottom: 20px;
+  transition-duration: 0.3s;
+  width: 100%;
+}
+@media (min-width: breakpoint-desktop) {
+  .post-item {
+    margin-right: 30px;
+    width: 250px;
+  }
+}
+.post-item:hover {
+  transform: scale(1.05);
+}
+.post-item:hover .post-image {
+  box-shadow: shadow;
+}
+.post-link {
+  display: flex;
+}
+@media (min-width: breakpoint-desktop) {
+  .post-link {
+    display: block;
+  }
+}
+.post-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.show-article .post-list {
+  display: none;
+}
+.post-title {
+  color: #000;
+  display: block;
+}
+@media (min-width: breakpoint-tablet) {
+  .post-title {
+    margin-bottom: 10px;
+  }
+}

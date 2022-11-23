@@ -1,0 +1,59 @@
+*
+  box-sizing: border-box
+  margin 0
+  padding 0
+
+html
+  scroll-behavior smooth
+
+a
+  color color-1
+  text-decoration: none
+  transition-duration: .3s
+
+blockquote
+  color color-grey
+  font-size 1em
+  a
+    &:hover
+      text-decoration: underline
+  p
+    &:last-child
+      padding-bottom: 10px
+      a
+        display block
+        font-size .8em
+        font-style italic
+        font-weight: bold
+
+body
+  -webkit-font-smoothing antialiased
+  background-color transparent
+  font-family: 'Oxygen'
+  @media (min-width: breakpoint-tablet)
+    font-size: calc(20 / 16 * 1rem)
+
+button
+  cursor: pointer
+  font-size 16px
+
+code[class*="language-"],
+pre[class*="language-"]
+  font-size .7em
+
+h1
+  line-height: 1.2
+  margin-bottom: 10px
+
+iframe
+  margin-left: auto
+  margin-right: auto
+  max-width: 100%
+  &[src*="instagram"]
+    margin-left: auto !important // Overwriting instagram inline code
+    margin-right: auto !important // Overwriting instagram inline code
+
+img,
+video
+  max-width: 100%
+  height auto
