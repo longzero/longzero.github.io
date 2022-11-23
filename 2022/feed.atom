@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://longzero.com</id>
+    <title>Longzero ~ Long Nguyen</title>
+    <updated>2022-11-23T04:36:45.258Z</updated>
+    <generator>https://github.com/webmasterish/vuepress-plugin-feed</generator>
+    <link rel="alternate" href="https://longzero.com"/>
+    <link rel="self" href="https://longzero.com/feed.atom"/>
+    <subtitle>My name is Long Nguyen. I am a Front-End Web Developer obsessed with UX. I am experienced in building simple, clean and user-friendly websites for clients across the globe. Reach me on Instagram or Twitter or by email long@longzero.com.</subtitle>
+    <entry>
+        <title type="html"><![CDATA[School is about grades]]></title>
+        <id>https://longzero.com/articles/school-is-about-grades/</id>
+        <link href="https://longzero.com/articles/school-is-about-grades/">
+        </link>
+        <updated>2016-01-22T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Students, don't be fooled. School is about grades. They don't get to say it isn't about grades, then judge you based on grades.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[COVID-19 Hôpital Maisonneuve-Rosemont (4 janvier 2021)]]></title>
+        <id>https://longzero.com/articles/2021-01-04-covid-19-hmr/</id>
+        <link href="https://longzero.com/articles/2021-01-04-covid-19-hmr/">
+        </link>
+        <updated>2021-01-04T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[À l’hôpital Maisonneuve-Rosemont, c’est rendu que la plupart des patients COVID-19 sont des gens qui admettent avoir trichés (pour le retraçage) et il y a beaucoup de cas dont ce sont les enfants qui infectent les adultes (une bonne raison pour garder les écoles fermées).]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Testing post from git]]></title>
+        <id>https://longzero.com/articles/testing-post-from-git/</id>
+        <link href="https://longzero.com/articles/testing-post-from-git/">
+        </link>
+        <updated>2021-01-03T00:00:00.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[White Fragility]]></title>
+        <id>https://longzero.com/articles/2021-01-07-white-fragility/</id>
+        <link href="https://longzero.com/articles/2021-01-07-white-fragility/">
+        </link>
+        <updated>2021-01-07T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[White Fragility on display at the Capitol in DC.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Tous les partis supportent les mesures sanitaires]]></title>
+        <id>https://longzero.com/articles/2021-01-08-canada-quebec-covid-19/</id>
+        <link href="https://longzero.com/articles/2021-01-08-canada-quebec-covid-19/">
+        </link>
+        <updated>2021-01-08T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Quand on écoute tous les partis, qu’on soit pour ou contre Trudeau et Legault, tous les autres chefs auraient appliqués plus ou moins les mêmes mesures.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[“Trump will win”]]></title>
+        <id>https://longzero.com/articles/trump-will-win/</id>
+        <link href="https://longzero.com/articles/trump-will-win/">
+        </link>
+        <updated>2021-01-08T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[I wish I posted somewhere in 2016 that “Trump will win”. I wasn't surprised when he did.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Rowan Atkinson on cancel culture and the division of society]]></title>
+        <id>https://longzero.com/articles/rowan-atkinson-cancel-culture/</id>
+        <link href="https://longzero.com/articles/rowan-atkinson-cancel-culture/">
+        </link>
+        <updated>2021-01-05T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Rowan Atkinson on cancel culture and the division of society]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Les conspirationnistes me font peur]]></title>
+        <id>https://longzero.com/articles/les-conspirationnistes-me-font-peur/</id>
+        <link href="https://longzero.com/articles/les-conspirationnistes-me-font-peur/">
+        </link>
+        <updated>2021-01-06T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[J'ai peur de ce qui peut arriver au Québec dans un futur proche, pas à cause de la COVID-19, mais à cause des humains.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Looking for ways to volunteer for research on mental health issues]]></title>
+        <id>https://longzero.com/articles/looking-for-ways-to-volunteer-for-research-on-mental-health-issues/</id>
+        <link href="https://longzero.com/articles/looking-for-ways-to-volunteer-for-research-on-mental-health-issues/">
+        </link>
+        <updated>2021-01-19T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[I suppose one key to use against mental health issues is acceptance of oneself.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Pay it forward]]></title>
+        <id>https://longzero.com/articles/2021-01-13-pay-it-forward/</id>
+        <link href="https://longzero.com/articles/2021-01-13-pay-it-forward/">
+        </link>
+        <updated>2021-01-13T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Pay it forward. I don’t believe if I do something for you, it means you have to do something for me and vice versa. I believe in paying it forward.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Éducation en ligne]]></title>
+        <id>https://longzero.com/articles/2021-01-30-education-en-ligne/</id>
+        <link href="https://longzero.com/articles/2021-01-30-education-en-ligne/">
+        </link>
+        <updated>2021-01-30T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Avec l’éducation en ligne, on voit clairement que le coût payé n’est que pour un diplôme—un morceau de papier, parce que peu importe ce qu’on veut apprendre, on peut déjà l’apprendre sur le web gratuitement avec YouTube ou des gens passionnés qui écrivent des articles ou bien en payant sur des sites comme LinkedIn Learning et Skillshare.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[District 31 et Black Lives Matter]]></title>
+        <id>https://longzero.com/articles/district-31-black-lives-matter/</id>
+        <link href="https://longzero.com/articles/district-31-black-lives-matter/">
+        </link>
+        <updated>2021-02-04T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[District 31.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Triple fracture caused by loss of balance and my electric unicycle smashing my leg]]></title>
+        <id>https://longzero.com/articles/triple-fracture/</id>
+        <link href="https://longzero.com/articles/triple-fracture/">
+        </link>
+        <updated>2021-02-14T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Somehow, my big toe on the right foot broke as well.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Going out alone]]></title>
+        <id>https://longzero.com/articles/going-out-alone/</id>
+        <link href="https://longzero.com/articles/going-out-alone/">
+        </link>
+        <updated>2021-02-07T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Heck, even when I don't go out alone, people can just go talk to people and I will be just fine. I am very capable of being alone in a group. I am judging everybody silently and it is very entertaining.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Online education]]></title>
+        <id>https://longzero.com/articles/2021-01-30-online-education/</id>
+        <link href="https://longzero.com/articles/2021-01-30-online-education/">
+        </link>
+        <updated>2021-01-30T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[With online education on the rise, exacerbated by the pandemic, we can see that the cost of university is merely for a diploma—a piece of paper, because whatever we want to learn, we can do it for free through YouTube or articles written by passionate professionals. We can also do it at a cost on reputable websites like LinkedIn Learning and Skillshare.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Thinking about my life thus far]]></title>
+        <id>https://longzero.com/articles/2021-02-24-thinking-about-my-life-thus-far/</id>
+        <link href="https://longzero.com/articles/2021-02-24-thinking-about-my-life-thus-far/">
+        </link>
+        <updated>2021-02-24T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Pleasantly thinking about all sorts of moments in my life and quite satisfied with this life so far. Hoping you are satisfied with your life too.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Health over politics]]></title>
+        <id>https://longzero.com/articles/2021-02-26-health-over-politics/</id>
+        <link href="https://longzero.com/articles/2021-02-26-health-over-politics/">
+        </link>
+        <updated>2021-02-26T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Je trouve ça très réconfortant, parce qu'aux États-Unis, il y a un parti qui délire complètement.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Save time by opening new tabs next to the active one (extension for Chrome)]]></title>
+        <id>https://longzero.com/articles/open-new-tab-next-to-current/</id>
+        <link href="https://longzero.com/articles/open-new-tab-next-to-current/">
+        </link>
+        <updated>2021-02-17T00:00:00.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Dealing with troublemakers in large crowds without tear gas that cause collateral damage]]></title>
+        <id>https://longzero.com/articles/dealing-with-toublemakers-in-large-crowds/</id>
+        <link href="https://longzero.com/articles/dealing-with-toublemakers-in-large-crowds/">
+        </link>
+        <updated>2021-07-06T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[A suggestion how cops could deal with troublemakers in large crowds without tear gas that cause collateral damage.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Cars honking at bikes]]></title>
+        <id>https://longzero.com/articles/2021-02-26-transportation-bikes-cars-honking/</id>
+        <link href="https://longzero.com/articles/2021-02-26-transportation-bikes-cars-honking/">
+        </link>
+        <updated>2021-02-26T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[J'ai vu de loin un automobiliste klaxonner après un cycliste pour aucune raison sauf pour dire «Va plus vite» ou «Dégage de mon chemin».]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Traffic isn't caused by anything other than those who are in it]]></title>
+        <id>https://longzero.com/articles/traffic-isnt-caused-by-anything-other-than-those-who-are-in-it/</id>
+        <link href="https://longzero.com/articles/traffic-isnt-caused-by-anything-other-than-those-who-are-in-it/">
+        </link>
+        <updated>2021-06-18T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[I encourage you to remember when you were a younger person before you could drive a car, remember how you went from one place to another.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Tibia/Fibula frature • Progress on week 9 day 2]]></title>
+        <id>https://longzero.com/articles/2021-01-31-tibia-fibula-fracture-electric-unicycle/</id>
+        <link href="https://longzero.com/articles/2021-01-31-tibia-fibula-fracture-electric-unicycle/">
+        </link>
+        <updated>2021-01-31T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[It is now the beginning of week 9 and I can mount and unmount my electric unicycle without holding on to anything.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[A sequel to The Social Dilemma documentary?]]></title>
+        <id>https://longzero.com/articles/facebook-the-social-dilemma-sequel/</id>
+        <link href="https://longzero.com/articles/facebook-the-social-dilemma-sequel/">
+        </link>
+        <updated>2021-11-08T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Going through this article is like reading a sequel to the documentary The Social Dilemma.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[12 weeks living in a car and some thoughts about community and individualism]]></title>
+        <id>https://longzero.com/articles/car-camping-confidence-independence-individualism-community-help/</id>
+        <link href="https://longzero.com/articles/car-camping-confidence-independence-individualism-community-help/">
+        </link>
+        <updated>2022-08-20T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[My upcoming journey is freaking me out!]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[A website for Jennifer Santiago]]></title>
+        <id>https://longzero.com/articles/a-website-for-jennifer-santiago/</id>
+        <link href="https://longzero.com/articles/a-website-for-jennifer-santiago/">
+        </link>
+        <updated>2010-10-19T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[One of the things I really like about this project is that I was making a website for someone who does a lot of things and she wanted to put them all on display. Usually, I get projects that are just about one thing; a movie, photography, music, fashion, humor, writing, dancing, etc. As much as I hate creating forms, I even had fun building hers. It has been extremely easy to talk to her and I believe it’s been easy for her to talk to me too.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[All in, without hesitation and without reluctance]]></title>
+        <id>https://longzero.com/articles/all-in-without-hesitation-and-without-reluctance/</id>
+        <link href="https://longzero.com/articles/all-in-without-hesitation-and-without-reluctance/">
+        </link>
+        <updated>2016-12-31T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[I was single, with no kids and my entourage was healthy. The most important things in my life were covered, so ultimately, there was no reason for me to deviate from the path I needed to be on.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Amazing life - 2018, my year of amazement]]></title>
+        <id>https://longzero.com/articles/amazing-life-2018-year-amazement/</id>
+        <link href="https://longzero.com/articles/amazing-life-2018-year-amazement/">
+        </link>
+        <updated>2018-04-12T00:00:00.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Freaking out about car camping for the next few months]]></title>
+        <id>https://longzero.com/articles/freaking-out-about-car-camping/</id>
+        <link href="https://longzero.com/articles/freaking-out-about-car-camping/">
+        </link>
+        <updated>2022-05-14T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[My upcoming journey is freaking me out!]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[An unexpected NYE]]></title>
+        <id>https://longzero.com/articles/an-unexpected-nye-2020/</id>
+        <link href="https://longzero.com/articles/an-unexpected-nye-2020/">
+        </link>
+        <updated>2021-01-01T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[An unexpected NYE.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Calling out sexual harassment]]></title>
+        <id>https://longzero.com/articles/calling-out-sexual-harassment/</id>
+        <link href="https://longzero.com/articles/calling-out-sexual-harassment/">
+        </link>
+        <updated>2018-05-26T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[In 2018, in this era, I believe men should talk about sexual harassment among themselves. The news always approaches the topic from the same angle: “This person was charged with sexual assault” and “That person was charged with sexual assault”. It never educates. Some men are just oblivious about what they’re doing. The conversation should go beyond what’s in the news.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Cobra Kai Season 3]]></title>
+        <id>https://longzero.com/articles/cobra-kai-season-3/</id>
+        <link href="https://longzero.com/articles/cobra-kai-season-3/">
+        </link>
+        <updated>2021-01-01T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[2021 starts with the release of season 3 of Cobra Kai on Netflix. I binged-watched it and it turned out to be a great way to start the year.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Drink less when things go wrong]]></title>
+        <id>https://longzero.com/articles/drink-less-when-things-go-wrong/</id>
+        <link href="https://longzero.com/articles/drink-less-when-things-go-wrong/">
+        </link>
+        <updated>2018-04-14T00:00:00.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Do you sleep well?]]></title>
+        <id>https://longzero.com/articles/do-you-sleep-well/</id>
+        <link href="https://longzero.com/articles/do-you-sleep-well/">
+        </link>
+        <updated>2018-01-04T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[I value the quality of my sleep more than the quantity of my sleep.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Year in review 2020: pandemic, electric unicycles, fractured leg and websites]]></title>
+        <id>https://longzero.com/articles/2020-pandemic-electric-unicycles-fractured-leg-and-websites/</id>
+        <link href="https://longzero.com/articles/2020-pandemic-electric-unicycles-fractured-leg-and-websites/">
+        </link>
+        <updated>2020-12-30T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[A few words on electric unicycles, a broken leg and a new website.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Chaos in the streets]]></title>
+        <id>https://longzero.com/articles/chaos-in-the-streets-vietnam-traffic/</id>
+        <link href="https://longzero.com/articles/chaos-in-the-streets-vietnam-traffic/">
+        </link>
+        <updated>2018-08-05T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[What I mean by that is people jaywalking all over the place and drivers of all sorts of vehicles swifting through the streets.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Getting a new phone under 500$]]></title>
+        <id>https://longzero.com/articles/getting-a-new-phone-under-500/</id>
+        <link href="https://longzero.com/articles/getting-a-new-phone-under-500/">
+        </link>
+        <updated>2021-04-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[I bought a phone for less than 500$ before taxes and there is another even better one for cheaper, except for the camera.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Hitting an asteroid in 2021]]></title>
+        <id>https://longzero.com/articles/hitting-an-asteroid-in-2021/</id>
+        <link href="https://longzero.com/articles/hitting-an-asteroid-in-2021/">
+        </link>
+        <updated>2021-01-03T00:00:00.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[If you want to live longer, work more]]></title>
+        <id>https://longzero.com/articles/if-you-want-to-live-longer-work-more/</id>
+        <link href="https://longzero.com/articles/if-you-want-to-live-longer-work-more/">
+        </link>
+        <updated>2019-06-04T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[It seems there are many people, young and old, who think of retirement as a requirement for you to feel like you’re free and (finally) living.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[“I’m still at war.”]]></title>
+        <id>https://longzero.com/articles/im-still-at-war/</id>
+        <link href="https://longzero.com/articles/im-still-at-war/">
+        </link>
+        <updated>2014-04-19T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[This is a story beyond war. It is a story about understanding, acceptance, forgiveness, peace and love.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[I didn't want to watch Don't Look Up, because I know reality]]></title>
+        <id>https://longzero.com/articles/dont-look-up-environment-reality/</id>
+        <link href="https://longzero.com/articles/dont-look-up-environment-reality/">
+        </link>
+        <updated>2022-01-01T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Sure, start small, but at this point, as we are starting 2022, you will have to move fast to keep up, not with other humans, but with the environment.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Jurassic Park (1993) and feminism]]></title>
+        <id>https://longzero.com/articles/jurassic-park-feminism/</id>
+        <link href="https://longzero.com/articles/jurassic-park-feminism/">
+        </link>
+        <updated>2022-05-23T00:00:00.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[It’s a good idea to have your own website]]></title>
+        <id>https://longzero.com/articles/its-a-good-idea-to-have-your-own-website/</id>
+        <link href="https://longzero.com/articles/its-a-good-idea-to-have-your-own-website/">
+        </link>
+        <updated>2017-07-13T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Apparently, SoundCloud has enough money to operate only for another 50 days…]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Keep your website from being framed]]></title>
+        <id>https://longzero.com/articles/keep-your-website-from-being-framed/</id>
+        <link href="https://longzero.com/articles/keep-your-website-from-being-framed/">
+        </link>
+        <updated>2011-07-14T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[All you need is a small piece of JavaScript in the &lt;head&gt; section of your HTML code.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Kill your TODO list and put everything in your calendar]]></title>
+        <id>https://longzero.com/articles/kill-your-todo-list-and-put-everything-in-your-calendar/</id>
+        <link href="https://longzero.com/articles/kill-your-todo-list-and-put-everything-in-your-calendar/">
+        </link>
+        <updated>2019-02-24T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Next, let’s talk about sleep and scheduling everything and playing Tetris. I’ve come to see everything I do and have to do as Tetris blocks and my entire life is the Tetris board and when I die, it means I have more than I can handle and that’s game over.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Major drawback of Samsung Galaxy S10 and Samsung Galaxy Fold - not pure Android]]></title>
+        <id>https://longzero.com/articles/major-drawback-of-samsung-galaxy-s10-and-samsung-galaxy-fold-not-pure-android/</id>
+        <link href="https://longzero.com/articles/major-drawback-of-samsung-galaxy-s10-and-samsung-galaxy-fold-not-pure-android/">
+        </link>
+        <updated>2019-02-21T00:00:00.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Missing messaging elements in self-care and “do you”]]></title>
+        <id>https://longzero.com/articles/missing-elements-aging-self-care-do-you-message/</id>
+        <link href="https://longzero.com/articles/missing-elements-aging-self-care-do-you-message/">
+        </link>
+        <updated>2021-11-09T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Messaging of self-care and “Do you” are missing crucial elements.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Nothing is too small]]></title>
+        <id>https://longzero.com/articles/nothing-is-too-small/</id>
+        <link href="https://longzero.com/articles/nothing-is-too-small/">
+        </link>
+        <updated>2014-01-14T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[This isn’t my story; it’s a translation of this Facebook post.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Opening hours of social media]]></title>
+        <id>https://longzero.com/articles/opening-hours-of-social-media/</id>
+        <link href="https://longzero.com/articles/opening-hours-of-social-media/">
+        </link>
+        <updated>2013-09-07T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[What really caught my attention in the article was a response from British Airways: “Sorry for the delay in responding, our twitter feed is open 09:00-17:00 GMT.” That line is completely ridiculous. The web doesn’t turn off. Social media does not close. You can go to sleep, but the web will continue to change with new tweets, new Facebook statuses and new Instagram pictures. Websites all over the world keep getting updated every second.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Mortal Kombat 2021, quick review]]></title>
+        <id>https://longzero.com/articles/mortal-kombat-2021-quick-review/</id>
+        <link href="https://longzero.com/articles/mortal-kombat-2021-quick-review/">
+        </link>
+        <updated>2021-04-23T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[This movie is like watching your friends play the game, then they do an impressive fatality and you go “Holy crap! Daaaamn!”]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Which computer? Mac vs Windows, I don’t care anymore]]></title>
+        <id>https://longzero.com/articles/mac-vs-windows-i-dont-care-anymore/</id>
+        <link href="https://longzero.com/articles/mac-vs-windows-i-dont-care-anymore/">
+        </link>
+        <updated>2018-07-24T00:00:00.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Porte attention à ce que tu as déjà]]></title>
+        <id>https://longzero.com/articles/porte-attention-a-ce-que-tu-as-deja/</id>
+        <link href="https://longzero.com/articles/porte-attention-a-ce-que-tu-as-deja/">
+        </link>
+        <updated>2019-12-30T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Ma plus grande force est ma perspective et ma vision de la vie.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Rebekka’s website, the design (2 of 2)]]></title>
+        <id>https://longzero.com/articles/rebekkas-website-the-design-2-of-2/</id>
+        <link href="https://longzero.com/articles/rebekkas-website-the-design-2-of-2/">
+        </link>
+        <updated>2006-10-17T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[“if i have a site done i want it to be very simple, user friendly to the point” is what Rebekka told me.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Rebekka’s website, the beginnings (1 of 2)]]></title>
+        <id>https://longzero.com/articles/rebekkas-website-the-beginnings-1-of-2/</id>
+        <link href="https://longzero.com/articles/rebekkas-website-the-beginnings-1-of-2/">
+        </link>
+        <updated>2006-10-13T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[I decided to contact her again, over a year later, in August 2006. Why a year later? Because Rebekka has actually become a talented photographer and after June 2005, I got very busy with school and I was handling a few design jobs and giving tutoring lessons. So I sent Rebekka exactly the same offer again. She answered a few days later mentioning that she liked what I did for someone else. These words usually make every freelancer smile: “yeah, i gratefully accept your offer:)” The game was on.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Respect + Happiness is contagious]]></title>
+        <id>https://longzero.com/articles/respect-happiness-is-contagious/</id>
+        <link href="https://longzero.com/articles/respect-happiness-is-contagious/">
+        </link>
+        <updated>2019-06-24T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Happiness is fucking contagious.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[The Morning Show Season 2 is a mess and I love it, because life is all over the place]]></title>
+        <id>https://longzero.com/articles/morning-show-season-2-review-mess-love-real-life/</id>
+        <link href="https://longzero.com/articles/morning-show-season-2-review-mess-love-real-life/">
+        </link>
+        <updated>2021-12-08T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[The Morning Show Season 2 is matches with reality.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Set yourself unreachable goals]]></title>
+        <id>https://longzero.com/articles/set-yourself-unreachable-goals/</id>
+        <link href="https://longzero.com/articles/set-yourself-unreachable-goals/">
+        </link>
+        <updated>2020-01-19T00:00:00.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Snow off sidewalks first; off streets later]]></title>
+        <id>https://longzero.com/articles/snow-off-sidewalks-first-off-streets-later/</id>
+        <link href="https://longzero.com/articles/snow-off-sidewalks-first-off-streets-later/">
+        </link>
+        <updated>2019-01-03T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[There’s a lot of snow this morning and it reminds me of a conversation I was listening to during the holidays, between people with more life experience than me.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Subscription to on-demand transportation]]></title>
+        <id>https://longzero.com/articles/subscription-to-on-demand-transportation/</id>
+        <link href="https://longzero.com/articles/subscription-to-on-demand-transportation/">
+        </link>
+        <updated>2018-06-01T00:00:00.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Tai chi and beef]]></title>
+        <id>https://longzero.com/articles/tai-chi-and-beef/</id>
+        <link href="https://longzero.com/articles/tai-chi-and-beef/">
+        </link>
+        <updated>2019-08-24T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Je ne devrais pas vous blâmer pour la destruction de la forêt amazonienne et les changements climatiques? Are you shitting me? YOUR DEMAND for meat is causing this shithole!]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Testing Google’s Recorder]]></title>
+        <id>https://longzero.com/articles/testing-googles-recorder/</id>
+        <link href="https://longzero.com/articles/testing-googles-recorder/">
+        </link>
+        <updated>2019-12-12T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[The transcript feature has incredible accuracy and it’s my favourite thing about the app. In this test, I tried different accents and inserted “uh…” and pauses here and there and it ignores them successfully.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[The end of Flash]]></title>
+        <id>https://longzero.com/articles/the-end-of-flash/</id>
+        <link href="https://longzero.com/articles/the-end-of-flash/">
+        </link>
+        <updated>2020-12-31T00:00:00.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[The basic principle of contracts]]></title>
+        <id>https://longzero.com/articles/basic-principle-of-contracts/</id>
+        <link href="https://longzero.com/articles/basic-principle-of-contracts/">
+        </link>
+        <updated>2010-04-30T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[I hate contracts. I am not indifferent, I do not not like them, I completely hate them. Contract is one word to say “there is lack of trust and reliability”.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Theme of the year]]></title>
+        <id>https://longzero.com/articles/theme-of-the-year/</id>
+        <link href="https://longzero.com/articles/theme-of-the-year/">
+        </link>
+        <updated>2019-12-22T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[2009
+Vietnam & still trying to figure what to do]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Vie normale au Québec en 2021?]]></title>
+        <id>https://longzero.com/articles/vie-normale-au-quebec-en-2021/</id>
+        <link href="https://longzero.com/articles/vie-normale-au-quebec-en-2021/">
+        </link>
+        <updated>2021-01-03T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[> Quebec to speed up COVID-19 vaccination campaign by not holding 2nd doses in reserve, 2020-12-31
+>]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[YouTube thumbnail sizes and URL to get them]]></title>
+        <id>https://longzero.com/articles/youtube-thumbnail-sizes-url/</id>
+        <link href="https://longzero.com/articles/youtube-thumbnail-sizes-url/">
+        </link>
+        <updated>2018-11-15T00:00:00.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Website - Atlantic City International Film & Music Festival]]></title>
+        <id>https://longzero.com/articles/website-atlantic-city-international-film-music-festival/</id>
+        <link href="https://longzero.com/articles/website-atlantic-city-international-film-music-festival/">
+        </link>
+        <updated>2010-07-21T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[It isn’t everyday that I get the chance to work on the website of a festival. In fact, for this one, it was never part of the plan for me to do it, one had already been done. I was asked what I thought of it and I remember that one of things I said was “It looks like something coming from the last century”. I would find it quite harsh if someone said that about one of my designs, but it was true. I found out that the person behind the previous design was in the business for much longer than I am, but I have the feeling that he doesn’t stay up to date with current trends. Unfortunately, since then, that previous design is gone. Even the domain name was poorly chosen; it just wasn’t memorable.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Wishing everyone a merry holiday!]]></title>
+        <id>https://longzero.com/articles/wishing-everyone-a-merry-holiday/</id>
+        <link href="https://longzero.com/articles/wishing-everyone-a-merry-holiday/">
+        </link>
+        <updated>2018-11-14T00:00:00.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Une roue pour les gouverner toutes]]></title>
+        <id>https://longzero.com/articles/une-roue-pour-les-gouverner-toutes/</id>
+        <link href="https://longzero.com/articles/une-roue-pour-les-gouverner-toutes/">
+        </link>
+        <updated>2020-02-16T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Après 36 heures de recherches de transports alternatifs et de vidéos sur YouTube, j’ai vraiment hâte à mon prochain geste écologique.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Uber Eats takes 30% of restaurants’s cut]]></title>
+        <id>https://longzero.com/articles/uber-eats-takes-30-percent/</id>
+        <link href="https://longzero.com/articles/uber-eats-takes-30-percent/">
+        </link>
+        <updated>2021-01-08T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Depuis le début de la pandémie, je vous encourage à éviter les compagnies de livraisons de bouffe. Encore une fois, je vous encourage à éviter les compagnies de livraisons de bouffes.]]></summary>
+    </entry>
+</feed>
