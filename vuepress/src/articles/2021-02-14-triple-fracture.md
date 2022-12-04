@@ -34,6 +34,7 @@ The following links will jump to the relevant sections of this post and they als
 * [Week 9: Freely getting on and off my electric unicycle](#week-9-freely-getting-on-and-off-my-electric-unicycle)
 * [Week 10: Testing the limits of my broken-healing leg by bouncing on it](#week-10-testing-the-limits-of-my-broken-healing-leg)
 * [Week 11: First electric unicycle ride outside since the accident](#week-11-first-electric-unicycle-ride-outside-since-the-accident) (latest update)
+* [Two years later](#two-years-later-2022-12-04) (latest update)
 
 
 ## Week 1: The accident
