@@ -166,3 +166,8 @@ My ankle still can't fully flex and I have a feeling it will remain the case for
 <div class="video-wrapper">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/tVfYp0AXImY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
+
+
+## Two years later (2022-12-04)
+
+I can't walk or run for a long time the way I used to without feeling discomfort and sometimes pain. I accept this is how it will be for the rest of my life.
