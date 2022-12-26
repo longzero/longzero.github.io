@@ -27,7 +27,10 @@
       </RouterLink>
 
       <div class="header-links">
-        <NavLinks class="site-navigation can-hide" />
+        <!-- <NavLinks class="site-navigation can-hide" /> -->
+        <!-- <nav class="site-navigation">
+          <a href="/links/">Links</a>
+        </nav> -->
         <AlgoliaSearchBox v-if="isAlgoliaSearch" :options="algolia"/>
         <SearchBox v-else-if="$site.themeConfig.search !== false && $page.frontmatter.search !== false" />
         <div class="social-networks">
