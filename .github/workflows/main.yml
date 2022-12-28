@@ -11,6 +11,5 @@ jobs:
 
     steps:
     - uses: jenkey2011/vuepress-deploy@v1.8.1
-    - run: | 
-      cd vuepress
-      yarn build
+    - run: cd vuepress
+    - run: yarn build
