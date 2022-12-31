@@ -25,3 +25,5 @@ On the other hand, there is one thing that I believe we can do immediately and t
 In my example in the screenshot, I wasn't happy with the paragraph I wrote, so I used AI to give me a variation and the final result will a mix of what I originally wrote and what is suggested to me.
 
 For me, this process is the equivalent of being reviewed by someone else who offers a different sugesstion. The difference is that I don't have to send an email, I don't use another person's time, and I don't wait for a response.
+
+I asked it if it was American, because programming is largely American. For example, in many coding languages, colour is spelled "color".
