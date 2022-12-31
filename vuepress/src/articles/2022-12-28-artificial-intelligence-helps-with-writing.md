@@ -18,7 +18,7 @@ tags:
 - Writing
 ---
 
-In a world where students can use artificial intelligence to write their homework, I think you can't say anything yet, without decades of study.
+In a world where students can use artificial intelligence to write their homework, I think we can't come to any conclusion yet, without decades of study.
 
 On the other hand, there is one thing that I believe we can do immediately and that is to push and encourage to write well and to improve.
 
