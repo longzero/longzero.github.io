@@ -14,6 +14,7 @@ type: post
 tags:
 - Artificial intelligence
 - Biases
+- Education
 - Social issues
 ---
 
@@ -24,3 +25,5 @@ I asked it to make up a short story about phở (Vietnamese soup) and it gave a 
 Then I added the words “from a Vietnamese person's point of view” and that's when it started using names like Tuan and Tran.
 
 That is what made me think of biases.
+
+I asked it if it was American, because programming is largely American. For example, in many coding languages, colour is spelled "color".
