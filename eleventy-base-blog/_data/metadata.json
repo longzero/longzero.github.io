@@ -1,0 +1,21 @@
+{
+  "title": "Longzero ~ Long Nguyen",
+  "url": "https://longzero.com/",
+  "language": "en",
+  "description": "My name is Long Nguyen. I am a Front-End Web Developer obsessed with UX. I am experienced in building simple, clean and user-friendly websites for clients across the globe. Reach me on Instagram or Twitter or by email long@longzero.com.",
+  "feed": {
+    "subtitle": "My name is Long Nguyen. I am a Front-End Web Developer obsessed with UX. I am experienced in building simple, clean and user-friendly websites for clients across the globe. Reach me on Instagram or Twitter or by email long@longzero.com.",
+    "filename": "feed.xml",
+    "path": "/feed/feed.xml",
+    "id": "https://longzero.com/"
+  },
+  "jsonfeed": {
+    "path": "/feed/feed.json",
+    "url": "https://longzero.com/feed/feed.json"
+  },
+  "author": {
+    "name": "Longzero",
+    "email": "long@longzero.com",
+    "url": "https://longzero.com/about/"
+  }
+}
