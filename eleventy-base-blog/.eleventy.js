@@ -10,8 +10,7 @@ const pluginNavigation = require("@11ty/eleventy-navigation");
 
 module.exports = function(eleventyConfig) {
   // Copy the `img` and `css` folders to the output
-  eleventyConfig.addPassthroughCopy("images");
-  eleventyConfig.addPassthroughCopy("css");
+  eleventyConfig.addPassthroughCopy("assets");
 
   // Add plugins
   eleventyConfig.addPlugin(pluginRss);
@@ -19,7 +18,8 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPlugin(pluginNavigation);
 
   eleventyConfig.addFilter("readableDate", dateObj => {
-    return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat("dd LLL yyyy");
+    // return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat("dd LLL yyyy");
+    return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('yyyy-LL-dd');
   });
 
   // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
@@ -67,7 +67,7 @@ module.exports = function(eleventyConfig) {
   }).use(markdownItAnchor, {
     permalink: markdownItAnchor.permalink.ariaHidden({
       placement: "after",
-      class: "direct-link",
+      class: "sr-only",
       symbol: "#"
     }),
     level: [1,2,3,4],
@@ -91,6 +91,16 @@ module.exports = function(eleventyConfig) {
     },
     ui: false,
     ghostMode: false
+  });
+
+  // SUPPORT DRAFTS
+  // https://giustino.blog/how-to-drafts-eleventy/
+  const now = new Date();
+  const publishedPosts = (post) => post.date <= now && post.data.status == 1; // [1]
+  eleventyConfig.addCollection("posts", (collection) => { // [2]
+    return collection
+        .getFilteredByGlob("./posts/*.md") // [3]
+        .filter(publishedPosts); // [4]
   });
 
   return {

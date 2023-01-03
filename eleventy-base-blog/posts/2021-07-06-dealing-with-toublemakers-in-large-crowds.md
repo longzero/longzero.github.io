@@ -1,0 +1,31 @@
+---
+title: Dealing with troublemakers in large crowds without tear gas that cause collateral damage
+permalink: /articles/dealing-with-toublemakers-in-large-crowds/
+date: 2021-07-06
+postType: articles
+status: 1
+
+author: Long
+description: A suggestion how cops could deal with troublemakers in large crowds without tear gas that cause collateral damage.
+image: 
+pageClass: article
+# search: false
+type: post
+layout: layouts/post.njk
+tags:
+  - Celebration
+  - Police brutality
+  - Protests
+  - Sports
+---
+
+«Lundi, par exemple, certains individus ont jeté des bouteilles vers les policiers, ou ont allumé des feux d’artifice.»<br>
+Reference/Trigger: <a href="https://journalmetro.com/actualites/2665014/canadiens-lutilisation-dirritants-chimiques-par-le-spvm-critiquee/" target="_blank">L’utilisation d’irritants chimiques par le SPVM après les victoires du CH critiquée</a>
+
+Reading this, combined with the heavy rain that just took place, gives me the idea that cops should wear a body armor during these events, especially cops on bikes.
+
+When they identify someone causing trouble, they can gang up and restrain those specific people and significantly reduce collateral damage caused by tear gas.
+
+Would this increase police brutality? Possibly. Frankly, I find this to be a context in which a cop punching someone in the face is warranted, especially with so many people witnessing the people causing trouble and screwing up the celebration.
+
+On a different topic, notice how I am suggesting a solution to a problem without complaining and criticizing. In a very real way, this is my job. Finding solutions is all I do all day at work.
