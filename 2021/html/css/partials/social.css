@@ -15,5 +15,10 @@
 }
 .social-networks svg {
   display: block;
+  width: 19px;
   height: 19px;
+}
+.social-networks .social-icon-mastodon,
+.social-networks a:hover .social-icon-mastodon {
+  fill: #369;
 }

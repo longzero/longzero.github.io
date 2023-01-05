@@ -1,18 +1,21 @@
 .post-data {
+  display: block;
   flex-grow: 1;
 }
 .post-date {
   color: color-grey;
   font-size: 0.8em;
-  margin-bottom: 2em;
 }
 .post-header h1 {
   margin-bottom: 10px;
 }
 .post-image {
-  background-color: #dedede;
+  background-color: rgba(51,102,153,0.5);
+  border: 0 solid color-1;
+  display: block;
   flex-shrink: 0;
   margin-right: 20px;
+  position: relative;
   transition-duration: 0.3s;
   width: 80px;
   height: 80px;
@@ -21,47 +24,78 @@
 @media (min-width: breakpoint-desktop) {
   .post-image {
     margin-bottom: 10px;
-    width: 250px;
-    height: 250px;
+    width: 100%;
+    height: auto;
   }
+}
+.post-image::before {
+  content: '';
+  display: block;
+  padding-bottom: 100%;
+  width: 100%;
+}
+.post-image::after,
+.post-image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.post-image::after {
+  color: rgba(255,255,255,0.5);
+  content: 'L';
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3em;
+  font-weight: 700;
+  line-height: 1;
 }
 .post-image img {
   display: block;
   object-fit: cover;
-  width: 100%;
-  height: 100%;
+  z-index: 1;
 }
 .post-item {
-  margin-bottom: 20px;
   transition-duration: 0.3s;
   width: 100%;
 }
-@media (min-width: breakpoint-desktop) {
-  .post-item {
-    margin-right: 30px;
-    width: 250px;
-  }
-}
-.post-item:hover {
-  transform: scale(1.05);
-}
 .post-item:hover .post-image {
+  background-color: color-1;
+  border: 4px solid color-1;
   box-shadow: shadow;
+}
+.post-item:hover .post-image::after {
+  color: #fff;
+}
+.post-item:hover .post-title {
+  color: color-1;
+}
+@media (min-width: breakpoint-desktop) {
+  .post-item:nth-child(1) {
+    grid-column: 1/span 2;
+    grid-row: 1/span 2;
+  }
+  .post-item:nth-child(1) .post-title {
+    font-size: 2em;
+  }
 }
 .post-link {
   display: flex;
+  text-decoration: none;
 }
 @media (min-width: breakpoint-desktop) {
   .post-link {
     display: block;
+    height: 100%;
   }
 }
 .post-list {
-  display: flex;
-  flex-wrap: wrap;
-}
-.show-article .post-list {
-  display: none;
+  display: grid;
+  grid-gap: 40px /* Safari 10-11 */;
+  gap: grid-gap /* Safari 12+ */;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 }
 .post-title {
   color: #000;

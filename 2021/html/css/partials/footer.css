@@ -22,10 +22,6 @@
   background: transparent url("/images/look-up.jpg") center bottom no-repeat;
   z-index: 0;
 }
-.site-footer a {
-  font-weight: 500;
-  text-decoration: none;
-}
 .site-footer a:hover {
   text-decoration: underline;
 }

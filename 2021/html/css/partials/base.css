@@ -8,7 +8,6 @@ html {
 }
 a {
   color: color-1;
-  text-decoration: none;
   transition-duration: 0.3s;
 }
 blockquote {
@@ -28,7 +27,6 @@ blockquote p:last-child a {
   font-weight: bold;
 }
 body {
-  -webkit-font-smoothing: antialiased;
   background-color: transparent;
   font-family: 'Oxygen';
 }
