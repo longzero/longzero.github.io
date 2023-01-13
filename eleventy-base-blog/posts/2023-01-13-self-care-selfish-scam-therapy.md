@@ -41,4 +41,4 @@ There are self-care advocates who recognize this, but none of them will tell you
 
 Nature always wins.
 
-Instead of going to self-care advocates, go see a therapist or psychologist. Those are people who are trained to actually give you a proper shovel, instead of one from a dollar store, so you can truly, deeply, efficiently dig inside your soul.
+Instead of going to self-care advocates, go see a therapist or psychologist or get a dog. Those are people who are trained to actually give you a proper shovel, instead of one from a dollar store, so you can truly, deeply, efficiently dig inside your soul.
