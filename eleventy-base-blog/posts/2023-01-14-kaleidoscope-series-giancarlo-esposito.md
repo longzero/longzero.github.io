@@ -23,3 +23,5 @@ Kaleidoscope is a series which you can watch in any order. In fact, Netflix does
 At the suggestion of lead actor Giancarlo Esposito, I watched the white episode last and he is so right. There is no other episode that could serve as the “ending”.
 
 Other episodes can truly be mixed up, but if the white episode isn't last, I feel like I wouldn't like the show as much.
+
+There's also the music which I love. It's the same kind of music you can find in Ocean's Eleven and Cruella.
