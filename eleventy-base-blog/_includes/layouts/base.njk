@@ -22,15 +22,20 @@
       ga('send', 'pageview');
     </script>
 
+    {% set og_image %}{{ hostname }}/assets/images/og.jpg{% endset %}
+    {% if image %}
+      {% set og_image %}{{ hostname }}/assets/images/articles/{{ image }}{% endset %}
+    {% endif %}
+
     <meta property="og:site_name" content="{{ metadata.title }}">
     <meta property="og:title" content="{{ title or metadata.title }}">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://longzero.com/">
-    <meta property="og:image" content="https://longzero.com/assets/images/og.jpg">
+    <meta property="og:url" content="{{ hostname }}">
+    <meta property="og:image" content="{{ og_image }}">
     <meta name="twitter:title" content="{{ title or metadata.title }}">
     <meta name="twitter:url" content="https://longzero.com/">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="https://longzero.com/assets/images/og.jpg">
+    <meta name="twitter:image" content="{{ og_image }}">
     <meta name="theme-color" content="#336699">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">

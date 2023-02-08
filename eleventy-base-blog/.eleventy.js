@@ -1,3 +1,6 @@
+require('dotenv').config();
+const ENV = process.env.MY_ENVIRONMENT;
+
 const fs = require("fs");
 
 const { DateTime } = require("luxon");
@@ -9,7 +12,14 @@ const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginNavigation = require("@11ty/eleventy-navigation");
 
 module.exports = function(eleventyConfig) {
-  // Copy the `img` and `css` folders to the output
+  if (ENV != 'development' && ENV != 'dev') {
+    eleventyConfig.addGlobalData("hostname", "https://longzero.com");
+  }
+  else {
+    eleventyConfig.addGlobalData("hostname", "http://localhost:8080");
+  }
+
+  // Copy the `images` and `css` folders to the output
   eleventyConfig.addPassthroughCopy("assets");
 
   // Add plugins
