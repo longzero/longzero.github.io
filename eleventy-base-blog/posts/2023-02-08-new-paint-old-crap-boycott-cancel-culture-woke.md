@@ -1,5 +1,5 @@
 ---
-title: Cancel culture, woke; new paint, old crap
+title: Cancel culture, woke; new paint, old&nbsp;crap
 permalink: /articles/new-paint-old-crap-boycott-cancel-culture-woke/
 date: 2023-02-08
 postType: articles

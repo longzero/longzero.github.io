@@ -4,7 +4,8 @@ templateClass: tmpl-post
 ---
 
 <header class="container container--content post-header">
-  <h1>{{ title }}</h1>
+  {# The filter ` | urlize | safe` allows to parse HTML like `<br>` and `&nbsp;` #}
+  <h1>{{ title | urlize | safe }}</h1>
   <time class="post-date" datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
 
   {%- if image %}
