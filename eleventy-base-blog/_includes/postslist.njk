@@ -27,7 +27,8 @@
             {% endif %}
           </span>
           <span class="post-data">
-            <span class="post-title">{{ post.data.title }}</span>
+            {# The filter ` | urlize | safe` allows to parse HTML like `<br>` and `&nbsp;` #}
+            <span class="post-title">{{ post.data.title | urlize | safe }}</span>
             <span class="post-date">
               {% if post.data.updatedDate %} {{ post.data.date | readableDate }} | Update on {{ post.data.updatedDate | readableDate }}
               {% else %} {{ post.data.date | readableDate }}
