@@ -26,12 +26,16 @@
     {% if image %}
       {% set og_image %}{{ hostname }}/assets/images/articles/{{ image }}{% endset %}
     {% endif %}
+    {% if title %}
+      {% set title = title %}
+    {% endif %}
 
-    <meta property="og:site_name" content="{{ metadata.title }}">
+    {# <meta property="og:site_name" content="{{ metadata.title }}"> #}
+    <meta property="og:description" content="{{ description }}">
+    <meta property="og:image" content="{{ og_image }}">
     <meta property="og:title" content="{{ title or metadata.title }}">
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ hostname }}">
-    <meta property="og:image" content="{{ og_image }}">
     <meta name="twitter:title" content="{{ title or metadata.title }}">
     <meta name="twitter:url" content="https://longzero.com/">
     <meta name="twitter:card" content="summary_large_image">
