@@ -26,9 +26,6 @@
     {% if image %}
       {% set og_image %}{{ hostname }}/assets/images/articles/{{ image }}{% endset %}
     {% endif %}
-    {% if title %}
-      {% set title = title %}
-    {% endif %}
 
     {# <meta property="og:site_name" content="{{ metadata.title }}"> #}
     <meta property="og:description" content="{{ description }}">
