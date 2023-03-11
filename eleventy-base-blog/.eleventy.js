@@ -21,6 +21,7 @@ module.exports = function(eleventyConfig) {
 
   // Copy the `images` and `css` folders to the output
   eleventyConfig.addPassthroughCopy("assets");
+  eleventyConfig.addPassthroughCopy("robots.txt");
 
   // Add plugins
   eleventyConfig.addPlugin(pluginRss);

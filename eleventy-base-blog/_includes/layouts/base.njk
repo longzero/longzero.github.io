@@ -9,6 +9,7 @@
     {#- Uncomment this if you’d like folks to know that you used Eleventy to build your site!  #}
     {#- <meta name="generator" content="{{ eleventy.generator }}"> #}
 
+    <link rel="apple-touch-icon" href="/assets/images/favicon.png">
     <link rel="icon" href="/assets/images/favicon.png">
     <link rel="preload" crossorigin="anonymous" as="font" href="/assets/fonts/oxygen-v10-latin-regular.woff2">
     <link rel="preload" crossorigin="anonymous" as="font" href="/assets/fonts/oxygen-v10-latin-700.woff2">
@@ -26,15 +27,19 @@
     {% if image %}
       {% set og_image %}{{ hostname }}/assets/images/articles/{{ image }}{% endset %}
     {% endif %}
+    {% set url %}{{ hostname }}/{% endset %}
+    {% if permalink %}
+      {% set url %}{{ hostname }}{{ permalink }}{% endset %}
+    {% endif %}
 
     <meta property="og:site_name" content="{{ metadata.title }}">
     <meta property="og:description" content="{{ description }}">
     <meta property="og:image" content="{{ og_image }}">
     <meta property="og:title" content="{{ title or metadata.title }}">
     <meta property="og:type" content="website">
-    {# <meta property="og:url" content="{{ hostname }}"> #}
+    <meta property="og:url" content="{{ url }}">
     <meta name="twitter:title" content="{{ title or metadata.title }}">
-    {# <meta name="twitter:url" content="https://longzero.com/"> #}
+    <meta name="twitter:url" content="{{ url }}">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="{{ og_image }}">
     <meta name="theme-color" content="#336699">
