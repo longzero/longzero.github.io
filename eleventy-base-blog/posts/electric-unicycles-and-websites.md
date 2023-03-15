@@ -49,7 +49,7 @@ Electric unicycles are great vehicles for going around in a city such as Montrea
 
 ## Fractured leg
 
-![X-ray of an intramedullary nail in left tibia with a fractured fibula](/images/articles/electric-unicycles-and-websites-broken-bones.jpg)
+![X-ray of an intramedullary nail in left tibia with a fractured fibula](/assets/images/articles/electric-unicycles-and-websites-broken-bones.jpg)
 
 On December 5, 2020, I was riding with groceries. I looked behind briefly to check for incoming cars and as I turned back, I hit a pothole. I fell in front of my wheel and it hit my leg which caused three bones to break; the tibia, the fibula and another bone in my foot.
 
@@ -65,4 +65,4 @@ I have decided to put less emphasis on that and more on publishing. This means I
 
 I can recycle a lot of things I have posted all over the place, especially on Facebook, and put it here, in a centralized place.
 
-![Part of the homepage of longzero.com on 2020-12-30](/images/articles/electric-unicycles-and-websites-new-website.png)
+![Part of the homepage of longzero.com on 2020-12-30](/assets/images/articles/electric-unicycles-and-websites-new-website.png)

@@ -33,4 +33,4 @@ I really love how season 3 ended with the Christmas music during one of the figh
 
 I definitely recommend Cobra Kai 3.
 
-![Part of the homepage of longzero.com on 2020-12-30](/images/articles/cobra-kai-season-3-poster.jpg)
+![Part of the homepage of longzero.com on 2020-12-30](/assets/images/articles/cobra-kai-season-3-poster.jpg)
