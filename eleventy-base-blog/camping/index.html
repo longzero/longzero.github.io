@@ -1,0 +1,132 @@
+---
+layout: layouts/map.njk
+description: Camping map
+title: Camping map
+templateClass: tmpl-post
+eleventyNavigation:
+  key: Camping map
+  order: 3
+---
+
+<style>
+  .leaflet-container {font-size: 1rem;}
+  .leaflet-control-attribution {font-size: 1em; transform: scale(.7); transform-origin: right bottom; transition: .3s; max-width: 320px; width: 100%;}
+  .leaflet-control-attribution:hover {transform: scale(1);}
+
+  /* Must use this, otherwise markers get wrong position when zooming. */
+  .leaflet-marker-icon {position: relative;}
+  .leaflet-marker-icon > svg {position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);}
+  /* END Must use this, otherwise markers get wrong position when zooming.*/
+
+  .leaflet-popup-content {margin: 0; padding: 1em 1em;}
+  .leaflet-popup-content p {margin: 0 0 1em;}
+  .leaflet-popup-content p:last-child {margin: 0;}
+  .leaflet-popup-content-wrapper {border-radius: 5px; padding: 0;}
+
+  .location-tooltip-content {font-size: .9rem;}
+  .location-tooltip-name {font-size: 1rem; font-weight: 700;}
+  .location-tooltip-name:not(:only-child) {margin-bottom: 0.5em;}
+
+  .map-wrapper, .tmpl-post {height: calc(100vh - 40px);}
+  .map-wrapper {width: 100%;}
+  .site-header {margin-bottom: 0;}
+</style>
+
+
+<div class="map-wrapper" id="map"></div>
+
+
+<script>
+
+  let svgIcon = L.divIcon({
+    // Green: #3AAD64
+    html: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 32" width="24" height="32" fill="none"><g clip-path="url(#a-marker)"><path fill="#663399" d="M10.767 31.354C1.686 18.19 0 16.838 0 12 0 5.373 5.373 0 12 0s12 5.373 12 12c0 4.838-1.686 6.19-10.767 19.354a1.5 1.5 0 0 1-2.466 0ZM12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10Z"/></g><defs><clipPath id="a-marker"><path fill="#fff" d="M0 0h24v32H0z"/></clipPath></defs></svg>`,
+    className: "marker-icon",
+    iconSize: [1,1], // Must use this, otherwise markers get wrong position when zooming.
+    iconAnchor: [0,0] // Must use this, otherwise markers get wrong position when zooming.
+  });
+
+  const svgWater = L.divIcon({
+    // Green: #3AAD64
+    html: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="32" fill="none"><path fill="#3BA4DF" d="M13.233.646C22.314 13.81 24 15.162 24 20c0 6.627-5.373 12-12 12S0 26.627 0 20C0 15.162 1.686 13.81 10.767.646a1.5 1.5 0 0 1 2.466 0Z"/></svg>`,
+    className: "marker-icon marker-icon--water",
+    iconSize: [1,1], // Must use this, otherwise markers get wrong position when zooming.
+    iconAnchor: [0,0] // Must use this, otherwise markers get wrong position when zooming.
+  });
+
+
+
+  function initMap(locations) {
+    // console.log(locations)
+
+    // This is the code to start the map at a specific location.
+    // var map = L.map('map').setView([38.973268454455706, -105.03998309979006], 14);
+
+
+    var map = L.map('map', {
+      // https://github.com/mutsuyuki/Leaflet.SmoothWheelZoom
+      scrollWheelZoom: false, // disable original zoom function
+      smoothWheelZoom: true,  // enable smooth zoom
+      smoothSensitivity: 4,   // zoom speed. default is 1
+      // END https://github.com/mutsuyuki/Leaflet.SmoothWheelZoom
+    }).fitBounds([
+      [50.881052232075994, -128.35989413555518],
+      [18.178802320423507, -66.31842310872378]
+    ])
+    mapLink = '<a href="http://openstreetmap.org" target="_blank">OpenStreetMap</a>';
+    L.tileLayer(
+      'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: 'This map is personal and contains places where I have been with my personal impression. That’s all.',
+        maxZoom: 20
+      }).addTo(map);
+
+    // console.log(locations.campspots.length)
+    // if (typeof locations === 'object' && locations !== null) {
+    //   console.log("It's an object")
+    // }
+    for (let key in locations) {
+      if (key == "water") {
+        svgIcon = svgWater
+      }
+      for (let key2 in locations[key]) {
+        let location = locations[key][key2]
+        if (location.visible !== 0) {
+          console.log(location.visible)
+          let locationName = "",
+              locationNotes = "",
+              locationUrl = ""
+          if (location.name.length) locationName = '<div class="location-tooltip-name">' + location.name + '</div>'
+          if (location.notes.length) locationNotes = '<div class="location-tooltip-notes">' + location.notes + '</div>'
+          if (location.url.length) locationUrl = '<a class="location-tooltip-link" target="map-location" href="' + location.url + '">' + location.url + '</a>'
+          let locationContent = '<div class="location-tooltip-content">' + locationName + locationNotes + locationUrl + '</div>'
+          marker = new L.marker([location.latitude, location.longitude], {icon: svgIcon})
+            .bindPopup(locationContent, { offset: L.point(0,-14) })
+            .addTo(map);
+        }
+      }
+    }
+  }
+
+
+
+  // https://stackoverflow.com/a/34579496/2716287
+  function loadJSON(file, callback) {
+      var rawFile = new XMLHttpRequest();
+      rawFile.overrideMimeType("application/json");
+      rawFile.open("GET", file, true);
+      rawFile.onreadystatechange = function() {
+          if (rawFile.readyState === 4 && rawFile.status == "200") {
+              callback(rawFile.responseText);
+          }
+      }
+      rawFile.send(null);
+  }
+
+  loadJSON("/assets/js/map/camping-locations.json", function(text){
+    data = JSON.parse(text);
+    initMap(data)
+  });
+  // END https://stackoverflow.com/a/34579496/2716287
+
+
+  </script>

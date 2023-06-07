@@ -1,0 +1,107 @@
+{
+  "campspots": [
+    {
+      "id": "",
+      "latitude": 39.016858008347256,
+      "longitude": -86.39141046300149,
+      "name": "Blackwell Horsecamp",
+      "notes": "Trees around an open area where people camp. Good hotspot.",
+      "url": "https://goo.gl/maps/tkoEochF6KyR2eB29"
+    },
+    {
+      "id": "",
+      "latitude": 45.506381,
+      "longitude": -73.588823,
+      "name": "Montreal",
+      "notes": "",
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 38.766600,
+      "longitude": -95.673990,
+      "name": "Osage State Fishing Lake",
+      "notes": "Very nice but very bad hotspot. Everything takes forever to load.<br> Two toilets.",
+      "url": ""
+    },
+    {
+      "id": "",
+      "latitude": 38.498394,
+      "longitude": -105.026992,
+      "name": "Penrose Commons OHV",
+      "notes": "<p>Hotspot internet is great. Had a video call with 28 people.</p><p>Secluded, but less open in terms of getting a wide view.</p><p>Rocky roads</p>",
+      "url": "https://ioverlander.com/places/201464-valley-view-circle"
+    },
+    {
+      "id": "",
+      "latitude": 38.493513,
+      "longitude": -105.031435,
+      "name": "Penrose Commons OHV",
+      "notes": "<p>Secluded even if it's next to the road. Great hotspot 29/7.</p><p>Motocross and ATV going around sometimes, especialy weekends, not so many on weekdays.</p>",
+      "url": ""
+    },
+    {
+      "id": "",
+      "latitude": 42.273822,
+      "longitude": -79.375708,
+      "name": "Stockton State Forest",
+      "notes": "First spot<br>Good for camping<br>Bad for solar power<br>Hotspot 5/.75",
+      "url": ""
+    },
+    {
+      "id": "",
+      "latitude": 38.962377,
+      "longitude": -105.001779,
+      "name": "Woodland Park",
+      "notes": "Great spot, great view, usually great hotspot signal, sometimes slow, but usually recovers after 0-60 minutes.",
+      "url": "",
+      "visible": 0
+    },
+    {
+      "id": "",
+      "latitude": 38.962638,
+      "longitude": -105.002439,
+      "name": "Woodland Park",
+      "notes": "Inclined, great hotspot",
+      "url": "",
+      "visible": 0
+    },
+    {
+      "id": "",
+      "latitude": 38.926680,
+      "longitude": -95.435330,
+      "name": "Woodridge Primitive Park",
+      "notes": "Very bad hotspot. Everything takes forever to load. Nice for camping but not really vanlife. Vehicles must park and can not go on grass. It's like a rest area but for camping.",
+      "url": "https://goo.gl/maps/snbKaRrgp1dPWcSj7"
+    }
+  ],
+  "starbucks": [
+    {
+      "id": "",
+      "latitude": 38.85755951306051,
+      "longitude": -104.72200835960561,
+      "name": "Starbucks (Colorado Springs)",
+      "notes": "This is a nice one with two area away from the main room.",
+      "url": ""
+    },
+    {
+      "id": "",
+      "latitude": 38.973268454455706,
+      "longitude": -105.03998309979006,
+      "name": "Starbucks (Woodland Park)",
+      "notes": "",
+      "url": ""
+    }
+  ],
+  "water": [
+    {
+      "id": "",
+      "latitude": 38.873800,
+      "longitude": -104.812580,
+      "name": "Free water at gas station",
+      "notes": "One spigot where regular cars go and one where RVs and trucks go.",
+      "url": ""
+    }
+  ]
+}
