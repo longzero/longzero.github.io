@@ -2,11 +2,125 @@
   "campspots": [
     {
       "id": "",
+      "latitude": 46.461826,
+      "longitude": -86.930158,
+      "name": "28",
+      "notes": "<p>Good signal. Only this spot. One other spot full of sand.</p><p>Nice lake</p><p>Very secret. Stayed for 5 minutes just to see if there was anything better.</p>",
+      "url": ""
+    },
+    {
+      "id": "",
+      "latitude": 34.997940,
+      "longitude": -105.784630,
+      "name": "34.997940, -105.784630",
+      "notes": "<p>Awesome deserted place. Great for working and chilling. Come from the west, because the road from the east can leave you stuck.</p>",
+      "url": ""
+    },
+    {
+      "id": "",
+      "latitude": 43.912036,
+      "longitude": -102.229428,
+      "name": "Badlands",
+      "notes": "Highest point on this side.",
+      "url": ""
+    },
+    {
+      "id": "",
+      "latitude": 43.907429,
+      "longitude": -102.228133,
+      "name": "Badlands",
+      "notes": "",
+      "url": ""
+    },
+    {
+      "id": "",
+      "latitude": 43.896094,
+      "longitude": -102.230529,
+      "name": "Badlands",
+      "notes": "Best spot for privacy and elevation. Good signal.",
+      "url": ""
+    },
+    {
+      "id": "",
+      "latitude": 43.890074,
+      "longitude": -102.226638,
+      "name": "Badlands",
+      "notes": "Great signal. <br>Closest point to walk over the canyon a little. <br>Lots of people. <br>Great views all over all day.",
+      "url": ""
+    },
+    {
+      "id": "",
+      "latitude": 36.978053,
+      "longitude": -113.651836,
+      "name": "Black Rock",
+      "notes": "Good open space. Good signal.",
+      "url": ""
+    },
+    {
+      "id": "",
       "latitude": 39.016858008347256,
       "longitude": -86.39141046300149,
       "name": "Blackwell Horsecamp",
       "notes": "Trees around an open area where people camp. Good hotspot.",
       "url": "https://goo.gl/maps/tkoEochF6KyR2eB29"
+    },
+    {
+      "id": "",
+      "latitude": 44.387099,
+      "longitude": -103.760813,
+      "name": "Deadwood - Mt Roosevelt Rd (best spot)",
+      "notes": "<p>Great signal. Two spots up here, both with great views. Great sunrise.</p>",
+      "url": ""
+    },
+    {
+      "id": "",
+      "latitude": 44.388500,
+      "longitude": -103.758600,
+      "name": "Deadwood - Mt Roosevelt Rd",
+      "notes": "<p>Another good spot. This one offers privacy.</p>",
+      "url": ""
+    },
+    {
+      "id": "",
+      "latitude": 35.956719,
+      "longitude": -111.954500,
+      "name": "Fire Rd 310, in the Grand Canyon",
+      "notes": "<p>Great place. Good signal.</p><p>Maybe there is another way to get here, but I got in by entering the Grand Canyon.</p>",
+      "url": ""
+    },
+    {
+      "id": "",
+      "latitude": 34.845805,
+      "longitude": -111.913779,
+      "name": "Forest 525 Rd, close to Sedona",
+      "notes": "<p>Functional internet. Great place in the desert.</p>",
+      "url": ""
+    },
+    {
+      "id": "",
+      "latitude": 36.123050,
+      "longitude": -114.833183,
+      "name": "Government Wash Campground",
+      "notes": "<p>The pass America The Beautiful got me in... Or am I confusing it with another place.</p>",
+      "url": "https://goo.gl/maps/rnif1zeE6Ajsgcuz7"
+    },
+    {
+      "id": "",
+      "latitude": 44.519138,
+      "longitude": -86.233023,
+      "name": "Inspiration point",
+      "notes": "Ok signal. Toilet stinks. Lots of people coming and going. Very much like belvédère on Mont-Royal in Montreal.",
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 32.619036,
+      "longitude": -95.250408,
+      "name": "Lake Hawkins",
+      "notes": "Don't know if this is a good place for sleeping, but it was great for working in the morning and see sunrise until someone came and put on loud music.",
+      "url": "",
+      "visible": 1
     },
     {
       "id": "",
@@ -16,6 +130,14 @@
       "notes": "",
       "url": "",
       "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 46.343349,
+      "longitude": -86.614537,
+      "name": "NF-13",
+      "notes": "<p>Slow and weak signal.</p><p>Fine for doing little email things, but forget uploading videos.</p><p>Conference with 5 five had audio the whole time, but video was cutting.</p>",
+      "url": ""
     },
     {
       "id": "",
@@ -39,6 +161,48 @@
       "longitude": -105.031435,
       "name": "Penrose Commons OHV",
       "notes": "<p>Secluded even if it's next to the road. Great hotspot 29/7.</p><p>Motocross and ATV going around sometimes, especialy weekends, not so many on weekdays.</p>",
+      "url": ""
+    },
+    {
+      "id": "",
+      "latitude": 46.438615,
+      "longitude": -86.688168,
+      "name": "Public Beach",
+      "notes": "Good signal.<br>Cramped if there are other campers (2.5 spots).<br>Some people walk by on the beach.",
+      "url": ""
+    },
+    {
+      "id": "",
+      "latitude": 35.768260,
+      "longitude": -115.266370,
+      "name": "Ranch Road",
+      "notes": "Good spot in the desert with good signal.",
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 43.004961,
+      "longitude": -83.219776,
+      "name": "Rest area",
+      "notes": "This rest area was quite exceptional, because it is in the forest away from the road.",
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 36.957960,
+      "longitude": -113.803201,
+      "name": "Rd 1005",
+      "notes": "<p>T-mobile signal. No AT&T.</p><p>Nice place full of mountains around, but lots of poop.</p>",
+      "url": ""
+    },
+    {
+      "id": "",
+      "latitude": 46.018628,
+      "longitude": -85.042578,
+      "name": "Shore Rd, Moran",
+      "notes": "<p>Ok signal. Don't know if staying here overnight is fine.</p><p>It was amazing to be here. Easy access to the beach. Great full moon.</p>",
       "url": ""
     },
     {
@@ -76,20 +240,94 @@
       "url": "https://goo.gl/maps/snbKaRrgp1dPWcSj7"
     }
   ],
+  "places": [
+    {
+      "id": "",
+      "latitude": 44.379184654273196,
+      "longitude": -103.72785122491864,
+      "name": "Belle Joli Winery Tasting Room, Deadwood",
+      "notes": "Wine tasting",
+      "url": "https://goo.gl/maps/7kCPA3rWneQJQ7v1A"
+    },
+    {
+      "id": "",
+      "latitude": 44.38026025869933,
+      "longitude": -103.50579604810643,
+      "name": "Belle Joli Winery Sparkling House",
+      "notes": "Wine tasting. Very nice place.",
+      "url": "https://goo.gl/maps/uKGUqFaikEYcNaPJA"
+    },
+    {
+      "id": "",
+      "latitude": 41.61796586250844,
+      "longitude": -90.78153193271363,
+      "name": "Iowa 80 - The World's Largest Truckstop",
+      "notes": "",
+      "url": "https://goo.gl/maps/RBLPtAfb7wR5R1FF7"
+    },
+    {
+      "id": "",
+      "latitude": 45.952903981987895,
+      "longitude": -86.24748905881941,
+      "name": "Mackinaw Trail Winery & Brewery Manistique On the Harbor",
+      "notes": "",
+      "url": "https://goo.gl/maps/5WxyzQmuVCgj1KdN9"
+    },
+    {
+      "id": "",
+      "latitude": 45.32804282553804,
+      "longitude": -84.96165487037263,
+      "name": "Mackinaw Trail Winery & Brewery - Petoskey",
+      "notes": "Big place. Big patio.",
+      "url": "https://goo.gl/maps/UsSG1RABYZMC2C2MA"
+    },
+    {
+      "id": "",
+      "latitude": 29.667458621904665,
+      "longitude": -81.21238388149942,
+      "name": "Ragga Surf Cafe",
+      "notes": "Good food by the beach. Good spot for working.",
+      "url": "https://goo.gl/maps/P3PehTd3qskhDBDTA"
+    },
+    {
+      "id": "",
+      "latitude": 44.02151774586276,
+      "longitude": -77.90631536016166,
+      "name": "The Big Apple",
+      "notes": "One last stop before reaching Quebec.",
+      "url": "https://goo.gl/maps/3eGuFpZv3foyWMeP6"
+    },
+    {
+      "id": "",
+      "latitude": 43.992910523931855,
+      "longitude": -102.24155297927129,
+      "name": "Wall Drug Store",
+      "notes": "5-cent coffee. A very strange place. Must visit.",
+      "url": "https://goo.gl/maps/kSfK2aQZQ5GCc1RE7"
+    }
+  ],
   "starbucks": [
     {
       "id": "",
       "latitude": 38.85755951306051,
       "longitude": -104.72200835960561,
-      "name": "Starbucks (Colorado Springs)",
+      "name": "Starbucks, Colorado Springs",
       "notes": "This is a nice one with two area away from the main room.",
+      "url": ""
+    },
+    {
+      "id": "",
+      "latitude": 44.380005069583014,
+      "longitude": -103.72480832330362,
+      "name": "Starbucks, Deadwood",
+      "notes": "Nice Starbucks that looks like a saloon.",
       "url": ""
     },
     {
       "id": "",
       "latitude": 38.973268454455706,
       "longitude": -105.03998309979006,
-      "name": "Starbucks (Woodland Park)",
+      "name": "Starbucks, Woodland Park",
       "notes": "",
       "url": ""
     }

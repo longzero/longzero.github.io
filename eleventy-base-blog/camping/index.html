@@ -13,19 +13,15 @@ eleventyNavigation:
   .leaflet-control-attribution {font-size: 1em; transform: scale(.7); transform-origin: right bottom; transition: .3s; max-width: 320px; width: 100%;}
   .leaflet-control-attribution:hover {transform: scale(1);}
 
-  /* Must use this, otherwise markers get wrong position when zooming. */
-  .leaflet-marker-icon {position: relative;}
-  .leaflet-marker-icon > svg {position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);}
-  /* END Must use this, otherwise markers get wrong position when zooming.*/
-
   .leaflet-popup-content {margin: 0; padding: 1em 1em;}
   .leaflet-popup-content p {margin: 0 0 1em;}
   .leaflet-popup-content p:last-child {margin: 0;}
   .leaflet-popup-content-wrapper {border-radius: 5px; padding: 0;}
 
-  .location-tooltip-content {font-size: .9rem;}
+  .location-tooltip-content {--tooltip-content-spacing: .5em; font-size: .9rem;}
+  .location-tooltip-link {display: block; margin-top: var(--tooltip-content-spacing); text-overflow: ellipsis; max-width: 100%; overflow: hidden;}
   .location-tooltip-name {font-size: 1rem; font-weight: 700;}
-  .location-tooltip-name:not(:only-child) {margin-bottom: 0.5em;}
+  .location-tooltip-name:not(:only-child) {margin-bottom: var(--tooltip-content-spacing);}
 
   .map-wrapper, .tmpl-post {height: calc(100vh - 40px);}
   .map-wrapper {width: 100%;}
@@ -38,22 +34,39 @@ eleventyNavigation:
 
 <script>
 
-  let svgIcon = L.divIcon({
-    // Green: #3AAD64
-    html: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 32" width="24" height="32" fill="none"><g clip-path="url(#a-marker)"><path fill="#663399" d="M10.767 31.354C1.686 18.19 0 16.838 0 12 0 5.373 5.373 0 12 0s12 5.373 12 12c0 4.838-1.686 6.19-10.767 19.354a1.5 1.5 0 0 1-2.466 0ZM12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10Z"/></g><defs><clipPath id="a-marker"><path fill="#fff" d="M0 0h24v32H0z"/></clipPath></defs></svg>`,
+
+  // MAP MARKER ICONS
+  // You have tried using SVG, but there is an issue with zooming:
+  // When zooming, the marker shifts.
+  const svgDefault = L.icon({
+    iconUrl: '/assets/images/map-icons/marker-icon-campspot.svg',
     className: "marker-icon",
-    iconSize: [1,1], // Must use this, otherwise markers get wrong position when zooming.
-    iconAnchor: [0,0] // Must use this, otherwise markers get wrong position when zooming.
+    iconSize: [24,32],
+    iconAnchor: [12,31]
   });
 
-  const svgWater = L.divIcon({
+  let svgIcon = L.icon({
     // Green: #3AAD64
-    html: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="32" fill="none"><path fill="#3BA4DF" d="M13.233.646C22.314 13.81 24 15.162 24 20c0 6.627-5.373 12-12 12S0 26.627 0 20C0 15.162 1.686 13.81 10.767.646a1.5 1.5 0 0 1 2.466 0Z"/></svg>`,
-    className: "marker-icon marker-icon--water",
-    iconSize: [1,1], // Must use this, otherwise markers get wrong position when zooming.
-    iconAnchor: [0,0] // Must use this, otherwise markers get wrong position when zooming.
+    iconUrl: '/assets/images/map-icons/marker-icon-campspot.svg',
+    className: "marker-icon",
+    iconSize: [24,32],
+    iconAnchor: [12,31]
   });
 
+  const svgPlace = L.icon({
+    iconUrl: '/assets/images/map-icons/marker-icon-place.svg',
+    className: "marker-icon marker-icon--place",
+    iconSize: [24,32],
+    iconAnchor: [12,31]
+  });
+
+  const svgWater = L.icon({
+    iconUrl: '/assets/images/map-icons/marker-icon-water.svg',
+    className: "marker-icon marker-icon--water",
+    iconSize: [24,32],
+    iconAnchor: [12,31]
+  });
+  // END MAP MARKER ICONS
 
 
   function initMap(locations) {
@@ -86,13 +99,23 @@ eleventyNavigation:
     //   console.log("It's an object")
     // }
     for (let key in locations) {
-      if (key == "water") {
-        svgIcon = svgWater
+      // Change marker icon depending on type of location.
+      switch(key) {
+        case "places":
+          svgIcon = svgPlace
+          break
+        case "water":
+          svgIcon = svgWater
+          break
+        default:
+          svgIcon = svgDefault
       }
+
+      // Loop through locations and add them to the map.
       for (let key2 in locations[key]) {
         let location = locations[key][key2]
         if (location.visible !== 0) {
-          console.log(location.visible)
+          // console.log(location.visible)
           let locationName = "",
               locationNotes = "",
               locationUrl = ""
