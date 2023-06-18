@@ -20,7 +20,8 @@ eleventyNavigation:
 
   .location-tooltip-action {display: inline-block; font-size: .85em; margin-top: var(--tooltip-content-spacing); text-overflow: ellipsis; white-space: nowrap; max-width: 100%; overflow: hidden;}
   .location-tooltip-content {--tooltip-content-spacing: 1em; font-size: .9rem;}
-  .location-tooltip-name {font-size: 1rem; font-weight: 700;}
+  .location-tooltip-name, .leaflet-container .location-tooltip-name {color: inherit; display: block; font-size: 1rem; font-weight: 700; margin-bottom: var(--tooltip-content-spacing); text-decoration: none; transition: .3s;}
+  .location-tooltip-name:hover, .leaflet-container .location-tooltip-name:hover {color: var(--color-1);}
   .location-tooltip-name:not(:only-child) {margin-bottom: var(--tooltip-content-spacing);}
 
   .map-wrapper, .tmpl-post {height: calc(100vh - 40px);}
@@ -114,18 +115,18 @@ eleventyNavigation:
       // Loop through locations and add them to the map.
       for (let key2 in locations[key]) {
         let location = locations[key][key2]
-        if (location.visible !== 0) {
+        if (location.visible !== 0 && location.name.length && location.latitude && location.longitude) {
           // console.log(location.visible)
           let locationName = "",
               locationNotes = "",
               locationUrl = ""
           let googleMapsUrl = "https://www.google.com/maps/search/?api=1&query=" + location.latitude + "%2C" + location.longitude
-          googleMapsUrl = '<a class="location-tooltip-action" href="' + googleMapsUrl + '" target="_blank">View on Google Maps</a>'
+          locationName = '<a class="location-tooltip-name" href="' + googleMapsUrl + '" target="_blank">' + location.name + '</a>'
           // https://www.google.com/maps/search/?api=1&query=43.550986%2C-120.002565
-          if (location.name.length) locationName = '<div class="location-tooltip-name">' + location.name + '</div>'
+          // if (location.name.length) locationName = '<div class="location-tooltip-name">' + location.name + '</div>'
           if (location.notes.length) locationNotes = '<div class="location-tooltip-notes">' + location.notes + '</div>'
           if (location.url.length) locationUrl = '<a class="location-tooltip-action" target="_blank" href="' + location.url + '">' + location.url + '</a>'
-          let locationContent = '<div class="location-tooltip-content">' + locationName + locationNotes + locationUrl + googleMapsUrl + '</div>'
+          let locationContent = '<div class="location-tooltip-content">' + locationName + locationNotes + locationUrl + '</div>'
           marker = new L.marker([location.latitude, location.longitude], {icon: svgIcon})
             .bindPopup(locationContent, { offset: L.point(0,-14) })
             .addTo(map);
