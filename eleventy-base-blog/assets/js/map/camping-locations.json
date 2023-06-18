@@ -2,6 +2,41 @@
   "campspots": [
     {
       "id": "",
+      "latitude": 34.997940,
+      "longitude": -105.784630,
+      "notes": "<p>Awesome deserted place. Great for working and chilling. Come from the west, because the road from the east can leave you stuck.</p>",
+      "url": ""
+    },
+    {
+      "id": "",
+      "latitude": 44.667320,
+      "longitude": -111.307432,
+      "notes": "<p>Multiple spots. Signal 4.32/0.08<br>Bear country. <br>Forest with trees for hammock.</p>",
+      "url": ""
+    },
+    {
+      "id": "",
+      "latitude": 44.318726,
+      "longitude": -106.870719,
+      "notes": "<p>Big large area with signal here. Signal in other spots can be unreliable.</p>",
+      "url": ""
+    },
+    {
+      "id": "",
+      "latitude": 44.454300,
+      "longitude": -104.425000,
+      "notes": "<p>Decent signal<br>6 reviews 4.7. Multiple spots.</p>",
+      "url": "https:/freeroam.app/campground/camp-crusade"
+    },
+    {
+      "id": "",
+      "latitude": 38.899371,
+      "longitude": -120.368183,
+      "notes": "<p>Good signal here. It was difficult to find a place with signal in the region.</p>",
+      "url": ""
+    },
+    {
+      "id": "",
       "latitude": 46.461826,
       "longitude": -86.930158,
       "name": "28",
@@ -10,10 +45,10 @@
     },
     {
       "id": "",
-      "latitude": 34.997940,
-      "longitude": -105.784630,
-      "name": "34.997940, -105.784630",
-      "notes": "<p>Awesome deserted place. Great for working and chilling. Come from the west, because the road from the east can leave you stuck.</p>",
+      "latitude": 36.609441,
+      "longitude": -118.117439,
+      "name": "Alabama Hills",
+      "notes": "<p>This specific spot: best spot I found with a good hotspot signal.</p><p>ATT 26/3<br>T-Mobile 7/0.5</p><p>Beware: lots of places marked for day use only.</p>",
       "url": ""
     },
     {
@@ -50,6 +85,14 @@
     },
     {
       "id": "",
+      "latitude": 29.890187788327218,
+      "longitude": -90.162529358335,
+      "name": "Bayou Segnette State Park",
+      "notes": "Paid to stay at this campground close to New Orleans for a few days. Saw an armadillo.",
+      "url": "https://goo.gl/maps/AubtmXqaAcgzDioY9"
+    },
+    {
+      "id": "",
       "latitude": 36.978053,
       "longitude": -113.651836,
       "name": "Black Rock",
@@ -78,6 +121,40 @@
       "longitude": -113.949963,
       "name": "Bonneville Salt Flats",
       "notes": "<p>Good signal.</p><p>Beautiful view of the salt flats. Lots of wind in the morning, evening and night.</p><p>Beautiful sunrise and sunset.</p>",
+      "url": ""
+    },
+    {
+      "id": "",
+      "ioverlander": "https://www.ioverlander.com/places/175627-burtons-shore-beach",
+      "latitude": 37.650606311134226,
+      "longitude": -75.65098243908567,
+      "name": "Burtons Shore Beach",
+      "notes": "<p>Beautiful sunrise.</p><p>Not a lot of space, but I was lucky to be the only one there. I would not have stayed if there was already someone here.</p>",
+      "url": "https://goo.gl/maps/tWQT5Whayz1nhSsz5"
+    },
+    {
+      "id": "",
+      "latitude": 39.125881,
+      "longitude": -119.785580,
+      "name": "Carson City",
+      "notes": "<p>Presence of gun shells and good hotspot signal. Nice overview of the city. Nice to stay for one night only.</p>",
+      "url": ""
+    },
+    {
+      "id": "",
+      "ioverlander": "https://www.ioverlander.com/places/161593-curtis-merritt-harbor",
+      "latitude": 37.90172753919761,
+      "longitude": -75.40718700456394,
+      "name": "Chincoteague Island Waterman's Memorial",
+      "notes": "<p>Marina parking lot with beautiful sunset.</p>",
+      "url": "https://goo.gl/maps/1sEGdfSpLnx7hNFQ7"
+    },
+    {
+      "id": "",
+      "latitude": 30.17747066688319,
+      "longitude": -82.68651593748974,
+      "name": "Cracker Barrel Old Country Store",
+      "notes": "<p>Parked right under the tree for one night.</p>",
       "url": ""
     },
     {
@@ -122,6 +199,14 @@
     },
     {
       "id": "",
+      "ioverlander": "https://ioverlander.com/places/153584-escelante-road-scenic-overlook",
+      "latitude": 36.05690207018572,
+      "longitude": -76.60883129183644,
+      "name": "Edenton",
+      "notes": "<p>Nice little town. There is a parking lot and street parking. Beautiful sunset.</p>"
+    },
+    {
+      "id": "",
       "latitude": 35.956719,
       "longitude": -111.954500,
       "name": "Fire Rd 310, in the Grand Canyon",
@@ -135,6 +220,22 @@
       "name": "Forest 525 Rd, close to Sedona",
       "notes": "<p>Functional internet. Great place in the desert.</p>",
       "url": ""
+    },
+    {
+      "id": "",
+      "latitude": 43.8551881005051,
+      "longitude": -70.10467841316408,
+      "name": "Freeport",
+      "notes": "<p>Section of parking lot specifically for vans, campers, etc. Good place for staying in town for a while.</p>",
+      "url": ""
+    },
+    {
+      "id": "",
+      "latitude": 48.520956330933174,
+      "longitude": -64.21707390227618,
+      "name": "Geopark - Pavilion Tektonik (parking)",
+      "notes": "<p>Seulement hors saison, only off season (October to May)</p><p>During season, can't park here and must pay for the actual camping just next to the parking lot.</p>",
+      "url": "https://goo.gl/maps/urBPv1xFcLuKg9dt7"
     },
     {
       "id": "",
@@ -154,10 +255,55 @@
     },
     {
       "id": "",
+      "latitude": 47.180209138357434,
+      "longitude": -70.30350304233876,
+      "name": "Halte des piliers",
+      "notes": "Rest stop, good for one night.",
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 37.660505,
+      "longitude": -118.801781,
+      "name": "Hilltop Hot Springs",
+      "notes": "Good spot, good signal.",
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 37.663194,
+      "longitude": -118.800905,
+      "name": "Hilltop Hot Springs",
+      "notes": "Lower spot but better view of plains and cows and oxen. Good signal.",
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 36.781080,
+      "longitude": -118.226733,
+      "name": "Independence",
+      "notes": "Great hotspot signal.",
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
       "latitude": 44.519138,
       "longitude": -86.233023,
       "name": "Inspiration point",
       "notes": "Ok signal. Toilet stinks. Lots of people coming and going. Very much like belvédère on Mont-Royal in Montreal.",
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 37.802834,
+      "longitude": -119.062947,
+      "name": "June Lake",
+      "notes": "<p>Awesome 360 view. Great signal.</p><p>Only three spots at the top and it is sandy and steep. A big SUV was stuck and had to be towed while I was there.</p>",
       "url": "",
       "visible": 1
     },
@@ -180,6 +326,23 @@
     },
     {
       "id": "",
+      "latitude": 35.97975565193648,
+      "longitude": -112.12845456493443,
+      "name": "Long Jim Loop Camping",
+      "notes": "Many spots just before entering the Grand Canyon.",
+      "url": "https://goo.gl/maps/1K73BihqML5niyFU9"
+    },
+    {
+      "id": "",
+      "latitude": 25.77391544199751,
+      "longitude": -80.1325226806451,
+      "name": "Miami",
+      "notes": "Paid for this parking, so I could go out and just come back and sleep here after a night out.",
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
       "latitude": 45.506381,
       "longitude": -73.588823,
       "name": "Montreal",
@@ -197,11 +360,25 @@
     },
     {
       "id": "",
+      "latitude": 32.617620,
+      "longitude": -80.781110,
+      "name": "Old Sheldon Church Ruins",
+      "notes": "<p>Parking for for the church in the middle of the forest. Very nice to sleep and work. Signal, not the best.</p>"
+    },
+    {
+      "id": "",
       "latitude": 38.766600,
       "longitude": -95.673990,
       "name": "Osage State Fishing Lake",
       "notes": "Very nice but very bad hotspot. Everything takes forever to load.<br> Two toilets.",
       "url": ""
+    },
+    {
+      "id": "",
+      "latitude": 42.88949258638976,
+      "longitude": -70.81856803108542,
+      "name": "Parking lot (Seabrook Beach)",
+      "notes": "<p>Beautiful view and beautiful sunset. Stayed two nights.</p>"
     },
     {
       "id": "",
@@ -217,6 +394,14 @@
       "longitude": -105.031435,
       "name": "Penrose Commons OHV",
       "notes": "<p>Secluded even if it's next to the road. Great hotspot 29/7.</p><p>Motocross and ATV going around sometimes, especialy weekends, not so many on weekdays.</p>",
+      "url": ""
+    },
+    {
+      "id": "",
+      "latitude": 48.1016820333814,
+      "longitude": -65.68658419040229,
+      "name": "Plage de la rivière",
+      "notes": "<p>Very nice and big beach.</p><p>Many people come for sunset, but nights and mornings are quiet.</p>",
       "url": ""
     },
     {
@@ -247,6 +432,15 @@
     },
     {
       "id": "",
+      "latitude": 48.11275120883015,
+      "longitude": -65.02513412611124,
+      "name": "Rest area - Rte de Marcil",
+      "notes": "Worked all day. Beautiful sunrise.",
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
       "latitude": 36.957960,
       "longitude": -113.803201,
       "name": "Rd 1005",
@@ -255,11 +449,55 @@
     },
     {
       "id": "",
+      "latitude": 33.692420,
+      "longitude": -78.992860,
+      "name": "Rosewood Landing (close to Myrtle Beach)",
+      "notes": "<p>Mostly quiet just to sleep. Some cars came.</p>"
+    },
+    {
+      "id": "",
+      "latitude": 43.49610369573876,
+      "longitude": -70.44985955953562,
+      "name": "Saco",
+      "notes": "Blended in the parking lof of the train station for one night only."
+    },
+    {
+      "id": "",
+      "latitude": 37.430657,
+      "longitude": -118.423185,
+      "name": "Sad Boulders",
+      "notes": "Good signal, not many people."
+    },
+    {
+      "id": "",
+      "latitude": 36.302910,
+      "longitude": -111.994816,
+      "name": "Saddle Mountain Overlook",
+      "notes": "Good hotspot signal. Not many spots. Awesome view if you are lucky enough to get this spot.",
+      "url": "https://goo.gl/maps/nRWK7U7c4kPSFwSx8"
+    },
+    {
+      "id": "",
       "latitude": 46.018628,
       "longitude": -85.042578,
       "name": "Shore Rd, Moran",
       "notes": "<p>Ok signal. Don't know if staying here overnight is fine.</p><p>It was amazing to be here. Easy access to the beach. Great full moon.</p>",
       "url": ""
+    },
+    {
+      "id": "",
+      "latitude": 38.604756,
+      "longitude": -75.062346,
+      "name": "South Inlet, Delaware Seashore State Park (paid parking)",
+      "notes": "<p>Paid parking. Stayed for only one night. Ok signal to work. Took a free shower and had a meal and a drink in the restaurant.</p>",
+      "url": "https://goo.gl/maps/nguUTU8oGPxDyWdJ9"
+    },
+    {
+      "id": "",
+      "latitude": 39.544779986223205,
+      "longitude": -75.71950415652097,
+      "name": "South Lums Trailhead",
+      "notes": "<p>Stayed for only one night. Ok signal to work. Toilets stink. There was one other camper, a VW.</p>"
     },
     {
       "id": "",
@@ -275,6 +513,15 @@
       "longitude": -117.663603,
       "name": "Water Canyon Recreation Area - Winnemucca",
       "notes": "<p>Good spot. Many spots but come early.</p><p>Weak signal, ok for light work.<br>Last spots deep inside have no signal.</p><p>Lots of flies on sunny days.</p><p>When cars pass by, dirt flies.<br>Fast drivers are assholes.</p>",
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 40.926582,
+      "longitude": -117.666379,
+      "name": "Water Canyon Recreation Area - Winnemucca",
+      "notes": "<p>It's all right. It's kind of public, but easy access to the natural stream of water. Close to a pit toilet.</p><p>Signal is a big issue after sunset. Before sunset, it was ok, 10/1. After, it's .1/.1</p><p>20230615 0338 hotspot internet is 47/1.</p>",
       "url": "",
       "visible": 1
     },
