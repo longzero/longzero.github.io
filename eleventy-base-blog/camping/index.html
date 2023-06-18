@@ -115,18 +115,30 @@ eleventyNavigation:
       // Loop through locations and add them to the map.
       for (let key2 in locations[key]) {
         let location = locations[key][key2]
-        if (location.visible !== 0 && location.name.length && location.latitude && location.longitude) {
-          // console.log(location.visible)
+
+        // Check if location should be on the map and obviously, make sure there are coordinates.
+        if (location.visible !== 0 && location.latitude && location.longitude) {
+
           let locationName = "",
               locationNotes = "",
               locationUrl = ""
+
+          // Create URL to Google Maps from coordinates.
           let googleMapsUrl = "https://www.google.com/maps/search/?api=1&query=" + location.latitude + "%2C" + location.longitude
-          locationName = '<a class="location-tooltip-name" href="' + googleMapsUrl + '" target="_blank">' + location.name + '</a>'
-          // https://www.google.com/maps/search/?api=1&query=43.550986%2C-120.002565
-          // if (location.name.length) locationName = '<div class="location-tooltip-name">' + location.name + '</div>'
-          if (location.notes.length) locationNotes = '<div class="location-tooltip-notes">' + location.notes + '</div>'
-          if (location.url.length) locationUrl = '<a class="location-tooltip-action" target="_blank" href="' + location.url + '">' + location.url + '</a>'
+
+          // If there is no name, create it from coordinates.
+          if (location.name == undefined) locationName = location.latitude + ", " + location.longitude
+          else locationName = location.name
+          locationName = '<a class="location-tooltip-name" href="' + googleMapsUrl + '" target="_blank">' + locationName + '</a>'
+
+          // Check other content
+          if (location.notes !== undefined && location.notes !== "") locationNotes = '<div class="location-tooltip-notes">' + location.notes + '</div>'
+          if (location.url !== undefined && location.url !== "") locationUrl = '<a class="location-tooltip-action" target="_blank" href="' + location.url + '">' + location.url + '</a>'
+
+          // Build the content of tooltips.
           let locationContent = '<div class="location-tooltip-content">' + locationName + locationNotes + locationUrl + '</div>'
+
+          // Place markers on the map.
           marker = new L.marker([location.latitude, location.longitude], {icon: svgIcon})
             .bindPopup(locationContent, { offset: L.point(0,-14) })
             .addTo(map);
