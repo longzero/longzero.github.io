@@ -27,10 +27,7 @@
       ga('send', 'pageview');
     </script>
 
-    {% set og_image %}{{ hostname }}/assets/images/og.jpg{% endset %}
-    {% if image %}
-      {% set og_image %}{{ hostname }}/assets/images/articles/{{ image }}{% endset %}
-    {% endif %}
+    {% set og_image %}{{ hostname }}/assets/images/og-map.jpg{% endset %}
     {% set url %}{{ hostname }}/{% endset %}
     {% if permalink %}
       {% set url %}{{ hostname }}{{ permalink }}{% endset %}
