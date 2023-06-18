@@ -1,6 +1,9 @@
 {
   "campspots": [
     {
+      "markerPath": "/assets/images/map-icons/marker-icon-campspot.svg"
+    },
+    {
       "id": "",
       "latitude": 34.997940,
       "longitude": -105.784630,
@@ -554,6 +557,9 @@
   ],
   "places": [
     {
+      "markerPath": "/assets/images/map-icons/marker-icon-place.svg"
+    },
+    {
       "id": "",
       "latitude": 44.379184654273196,
       "longitude": -103.72785122491864,
@@ -620,6 +626,9 @@
   ],
   "starbucks": [
     {
+      "markerPath": "/assets/images/map-icons/marker-icon-place.svg"
+    },
+    {
       "id": "",
       "latitude": 38.85755951306051,
       "longitude": -104.72200835960561,
@@ -645,6 +654,9 @@
     }
   ],
   "water": [
+    {
+      "markerPath": "/assets/images/map-icons/marker-icon-water.svg"
+    },
     {
       "id": "",
       "latitude": 38.873800,

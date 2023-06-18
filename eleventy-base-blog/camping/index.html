@@ -9,6 +9,7 @@ eleventyNavigation:
 ---
 
 <style>
+  body {--header-height: 40px;}
   .leaflet-container {font-size: 1rem;}
   .leaflet-control-attribution {font-size: 1em; transform: scale(.7); transform-origin: right bottom; transition: .3s; max-width: 320px; width: 100%;}
   .leaflet-control-attribution:hover {transform: scale(1);}
@@ -24,23 +25,52 @@ eleventyNavigation:
   .location-tooltip-name:hover, .leaflet-container .location-tooltip-name:hover {color: var(--color-1);}
   .location-tooltip-name:not(:only-child) {margin-bottom: var(--tooltip-content-spacing);}
 
-  .map-wrapper, .tmpl-post {height: calc(100vh - 40px);}
+  .map-legend {background-color: rgba(255,255,255,.8); font-size: .85rem; padding: 20px; position: absolute; top: var(--header-height); right: 0;
+    z-index: 400; /* Don't know why it was to be over 399 to be visible above the map */
+  }
+  .map-legend ul {list-style: none; margin-top: 1em; padding-left: 0;}
+  .map-legend li {margin-top: .5em; white-space: nowrap;}
+  .map-legend-symbol, .map-legend-value {display: inline-block; vertical-align: top;}
+  .map-legend-symbol {margin-right: 10px; width: 16px;}
+  .map-wrapper, .tmpl-post {height: calc(100vh - var(--header-height));}
   .map-wrapper {width: 100%;}
   .site-header {margin-bottom: 0;}
 </style>
 
 
 <div class="map-wrapper" id="map"></div>
+<div class="map-legend" id="map-legend">
+  <h4 class="map-legend-heading">Legend</h4>
+  <ul>
+    <li>
+      <div class="map-legend-symbol"><img src="/assets/images/map-icons/marker-icon-campspot.svg" alt=""></div>
+      <div class="map-legend-value">Campspot</div>
+    </li>
+    <li>
+      <div class="map-legend-symbol"><img src="/assets/images/map-icons/marker-icon-place.svg" alt=""></div>
+      <div class="map-legend-value">Random place</div>
+    </li>
+    <li>
+      <div class="map-legend-symbol"><img src="/assets/images/map-icons/marker-icon-water.svg" alt=""></div>
+      <div class="map-legend-value">Place to get water</div>
+    </li>
+  </ul>
+</div>
 
 
 <script>
 
 
   // MAP MARKER ICONS
+  const markerPathCampspot = '/assets/images/map-icons/marker-icon-campspot.svg'
+  const markerPathPlace = '/assets/images/map-icons/marker-icon-place.svg'
+  const markerPathWater = '/assets/images/map-icons/marker-icon-water.svg'
+
+
   // You have tried using SVG, but there is an issue with zooming:
   // When zooming, the marker shifts.
   const svgDefault = L.icon({
-    iconUrl: '/assets/images/map-icons/marker-icon-campspot.svg',
+    iconUrl: markerPathCampspot,
     className: "marker-icon",
     iconSize: [24,32],
     iconAnchor: [12,31]
@@ -48,21 +78,21 @@ eleventyNavigation:
 
   let svgIcon = L.icon({
     // Green: #3AAD64
-    iconUrl: '/assets/images/map-icons/marker-icon-campspot.svg',
+    iconUrl: markerPathCampspot,
     className: "marker-icon",
     iconSize: [24,32],
     iconAnchor: [12,31]
   });
 
   const svgPlace = L.icon({
-    iconUrl: '/assets/images/map-icons/marker-icon-place.svg',
+    iconUrl: markerPathPlace,
     className: "marker-icon marker-icon--place",
     iconSize: [24,32],
     iconAnchor: [12,31]
   });
 
   const svgWater = L.icon({
-    iconUrl: '/assets/images/map-icons/marker-icon-water.svg',
+    iconUrl: markerPathWater,
     className: "marker-icon marker-icon--water",
     iconSize: [24,32],
     iconAnchor: [12,31]
