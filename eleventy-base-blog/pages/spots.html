@@ -48,7 +48,7 @@ eleventyNavigation:
   <ul>
     <li>
       <div class="map-legend-symbol"><img src="/assets/images/map-icons/marker-icon-campspot.svg" alt=""></div>
-      <div class="map-legend-value">Campspot</div>
+      <div class="map-legend-value">Spots</div>
     </li>
     <li>
       <div class="map-legend-symbol"><img src="/assets/images/map-icons/marker-icon-place.svg" alt=""></div>
@@ -195,9 +195,10 @@ eleventyNavigation:
     // basemaps.Topography.addTo(map);
     basemaps.Weather.addTo(map);
 
-    let markers = L.markerClusterGroup({
-      // options
-    });
+    // Uncomment this code if using clusters
+    // let markers = L.markerClusterGroup({
+    //   // options
+    // });
 
     // console.log(locations.campspots.length)
     // if (typeof locations === 'object' && locations !== null) {
@@ -245,10 +246,11 @@ eleventyNavigation:
           // Place markers on the map.
           marker = new L.marker([location.latitude, location.longitude], {icon: svgIcon})
             .bindPopup(locationContent, { offset: L.point(0,-14) })
-            // .addTo(map);
+            // Comment this line if using clusters
+            .addTo(map);
 
-          // Cluster plugin
-          markers.addLayer(marker);
+          // Uncomment this line if using clusters
+          // markers.addLayer(marker);
 
         } // if
       } // for (individual places)
