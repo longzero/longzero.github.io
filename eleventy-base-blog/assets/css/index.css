@@ -535,7 +535,6 @@ video {
 }
 .rte h1 {
   line-height: 1.1;
-  margin-bottom: 5px !important;
 }
 .rte h2 {
   border-color: var(--color-1);
