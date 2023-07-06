@@ -24,16 +24,17 @@ eleventyNavigation:
   .location-tooltip-content {--tooltip-content-spacing: 1em; font-size: .9rem;}
   .location-tooltip-name, .leaflet-container .location-tooltip-name {color: inherit; display: block; font-size: 1rem; font-weight: 700; margin-bottom: var(--tooltip-content-spacing); text-decoration: none; transition: .3s;}
   .location-tooltip-name:hover, .leaflet-container .location-tooltip-name:hover {color: var(--color-1);}
-  .location-tooltip-name:not(:only-child) {margin-bottom: var(--tooltip-content-spacing);}
+  .location-tooltip-name:only-child {margin-bottom: 0}
 
   .map-legend {font-size: .85rem; position: absolute; top: var(--header-height); left: 60px;
     z-index: 400; /* Don't know why it was to be over 399 to be visible above the map */
+    max-width: calc(100% - 2 * 60px - 10px);
   }
   .map-legend ul, .map-legend-heading {background-color: rgba(255,255,255,.8); padding: 20px;}
   .map-legend ul {list-style: none; padding-top: 0; padding-bottom: .5em; transition: .3s;}
-  .map-legend li {margin-bottom: .5em; white-space: nowrap;}
+  .map-legend li {margin-bottom: 1em; white-space: nowrap;}
   .map-legend-heading {cursor: pointer;}
-  .map-legend-symbol, .map-legend-value {display: inline-block; text-transform: capitalize; vertical-align: top;}
+  .map-legend-symbol, .map-legend-value {display: inline-block; vertical-align: top; white-space: normal;}
   .map-legend-symbol {margin-right: 10px; width: 16px;}
   .map-legend.minimize ul {opacity: 0; pointer-events: none; transform: translateY(-100%);}
   .map-wrapper, .tmpl-post {height: calc(100vh - var(--header-height));}
@@ -198,6 +199,7 @@ eleventyNavigation:
     // }
 
     let legendHtml = '' // Create each item of legend, in HTML
+    let locationTypeHuman = '' // Used for labelling the legend, so instead of just “Water”, it will be “Place to get water”
     for (let key in locations) {
 
       // Beginning legend item.
@@ -208,18 +210,22 @@ eleventyNavigation:
       switch(key) {
         case "places":
           legendHtml += markerPathPlace
+          locationTypeHuman = 'Random place'
           svgIcon = svgPlace
           break
         case "spots":
           legendHtml += markerPathCampspot
+          locationTypeHuman = 'Chilling, sleeping and/or working spot'
           svgIcon = svgDefault
           break
         case "starbucks":
           legendHtml += markerPathPlace
+          locationTypeHuman = 'Starbucks'
           svgIcon = svgPlace
           break
         case "water":
           legendHtml += markerPathWater
+          locationTypeHuman = 'Place to get water'
           svgIcon = svgWater
           break
         default:
@@ -228,7 +234,7 @@ eleventyNavigation:
       } // switch
 
       // End legend item with the label.
-      legendHtml += '" alt=""></div><div class="map-legend-value">'+ key +' ('+ locations[key].length +')</div></li>'
+      legendHtml += '" alt=""></div><div class="map-legend-value">'+ locationTypeHuman +' ('+ locations[key].length +')</div></li>'
 
       // Loop through locations and add them to the map.
       for (let key2 in locations[key]) {
