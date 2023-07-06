@@ -1,0 +1,22 @@
+<header class="site-header">
+  <div class="container container--fluid">
+    <a href="{{ '/' | url }}" aria-current="page" class="home-link router-link-exact-active router-link-active" title="{{ metadata.title }}">
+      <span class="site-name">
+        <strong>long</strong>
+        <span class="site-name-switch">
+          <span class="site-name-main">zero</span>
+          <span class="site-name-alternate">nguyen</span>
+        </span>
+      </span>
+    </a>
+    <div class="header-links">
+      {#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
+      {# <ul class="nav">
+        {%- for entry in collections.all | eleventyNavigation %}
+          <li class="nav-item{% if entry.url == page.url %} nav-item-active{% endif %}"><a href="{{ entry.url | url }}">{{ entry.title }}</a></li>
+        {%- endfor %}
+      </ul> #}
+      {% include 'partials/social-links.njk' %}
+    </div>
+  </div>
+</header>
