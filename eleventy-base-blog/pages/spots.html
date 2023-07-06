@@ -33,7 +33,7 @@ eleventyNavigation:
   .map-legend ul {list-style: none; padding-top: 0; padding-bottom: .5em; transition: .3s;}
   .map-legend li {margin-bottom: .5em; white-space: nowrap;}
   .map-legend-heading {cursor: pointer;}
-  .map-legend-symbol, .map-legend-value {display: inline-block; vertical-align: top;}
+  .map-legend-symbol, .map-legend-value {display: inline-block; text-transform: capitalize; vertical-align: top;}
   .map-legend-symbol {margin-right: 10px; width: 16px;}
   .map-legend.minimize ul {opacity: 0; pointer-events: none; transform: translateY(-100%);}
   .map-wrapper, .tmpl-post {height: calc(100vh - var(--header-height));}
@@ -45,18 +45,10 @@ eleventyNavigation:
 <div class="map-wrapper" id="map"></div>
 <div class="map-legend" id="map-legend">
   <h4 class="map-legend-heading js-legend-toggle">Legend</h4>
-  <ul>
+  <ul id="map-legend-items">
     <li>
       <div class="map-legend-symbol"><img src="/assets/images/map-icons/marker-icon-campspot.svg" alt=""></div>
       <div class="map-legend-value">Spots</div>
-    </li>
-    <li>
-      <div class="map-legend-symbol"><img src="/assets/images/map-icons/marker-icon-place.svg" alt=""></div>
-      <div class="map-legend-value">Random place</div>
-    </li>
-    <li>
-      <div class="map-legend-symbol"><img src="/assets/images/map-icons/marker-icon-water.svg" alt=""></div>
-      <div class="map-legend-value">Place to get water</div>
     </li>
   </ul>
 </div>
@@ -204,18 +196,39 @@ eleventyNavigation:
     // if (typeof locations === 'object' && locations !== null) {
     //   console.log("It's an object")
     // }
+
+    let legendHtml = '' // Create each item of legend, in HTML
     for (let key in locations) {
+
+      // Beginning legend item.
+      legendHtml += '<li><div class="map-legend-symbol"><img src="'
+
       // Change marker icon depending on type of location.
+      // Set the marker path for the legend item icon.
       switch(key) {
         case "places":
+          legendHtml += markerPathPlace
+          svgIcon = svgPlace
+          break
+        case "spots":
+          legendHtml += markerPathCampspot
+          svgIcon = svgDefault
+          break
+        case "starbucks":
+          legendHtml += markerPathPlace
           svgIcon = svgPlace
           break
         case "water":
+          legendHtml += markerPathWater
           svgIcon = svgWater
           break
         default:
+          legendHtml += markerPathCampspot
           svgIcon = svgDefault
       } // switch
+
+      // End legend item with the label.
+      legendHtml += '" alt=""></div><div class="map-legend-value">'+ key +' ('+ locations[key].length +')</div></li>'
 
       // Loop through locations and add them to the map.
       for (let key2 in locations[key]) {
@@ -256,7 +269,11 @@ eleventyNavigation:
       } // for (individual places)
     } // for (first level in json)
 
-    map.addLayer(markers);
+
+    document.querySelector('#map-legend-items').innerHTML = legendHtml
+
+    // Uncomment this line if using clusters
+    // map.addLayer(markers);
 
   } // function
 

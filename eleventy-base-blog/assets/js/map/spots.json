@@ -1,5 +1,5 @@
 {
-  "campspots": [
+  "spots": [
     {
       "markerPath": "/assets/images/map-icons/marker-icon-campspot.svg"
     },
@@ -73,7 +73,7 @@
       "latitude": 50.429300,
       "longitude": -127.371350,
       "name": "Alice Lake",
-      "notes": "<p>Absolutely wonderful place. Awesome location if there is room by the lake and if you have satellite internet.</p><p>Impossible to work with hotspot.</p>",
+      "notes": "<p>Absolutely wonderful place. Awesome location if there is room by the lake and if you have satellite internet.</p><p>Impossible to work with hotspot. Signal sucks crap.</p>",
       "url": ""
     },
     {
