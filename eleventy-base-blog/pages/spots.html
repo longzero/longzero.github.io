@@ -34,7 +34,7 @@ eleventyNavigation:
   .map-legend ul {list-style: none; padding-top: 0; padding-bottom: .5em; transition: .3s;}
   .map-legend li {margin-bottom: 1em; white-space: nowrap;}
   .map-legend-heading {cursor: pointer;}
-  .map-legend-symbol, .map-legend-value {display: inline-block; vertical-align: top; white-space: normal;}
+  .map-legend-symbol, .map-legend-label {display: inline-block; vertical-align: top; white-space: normal;}
   .map-legend-symbol {margin-right: 10px; width: 16px;}
   .map-legend.minimize ul {opacity: 0; pointer-events: none; transform: translateY(-100%);}
   .map-wrapper, .tmpl-post {height: calc(100vh - var(--header-height));}
@@ -49,7 +49,7 @@ eleventyNavigation:
   <ul id="map-legend-items">
     <li>
       <div class="map-legend-symbol"><img src="/assets/images/map-icons/marker-icon-campspot.svg" alt=""></div>
-      <div class="map-legend-value">Spots</div>
+      <div class="map-legend-label">Spots</div>
     </li>
   </ul>
 </div>
@@ -234,7 +234,7 @@ eleventyNavigation:
       } // switch
 
       // End legend item with the label.
-      legendHtml += '" alt=""></div><div class="map-legend-value">'+ locationTypeHuman +' ('+ locations[key].length +')</div></li>'
+      legendHtml += '" alt=""></div><div class="map-legend-label">'+ locationTypeHuman +' ('+ locations[key].length +')</div></li>'
 
       // Loop through locations and add them to the map.
       for (let key2 in locations[key]) {
