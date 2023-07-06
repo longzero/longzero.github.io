@@ -12,6 +12,20 @@
     },
     {
       "id": "",
+      "latitude": 47.92794410613289,
+      "longitude": -124.51983159409438,
+      "notes": "<p>Just for a night. Boring place.</p>",
+      "url": ""
+    },
+    {
+      "id": "",
+      "latitude": 45.421102,
+      "longitude": -122.783765,
+      "notes": "<p>Slept at this spot until appointment with mechanic across the street, Meineke.</p>",
+      "url": ""
+    },
+    {
+      "id": "",
       "latitude": 44.667320,
       "longitude": -111.307432,
       "notes": "<p>Multiple spots. Signal 4.32/0.08<br>Bear country. <br>Forest with trees for hammock.</p>",
@@ -52,6 +66,14 @@
       "longitude": -118.117439,
       "name": "Alabama Hills",
       "notes": "<p>This specific spot: best spot I found with a good hotspot signal.</p><p>ATT 26/3<br>T-Mobile 7/0.5</p><p>Beware: lots of places marked for day use only.</p>",
+      "url": ""
+    },
+    {
+      "id": "",
+      "latitude": 50.429300,
+      "longitude": -127.371350,
+      "name": "Alice Lake",
+      "notes": "<p>Absolutely wonderful place. Awesome location if there is room by the lake and if you have satellite internet.</p><p>Impossible to work with hotspot.</p>",
       "url": ""
     },
     {
@@ -428,8 +450,17 @@
       "id": "",
       "latitude": 43.004961,
       "longitude": -83.219776,
-      "name": "Rest area",
+      "name": "Rest area in Michigan",
       "notes": "This rest area was quite exceptional, because it is in the forest away from the road.",
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 45.27066644675915,
+      "longitude": -122.77414030428513,
+      "name": "French Prairie (Baldock) Northbound Rest Area, south of Portland, OR",
+      "notes": "Very nice and big. A good way to be in a city without being in a city.",
       "url": "",
       "visible": 1
     },
@@ -601,6 +632,14 @@
     },
     {
       "id": "",
+      "latitude": 45.42096426311984,
+      "longitude": -122.78616482227358,
+      "name": "Meineke Car Care Center (auto repair shop)",
+      "notes": "<p>At the time of this writing (2023-07-05), Google's marker is on the wrong building. It's actually the one at the back of the parking lot.</p><p>Mathew, Tiffany and  Alex are great people and they did whatever they could to help with my exhaust problems.</p>",
+      "url": "https://goo.gl/maps/CDxYk37Bsd8tF97y9"
+    },
+    {
+      "id": "",
       "latitude": 29.667458621904665,
       "longitude": -81.21238388149942,
       "name": "Ragga Surf Cafe",
@@ -627,6 +666,14 @@
   "starbucks": [
     {
       "markerPath": "/assets/images/map-icons/marker-icon-place.svg"
+    },
+    {
+      "id": "",
+      "latitude": 45.421671123441506,
+      "longitude": -122.78380270478779,
+      "name": "Starbucks, Tigard",
+      "notes": "Big windows.",
+      "url": ""
     },
     {
       "id": "",
