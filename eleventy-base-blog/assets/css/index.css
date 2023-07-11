@@ -539,6 +539,8 @@ video {
 .rte h2 {
   border-color: var(--color-1);
 }
+.rte figcaption {font-size: .8em;}
+.rte figure {margin-bottom: 2em;}
 .rte iframe,
 .rte p,
 .rte ol,
@@ -593,7 +595,7 @@ video {
 .rte .video-wrapper + h6 {
   padding-top: 2em;
 }
-.rte img {border: 1px solid var(--color-1);}
+/*.rte img {border: 1px solid var(--color-1);}*/
 .rte ol, .rte ul {padding-left: 20px;}
 
 .toggle-dark-light-mode {-webkit-appearance: none; appearance: none; background-color: transparent; border: 0; color: inherit; transition: .3s;}
