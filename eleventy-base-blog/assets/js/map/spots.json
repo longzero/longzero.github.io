@@ -272,6 +272,14 @@
     },
     {
       "id": "",
+      "latitude": 49.664361,
+      "longitude": -124.902906,
+      "name": "Goose Spit Park",
+      "notes": "<p>For hanging out during the day only.</p><p>For sleeping, just go to the marina in Comox or street parking.</p><p>Wonderful place. Sunrise on one side and sunset on the other.</p><p>Access to toilet.<br>No parking from 23 to 5.</p><p>A lot of people come and go for paddleboarding and kayaking and sometimes, there are teenagers in the evening who use this place as a hang out spot.</p>",
+      "url": "https://goo.gl/maps/8WymXPhimgBytqpm7"
+    },
+    {
+      "id": "",
       "latitude": 36.123050,
       "longitude": -114.833183,
       "name": "Government Wash Campground",
@@ -351,6 +359,15 @@
     },
     {
       "id": "",
+      "latitude": 47.247230,
+      "longitude": -120.685407,
+      "name": "Liberty, Washington",
+      "notes": "<p>Big space. Lots of ATV, RV and trailers, but the space is so big it is easy to stay away from them.</p><p>Very weak signal. Less than 1/1 when I arrived Friday early evening, but later, it turned into 6/2 and it was 4/2 in the morning. It might have been a good place to stay for work, but I only stayed for one night.</p><p>This place is across from Liberty Campground where there is no signal.</p>",
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
       "latitude": 35.97975565193648,
       "longitude": -112.12845456493443,
       "name": "Long Jim Loop Camping",
@@ -397,6 +414,15 @@
       "name": "Osage State Fishing Lake",
       "notes": "Very nice but very bad hotspot. Everything takes forever to load.<br> Two toilets.",
       "url": ""
+    },
+    {
+      "id": "",
+      "latitude": 48.443988,
+      "longitude": -123.467163,
+      "name": "Park and ride",
+      "notes": "<p>Just for sleeping.</p>",
+      "url": "",
+      "visible": 1
     },
     {
       "id": "",
@@ -490,6 +516,15 @@
     },
     {
       "id": "",
+      "latitude": 48.41015654018333,
+      "longitude": -123.47987721180758,
+      "name": "Royal Beach, Colwood, Vancouver Island",
+      "notes": "<p>Good signal.<br>Great view of Victoria and the mountains of Washington State.</p><p>Toilets and drinkable water available. Also two volleyball courts.</p><p>Good place for hang out during the day.</p><p>For sleeping, use street parking just outside the beach.</p>",
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
       "latitude": 43.49610369573876,
       "longitude": -70.44985955953562,
       "name": "Saco",
@@ -540,6 +575,15 @@
       "name": "Stockton State Forest",
       "notes": "First spot<br>Good for camping<br>Bad for solar power<br>Hotspot 5/.75",
       "url": ""
+    },
+    {
+      "id": "",
+      "latitude": 48.405866,
+      "longitude": -123.350425,
+      "name": "Dallas Road, Victoria",
+      "notes": "<p>Great place. Great view.</p><p>No signs here. Elsewhere on this road, many signs that have parking hours and limit, but this spot is good.</p>",
+      "url": "",
+      "visible": 1
     },
     {
       "id": "",
@@ -613,6 +657,14 @@
       "name": "Iowa 80 - The World's Largest Truckstop",
       "notes": "",
       "url": "https://goo.gl/maps/RBLPtAfb7wR5R1FF7"
+    },
+    {
+      "id": "",
+      "latitude": 48.43003393563589,
+      "longitude": -123.41316848394611,
+      "name": "La Belle Patate",
+      "notes": "<p>Excellent poutine.</p><p>This place has a Quebec vibe through its decor with old Quebec license plates and hockey things.</p>",
+      "url": "https://goo.gl/maps/FUWpwJDA6NLfZKQN9"
     },
     {
       "id": "",
