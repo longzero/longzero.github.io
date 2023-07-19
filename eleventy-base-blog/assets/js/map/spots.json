@@ -394,6 +394,15 @@
     },
     {
       "id": "",
+      "latitude": 49.593760,
+      "longitude": -119.558530,
+      "name": "Naramata",
+      "notes": "<p>Good spot in the forest under trees. Some spots have views and some don't.</p><p>Signal is fine.</p><p>There are campers, hikers and mountain bike riders.</p><p>Bears could be around.</p>",
+      "url": "",
+      "visible": 0
+    },
+    {
+      "id": "",
       "latitude": 46.343349,
       "longitude": -86.614537,
       "name": "NF-13",
@@ -689,6 +698,14 @@
       "name": "Meineke Car Care Center (auto repair shop)",
       "notes": "<p>At the time of this writing (2023-07-05), Google's marker is on the wrong building. It's actually the one at the back of the parking lot.</p><p>Mathew, Tiffany and  Alex are great people and they did whatever they could to help with my exhaust problems.</p>",
       "url": "https://goo.gl/maps/CDxYk37Bsd8tF97y9"
+    },
+    {
+      "id": "",
+      "latitude": 45.29625200852623,
+      "longitude": -122.75959995872043,
+      "name": "Memorial Park, Portland, Oregon",
+      "notes": "<p>Nice place to spend a few hours or a day. For sleeping, I went to the rest area nearby.</p>",
+      "url": "https://goo.gl/maps/MXnnyaJKr2J1CCwU8"
     },
     {
       "id": "",
