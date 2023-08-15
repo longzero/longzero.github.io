@@ -3,7 +3,6 @@ layout: layouts/map.njk
 description: Map of my spots
 permalink: /map/
 title: Map of my spots
-templateClass: tmpl-post
 eleventyNavigation:
   key: Map of my spots
   order: 3
@@ -233,8 +232,7 @@ eleventyNavigation:
           svgIcon = svgDefault
       } // switch
 
-      // End legend item with the label.
-      legendHtml += '" alt=""></div><div class="map-legend-label">'+ locationTypeHuman +' ('+ locations[key].length +')</div></li>'
+      let count = 0 // For counting locations by type.
 
       // Loop through locations and add them to the map.
       for (let key2 in locations[key]) {
@@ -242,6 +240,8 @@ eleventyNavigation:
 
         // Check if location should be on the map and obviously, make sure there are coordinates.
         if (location.visible !== 0 && location.latitude && location.longitude) {
+
+          count++
 
           let locationName = "",
               locationNotes = "",
@@ -273,6 +273,11 @@ eleventyNavigation:
 
         } // if
       } // for (individual places)
+
+      // End legend item with the label.
+      // legendHtml += '" alt=""></div><div class="map-legend-label">'+ locationTypeHuman +' ('+ locations[key].length +')</div></li>'
+      legendHtml += '" alt=""></div><div class="map-legend-label '+ locations[key].length +'">'+ locationTypeHuman +' ('+ count +')</div></li>'
+
     } // for (first level in json)
 
 
