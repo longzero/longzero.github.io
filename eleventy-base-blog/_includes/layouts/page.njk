@@ -1,0 +1,24 @@
+---
+layout: layouts/base.njk
+templateClass: template-page
+---
+
+{# TODO: TBD if this server request is necessary. #}
+{# <link rel="stylesheet" href="{{ '/assets/css/page.css' | url }}"> #}
+
+<header class="container container--content post-header">
+  {# The filter ` | urlize | safe` allows to parse HTML like `<br>` and `&nbsp;` #}
+  <h1>{{ title | urlize | safe }}</h1>
+  {# <time class="post-date" datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time> #}
+
+  {%- if image %}
+    <div class="post-media">
+      <img src="/assets/images/articles/{{ image }}" alt="{{ imageAlt }}" loading="lazy">
+    </div>
+  {%- endif %}
+
+</header>
+
+<div class="container container--content rte">
+  {{ content | safe }}
+</div>

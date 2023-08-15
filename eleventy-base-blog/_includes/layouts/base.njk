@@ -2,10 +2,10 @@
 <html lang="{{ metadata.language }}">
   {% include 'partials/head.njk' %}
 
-  <body>
+  <body{% if templateClass %} class="{{ templateClass }}"{% endif %}>
     {% include 'partials/header.njk' %}
 
-    <main{% if templateClass %} class="{{ templateClass }}"{% endif %}>
+    <main>
 
       {# <!-- Delete this message -->
       <div class="infobox">

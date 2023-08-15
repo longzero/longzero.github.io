@@ -1,11 +1,19 @@
+---
+templateClass: template-map
+---
+
 <!doctype html>
 <html lang="{{ metadata.language }}">
   {% include 'partials/head.njk' %}
 
-  <body>
+  {# TODO: Move map CSS into map.css if CSS gets too big. #}
+  {# For now, it is inline <style> in the page and that is just fine. You just saved a server request. #}
+  {# <link rel="stylesheet" href="{{ '/assets/css/map.css' | url }}"> #}
+
+  <body{% if templateClass %} class="{{ templateClass }}"{% endif %}>
     {% include 'partials/header.njk' %}
 
-    <main{% if templateClass %} class="{{ templateClass }}"{% endif %}>
+    <main>
 
       {# <!-- Delete this message -->
       <div class="infobox">
