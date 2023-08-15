@@ -5,38 +5,115 @@
     },
     {
       "id": "",
+      "latitude": 41.790637,
+      "longitude": -91.316435,
+      "name": "Cedar River",
+      "notes": "<p>Nice place, but humidity is insanely high on 20230811.</p><p>Hotspot internet is great 42/16.</p><p>People come here for boating and fishing.</p><p>The sun rises in your face across the river.</p><p>Gorgeous ecosystem</p>",
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 43.792968,
+      "longitude": -99.391628,
+      "name": "Missouri River in Oacoma",
+      "notes": "<p>Awesome! Good signal! Very cloes to the town, but even closer to the river.</p> <p>I only stayed for a night, but staying seven days for work was certainly a good option.</p> <p>The sign says 7 days maximum.</p>",
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 43.792968,
+      "longitude": -99.391628,
+      "name": "Missouri River in Oacoma",
+      "notes": "<p>Awesome! Good signal! Very cloes to the town, but even closer to the river.</p> <p>I only stayed for a night, but staying seven days for work was certainly a good option.</p> <p>The sign says 7 days maximum.</p>",
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 52.744726,
+      "longitude": -119.102457,
+      "name": "Kinbasket Lake (north)",
+      "notes": "<p>Gorgeous place. Easy to access. Phenomenal views. Access to lake.</p><p>Signal was very weak signal in the evening, but it was great in the morning. I didn't stay long enough to say more about it.</p><p>I absolutely regret not staying longer. It was a better location than in Jasper and Banff, because this place has way less people.</p>",
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 51.210880,
+      "longitude": -116.626500,
+      "name": "Beaverfoot Forest Service Rd",
+      "notes": "<p>Weird spot, but ok for one night. Bad hotspot signal 0.18/2.65, but manageable for browsing and light work. Meetings would be crap.</p>",
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 49.594502,
+      "longitude": -119.558501,
+      "name": "Naramata",
+      "notes": "<p>Nice place to stay and to sleep if you are fine with many people from Quebec passing by.</p><p>Place for hikers and bikers. Good signal. Good views in some parts.</p><p>The one place with a good view was taken by what seems to be a local resident.</p>",
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 45.757693,
+      "longitude": -109.769818,
+      "name": "Pelican on Yellowstone River",
+      "notes": "5 spots.<br>Weak signal 1.23/.74. <br>Can hear I-90.<br>Access to river.<br>Can hear train when it passes.",
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 49.891098,
+      "longitude": -120.540340,
+      "name": "Loon Lake",
+      "notes": "<p>Great view of the lake and sunrise. Good signal.</p><p>Possible to go down closer to the lake, but I didn't, because there were people already.</p>",
+      "url": "https://ioverlander.com/places/139532-loon-lake-roadside",
+      "visible": 1
+    },
+    {
+      "id": "",
       "latitude": 34.997940,
       "longitude": -105.784630,
       "notes": "<p>Awesome deserted place. Great for working and chilling. Come from the west, because the road from the east can leave you stuck.</p>",
-      "url": ""
+      "url": "",
+      "visible": 1
     },
     {
       "id": "",
       "latitude": 47.92794410613289,
       "longitude": -124.51983159409438,
       "notes": "<p>Just for a night. Boring place.</p>",
-      "url": ""
+      "url": "",
+      "visible": 1
     },
     {
       "id": "",
       "latitude": 45.421102,
       "longitude": -122.783765,
       "notes": "<p>Slept at this spot until appointment with mechanic across the street, Meineke.</p>",
-      "url": ""
+      "url": "",
+      "visible": 1
     },
     {
       "id": "",
       "latitude": 44.667320,
       "longitude": -111.307432,
       "notes": "<p>Multiple spots. Signal 4.32/0.08<br>Bear country. <br>Forest with trees for hammock.</p>",
-      "url": ""
+      "url": "",
+      "visible": 1
     },
     {
       "id": "",
       "latitude": 44.318726,
       "longitude": -106.870719,
       "notes": "<p>Big large area with signal here. Signal in other spots can be unreliable.</p>",
-      "url": ""
+      "url": "",
+      "visible": 1
     },
     {
       "id": "",
@@ -196,7 +273,8 @@
       "longitude": -103.758600,
       "name": "Deadwood - Mt Roosevelt Rd",
       "notes": "<p>Another good spot. This one offers privacy.</p>",
-      "url": ""
+      "url": "",
+      "visible": 0
     },
     {
       "id": "",
@@ -649,7 +727,17 @@
       "longitude": -103.72785122491864,
       "name": "Belle Joli Winery Tasting Room, Deadwood",
       "notes": "Wine tasting",
-      "url": "https://goo.gl/maps/7kCPA3rWneQJQ7v1A"
+      "url": "https://goo.gl/maps/7kCPA3rWneQJQ7v1A",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 44.379184654273196,
+      "longitude": -103.72785122491864,
+      "name": "Belle Joli Winery Tasting Room, Deadwood",
+      "notes": "Wine tasting",
+      "url": "https://goo.gl/maps/7kCPA3rWneQJQ7v1A",
+      "visible": 1
     },
     {
       "id": "",
@@ -657,7 +745,8 @@
       "longitude": -103.50579604810643,
       "name": "Belle Joli Winery Sparkling House",
       "notes": "Wine tasting. Very nice place.",
-      "url": "https://goo.gl/maps/uKGUqFaikEYcNaPJA"
+      "url": "https://goo.gl/maps/uKGUqFaikEYcNaPJA",
+      "visible": 1
     },
     {
       "id": "",
