@@ -1,0 +1,19 @@
+---
+layout: layouts/blank.njk
+description: Map of spots in Quebec
+permalink: /map-vr/
+title: Map of spots in Quebec
+eleventyNavigation:
+  key: Map of spots in Quebec
+  order: 3
+---
+
+<style>
+  body {--header-height: 40px;}
+  .map-wrapper {width: 100%; height: calc(100vh - var(--header-height));}
+  .site-header {margin-bottom: 0;}
+</style>
+
+<div class="map-wrapper">
+  <iframe src="https://www.google.com/maps/d/embed?mid=1XPa4GWBrUMR5pbthnbWj_qfIWYCjA34&ehbc=2E312F" width="100%" height="100%"></iframe>
+</div>

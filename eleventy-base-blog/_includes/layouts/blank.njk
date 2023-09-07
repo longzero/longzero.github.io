@@ -1,0 +1,22 @@
+---
+# layout: layouts/base.njk
+templateClass: template-blank
+---
+
+<!doctype html>
+<html lang="{{ metadata.language }}">
+  {% include 'partials/head-blank.njk' %}
+
+  <body{% if templateClass %} class="{{ templateClass }}"{% endif %}>
+    {# {% include 'partials/header.njk' %} #}
+
+    <main>
+
+      {{ content | safe }}
+
+    </main>
+
+    {# {% include 'partials/footer.njk' %} #}
+
+  </body>
+</html>
