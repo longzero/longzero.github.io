@@ -17,10 +17,10 @@ jobs:
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
-          publish_dir: _site 
+          publish_dir: docs
           publish_branch: gh-pages
           github_token: ${{ secrets.GITHUB_TOKEN }}
           # Arguments to pass to the Eleventy invocation
           # args: # optional
           # If set to `true`, `npm install` will be run before Eleventy is invoked
-          install_dependencies: true
+          # install_dependencies: true
