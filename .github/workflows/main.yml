@@ -12,10 +12,15 @@ jobs:
       matrix:
         node-version: [18.x]
     steps:
+      - uses: actions/checkout@main
       - name: Eleventy Action
-        # You may pin to the exact commit or the version.
         uses: TartanLlama/actions-eleventy@master
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
         with:
+          publish_dir: _site 
+          publish_branch: gh-pages
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           # Arguments to pass to the Eleventy invocation
           args: # optional
           # If set to `true`, `npm install` will be run before Eleventy is invoked
