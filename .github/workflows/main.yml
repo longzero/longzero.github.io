@@ -7,6 +7,10 @@ on:
 
 jobs:
   build:
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        node-version: [18.x]
     steps:
       - name: Eleventy Action
         # You may pin to the exact commit or the version.
