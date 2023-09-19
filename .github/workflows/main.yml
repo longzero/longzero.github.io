@@ -12,7 +12,6 @@ jobs:
       matrix:
         node-version: [18.x]
     steps:
-      - uses: actions/checkout@main
       - name: Eleventy Action
         uses: TartanLlama/actions-eleventy@master
       - name: Deploy
