@@ -21,6 +21,6 @@ jobs:
           publish_branch: gh-pages
           github_token: ${{ secrets.GITHUB_TOKEN }}
           # Arguments to pass to the Eleventy invocation
-          args: # optional
+          # args: # optional
           # If set to `true`, `npm install` will be run before Eleventy is invoked
           install_dependencies: true
