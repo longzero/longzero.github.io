@@ -99,6 +99,13 @@ eleventyNavigation:
     iconAnchor: [12,31]
   });
 
+  const svgShower = L.icon({
+    iconUrl: markerPathWater,
+    className: "marker-icon marker-icon--water",
+    iconSize: [24,32],
+    iconAnchor: [12,31]
+  });
+
   const svgWater = L.icon({
     iconUrl: markerPathWater,
     className: "marker-icon marker-icon--water",
@@ -229,9 +236,14 @@ eleventyNavigation:
           locationTypeHuman = 'Starbucks'
           svgIcon = svgPlace
           break
+        case "shower":
+          legendHtml += markerPathWater
+          locationTypeHuman = 'Shower spot'
+          svgIcon = svgWater
+          break
         case "water":
           legendHtml += markerPathWater
-          locationTypeHuman = 'Place to get water'
+          locationTypeHuman = 'Water for cleaning or drinking'
           svgIcon = svgWater
           break
         default:

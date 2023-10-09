@@ -858,6 +858,35 @@
       "url": ""
     }
   ],
+  "shower": [
+    {
+      "markerPath": "/assets/images/map-icons/marker-icon-water.svg"
+    },
+    {
+      "id": "",
+      "latitude": 44.374119557090474,
+      "longitude": -103.72816275957365,
+      "name": "Deadwood Recreation Center",
+      "notes": "Shower",
+      "url": "https://maps.app.goo.gl/Rkj5pB6qNPfTLR7b6"
+    },
+    {
+      "id": "",
+      "latitude": 41.61802694682628,
+      "longitude": -90.78147461096971,
+      "name": "Iowa 80 The World's Largest Truckstop",
+      "notes": "Shower 18 USD?",
+      "url": "https://maps.app.goo.gl/8si5iRAZ6TQrwUJJ7"
+    },
+    {
+      "id": "",
+      "latitude": 49.49545961022404,
+      "longitude": -119.60481103227978,
+      "name": "Penticton Community Centre",
+      "notes": "Shower 6.50$ (summer 2023)",
+      "url": "https://maps.app.goo.gl/vWFiY1zGsmx7T8qJ9"
+    }
+  ],
   "water": [
     {
       "markerPath": "/assets/images/map-icons/marker-icon-water.svg"
