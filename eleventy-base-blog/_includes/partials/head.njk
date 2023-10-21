@@ -44,7 +44,12 @@
     ga('send', 'pageview');
   </script>
 
+  {# {% set og_image %}{{ hostname }}/assets/images/og.jpg{% endset %} #}
   {% set og_image %}{{ hostname }}/assets/images/og-map.jpg{% endset %}
+  {% if image and singlePost == 1 %}
+    {% set og_image %}{{ hostname }}/assets/images/articles/{{ image }}{% endset %}
+  {% endif %}
+
   {% set url %}{{ hostname }}/{% endset %}
   {% if permalink %}
     {% set url %}{{ hostname }}{{ permalink }}{% endset %}
