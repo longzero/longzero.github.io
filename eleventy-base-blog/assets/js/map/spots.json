@@ -187,11 +187,59 @@
     },
     {
       "id": "",
+      "latitude": 31.07138078306035,
+      "longitude": -89.25458849440135,
+      "name": "Black Creek river",
+      "notes": "Good signal in the forest. Multiple spots.",
+      "url": ""
+    },
+    {
+      "id": "",
       "latitude": 29.890187788327218,
       "longitude": -90.162529358335,
       "name": "Bayou Segnette State Park",
-      "notes": "Paid to stay at this campground close to New Orleans for a few days. Saw an armadillo.",
+      "notes": "Paid to stay at this campground close to New Orleans for a few days. Saw an armadillo (2022-07) and a big spider (2023-22). Includes electricity and potable water.",
       "url": "https://goo.gl/maps/AubtmXqaAcgzDioY9"
+    },
+    {
+      "id": "",
+      "latitude": 30.031768288575584,
+      "longitude": -90.07610733352597,
+      "name": "Lake Terrace Dr parking lot",
+      "notes": "Parking lot by the water. On Saturday night (2023-11), people come and go even though it stayed mostly empty.",
+      "url": ""
+    },
+    {
+      "id": "",
+      "latitude": 30.032041701784102,
+      "longitude": -90.07289588039721,
+      "name": "Lakeshore Dr parking lot",
+      "notes": "Parking lot by the water. On Saturday night (2023-11), quite a few people and some putting on loud music. I moved.",
+      "url": ""
+    },
+    {
+      "id": "",
+      "latitude": 29.963910547552498,
+      "longitude": -90.0566499424214,
+      "name": "Elysian Fields Ave street parking (entire area)",
+      "notes": "Pay attention to parking signs, some of them require payment. Very loud until late on Saturday night (2023-11).",
+      "url": ""
+    },
+    {
+      "id": "",
+      "latitude": 29.758488922689917,
+      "longitude": -93.1218559492653,
+      "name": "Rutherford Beach",
+      "notes": "Nice spot, good signal, toilets at entrance. Sand is easy to drive on with 2WD.",
+      "url": "https://maps.app.goo.gl/tgWvcAh3iNrF5cEa8"
+    },
+    {
+      "id": "",
+      "latitude": 28.98956306199064,
+      "longitude": -95.23799928475015,
+      "name": "Brazoria County Beach Free Camping",
+      "notes": "<p>Not every spot has an equal signal. This one reaches 10s of Mbps.</p><p>Quiet empty in November 2023.</p><p>It's great because the town isn't too far away and it's big enough to have a Starbucks and Walmart.</p><p>Nice waves.</p>",
+      "url": "https://maps.app.goo.gl/ZSooW5cnjJcN7BRC7"
     },
     {
       "id": "",
@@ -864,6 +912,14 @@
     },
     {
       "id": "",
+      "latitude": 29.888941225644263,
+      "longitude": -90.16270333817101,
+      "name": "Bayou Segnette State Park",
+      "notes": "Toilets et showers.",
+      "url": "https://goo.gl/maps/AubtmXqaAcgzDioY9"
+    },
+    {
+      "id": "",
       "latitude": 44.374119557090474,
       "longitude": -103.72816275957365,
       "name": "Deadwood Recreation Center",
@@ -880,16 +936,40 @@
     },
     {
       "id": "",
+      "latitude": 29.196294021361876,
+      "longitude": -95.45683433424969,
+      "name": "Love’s Travel Stop",
+      "notes": "Shower 17 USD (2023-11)",
+      "url": ""
+    },
+    {
+      "id": "",
       "latitude": 49.49545961022404,
       "longitude": -119.60481103227978,
       "name": "Penticton Community Centre",
       "notes": "Shower 6.50$ (summer 2023)",
       "url": "https://maps.app.goo.gl/vWFiY1zGsmx7T8qJ9"
+    },
+    {
+      "id": "",
+      "latitude": 38.605785935494026,
+      "longitude": -75.0614868230857,
+      "name": "South Inlet, Delaware Seashore State Park (paid parking)",
+      "notes": "<p>Paid parking. Stayed for only one night. Ok signal to work. Took a free shower and had a meal and a drink in the restaurant.</p>",
+      "url": "https://maps.app.goo.gl/MNNsqC2E4wbfCfR26"
     }
   ],
   "water": [
     {
       "markerPath": "/assets/images/map-icons/marker-icon-water.svg"
+    },
+    {
+      "id": "",
+      "latitude": 29.890059007865474,
+      "longitude": -90.16248635177435,
+      "name": "Bayou Segnette State Park",
+      "notes": "Every campsite has electricity and potable water.",
+      "url": "https://goo.gl/maps/AubtmXqaAcgzDioY9"
     },
     {
       "id": "",
