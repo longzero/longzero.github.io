@@ -5,6 +5,33 @@
     },
     {
       "id": "",
+      "latitude": 32.90150811086217,
+      "longitude": -114.51614508614017,
+      "name": "Imperial Dam LTVA (day use)",
+      "notes": "<p>WARNING: ranger came to say you can't sleep here, but you can stay during daytime (sunrise to sunset)</p><p>The signal was better than the official LTVA: Internet 10 2 20231204</p>",
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 32.900429729251485,
+      "longitude": -114.50867196930668,
+      "name": "Imperial Dam LTVA",
+      "notes": "<p>Poor signal in all places within the boundaries of the LTVA.</p><p>Good spot for the view, because people aren't allowed to camp on the other side of the road.</p><p>Internet<br>12 0 20231204.<br>30 2 20231204.</p><p>Despite these numbers, internet is pretty bad. Everything takes a long time to load. You can't load multiple things at once.</p><p>For example, if you are on a call, opening a link someone sends will take some time.</p><p>Move elsewhere for the internet.</p>",
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 32.80944170646082,
+      "longitude": -112.25435722478198,
+      "name": "Smuggler’s Run - Vekol Valley Rd",
+      "notes": "<p><a href='https://freeroam.app/campground/smugglers-run' target='_blank'>Freeroam</a><br>Check map to make sure of being on BLM land.</p>",
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
       "latitude": 41.790637,
       "longitude": -91.316435,
       "name": "Cedar River",
