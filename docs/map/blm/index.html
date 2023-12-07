@@ -4,8 +4,8 @@
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Map of my spots</title>
-  <meta name="description" content="Map of my spots">
+  <title>Map of some BLM spots</title>
+  <meta name="description" content="Map of some BLM spots">
 
   
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
@@ -47,11 +47,11 @@
   
 
   <meta property="og:site_name" content="Longzero ~ Long Nguyen">
-  <meta property="og:description" content="Map of my spots">
+  <meta property="og:description" content="Map of some BLM spots">
   <meta property="og:image" content="http://localhost:8080/assets/images/og-map.jpg">
-  <meta property="og:title" content="Map of my spots">
+  <meta property="og:title" content="Map of some BLM spots">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="http://localhost:8080/map/">
+  <meta property="og:url" content="http://localhost:8080/map/blm/">
   
   
   
@@ -287,8 +287,8 @@
       smoothSensitivity: 8,   // zoom speed. default is 1
       // END https://github.com/mutsuyuki/Leaflet.SmoothWheelZoom
     }).fitBounds([
-      [54.14584949174648, -128.75881463815347],
-      [17.055714221336178, -59.9846634648619]
+      [35.13368232127899, -115.75653143285328],
+      [31.269110501071594, -108.07286309442613]
     ])
 
 
@@ -440,7 +440,7 @@
     rawFile.send(null);
   }
 
-  loadJSON("/assets/js/map/spots.json", function(text){
+  loadJSON("/assets/js/map/spots-blm.json", function(text){
     data = JSON.parse(text);
     initMap(data)
   });
@@ -452,7 +452,7 @@
 
     </main>
 
-    <!-- Current page: /map/ -->
+    <!-- Current page: /map/blm/ -->
 
   </body>
 </html>
