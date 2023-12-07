@@ -1,0 +1,50 @@
+---
+layout: layouts/blank.njk
+# description: Time
+permalink: /time/
+# title: Time
+# eleventyNavigation:
+#   key: Time
+#   order: 3
+---
+
+<h3>UTC</h3>
+<p><time id="time"></time></p>
+<h3>Los Angeles</h3>
+<p><time id="time-los-angeles"></time></p>
+<h3>Denver</h3>
+<p><time id="time-denver"></time></p>
+<h3>Chicago</h3>
+<p><time id="time-chicago"></time></p>
+<h3>Montreal</h3>
+<p><time id="time-montreal"></time></p>
+
+<div class="js-timezones" style="display: none; word-break: break-all;"></div>
+
+<script>
+
+  function getTime(timezone) {
+    let options = {
+      timeZone: timezone,
+      timeZoneName: 'short',
+      weekday: 'long',
+      year: 'numeric',
+      month: 'numeric',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+      second: 'numeric',
+      hour12: false
+    },
+    // formatter = new Intl.DateTimeFormat([], options);
+    formatter = new Intl.DateTimeFormat('en-CA', options);
+    return formatter.format(new Date())
+  }
+  document.querySelector('.js-timezones').innerHTML = Intl.supportedValuesOf('timeZone');
+
+  document.querySelector('#time').innerHTML = getTime('UTC')
+  document.querySelector('#time-los-angeles').innerHTML = getTime('America/Los_Angeles')
+  document.querySelector('#time-denver').innerHTML = getTime('America/Denver')
+  document.querySelector('#time-chicago').innerHTML = getTime('America/Chicago')
+  document.querySelector('#time-montreal').innerHTML = getTime('America/Toronto')
+</script>
