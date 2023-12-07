@@ -150,7 +150,8 @@ module.exports = function(eleventyConfig) {
       input: ".",
       includes: "_includes", // Relative to input
       data: "_data",
-      output: "../docs"
+      output: "_site"
+      // output: "../docs"
     }
   };
 };
