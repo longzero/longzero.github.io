@@ -156,6 +156,8 @@
   .map-legend li:nth-child(1) {padding-top: .4em;}
   .map-legend li:last-child {margin-bottom: .4em;}
   .map-legend-heading {cursor: pointer;}
+  .map-legend-item.hide {filter: grayscale(100%); text-decoration: line-through;}
+  .map-legend-item.hide .map-legend-label {text-decoration: line-through;}
   .map-legend-symbol, .map-legend-label {display: inline-block; vertical-align: top; white-space: normal;}
   .map-legend-symbol {margin-right: 10px; width: var(--symbol-size);}
   .map-legend-label {max-width: calc(100% - var(--symbol-size))}
@@ -163,6 +165,7 @@
   .map-legend:hover ul {display: block; opacity: 1; pointer-events: auto; transform: none;}
   .map-wrapper, .template-post {height: calc(100vh - var(--header-height));}
   .map-wrapper {width: 100%;}
+  .marker-icon.hide {display: none;}
   .site-header {margin-bottom: 0;}
 </style>
 
@@ -188,6 +191,7 @@
 
 
   // MAP MARKER ICONS
+  const markerPathBLM = '/assets/images/map-icons/marker-icon-blm.svg'
   const markerPathCampspot = '/assets/images/map-icons/marker-icon-campspot.svg'
   const markerPathPlace = '/assets/images/map-icons/marker-icon-place.svg'
   const markerPathWater = '/assets/images/map-icons/marker-icon-water.svg'
@@ -197,7 +201,7 @@
   // When zooming, the marker shifts.
   const svgDefault = L.icon({
     iconUrl: markerPathCampspot,
-    className: "marker-icon",
+    className: "marker-icon js-marker-icon",
     iconSize: [24,32],
     iconAnchor: [12,31]
   });
@@ -205,28 +209,49 @@
   let svgIcon = L.icon({
     // Green: #3AAD64
     iconUrl: markerPathCampspot,
-    className: "marker-icon",
+    className: "marker-icon js-marker-icon",
+    iconSize: [24,32],
+    iconAnchor: [12,31]
+  });
+
+  const svgBLM = L.icon({
+    iconUrl: markerPathBLM,
+    className: "marker-icon js-marker-icon blm",
     iconSize: [24,32],
     iconAnchor: [12,31]
   });
 
   const svgPlace = L.icon({
     iconUrl: markerPathPlace,
-    className: "marker-icon marker-icon--place",
+    className: "marker-icon js-marker-icon places",
     iconSize: [24,32],
     iconAnchor: [12,31]
   });
 
   const svgShower = L.icon({
     iconUrl: markerPathWater,
-    className: "marker-icon marker-icon--water",
+    className: "marker-icon js-marker-icon shower",
+    iconSize: [24,32],
+    iconAnchor: [12,31]
+  });
+
+  const svgSpots = L.icon({
+    iconUrl: markerPathCampspot,
+    className: "marker-icon js-marker-icon spots",
+    iconSize: [24,32],
+    iconAnchor: [12,31]
+  });
+
+  const svgStarbucks = L.icon({
+    iconUrl: markerPathPlace,
+    className: "marker-icon js-marker-icon starbucks",
     iconSize: [24,32],
     iconAnchor: [12,31]
   });
 
   const svgWater = L.icon({
     iconUrl: markerPathWater,
-    className: "marker-icon marker-icon--water",
+    className: "marker-icon js-marker-icon water",
     iconSize: [24,32],
     iconAnchor: [12,31]
   });
@@ -329,45 +354,66 @@
     //   console.log("It's an object")
     // }
 
+    let legendClass = 'map-legend-item'
     let legendHtml = '' // Create each item of legend, in HTML
+    let legendMarker = ''
     let locationTypeHuman = '' // Used for labelling the legend, so instead of just “Water”, it will be “Place to get water”
     for (let key in locations) {
-
-      // Beginning legend item.
-      legendHtml += '<li><div class="map-legend-symbol"><img src="'
 
       // Change marker icon depending on type of location.
       // Set the marker path for the legend item icon.
       switch(key) {
+        case "blm":
+          legendClass = 'map-legend-item js-map-legend-item ' + key
+          // legendHtml += markerPathBLM
+          legendMarker = markerPathBLM
+          locationTypeHuman = 'Some BLM'
+          svgIcon = svgBLM
+          break
         case "places":
-          legendHtml += markerPathPlace
+          legendClass = 'map-legend-item js-map-legend-item ' + key
+          // legendHtml += markerPathPlace
+          legendMarker = markerPathPlace
           locationTypeHuman = 'Random place'
           svgIcon = svgPlace
           break
         case "spots":
-          legendHtml += markerPathCampspot
+          legendClass = 'map-legend-item js-map-legend-item ' + key
+          // legendHtml += markerPathCampspot
+          legendMarker = markerPathCampspot
           locationTypeHuman = 'Chilling, sleeping and/or working spot'
-          svgIcon = svgDefault
+          svgIcon = svgSpots
           break
         case "starbucks":
-          legendHtml += markerPathPlace
+          legendClass = 'map-legend-item js-map-legend-item ' + key
+          // legendHtml += markerPathPlace
+          legendMarker = markerPathPlace
           locationTypeHuman = 'Starbucks'
-          svgIcon = svgPlace
+          svgIcon = svgStarbucks
           break
         case "shower":
-          legendHtml += markerPathWater
+          legendClass = 'map-legend-item js-map-legend-item ' + key
+          // legendHtml += markerPathWater
+          legendMarker = markerPathWater
           locationTypeHuman = 'Shower spot'
-          svgIcon = svgWater
+          svgIcon = svgShower
           break
         case "water":
-          legendHtml += markerPathWater
+          legendClass = 'map-legend-item js-map-legend-item ' + key
+          // legendHtml += markerPathWater
+          legendMarker = markerPathWater
           locationTypeHuman = 'Water for cleaning or drinking'
           svgIcon = svgWater
           break
         default:
-          legendHtml += markerPathCampspot
+          legendClass = 'map-legend-item js-map-legend-item ' + key
+          // legendHtml += markerPathCampspot
+          legendMarker = markerPathCampspot
           svgIcon = svgDefault
       } // switch
+
+      // Beginning legend item HTML
+      legendHtml += '<li class="'+ legendClass +'"><div class="map-legend-symbol"><img src="' + legendMarker
 
       let count = 0 // For counting locations by type.
 
@@ -420,6 +466,37 @@
 
     document.querySelector('#map-legend-items').innerHTML = legendHtml
 
+    // TOGGLE LEGEND AND MARKERS
+    const legendToggle = document.querySelectorAll('.js-map-legend-item')
+    for (let i = 0; i < legendToggle.length; i++) {
+      legendToggle[i].addEventListener('click', function() {
+        this.classList.toggle('hide')
+        let markers
+        if (this.classList.contains('spots')) {
+          markers = document.querySelectorAll('.js-marker-icon.spots')
+        }
+        else if (this.classList.contains('blm')) {
+          markers = document.querySelectorAll('.js-marker-icon.blm')
+        }
+        else if (this.classList.contains('places')) {
+          markers = document.querySelectorAll('.js-marker-icon.places')
+        }
+        else if (this.classList.contains('shower')) {
+          markers = document.querySelectorAll('.js-marker-icon.shower')
+        }
+        else if (this.classList.contains('starbucks')) {
+          markers = document.querySelectorAll('.js-marker-icon.starbucks')
+        }
+        else if (this.classList.contains('water')) {
+          markers = document.querySelectorAll('.js-marker-icon.water')
+        }
+        for (let j = 0; j < markers.length; j++) {
+          markers[j].classList.toggle('hide')
+        }
+      })
+    }
+
+
     // Uncomment this line if using clusters
     // map.addLayer(markers);
 
@@ -445,7 +522,6 @@
     initMap(data)
   });
   // END https://stackoverflow.com/a/34579496/2716287
-
 
   </script>
 
