@@ -75,6 +75,7 @@ eleventyNavigation:
   // MAP MARKER ICONS
   const markerPathBLM = '/assets/images/map-icons/marker-icon-blm.svg'
   const markerPathCampspot = '/assets/images/map-icons/marker-icon-campspot.svg'
+  const markerPathCurrent = '/assets/images/map-icons/marker-icon-current.svg'
   const markerPathPlace = '/assets/images/map-icons/marker-icon-place.svg'
   const markerPathWater = '/assets/images/map-icons/marker-icon-water.svg'
 
@@ -100,6 +101,13 @@ eleventyNavigation:
     iconUrl: markerPathBLM,
     className: "marker-icon js-marker-icon blm",
     iconSize: [24,32],
+    iconAnchor: [12,31]
+  });
+
+  let svgCurrent = L.icon({
+    iconUrl: markerPathCurrent,
+    className: "marker-icon js-marker-icon current",
+    iconSize: [32,32],
     iconAnchor: [12,31]
   });
 
@@ -186,6 +194,7 @@ eleventyNavigation:
     //   opacity: 0.5
     // });
 
+
     var map = L.map('map', {
       maxZoom: 20,
       // https://github.com/mutsuyuki/Leaflet.SmoothWheelZoom
@@ -196,7 +205,8 @@ eleventyNavigation:
     }).fitBounds([
       [54.14584949174648, -128.75881463815347],
       [17.055714221336178, -59.9846634648619]
-    ])
+    ]).locate({setView: true, maxZoom: 8})
+
 
 
     // CUSTOMIZE
@@ -236,12 +246,34 @@ eleventyNavigation:
     //   console.log("It's an object")
     // }
 
+
+    // CURRENT LOCATION
+    function success(position) {
+      var latitude = position.coords.latitude;
+      var longitude = position.coords.longitude;
+      // myresult.innerHTML = '<p>Latitude is ' + latitude + '° <br>Longitude is ' + longitude + '°</p>';
+      // makeMyMap(latitude, longitude);
+      // console.log("latitude: "+latitude+" and longitude: "+longitude)
+
+      markerHere = new L.marker([latitude, longitude], {icon: svgCurrent})
+        .bindPopup("You are here.", { offset: L.point(0,-14) })
+        // Comment this line if using clusters
+        .addTo(map);
+    }
+    function error() {
+      myresult.innerHTML = "Unable to retrieve your location";
+    }
+    navigator.geolocation.getCurrentPosition(success, error);
+    // END CURRENT LOCATION
+
+
+    // LEGEND AND MARKERS
+
     let legendClass = 'map-legend-item'
     let legendHtml = '' // Create each item of legend, in HTML
     let legendMarker = ''
     let locationTypeHuman = '' // Used for labelling the legend, so instead of just “Water”, it will be “Place to get water”
     for (let key in locations) {
-
       // Change marker icon depending on type of location.
       // Set the marker path for the legend item icon.
       switch(key) {
@@ -342,9 +374,7 @@ eleventyNavigation:
       // End legend item with the label.
       // legendHtml += '" alt=""></div><div class="map-legend-label">'+ locationTypeHuman +' ('+ locations[key].length +')</div></li>'
       legendHtml += '" alt=""></div><div class="map-legend-label '+ locations[key].length +'">'+ locationTypeHuman +' ('+ count +')</div></li>'
-
     } // for (first level in json)
-
 
     document.querySelector('#map-legend-items').innerHTML = legendHtml
 
@@ -378,6 +408,9 @@ eleventyNavigation:
       })
     }
 
+    // END LEGEND AND MARKERS
+
+
 
     // Uncomment this line if using clusters
     // map.addLayer(markers);
@@ -405,4 +438,4 @@ eleventyNavigation:
   });
   // END https://stackoverflow.com/a/34579496/2716287
 
-  </script>
+</script>
