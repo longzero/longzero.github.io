@@ -38,6 +38,7 @@ eleventyNavigation:
   .map-legend li:nth-child(1) {padding-top: .4em;}
   .map-legend li:last-child {margin-bottom: .4em;}
   .map-legend-heading {cursor: pointer;}
+  .map-legend-item {cursor: pointer;}
   .map-legend-item.hide {filter: grayscale(100%); text-decoration: line-through;}
   .map-legend-item.hide .map-legend-label {text-decoration: line-through;}
   .map-legend-symbol, .map-legend-label {display: inline-block; vertical-align: top; white-space: normal;}
@@ -99,7 +100,9 @@ eleventyNavigation:
 
   const svgBLM = L.icon({
     iconUrl: markerPathBLM,
-    className: "marker-icon js-marker-icon blm",
+    // Use the class hide to hide by default.
+    // (use that string to search elsewhere it is used)
+    className: "marker-icon js-marker-icon blm hide",
     iconSize: [24,32],
     iconAnchor: [12,31]
   });
@@ -278,7 +281,9 @@ eleventyNavigation:
       // Set the marker path for the legend item icon.
       switch(key) {
         case "blm":
-          legendClass = 'map-legend-item js-map-legend-item ' + key
+          // Use the class hide to hide by default.
+          // (use that string to search elsewhere it is used)
+          legendClass = 'map-legend-item js-map-legend-item hide ' + key
           // legendHtml += markerPathBLM
           legendMarker = markerPathBLM
           locationTypeHuman = 'Some BLM'
