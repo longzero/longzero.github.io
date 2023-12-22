@@ -227,7 +227,7 @@
     iconUrl: markerPathBLM,
     // Use the class hide to hide by default.
     // (use that string to search elsewhere it is used)
-    className: "marker-icon marker-icon--fade js-marker-icon blm",
+    className: "marker-icon marker-icon--fade js-marker-icon blm hide",
     iconSize: [24,32],
     iconAnchor: [12,31]
   });
@@ -408,7 +408,7 @@
         case "blm":
           // Use the class hide to hide by default.
           // (use that string to search elsewhere it is used)
-          legendClass = 'map-legend-item js-map-legend-item ' + key
+          legendClass = 'map-legend-item js-map-legend-item hide ' + key
           // legendHtml += markerPathBLM
           legendMarker = markerPathBLM
           locationTypeHuman = 'Some BLM'
@@ -562,7 +562,7 @@
     rawFile.send(null);
   }
 
-  loadJSON("/assets/js/map/spots.json", function(text){
+  loadJSON("/assets/js/map/spots-free.json", function(text){
     data = JSON.parse(text);
     initMap(data)
   });

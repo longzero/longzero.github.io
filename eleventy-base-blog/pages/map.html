@@ -441,7 +441,7 @@ eleventyNavigation:
     rawFile.send(null);
   }
 
-  loadJSON("/assets/js/map/spots.json", function(text){
+  loadJSON("/assets/js/map/spots-free.json", function(text){
     data = JSON.parse(text);
     initMap(data)
   });
