@@ -1555,10 +1555,10 @@
     {
       "id": "",
       "name": "162 E3 | Las Cienegas NCA - Cieneguita Dispersed",
-      "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Several spots along road, Reservations not accepted, Elev: 4607ft/ 1404m, Nearest town: Sonoita. GPS: 31.766666, -110.627132</p>",
+      "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Several spots along road, Reservations not accepted, Elev: 4607ft/ 1404m, Nearest town: Sonoita. GPS: 31.766666, -110.627132</p><p>Freeroam: 3.7 (3 reviews)</p>",
       "latitude": 31.766666,
       "longitude": -110.627132,
-      "url": "",
+      "url": "https://freeroam.app/campground/cieneguita-blm-cottonwood-windmill",
       "visible": 1
     },
     {
@@ -1585,6 +1585,7 @@
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Elev: 3774ft/1150m, Nearest town: Green Valley. GPS: 31.787596, -110.871729</p>",
       "latitude": 31.787596,
       "longitude": -110.871729,
+      "state": "Arizona",
       "url": "",
       "visible": 1
     },
@@ -1594,6 +1595,7 @@
       "notes": "<p>Dispersed sites, Tents only: Free, Elev: 4380ft/1335m, Tel: 928- 348-4400, Nearest town: Stafford. GPS: 31.347292,-109.063497</p>",
       "latitude": 31.347292,
       "longitude": -109.063497,
+      "state": "Arizona",
       "url": "",
       "visible": 1
     },
@@ -1616,6 +1618,7 @@
       "notes": "<p>Dispersed sites, No water, Vault/pit toilet, Tent & RV camping: Free, Near RR, Camp only in already disturbed areas, Stay limit: 14 days, Open all year, Elev: 655ft/200m, Tel: 760-326-7000, Nearest town: Amboy.</p>",
       "latitude": 34.557643,
       "longitude": -115.776861,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -1625,6 +1628,7 @@
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Reservations not accepted, Elev: 2684ft/818m, Tel: 760-252-6000, Nearest town: Landers.</p>",
       "latitude": 34.39371,
       "longitude": -116.5262,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -1634,6 +1638,7 @@
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Reservations not accepted, Elev: 2579ft/786m, Nearest town: Landers. </p>",
       "latitude": 34.410761,
       "longitude": -116.516435,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -1643,6 +1648,7 @@
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Rough access road, Beware of flash floods, Open all year, Max Length: 24ft, Reservations not accepted, Elev: 285ft/87m, Tel: 760- 833-7100, Nearest town: Mecca.</p>",
       "latitude": 33.587329,
       "longitude": -115.977324,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -1652,6 +1658,7 @@
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Stay limit: 14 days, Elev: 3278ft/999m, Tel: 760-252-6000, Nearest town: Barstow.</p>",
       "latitude": 34.561415,
       "longitude": -116.769615,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -1661,6 +1668,7 @@
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, 4x4 recommended, Must be 300' from roadways, Elev: 2362ft/ 720m, Nearest town: 29 Palms.</p>",
       "latitude": 34.172966,
       "longitude": -116.219087,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -1670,6 +1678,7 @@
       "notes": "<p>Dispersed sites, No water, No toilets, No tents/RVs: Free, Open all year, Elev: 1775ft/541m.</p>",
       "latitude": 33.673505,
       "longitude": -115.801266,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -1679,6 +1688,7 @@
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, 2nd spot 200' NNE, Stay limit: 14 days, Reservations not accepted, Elev: 4292ft/1308m, Tel: 760-252-6000, Nearest town: Hesperia.</p>",
       "latitude": 34.382566,
       "longitude": -117.164458,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -1688,6 +1698,7 @@
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Stay limit: 14 days, Reservations not accepted, Elev: 4422ft/1348m, Tel: 760-252-6000, Nearest town: Hesperia. </p>",
       "latitude": 34.386671,
       "longitude": -117.120597,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -1697,6 +1708,7 @@
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Stay limit: 14 days, Reservations not accepted, Elev: 3964ft/1208m, Tel: 760-252-6000, Nearest town: Hesperia</p>",
       "latitude": 34.394545,
       "longitude": -117.123767,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -1706,6 +1718,7 @@
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Stay limit: 14 days, Reservations not accepted, Elev: 4518f/1377m Stay 760-252-6000, Nearest town: Hesperia.</p>",
       "latitude": 34.374998,
       "longitude": -117.116837,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -1715,6 +1728,7 @@
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free Elev: 4282ft/1305m, Stay limit: 14 days, Reservations not accepted, Tel: 760-252-6000, Nearest town: Hesperia.</p>",
       "latitude": 34.375384,
       "longitude": -117.144729,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -1724,6 +1738,7 @@
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free Stay limit: 14 days, Reservations not accepted, Elev: 4487ft/1368m, Tel: 760-252-6000, Nearest town: Hesperia.</p>",
       "latitude": 34.359215,
       "longitude": -117.188516,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -1733,6 +1748,7 @@
       "notes": "<p>Dispersed sites, No water, No toilets, Tents only: Free, Stay limit: 14 days, Reservations not accepted, Elev: 5756ft/1754m, Tel: 760- 252-6000, Nearest town: Hesperia.</p>",
       "latitude": 34.375625,
       "longitude": -117.060252,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -1742,6 +1758,7 @@
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & Stay limit: 14 days, Reservations not accepted, Elev: 5668ft/1728m, RV camping: Free, Tel: 760-252-6000, Nearest town: Hesperia.</p>",
       "latitude": 34.383018,
       "longitude": -117.055119,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -1751,6 +1768,7 @@
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Stay limit: 14 days, Reservations not accepted, Elev: 4470ft/1362m, Tel: 760-252-6000, Nearest town: Hesperia.</p>",
       "latitude": 34.373916,
       "longitude": -117.173436,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -1760,6 +1778,7 @@
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Stay limit: 14 days, Reservations not accepted, Elev: 4543ft/1385m, Tel: 760-252-6000, Nearest town: Hesperia.</p>",
       "latitude": 34.370884,
       "longitude": -117.176178,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -1769,6 +1788,7 @@
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free. Stay limit: 14 days, Reservations not accepted, Elev: 4889ft/1490m, Tel: 760-252-6000, Nearest town: Hesperia.</p>",
       "latitude": 34.401235,
       "longitude": -117.184067,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -1778,6 +1798,7 @@
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Stay limit: 14 days, Reservations not accepted, Elev: 4650ft/1417m, Tel: 760-252-6000, Nearest town: Hesperia.</p>",
       "latitude": 34.368309,
       "longitude": -117.198109,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -1787,6 +1808,7 @@
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Stay limit: 14 days, Reservations not accepted, Elev: 4445ft/1355m, 12 763,333 6000, Nearest town: Hesperia</p>",
       "latitude": 34.407637,
       "longitude": -117.165249,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -1796,6 +1818,7 @@
       "notes": "<p>Dispersed atves. No water. No toilets, Tent & IV camping: Free Stay limit: 14 days, Reservations not accepted, Blev: 49078/1496m, Tel: 760-252-6000, Nearest town: Hesperia</p>",
       "latitude": 34.373376,
       "longitude": -117.108725,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -1805,6 +1828,7 @@
       "notes": "<p>Diapersed sites, No water. No toileta, Tent & RV camping: Free, Stay limit 14 days, Reservations not accepted, Elev: 45218/1378m, Tol 760-22 6000, Nearest town: Hesperia</p>",
       "latitude": 34.378441,
       "longitude": -117.113033,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -1814,6 +1838,7 @@
       "notes": "<p>Dispersed sites, No water. No toilets, Tent & RV camping Free, Stay lumit: 14 days, Reservations not accepted, Elev: 4788/1334m, Tel: 760-252-60XX, Nearest town. Hesperia</p>",
       "latitude": 34.384453,
       "longitude": -117.115449,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -1823,6 +1848,7 @@
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping Free, High-clearance vehicle recommended, Open all year, Elev 1660ft/ 506m, Nearest town: Barstow</p>",
       "latitude": 34.732007,
       "longitude": -116.163108,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -1832,6 +1858,7 @@
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Reservations not accepted, Elev: 4126ft/1258m, Tel 760-252 8000, Nearest town: Barstow.</p>",
       "latitude": 34.653292,
       "longitude": -116.854542,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -1841,6 +1868,7 @@
       "notes": "<p>Dispersed sites, No water. No toilets, Tent & RV camping Free Eless: 62710191m, Tel: 760-833-7100, Nearest town, Mecca</p>",
       "latitude": 33.619198,
       "longitude": -115.999448,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -1850,6 +1878,7 @@
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Elev: 4484ft/1367m, Tel: 760-252-6000, Nearest town: Daggett</p>",
       "latitude": 34.675803,
       "longitude": -116.608612,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -1859,6 +1888,7 @@
       "notes": "<p>Total sites: 13, RV sites: 13, No water, Vault/pit toilet. Tent & RV 3607t/1099m. 9m. Tel: Elev camping. Free, Open 760-252 all year, 6000, Nearest town: Barstow.</p>",
       "latitude": 34.670249,
       "longitude": -116.983713,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -1868,6 +1898,7 @@
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping Free. Reservations not accepted, Elev: 36358/1108m, Tel 760-252-6000 Nearest town: Barstow.</p>",
       "latitude": 34.671541,
       "longitude": -116.990266,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -1877,6 +1908,7 @@
       "notes": "<p>Dispersed sites, No water, Vault/pit toilet, Tent & RV camping Free, Reservations not accepted, Elev 28166/858m. Nearest town: Barstow.</p>",
       "latitude": 34.767306,
       "longitude": -117.013742,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -1886,6 +1918,7 @@
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Stay limit: 14 days, Elev: 26156/797m, Tel: 760 252-6000, Nearest town Bantow.</p>",
       "latitude": 34.812727,
       "longitude": -117.083377,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -1895,6 +1928,7 @@
       "notes": "<p>Dispersed sites. No water, No toilets, Tent & RV camping Free. Stay limit: 14 days, Reservations not accepted, Elev: 6536/200m Tel: 760-136-7000 Nearest oven: Earp </p>",
       "latitude": 34.168539,
       "longitude": -114.373125,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -1904,6 +1938,7 @@
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping Free. Reservations not accepted, Elev 409ft/125m. Tel 760-326-7000 Nearest town: Blythe</p>",
       "latitude": 33.929058,
       "longitude": -114.541758,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -1913,6 +1948,7 @@
       "notes": "<p>Dispersed sites, No waler, No toilets, Tent & RV camping Free. Elev: 7518/229m. Nearest town. Earp.</p>",
       "latitude": 34.177372,
       "longitude": -114.391191,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -1922,6 +1958,7 @@
       "notes": "<p>Dispersed sites, No water. No toilets, Tent & KV camping Free, Elev: 820ft/250m, Nearest town: Earp</p>",
       "latitude": 34.187875,
       "longitude": -114.40348,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -1931,6 +1968,7 @@
       "notes": "<p>Dispersed sites, No water, No toilets, No tenta/RVe Free, Stay limit 14 days, Reservations not accepted, Elev. 9520/290m, Nearest towrt Parker (AZ).</p>",
       "latitude": 34.203375,
       "longitude": -114.418983,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -1940,6 +1978,7 @@
       "notes": "<p>1080m </p>",
       "latitude": 34.745683,
       "longitude": -115.651977,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -1949,6 +1988,7 @@
       "notes": "<p>Dispersed sites. No water, No toilets. No tents/RVs Free, Stay limit: 14 days, Reservations not accepted, Elev: 593m Tel: 760-326-7000, Nearest town: Needles</p>",
       "latitude": 34.592812,
       "longitude": -114.635976,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -1958,6 +1998,7 @@
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Beside RR, Elev: 1663ft/507m, Nearest town: Desert Center.</p>",
       "latitude": 33.603716,
       "longitude": -115.532372,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -1967,6 +2008,7 @@
       "notes": "<p>Dispersed sites, No water, No toilets, Tents only: Free, 4x4 needed, Reservations not accepted, Elev: 1465ft/447m, Tel: 760-833-7100, Nearest town: Indo</p>",
       "latitude": 33.562608,
       "longitude": -115.589337,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -1976,6 +2018,7 @@
       "notes": "<p>Dispersed sites, No water, Vault/pit toilet, Tent & RV camping: Free, 4x4 recommended, Elev: 1831ft/558m, Tel: 760-326-7000, Nearest town: Needles</p>",
       "latitude": 34.435744,
       "longitude": -114.824221,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -1985,6 +2028,7 @@
       "notes": "<p>Dispersed sites, No water, Vault/pit toilet, Tent & RV camping: Free, 4x4 recommended, Elev: 1922ft/586m, Tel: 760-326-7000, Nearest town: Needles.</p>",
       "latitude": 34.427155,
       "longitude": -114.824464,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -1994,6 +2038,7 @@
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Various spots along road, Elev: 1567ft/478m, Tel: 760-326-7000, Nearest town: Needles.</p>",
       "latitude": 34.469165,
       "longitude": -114.814191,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -2003,6 +2048,7 @@
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Elev: 408ft/124m, Nearest town: Salton City.</p>",
       "latitude": 33.278953,
       "longitude": -116.058357,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -2012,6 +2058,7 @@
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Open all year, Reservations not accepted, Elev: 423ft/129m, Nearest town: Ocotillo.</p>",
       "latitude": 32.717064,
       "longitude": -115.911876,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -2021,6 +2068,7 @@
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Open all year, Reservations not accepted, Elev: 498ft/152m, Nearest town: Ocotillo.</p>",
       "latitude": 32.657673,
       "longitude": -115.925652,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -2030,6 +2078,7 @@
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Open all year, Reservations not accepted, Elev: 6ft/2m, Nearest town: Seeley</p>",
       "latitude": 32.766288,
       "longitude": -115.791317,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -2039,6 +2088,7 @@
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, 760-337-4400, Nearest</p>",
       "latitude": 32.679676,
       "longitude": -116.017718,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -2048,6 +2098,7 @@
       "notes": "<p>Dispersed sites, No toilets, Tent & RV camping: Fee unk, Elev 128ft/39m, Nearest town: Ocotillo Wells.</p>",
       "latitude": 33.071292,
       "longitude": -116.107812,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -2057,6 +2108,7 @@
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free Open all year, Reservations not accepted, Elev: 260ft/79m, Nearest town: Seeley.</p>",
       "latitude": 32.748681,
       "longitude": -115.851763,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -2066,6 +2118,7 @@
       "notes": "<p>Dispersed sites, No toilets, Tent & RV camping: Free, Elev 62ft/19m, Tel: 760-337-4400, Nearest town: Plaster City.</p>",
       "latitude": 32.815475,
       "longitude": -115.851213,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -2075,6 +2128,7 @@
       "notes": "<p>Dispersed sites, No toilets, Tent & RV camping: Free, Elev: 272ft/83m, Tel: 760-337-4400, Nearest town: Plaster City.</p>",
       "latitude": 32.764608,
       "longitude": -115.932853,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -2084,6 +2138,7 @@
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Open all year, Reservations not accepted, Elev: 155ft/47m, Nearest town: Seeley.</p>",
       "latitude": 32.745254,
       "longitude": -115.828929,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -2093,6 +2148,7 @@
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Open all year, Reservations not accepted, Elev: 372ft/113m, Nearest town: Ocotillo.</p>",
       "latitude": 32.658442,
       "longitude": -115.843709,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -2102,6 +2158,7 @@
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Elev: 42ft/13m, Tel: 760-337-4400, Nearest town: El Centro.</p>",
       "latitude": 32.888895,
       "longitude": -115.765581,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -2111,6 +2168,7 @@
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Elev: 3852ft/1174m, Nearest town: Jacumba Hot Springs.</p>",
       "latitude": 32.625232,
       "longitude": -116.081864,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -2120,6 +2178,7 @@
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Reservations not accepted, Elev: 21371/651m, Nearest town: Center.</p>",
       "latitude": 33.525997,
       "longitude": -115.452506,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -2129,6 +2188,7 @@
       "notes": "<p>Dispersed sites, No water, No toilets. Tent & RV camping: Free, Reservatiom not accepted, Elev: 2255ft/687m, Nearest town: Desert Center.</p>",
       "latitude": 33.515023,
       "longitude": -115.418213,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -2138,6 +2198,7 @@
       "notes": "<p>Dispersed sites, No water. No toilets, Tent & RV camping: Free, Beside RL, Reservations not accepted, Elev: 23801/725m. Nearest town: Desert Center.</p>",
       "latitude": 33.502239,
       "longitude": -115.386376,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -2147,6 +2208,7 @@
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping. Free, Reservations not accepted, Elev: 2481ft/756m, Nearest towns Desert Center.</p>",
       "latitude": 33.494082,
       "longitude": -115.339331,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -2156,6 +2218,7 @@
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping Frec, Reservations not accepted, Elev: 2326ft/709m, Nearest town Desert Center.</p>",
       "latitude": 33.471765,
       "longitude": -115.291547,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -2165,6 +2228,7 @@
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & KV camping Free, Reservations not accepted, Elev: 1971f1/601m, Nearest town Desert Center.</p>",
       "latitude": 33.437309,
       "longitude": -115.224258,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -2174,6 +2238,7 @@
       "notes": "<p>Dispersed sites, No watet, No toilets. Tent & RV camping: Free 4x4 high-clearance recomitiended, Elev: 177t/54m, Tel: 928-317- 3200, Nearest town: Yuma, AZ.</p>",
       "latitude": 32.969803,
       "longitude": -114.497536,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -2183,6 +2248,7 @@
       "notes": "<p>Dispersed sites, No water, No toilets, No tents/RVs: Free, Elev: 450ft/137m, Nearest town: Glamis.</p>",
       "latitude": 33.014407,
       "longitude": -115.039232,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -2192,6 +2258,7 @@
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Reservations not accepted, Elev: 8548/260m, Tel: 760-337-4400, Nearest town: Yuma, AZ.</p>",
       "latitude": 33.025588,
       "longitude": -114.769878,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -2201,6 +2268,7 @@
       "notes": "<p>Dispersed sites, No water. No toilets, Tent & RV camping Free, Near RR, Reservations not accepted, Elev: 371/113m, Nearest wn: Yuma, AZ.</p>",
       "latitude": 32.818195,
       "longitude": -114.83765,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -2210,6 +2278,7 @@
       "notes": "<p>Dispersed sites, No water, No todets, Tents only: Free, Hike-in, Ers: 9190/290m, Tel: 760-337-44000, Nearest town: Winterhaven.</p>",
       "latitude": 32.977475,
       "longitude": -114.672383,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -2219,6 +2288,7 @@
       "notes": "<p>Dispersed sites, No water, No toilets, Tent Be RV camping: Free, May limit: 14 days, Reservations not accepted, Elev: 426ft/130m, Nearest town Yuma (AZ)</p>",
       "latitude": 32.838637,
       "longitude": -114.640491,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -2228,6 +2298,7 @@
       "notes": "<p>Damp station at South Mesa, Reservations not accepted. Elev 27584m, Tel: 928-317-3200, Nearest town Yuma (AZ).</p>",
       "latitude": 32.907754,
       "longitude": -114.495031,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -2237,6 +2308,7 @@
       "notes": "<p>Dispersed sites, No water, Vault/pin toilet, Tent & RV camping Free, Huge area, Reservations not acorpted, Elev: 46f8/14m, Nearest town. Imperial</p>",
       "latitude": 32.899489,
       "longitude": -115.721322,
+      "state": "California",
       "url": "",
       "visible": 1
     },
@@ -2246,14 +2318,183 @@
       "notes": "<p>Dispersed sites, No watet, No toileta, Tents only: Free, Road can be very rough. Reservations not accepted, Elev, 904ft/276m, Nearest town: Blythe</p>",
       "latitude": 33.383857,
       "longitude": -114.985172,
+      "state": "California",
+      "url": "",
+      "visible": 1
+    },
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {
+      "id": "",
+      "name": "45. D1 | Gila Lower Box Canyon - Nichol's Canyon",
+      "notes": "Dispersed sites, No water, No toilets, Tent & RV camping: Free, 4x4 high-clearance vehicle required, Stay limit: 14 days, Open all year, Reservations not accepted, Elev: 4200ft/1280m, Tel: 505-525- 4300, Nearest town: Lordsburg. GPS: 32.632224, -108.826635",
+      "latitude": 32.632224,
+      "longitude": -108.826635,
+      "state": "New Mexico",
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "name": "47. D2 | Baylor Canyon",
+      "notes": "Dispersed sites, No water, No toilets, Tent & RV camping: Free, Elev: 5183ft/1580m, Nearest town: Las Cruces. GPS: 32.346346, -106.609177",
+      "latitude": 32.346346,
+      "longitude": -106.609177,
+      "state": "New Mexico",
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "name": "48. D2 | Broad Canyon",
+      "notes": "Dispersed sites, No water, No toilets, Tents only: Free, Trailers not recommended, lev, 40038/1221m, Norest town: Las Cinis GPS: 32.534222, 106.989956",
+      "latitude": 32.534222,
+      "longitude": -106.989956,
+      "state": "New Mexico",
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "name": "49-D2] Martin Ranch Road Dispersed",
+      "notes": "Dispersed sites. No toilets. No tents/RVs: Free Elev 47771 1456m, Neamt town, Truth or Consequences GPS 13.284633,-107.24445",
+      "latitude": 13.284633,
+      "longitude": -107.24445,
+      "state": "New Mexico",
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "name": "50-D2 Monticello Paint Rd Dispersed 1",
+      "notes": "Dispersed sites, No water, No uostas, Test & BV compung Free, Reservations not accepted, Elev 4886/1477m, Notrest town Truth or Consequences, GPS: 33.326638,-107.248224",
+      "latitude": 33.326638,
+      "longitude": -107.248224,
+      "state": "New Mexico",
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "name": "51-D2 Old Ladder Ranch Road",
+      "notes": "Dispersed sites. No water, No toilets, Tent & RV camping Frec Reservations n accepted Ekv 42278/1288m, Newest town Williamssburg GPS: 33.100689,-107.285217",
+      "latitude": 33.100689,
+      "longitude": -107.285217,
+      "state": "New Mexico",
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "name": "52-02 Sierra Vista TH",
+      "notes": "Dispersed sites, No water, No toilets, Tent & RV camping. Prec. Say limit 14 days, Reservations not accepted, Elev 48420/1476m. Nearest town Las Cruces GPS 32.318912,-106.632042",
+      "latitude": 32.318912,
+      "longitude": -106.632042,
+      "state": "New Mexico",
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "name": "57. D4 Alkali Lake OHV",
+      "notes": "Dispersed sites, No water, No toilets. Tent & RV camping Free, Open all year, Elev: 3281it/1000m, Nearest town: Carlibad GPS: 32.498919,-104.211436",
+      "latitude": 32.498919,
+      "longitude": -104.211436,
+      "state": "New Mexico",
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "name": "58 D4 Hackberry Lake OHV",
+      "notes": "Dispersed sites. No water, No toilets. Tent & RV camping. Free, Open all year, Reservations not accepted, Elev: 3196ft/974m. Tet 575-234-5972, Nearest town: Carlsbad, GPS 32.570251,-103.968716",
+      "latitude": 32.570251,
+      "longitude": -103.968716,
+      "state": "New Mexico",
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "name": "59. D4 Haystack Mt OHV Area",
+      "notes": "Dispersed sites, No water, Vaadt/pst toilet, Tent & MV ca Stay limit: 14 days. Open all your servations not accep Ther: 4048/12340, Tel: 375-627-0272. Nearest tower Ros GPS 33.637816,-104.226917",
+      "latitude": 33.637816,
+      "longitude": -104.226917,
+      "state": "New Mexico",
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "name": "61-E1 Granite Gap ",
+      "notes": "Dispersed sites, No water, No toilets. Tents only: Free. 424 needed Blev 4496/1370m, Nearest town: Landsburg, GPS 32.095282,-108.970462",
+      "latitude": 32.095282,
+      "longitude": -108.970462,
+      "state": "New Mexico",
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "name": "62-E2 Gap Tank Dispersed",
+      "notes": "Dispersed sites, No watet. No toilets. Tents only. Free, Reservations not accepted, Elev 43528/1326m, Neartst GPS: 31.897145, -107.061257 tows Santa Temsa",
+      "latitude": 31.897145,
+      "longitude": -107.061257,
+      "state": "New Mexico",
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "name": "63-E4 Chosa",
+      "notes": "Dispersed sites. No water. No toilets, Tent & RV camping Free, Room for 25 RVA, Stay limit: 14 days, Reservations not accepted, Elev: 37448/1141m, Nearest town: Whites City GPS 32.088528,-104.432161",
+      "latitude": 32.088528,
+      "longitude": -104.432161,
+      "state": "New Mexico",
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "name": "64-E4 Parks Ranch Dispersed",
+      "notes": "Dispersed sites, No water. No toilets, Tent & RV camping. Free Reservations not accepted, Elev: 35670/1087m. Tel 075-234 5927, Nearest town. Whites City GPS: 32.110525,-104.406711",
+      "latitude": 32.110525,
+      "longitude": -104.406711,
+      "state": "New Mexico",
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "name": "65-E4 Pecos River Corridor Rec Area",
+      "notes": "Dispersed sites. No water, No toilets, Tents only: Free. Open all ycar, Elev: 2874h/876m, Tel. 575 254-5972, Nearest town: Loving GPS: 32.065404,-104.010155",
+      "latitude": 32.065404,
+      "longitude": -104.010155,
+      "state": "New Mexico",
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "name": "66 E4 Sunset Reef",
+      "notes": "Total sites: 11, RV sites 5. No water, Vault/pit toilet. Tent & RV camping Frer, Stay limit. 5 days, Reservations not acceptel. Elev 36029/1098m, Tel 575-234-9927, Nearest town: Whites City GPS: 32.119464,-104.424408",
+      "latitude": 32.119464,
+      "longitude": -104.424408,
+      "state": "New Mexico",
       "url": "",
       "visible": 1
     }
-
-
-
-
-
 
 
 
