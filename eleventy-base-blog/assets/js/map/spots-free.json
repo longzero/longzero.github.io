@@ -1285,7 +1285,7 @@
     {
       "id": "",
       "name": "125-D2 Vekol Valley Dispersed",
-      "notes": "<p>Dispersed sites, No water. No toilets. Nearest town: Stanfield</p>",
+      "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Reservations not accepted, Elev: 1728ft/527m, Nearest town: Stanfield.</p>",
       "latitude": 32.845377,
       "longitude": -112.256582,
       "url": "",
@@ -1294,7 +1294,7 @@
     {
       "id": "",
       "name": "126-D2 West Dobb Road Dispersed",
-      "notes": "<p>Dispersed sites, No water. No toilets. Nearest town: Tonopah</p>",
+      "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Rough road, Max Length: 25ft, Reservations not accepted, Elev: 1038ft/316m, Nearest town: Tonopah.</p>",
       "latitude": 33.369389,
       "longitude": -112.993356,
       "url": "",
@@ -1303,9 +1303,297 @@
     {
       "id": "",
       "name": "127-D2 Wild Woman",
-      "notes": "<p>Dispersed sites, No water. No toilets. Nearest town: Ajo</p>",
+      "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Elev: 1764ft/538m, Nearest town: Ajo.</p>",
       "latitude": 32.241228,
       "longitude": -112.765296,
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "name": "128 D3 | Apache Trail Dispersed 9",
+      "notes": "<p>Dispersed sites, No water, Vault/pit toilet, Tent & RV camping: Free, Stay limit: 14 days, Reservations not accepted, Elev: 1957ft/596m, Nearest town: Apache Junction. GPS: 33.451604, -111.498285</p>",
+      "latitude": 33.451604,
+      "longitude": -111.498285,
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "name": "130. D3 | Brandenburg Dispersed",
+      "notes": "<p>Dispersed sites, No water, Vault/pit toilet, Tent & RV camping: Free, Reservations not accepted, Elev: 2685ft/818m, Nearest town: Dudleyville. GPS: 32.871796, -110.598344</p>",
+      "latitude": 32.871796,
+      "longitude": -110.598344,
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "name": "131 D3 | Cattle Tank Rd Dispersed",
+      "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Numerous sites along road for a mile west, Reservations not accepted, Elev: 2321ft/707m, Nearest town: Red Rock. GPS: 32.612258, -111.209855</p>",
+      "latitude": 32.612258,
+      "longitude": -111.209855,
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "name": "132. D3 Christmas",
+      "notes": "<p>Dispersed sites, No water, Vault/pit toilet, Tent & RV camping: Free, Nothing larger than truck camper, Max Length: 18ft, Elev: 2084ft/635m, Tel: 520-258-7200, Nearest town: Winkelman. GPS: 33.059923, -110.721659</p>",
+      "latitude": 33.059923,
+      "longitude": -110.721659,
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "name": "133. D3 | Cochran Rd Dispersed 1",
+      "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Reservations not accepted, Elev: 2696ft/822m, Nearest town: Florence. GPS: 32.988603, -111.116335</p>",
+      "latitude": 32.988603,
+      "longitude": -111.116335,
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "name": "134. D3 | Cochran Rd Dispersed 2",
+      "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Several sites in this area, Reservations not accepted, Elev: 2670ft/ 814m, Nearest town: Florence, GPS: 32.993194, -111.123873</p>",
+      "latitude": 32.993194,
+      "longitude": -111.123873,
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "name": "135. D3 | Cochran Rd Dispersed 3",
+      "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Reservations not accepted, Elev: 2518ft/767m, Nearest town: Florence. GPS: 33.000032, -111.140402</p>",
+      "latitude": 33.000032,
+      "longitude": -111.140402,
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "name": "136-D3 | Cochran Rd Dispersed 4",
+      "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Reservations not accepted, Elev: 2437ft/743m, Nearest town: Florence. GPS: 33.008383,-111.153825</p>",
+      "latitude": 33.008383,
+      "longitude": -111.153825,
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "name": "137 D3 Cochran Rd Dispersed 5",
+      "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Reservations not accepted, Elev, 2390ft/728m, Nearest town: Florence, GPS: 33.013852,-111.157774</p>",
+      "latitude": 33.013852,
+      "longitude": -111.157774,
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "name": "138 D3 | Cochran Rd Dispersed 6",
+      "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free Reservations not accepted, Elev: 2376ft/724m, Nearest town: Florence. GPS: 33.015984, -111.157755</p>",
+      "latitude": 33.015984,
+      "longitude": -111.157755,
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "name": "140. D3 | Homestead Climbing Area",
+      "notes": "<p>Dispersed sites, No water, No toilets, Tents only: Free, Hike-in, Reservations not accepted, Elev: 3614ft/1102m, Tel: 520-258- 7200, Nearest town: Winkelman. GPS: 33.173641, -110.781545</p>",
+      "latitude": 33.173641,
+      "longitude": -110.781545,
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "name": "141. D3 | Ironwood Forest NM - Ironwood Campsite",
+      "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Reservations not accepted, Elev: 2245ft/684m, Tel: 520-258-7200, Nearest town: Red Rock. GPS: 32.470794, -111.489706</p>",
+      "latitude": 32.470794,
+      "longitude": -111.489706,
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "name": "142 D3 | Ironwood Forest NM Silverbell Group Dispersed",
+      "notes": "<p>Dispersed sites, No water, No toilets, Group site: Free, Reservations not accepted, Elev: 2194ft/669m, Nearest town: Red Rock GPS: 32.473635, -111.497934</p>",
+      "latitude": 32.473635,
+      "longitude": -111.497934,
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "name": "143. D3 North Pump Station Road",
+      "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Elev: 2004ft/611m, Nearest town: Tucson, GPS: 32.436919, -111.371525</p>",
+      "latitude": 32.436919,
+      "longitude": -111.371525,
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "name": "144. D3 | Pipeline Rd Dispersed 1",
+      "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Reservations not accepted, Elev: 2121ft/646m, Nearest town: Tucson. GPS: 32.376925, -111.389849</p>",
+      "latitude": 32.376925,
+      "longitude": -111.389849,
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "name": "145. D3 | Redfield Canyon",
+      "notes": "<p>Dispersed sites, No toilets, Tent & RV camping: Free, Open all year, Elev: 3320ft/1012m, Tel: 928-348-4400, Nearest town: Safford. GPS: 32.431614, -110.388668</p>",
+      "latitude": 32.431614,
+      "longitude": -110.388668,
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "name": "146 D3 Snyder Hill Dispersed",
+      "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Stay limit: 14 days, Open all year, Elev: 2493ft/760m, Nearest town: Tucson. GPS: 32.158031, -111.115385</p>",
+      "latitude": 32.158031,
+      "longitude": -111.115385,
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "name": "147. D3 The Shores",
+      "notes": "<p>Dispersed sites, No water, Vault/pit toilet, Tent & RV camping: Free, Nothing larger than truck camper, Max Length: 18ft, Elev: 2059ft/628m, Tel: 520-258-7200, Nearest town: Winkelman. GPS: 33.021768, -110.738938</p>",
+      "latitude": 33.021768,
+      "longitude": -110.738938,
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "name": "148 D3 Turkey Creek Dispersed",
+      "notes": "<p>Dispersed sites, No water, No toilets, Tents only: Free, Reservations not accepted, Elev: 3178ft/969m, Nearest town: Winkelman. GPS: 32.882803, -110.436956</p>",
+      "latitude": 32.882803,
+      "longitude": -110.436956,
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "name": "149. D4 Hackel Road Dispersed",
+      "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Reservations not accepted, Elev: 3178ft/969m, Nearest town: Safford. GPS: 32.778655, -109.572236</p>",
+      "latitude": 32.778655,
+      "longitude": -109.572236,
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "name": "150 D4 | Hackle Road Dispersed 1",
+      "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Wide-open space, Elev: 3134ft/955m, Tel: 928-348-4400, Nearest town: Safford. GPS: 32.793455,-109.592564</p>",
+      "latitude": 32.793455,
+      "longitude": -109.592564,
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "name": "151 D4 | Hackle Road Dispersed 2",
+      "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Reservations not accepted, Elev: 3085ft/940m, Tel: 928-348-4400, Nearest town: Safford. GPS: 32.784066, -109.601164</p>",
+      "latitude": 32.784066,
+      "longitude": -109.601164,
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "name": "153 D4 Indian Bread Rocks",
+      "notes": "<p>Total sites: 5, RV sites: 5, No water, Vault/pit toilet, Tent & RV camping: Free, Camp in undeveloped areas, Max Length: 25ft, Reservations not accepted, Elev: 4167ft/1270m, Tel: 928-348- 4400, Nearest town: Bowie. GPS: 32.238443,-109.499676</p>",
+      "latitude": 32.238443,
+      "longitude": -109.499676,
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "name": "154. D4 Muleshoe Ranch",
+      "notes": "<p>Dispersed sites, No water, No toilets, Tents only: Free, 4x4, Elev: 4101ft/1250m, Tel: 928-348-4400, Nearest town: Willcox, GPS: 32.337855,-110.238692</p>",
+      "latitude": 32.337855,
+      "longitude": -110.238692,
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "name": "156. D4 Red Knolls Amphitheater",
+      "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Elev: 2797ft/853m, Nearest town: Eden. GPS: 32.961665, -109.939325</p>",
+      "latitude": 32.961665,
+      "longitude": -109.939325,
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "name": "158. D4 | Round Mountain Rockhound Area",
+      "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Reservations not accepted, Elev: 4291ft/1308m, Nearest town: Duncan, GPS: 32.484493, -109.059244</p>",
+      "latitude": 32.484493,
+      "longitude": -109.059244,
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "name": "159 E3 FSR 62 Dispersed 1",
+      "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Elev: 4038ft/1231m, Nearest town: Green Valley. GPS: 31.777026, -110.848312</p>",
+      "latitude": 31.777026,
+      "longitude": -110.848312,
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "name": "162 E3 | Las Cienegas NCA - Cieneguita Dispersed",
+      "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Several spots along road, Reservations not accepted, Elev: 4607ft/ 1404m, Nearest town: Sonoita. GPS: 31.766666, -110.627132</p>",
+      "latitude": 31.766666,
+      "longitude": -110.627132,
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "name": "164. E3 Las Cienegas NCA - Oak Canyon Dispersed",
+      "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Reservations not accepted, Elev: 4706ft/1434m, Nearest town: Sonoita. GPS: 31.800516, -110.655485</p>",
+      "latitude": 31.800516,
+      "longitude": -110.655485,
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "name": "165 E3 Las Cienegas NCA - Road Canyon",
+      "notes": "<p>Total sites: 6, RV sites: 6, No water, No toilets, Tent & RV camping: Free, Open Jul-Mar, Reservations not accepted, Elev: 4578ft/1395m, Tel: 520-439-6400, Nearest town: Sonoita. GPS: 31.739234, -110.585718</p>",
+      "latitude": 31.739234,
+      "longitude": -110.585718,
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "name": "166 E3 | White House Canyon Road Dispersed",
+      "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Elev: 3774ft/1150m, Nearest town: Green Valley. GPS: 31.787596, -110.871729</p>",
+      "latitude": 31.787596,
+      "longitude": -110.871729,
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "name": "167 E4 Baker Canyon WSA",
+      "notes": "<p>Dispersed sites, Tents only: Free, Elev: 4380ft/1335m, Tel: 928- 348-4400, Nearest town: Stafford. GPS: 31.347292,-109.063497</p>",
+      "latitude": 31.347292,
+      "longitude": -109.063497,
       "url": "",
       "visible": 1
     },
@@ -1975,11 +2263,20 @@
   "potential-spots": [
     {
       "id": "",
-      "latitude": 32.36996887220924,
-      "longitude": -106.5612931692182,
-      "name": "Aguirre Spring Campground",
-      "notes": "Looks beautiful. There is snow in winter, but it melts quickly.",
-      "url": "https://maps.app.goo.gl/mjG8xT3ZqLMQ5ahx8",
+      "latitude": 33.41703,
+      "longitude": -89.26929,
+      "name": "Natchez Trace - Jeff Busby Campground",
+      "notes": "T-Mobile sucks, others might be better. About 10 spots.",
+      "url": "https://freeroam.app/campground/natchez-trace-jeff-busby-campground-jeff-busby-park",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 32.2434,
+      "longitude": -109.5075,
+      "name": "Indian Bread Rocks",
+      "notes": "4.7 (15 reviews)<br>Has signal, but might be weak. Beautiful views.",
+      "url": "https://freeroam.app/campground/indian-bread-rocks",
       "visible": 1
     }
   ],
