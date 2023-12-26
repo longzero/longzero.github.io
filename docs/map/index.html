@@ -200,6 +200,7 @@
 
   // MAP MARKER ICONS
   const markerPathBLM = '/assets/images/map-icons/marker-icon-blm.svg'
+  const markerPathPotential = '/assets/images/map-icons/marker-icon-potential.svg'
   const markerPathCampspot = '/assets/images/map-icons/marker-icon-campspot.svg'
   const markerPathCurrent = '/assets/images/map-icons/marker-icon-current.svg'
   const markerPathPlace = '/assets/images/map-icons/marker-icon-place.svg'
@@ -242,6 +243,15 @@
   const svgPlace = L.icon({
     iconUrl: markerPathPlace,
     className: "marker-icon js-marker-icon places",
+    iconSize: [24,32],
+    iconAnchor: [12,31]
+  });
+
+  const svgPotential = L.icon({
+    iconUrl: markerPathPotential,
+    // Use the class hide to hide by default.
+    // (use that string to search elsewhere it is used)
+    className: "marker-icon marker-icon--fade js-marker-icon potential-spots hide",
     iconSize: [24,32],
     iconAnchor: [12,31]
   });
@@ -421,6 +431,14 @@
           locationTypeHuman = 'Random place'
           svgIcon = svgPlace
           break
+        case "potential-spots":
+          // Use the class hide to hide by default.
+          // (use that string to search elsewhere it is used)
+          legendClass = 'map-legend-item js-map-legend-item hide ' + key
+          legendMarker = markerPathPotential
+          locationTypeHuman = 'Potential spots'
+          svgIcon = svgPotential
+          break
         case "spots":
           legendClass = 'map-legend-item js-map-legend-item ' + key
           // legendHtml += markerPathCampspot
@@ -522,6 +540,9 @@
         }
         else if (this.classList.contains('places')) {
           markers = document.querySelectorAll('.js-marker-icon.places')
+        }
+        else if (this.classList.contains('potential-spots')) {
+          markers = document.querySelectorAll('.js-marker-icon.potential-spots')
         }
         else if (this.classList.contains('shower')) {
           markers = document.querySelectorAll('.js-marker-icon.shower')
