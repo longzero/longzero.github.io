@@ -1972,6 +1972,17 @@
 
 
   ],
+  "potential-spots": [
+    {
+      "id": "",
+      "latitude": 32.36996887220924,
+      "longitude": -106.5612931692182,
+      "name": "Aguirre Spring Campground",
+      "notes": "Looks beautiful. There is snow in winter, but it melts quickly.",
+      "url": "https://maps.app.goo.gl/mjG8xT3ZqLMQ5ahx8",
+      "visible": 1
+    }
+  ],
   "places": [
     {
       "markerPath": "/assets/images/map-icons/marker-icon-place.svg"
