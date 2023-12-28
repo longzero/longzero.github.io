@@ -7,6 +7,32 @@
   {#- Uncomment this if you’d like folks to know that you used Eleventy to build your site!  #}
   {#- <meta name="generator" content="{{ eleventy.generator }}"> #}
 
+  {# leaflet #}
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+  {# leaflet: direction, navigation, routing #}
+
+
+  {# leaflet: improve zooming smoothness #}
+  <script src="{{ '/assets/js/map/SmoothWheelZoom.js' | url }}"></script>
+
+  {# <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/esri-leaflet/3.0.4/esri-leaflet.js"></script>
+  <script src="https://unpkg.com/esri-leaflet-vector@3/dist/esri-leaflet-vector.js"></script> #}
+
+  {# leaflet markercluster #}
+  {# <link rel="stylesheet" href="{{ '/assets/vendors/leaflet.markercluster-1.1.0/MarkerCluster.Default.css' | url }}">
+  <link rel="stylesheet" href="{{ '/assets/vendors/leaflet.markercluster-1.1.0/MarkerCluster.css' | url }}">
+  <script src="{{ '/assets/vendors/leaflet.markercluster-1.1.0/leaflet.markercluster.js' | url }}"></script> #}
+
+  {# leaflet providers #}
+  {#
+    https://github.com/leaflet-extras/leaflet-providers
+    https://leaflet-extras.github.io/leaflet-providers/preview/index.html
+  #}
+  <script src="{{ '/assets/js/map/leaflet-providers.js' | url }}"></script>
+
   <link rel="apple-touch-icon" href="/assets/images/favicon.png">
   <link rel="icon" href="/assets/images/favicon.png">
   <link rel="preload" crossorigin="anonymous" as="font" href="/assets/fonts/oxygen-v10-latin-regular.woff2">
@@ -21,8 +47,8 @@
     ga('send', 'pageview');
   </script>
 
-  {% set og_image %}{{ hostname }}/assets/images/og.jpg{% endset %}
-  {# {% set og_image %}{{ hostname }}/assets/images/og-map.jpg{% endset %} #}
+  {# {% set og_image %}{{ hostname }}/assets/images/og.jpg{% endset %} #}
+  {% set og_image %}{{ hostname }}/assets/images/og-map.jpg{% endset %}
   {% if image and singlePost == 1 %}
     {% set og_image %}{{ hostname }}/assets/images/articles/{{ image }}{% endset %}
   {% endif %}
@@ -51,8 +77,7 @@
   {# <meta name="robots" content="index, follow"> #}
 
   <link rel="stylesheet" href="{{ '/assets/css/index.css' | url }}">
-  {# <link rel="stylesheet" href="{{ '/assets/css/prism-base16-monokai.dark.css' | url }}"> #}
-  {# <link rel="stylesheet" href="{{ '/assets/css/prism-diff.css' | url }}"> #}
-  <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}">
-  <link rel="alternate" href="{{ metadata.jsonfeed.path | url }}" type="application/json" title="{{ metadata.title }}">
+  <link rel="stylesheet" href="{{ '/assets/css/map.css' | url }}">
+  {# <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}"> #}
+  {# <link rel="alternate" href="{{ metadata.jsonfeed.path | url }}" type="application/json" title="{{ metadata.title }}"> #}
 </head>
