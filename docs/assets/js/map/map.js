@@ -32,8 +32,7 @@ let svgIcon = L.icon({
 
 const svgBLM = L.icon({
   iconUrl: markerPathBLM,
-  // Use the class hide to hide by default.
-  // (use that string to search elsewhere it is used)
+  // Use the class hide to hide by default (use that string to search elsewhere it is used)
   className: "marker-icon marker-icon--fade js-marker-icon blm",
   iconSize: [24,32],
   iconAnchor: [12,31]
@@ -41,7 +40,7 @@ const svgBLM = L.icon({
 
 let svgCurrent = L.icon({
   iconUrl: markerPathCurrent,
-  className: "marker-icon js-marker-icon current",
+  className: "marker-icon js-marker-icon current-location",
   iconSize: [24,32],
   iconAnchor: [12,31]
 });
@@ -55,8 +54,7 @@ const svgPlace = L.icon({
 
 const svgPotential = L.icon({
   iconUrl: markerPathPotential,
-  // Use the class hide to hide by default.
-  // (use that string to search elsewhere it is used)
+  // Use the class hide to hide by default (use that string to search elsewhere it is used)
   className: "marker-icon marker-icon--fade js-marker-icon potential-spots hide",
   iconSize: [24,32],
   iconAnchor: [12,31]
@@ -149,7 +147,12 @@ function initMap(locations) {
   }).fitBounds([
     [54.14584949174648, -128.75881463815347],
     [17.055714221336178, -59.9846634648619]
-  ]).locate({setView: true, maxZoom: 8})
+  ])
+  // Request permission to get location.
+  // .locate({
+  //   setView: false, // true means the map zooms to current location.
+  //   maxZoom: 8
+  // })
 
 
 
@@ -191,24 +194,6 @@ function initMap(locations) {
   // }
 
 
-  // CURRENT LOCATION
-  function success(position) {
-    var latitude = position.coords.latitude;
-    var longitude = position.coords.longitude;
-    // myresult.innerHTML = '<p>Latitude is ' + latitude + '° <br>Longitude is ' + longitude + '°</p>';
-    // makeMyMap(latitude, longitude);
-    // console.log("latitude: "+latitude+" and longitude: "+longitude)
-
-    markerHere = new L.marker([latitude, longitude], {icon: svgCurrent})
-      .bindPopup("You are here.", { offset: L.point(0,-14) })
-      // Comment this line if using clusters
-      .addTo(map);
-  }
-  function error() {
-    myresult.innerHTML = "Unable to retrieve your location";
-  }
-  navigator.geolocation.getCurrentPosition(success, error);
-  // END CURRENT LOCATION
 
 
   // LEGEND AND MARKERS
@@ -217,13 +202,19 @@ function initMap(locations) {
   let legendHtml = '' // Create each item of legend, in HTML
   let legendMarker = ''
   let locationTypeHuman = '' // Used for labelling the legend, so instead of just “Water”, it will be “Place to get water”
+
+  // Beginning legend item HTML with current location.
+  // Use the class hide to hide by default (use that string to search elsewhere it is used)
+  legendHtml += '<li class="'+ legendClass +' js-map-legend-item current-location hide">'
+  + '<div class="map-legend-symbol"><img src="' + markerPathCurrent + '" alt=""></div>'
+  + '<div class="map-legend-label">Current location</div></li>'
+
   for (let key in locations) {
     // Change marker icon depending on type of location.
     // Set the marker path for the legend item icon.
     switch(key) {
       case "blm":
-        // Use the class hide to hide by default.
-        // (use that string to search elsewhere it is used)
+        // Use the class hide to hide by default (use that string to search elsewhere it is used)
         legendClass = 'map-legend-item js-map-legend-item  ' + key
         // legendHtml += markerPathBLM
         legendMarker = markerPathBLM
@@ -238,8 +229,7 @@ function initMap(locations) {
         svgIcon = svgPlace
         break
       case "potential-spots":
-        // Use the class hide to hide by default.
-        // (use that string to search elsewhere it is used)
+        // Use the class hide to hide by default (use that string to search elsewhere it is used)
         legendClass = 'map-legend-item js-map-legend-item hide ' + key
         legendMarker = markerPathPotential
         locationTypeHuman = 'Potential spots'
@@ -280,7 +270,7 @@ function initMap(locations) {
         svgIcon = svgDefault
     } // switch
 
-    // Beginning legend item HTML
+
     legendHtml += '<li class="'+ legendClass +'"><div class="map-legend-symbol"><img src="' + legendMarker
 
     let count = 0 // For counting locations by type.
@@ -338,7 +328,10 @@ function initMap(locations) {
     legendToggle[i].addEventListener('click', function() {
       this.classList.toggle('hide')
       let markers
-      if (this.classList.contains('spots')) {
+      if (this.classList.contains('current-location')) {
+        markers = document.querySelectorAll('.js-marker-icon.current-location')
+      }
+      else if (this.classList.contains('spots')) {
         markers = document.querySelectorAll('.js-marker-icon.spots')
       }
       else if (this.classList.contains('blm')) {
@@ -366,6 +359,37 @@ function initMap(locations) {
   }
 
   // END LEGEND AND MARKERS
+
+
+  // CURRENT LOCATION
+  function success(position) {
+    var latitude = position.coords.latitude;
+    var longitude = position.coords.longitude;
+    // myresult.innerHTML = '<p>Latitude is ' + latitude + '° <br>Longitude is ' + longitude + '°</p>';
+    // makeMyMap(latitude, longitude);
+    // console.log("latitude: "+latitude+" and longitude: "+longitude)
+
+    markerHere = new L.marker([latitude, longitude], {icon: svgCurrent})
+      .bindPopup("You are here.", { offset: L.point(0,-14) })
+      // Comment this line if using clusters
+      .addTo(map);
+    map.locate({
+      setView: true, // true means the map zooms to current location.
+      maxZoom: 8
+    })
+  }
+  function error() {
+    myresult.innerHTML = "Unable to retrieve your location";
+  }
+
+  let located = false // true means the user already triggered location detection.
+  document.querySelector('.js-map-legend-item.current-location').addEventListener('click', function(){
+    if (located == false) {
+      navigator.geolocation.getCurrentPosition(success, error);
+      located = true
+    }
+  })
+  // END CURRENT LOCATION
 
 
 
