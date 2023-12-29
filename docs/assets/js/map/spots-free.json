@@ -5,11 +5,38 @@
     },
     {
       "id": "",
+      "latitude": 33.60683001171496,
+      "longitude": -114.1954725268111,
+      "name": "La Posa South LTVA just south of Quartzsite",
+      "notes": "<p>Many good spots along bushes. It's great because of it. It's like having a giant backyard.</p>",
+      "url": "https://www.blm.gov/documents/arizona/public-room/map/long-term-visitor-area-map",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 33.610014022475234,
+      "longitude": -114.19958424144716,
+      "name": "The Lit Cactus (La Posa South LTVA just south of Quartzsite)",
+      "notes": "<p>There's a big plant that provides a tiny bit of privacy. Sunrise is in front and sunset on the side door.</p><p>Beware that this is next to The Lit Cactus and there are frequent gathering of people at least once per week during winter. This is the spot where to be if you want to meat people, mostly retired people.</p>",
+      "url": "https://www.blm.gov/documents/arizona/public-room/map/long-term-visitor-area-map",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 32.78190340104057,
+      "longitude": -114.75639124261143,
+      "name": "Sidewinder Rd (close to Pilot Knob LTVA)",
+      "notes": "<p>Weak signal.<br>Internet 5 2.<br>Not pretty, but alone and secluded. Other people are visible, but far away.</p>",
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
       "latitude": 32.90150811086217,
       "longitude": -114.51614508614017,
       "name": "Imperial Dam LTVA (day use)",
       "notes": "<p>WARNING: ranger came to say you can't sleep here, but you can stay during daytime (sunrise to sunset)</p><p>The signal was better than the official LTVA: Internet 10 2 20231204</p>",
-      "url": "",
+      "url": "https://www.blm.gov/documents/arizona/public-room/map/long-term-visitor-area-map",
       "visible": 1
     },
     {
@@ -18,7 +45,7 @@
       "longitude": -114.50867196930668,
       "name": "Imperial Dam LTVA",
       "notes": "<p>Poor signal in all places within the boundaries of the LTVA.</p><p>Good spot for the view, because people aren't allowed to camp on the other side of the road.</p><p>Internet<br>12 0 20231204.<br>30 2 20231204.</p><p>Despite these numbers, internet is pretty bad. Everything takes a long time to load. You can't load multiple things at once.</p><p>For example, if you are on a call, opening a link someone sends will take some time.</p><p>Move elsewhere for the internet.</p>",
-      "url": "",
+      "url": "https://www.blm.gov/documents/arizona/public-room/map/long-term-visitor-area-map",
       "visible": 1
     },
     {
@@ -26,8 +53,8 @@
       "latitude": 32.80944170646082,
       "longitude": -112.25435722478198,
       "name": "Smuggler’s Run - Vekol Valley Rd",
-      "notes": "<p><a href='https://freeroam.app/campground/smugglers-run' target='_blank'>Freeroam</a><br>Check map to make sure of being on BLM land.</p>",
-      "url": "",
+      "notes": "<p>Check map to make sure of being on BLM land.</p>",
+      "url": "https://freeroam.app/campground/smugglers-run",
       "visible": 1
     },
     {
@@ -2628,6 +2655,22 @@
   "shower": [
     {
       "markerPath": "/assets/images/map-icons/marker-icon-water.svg"
+    },
+    {
+      "id": "",
+      "latitude": 33.65733632184922,
+      "longitude": -114.24131985649126,
+      "name": "Love’s",
+      "notes": "Showers 17 USD 23 CAD (20231229)",
+      "url": "https://maps.app.goo.gl/5uG2EjhbEhcQv4Me7"
+    },
+    {
+      "id": "",
+      "latitude": 32.68651354785565,
+      "longitude": -114.58251943006417,
+      "name": "Love’s",
+      "notes": "Showers 17 USD 23 CAD (20231229)",
+      "url": "https://maps.app.goo.gl/5nbqFmf24igApX3r9"
     },
     {
       "id": "",
