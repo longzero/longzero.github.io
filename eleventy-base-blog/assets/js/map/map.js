@@ -33,7 +33,7 @@ let svgIcon = L.icon({
 const svgBLM = L.icon({
   iconUrl: markerPathBLM,
   // Use the class hide to hide by default (use that string to search elsewhere it is used)
-  className: "marker-icon marker-icon--fade js-marker-icon blm",
+  className: "marker-icon marker-icon--fade js-marker-icon blm hide",
   iconSize: [24,32],
   iconAnchor: [12,31]
 });
@@ -215,7 +215,7 @@ function initMap(locations) {
     switch(key) {
       case "blm":
         // Use the class hide to hide by default (use that string to search elsewhere it is used)
-        legendClass = 'map-legend-item js-map-legend-item  ' + key
+        legendClass = 'map-legend-item js-map-legend-item blm hide ' + key
         // legendHtml += markerPathBLM
         legendMarker = markerPathBLM
         locationTypeHuman = 'Some BLM'
