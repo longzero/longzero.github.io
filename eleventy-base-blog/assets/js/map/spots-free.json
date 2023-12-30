@@ -5,6 +5,15 @@
     },
     {
       "id": "",
+      "latitude": 32.84035045664595,
+      "longitude": -114.8141007572436,
+      "name": "American Girl Mine Rd",
+      "notes": "<p>Lots of space. Signal can get slow. I am not getting the ravings from other reviews.</p>",
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
       "latitude": 33.60683001171496,
       "longitude": -114.1954725268111,
       "name": "La Posa South LTVA just south of Quartzsite",
@@ -2529,6 +2538,24 @@
 
   ],
   "potential-spots": [
+    {
+      "id": "",
+      "latitude": 32.8812,
+      "longitude": -114.834,
+      "name": "Tumco historic mine",
+      "notes": "Ghost town",
+      "url": "https://freeroam.app/campground/tumco-historic-mine",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 32.917,
+      "longitude": -114.837,
+      "name": "BLM Colorado Mine",
+      "notes": "Beautiful and quiet.",
+      "url": "https://freeroam.app/campground/blm-colorado-mine",
+      "visible": 1
+    },
     {
       "id": "",
       "latitude": 33.41703,

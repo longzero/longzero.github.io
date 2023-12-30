@@ -413,8 +413,7 @@ function initMap(locations) {
   // Uncomment this line if using clusters
   // map.addLayer(markers);
 
-} // function
-
+} // function initMap(locations)
 
 
 // https://stackoverflow.com/a/34579496/2716287
@@ -429,9 +428,4 @@ function loadJSON(file, callback) {
   }
   rawFile.send(null);
 }
-
-loadJSON("/assets/js/map/spots-free.json", function(text){
-  data = JSON.parse(text);
-  initMap(data)
-});
 // END https://stackoverflow.com/a/34579496/2716287

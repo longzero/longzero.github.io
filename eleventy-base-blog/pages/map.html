@@ -18,3 +18,15 @@ eleventyNavigation:
     </li>
   </ul>
 </div>
+
+
+<script>
+  // https://stackoverflow.com/a/34579496/2716287
+  document.addEventListener("DOMContentLoaded", function(){
+    loadJSON("/assets/js/map/spots-free.json", function(text){
+      data = JSON.parse(text);
+      initMap(data)
+    });
+  });
+  // END https://stackoverflow.com/a/34579496/2716287
+</script>
