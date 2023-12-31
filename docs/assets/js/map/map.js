@@ -1,4 +1,4 @@
-DEBUG = true
+DEBUG = false
 
 
 // TOGGLE LEGEND
@@ -35,6 +35,7 @@ const markerPathPotential = '/assets/images/map-icons/marker-icon-potential.svg'
 const markerPathCampspot = '/assets/images/map-icons/marker-icon-campspot.svg'
 const markerPathCurrent = '/assets/images/map-icons/marker-icon-current.svg'
 const markerPathPlace = '/assets/images/map-icons/marker-icon-place.svg'
+const markerPathTower = '/assets/images/map-icons/marker-icon-tower.svg'
 const markerPathWater = '/assets/images/map-icons/marker-icon-water.svg'
 
 
@@ -102,6 +103,13 @@ const svgSpots = L.icon({
 const svgStarbucks = L.icon({
   iconUrl: markerPathPlace,
   className: "marker-icon js-marker-icon starbucks",
+  iconSize: [24,32],
+  iconAnchor: [12,31]
+});
+
+const svgTowers = L.icon({
+  iconUrl: markerPathTower,
+  className: "marker-icon js-marker-icon towers",
   iconSize: [24,32],
   iconAnchor: [12,31]
 });
@@ -212,6 +220,12 @@ function parseLocations(locations) {
         locationTypeHuman = 'Shower spot'
         svgIcon = svgShower
         break
+      case "towers":
+        legendClass = 'map-legend-item js-map-legend-item ' + locationType
+        legendMarker = markerPathTower
+        locationTypeHuman = 'Towers'
+        svgIcon = svgTowers
+        break
       case "water":
         legendClass = 'map-legend-item js-map-legend-item ' + locationType
         // legendHtml += markerPathWater
@@ -232,6 +246,11 @@ function parseLocations(locations) {
     let count = 0 // For counting locations by type.
     addMarkers(count, locations, locationType)
   } // for (first level in json)
+
+  // Use the class hide to hide by default (use that string to search elsewhere it is used)
+  legendHtml += '<li class="'+ legendClass +' js-map-legend-item current-location hide">'
+  + '<div class="map-legend-symbol"><img src="' + markerPathCurrent + '" alt=""></div>'
+  + '<div class="map-legend-label">Current location</div></li>'
 }
 
 function toggleLegendAndMarkers() {
@@ -261,6 +280,9 @@ function toggleLegendAndMarkers() {
       }
       else if (this.classList.contains('starbucks')) {
         markers = document.querySelectorAll('.js-marker-icon.starbucks')
+      }
+      else if (this.classList.contains('towers')) {
+        markers = document.querySelectorAll('.js-marker-icon.towers')
       }
       else if (this.classList.contains('water')) {
         markers = document.querySelectorAll('.js-marker-icon.water')
@@ -362,11 +384,8 @@ function initMap(locations) {
 
   // LEGEND AND MARKERS
 
-  // Beginning legend item HTML with current location.
-  // Use the class hide to hide by default (use that string to search elsewhere it is used)
-  legendHtml += '<li class="'+ legendClass +' js-map-legend-item current-location hide">'
-  + '<div class="map-legend-symbol"><img src="' + markerPathCurrent + '" alt=""></div>'
-  + '<div class="map-legend-label">Current location</div></li>'
+  // Beginning legend item HTML.
+  legendHtml += ''
 
   parseLocations(locations)
 
@@ -388,9 +407,9 @@ function initMap(locations) {
     DEBUG && console.log("Current location: success() entered.")
 
     const crd = position.coords;
-    DEBUG && console.log(`Latitude : ${crd.latitude}`);
-    DEBUG && console.log(`Longitude: ${crd.longitude}`);
-    DEBUG && console.log(`More or less ${crd.accuracy} meters.`);
+    console.log(`Latitude : ${crd.latitude}`);
+    console.log(`Longitude: ${crd.longitude}`);
+    console.log(`More or less ${crd.accuracy} meters.`);
 
     var latitude = position.coords.latitude;
     var longitude = position.coords.longitude;
@@ -406,7 +425,7 @@ function initMap(locations) {
       // Comment this line if using clusters
       .addTo(map);
     map.locate({
-      setView: true, // true means the map zooms to current location.
+      setView: true, // true means the map zooms to current location. Does not always work on desktop.
       maxZoom: 8
     })
 

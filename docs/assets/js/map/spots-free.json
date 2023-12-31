@@ -2810,6 +2810,128 @@
       "url": ""
     }
   ],
+  "towers": [
+    {
+      "id": "",
+      "latitude": 32.763472,
+      "longitude": -114.838167,
+      "name": "Tower",
+      "notes": "<a href='https://www.towermaps.com/the-map.html' target='_blank'>Tower Maps</a>",
+      "url": "https://hub.arcgis.com/datasets/fedmaps::cellular-towers-in-the-united-states/explore?location=32.761271%2C-114.835436%2C16.41"
+    },
+    {
+      "id": "",
+      "latitude": 32.75,
+      "longitude": -114.75,
+      "name": "Tower",
+      "notes": "",
+      "url": "https://www.towermaps.com/the-map.html"
+    },
+    {
+      "id": "",
+      "latitude": 32.81,
+      "longitude": -114.89,
+      "name": "Tower",
+      "notes": "",
+      "url": "https://www.towermaps.com/the-map.html"
+    },
+    {
+      "id": "",
+      "latitude": 32.86,
+      "longitude": -114.44,
+      "name": "Tower",
+      "notes": "",
+      "url": "https://www.towermaps.com/the-map.html"
+    },
+    {
+      "id": "",
+      "latitude": 32.87,
+      "longitude": -114.42,
+      "name": "Tower",
+      "notes": "",
+      "url": "https://www.towermaps.com/the-map.html"
+    },
+    {
+      "id": "",
+      "latitude": 32.96,
+      "longitude": -114.43,
+      "name": "Tower",
+      "notes": "",
+      "url": "https://www.towermaps.com/the-map.html"
+    },
+    {
+      "id": "",
+      "latitude": 33.24,
+      "longitude": -114.26,
+      "name": "Tower",
+      "notes": "",
+      "url": "https://www.towermaps.com/the-map.html"
+    },
+    {
+      "id": "",
+      "latitude": 33.48,
+      "longitude": -114.09,
+      "name": "Tower",
+      "notes": "",
+      "url": "https://www.towermaps.com/the-map.html"
+    },
+    {
+      "id": "",
+      "latitude": 33.67,
+      "longitude": -114.18,
+      "name": "Tower",
+      "notes": "",
+      "url": "https://www.towermaps.com/the-map.html"
+    },
+    {
+      "id": "",
+      "latitude": 33.66,
+      "longitude": -114.26,
+      "name": "Tower",
+      "notes": "",
+      "url": "https://www.towermaps.com/the-map.html"
+    },
+    {
+      "id": "",
+      "latitude": 33.7,
+      "longitude": -114.22,
+      "name": "Tower",
+      "notes": "",
+      "url": "https://www.towermaps.com/the-map.html"
+    },
+    {
+      "id": "",
+      "latitude": 33.055750,
+      "longitude": -114.829639,
+      "name": "Tower",
+      "notes": "<a href='https://www.towermaps.com/the-map.html' target='_blank'>Tower Maps</a>",
+      "url": "https://hub.arcgis.com/datasets/fedmaps::cellular-towers-in-the-united-states/explore?location=32.994963%2C-114.827268%2C12.22"
+    },
+    {
+      "id": "",
+      "latitude": 32.710389,
+      "longitude": -115.063778,
+      "name": "Tower",
+      "notes": "<a href='https://www.towermaps.com/the-map.html' target='_blank'>Tower Maps</a>",
+      "url": "https://hub.arcgis.com/datasets/fedmaps::cellular-towers-in-the-united-states/explore?location=32.737812%2C-115.016346%2C12.14"
+    },
+    {
+      "id": "",
+      "latitude": 33.570000,
+      "longitude": -114.349722,
+      "name": "Tower: Quartzsite",
+      "notes": "<a href='https://www.towermaps.com/the-map.html' target='_blank'>Tower Maps</a>",
+      "url": "https://hub.arcgis.com/datasets/fedmaps::cellular-towers-in-the-united-states/explore?location=33.585473%2C-114.292029%2C12.14"
+    },
+    {
+      "id": "",
+      "latitude": 33.667528,
+      "longitude": -114.059667,
+      "name": "Tower: Quartzsite",
+      "notes": "<a href='https://www.towermaps.com/the-map.html' target='_blank'>Tower Maps</a>",
+      "url": "https://hub.arcgis.com/datasets/fedmaps::cellular-towers-in-the-united-states/explore?location=33.682129%2C-113.975333%2C12.14"
+    }
+  ],
   "water": [
     {
       "markerPath": "/assets/images/map-icons/marker-icon-water.svg"
