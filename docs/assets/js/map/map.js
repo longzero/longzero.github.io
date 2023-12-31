@@ -379,6 +379,11 @@ function initMap(locations) {
 
 
   // CURRENT LOCATION
+  let id;
+  let target = {
+    latitude: 0,
+    longitude: 0,
+  };
   const options = {
     enableHighAccuracy: true,
     timeout: 5000,
@@ -388,9 +393,14 @@ function initMap(locations) {
     DEBUG && console.log("Current location: success() entered.")
 
     const crd = position.coords;
-    console.log(`Latitude : ${crd.latitude}`);
-    console.log(`Longitude: ${crd.longitude}`);
-    console.log(`More or less ${crd.accuracy} meters.`);
+    DEBUG && console.log(`Latitude : ${crd.latitude}`);
+    DEBUG && console.log(`Longitude: ${crd.longitude}`);
+    DEBUG && console.log(`More or less ${crd.accuracy} meters.`);
+
+    if (target.latitude === crd.latitude && target.longitude === crd.longitude) {
+      DEBUG && console.log("Congratulations, you reached the target");
+      navigator.geolocation.clearWatch(id);
+    }
 
     var latitude = position.coords.latitude;
     var longitude = position.coords.longitude;
@@ -410,7 +420,7 @@ function initMap(locations) {
     DEBUG && console.log("Current location: success() done.")
   }
   function error(err) {
-    console.warn(`ERROR(${err.code}): ${err.message}`);
+    DEBUG && console.warn(`ERROR(${err.code}): ${err.message}`);
     DEBUG && console.log("Current location: error() entered.")
     DEBUG && console.log("Current location: unable to retrieve your location")
   }
@@ -421,7 +431,7 @@ function initMap(locations) {
     if (located == false) {
       DEBUG && console.log(`Current location: ${located}`)
       // navigator.geolocation.getCurrentPosition(success, error);
-      navigator.geolocation.getCurrentPosition(success, error, options);
+      id = navigator.geolocation.watchPosition(success, error, options);
 
       located = true
       DEBUG && console.log(`Current location: ${located}`)
