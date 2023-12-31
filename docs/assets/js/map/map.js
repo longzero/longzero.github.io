@@ -399,10 +399,10 @@ function initMap(locations) {
     // DEBUG && console.log("latitude: "+latitude+" and longitude: "+longitude)
 
     let googleMapsUrl = "https://www.google.com/maps/search/?api=1&query=" + latitude + "%2C" + longitude
-    let popupMessage = `<a href="${googleMapsUrl} target="_blank">You are here.</a>`
+    let popupMessage = `<a href="${googleMapsUrl}" target="_blank">You are here.</a>`
 
     markerHere = new L.marker([latitude, longitude], {icon: svgCurrent})
-      .bindPopup("You are here.", { offset: L.point(0,-14) })
+      .bindPopup(popupMessage, { offset: L.point(0,-14) })
       // Comment this line if using clusters
       .addTo(map);
     map.locate({
