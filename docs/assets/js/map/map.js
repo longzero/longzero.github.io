@@ -10,10 +10,8 @@ let legendHtml = '' // Create each item of legend, in HTML
 let legendMarker = ''
 let locationTypeHuman = '' // Used for labelling the legend, so instead of just “Water”, it will be “Place to get water”
 
-let zoomLevel = 20
-
 let map = L.map('map', {
-  maxZoom: zoomLevel,
+  maxZoom: 20,
   // https://github.com/mutsuyuki/Leaflet.SmoothWheelZoom
   scrollWheelZoom: false, // disable original zoom function
   smoothWheelZoom: true,  // enable smooth zoom
@@ -29,11 +27,6 @@ let map = L.map('map', {
 //   maxZoom: 8
 // })
 
-map.on('zoomend', function (e) {
-  DEBUG && console.log(e.target._zoom);
-  zoomLevel = map.getZoom()
-  DEBUG && console.log(`Zoom level: ${zoomLevel}`)
-});
 
 
 // MAP MARKER ICONS
@@ -421,7 +414,7 @@ function initMap(locations) {
       .addTo(map);
     map.locate({
       setView: true, // true means the map zooms to current location.
-      maxZoom: zoomLevel
+      maxZoom: 8
     })
 
     DEBUG && console.log("Current location: success() done.")
