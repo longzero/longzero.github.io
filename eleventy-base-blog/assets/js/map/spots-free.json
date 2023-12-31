@@ -5,6 +5,15 @@
     },
     {
       "id": "",
+      "latitude": 32.88221456919514,
+      "longitude": -114.83595396941834,
+      "name": "Tumco Historic Townsite",
+      "notes": "<p>Signal is strange, but good, sort of... 22 0 (20231230).</p><p>Lots of space.</p><p>This place used to be a gold mine and check out the cemetery.",
+      "url": "https://maps.app.goo.gl/gdFB371kfHKDeA79A",
+      "visible": 1
+    },
+    {
+      "id": "",
       "latitude": 32.84035045664595,
       "longitude": -114.8141007572436,
       "name": "American Girl Mine Rd",
