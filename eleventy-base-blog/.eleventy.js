@@ -101,9 +101,14 @@ module.exports = function(eleventyConfig) {
         });
       },
     },
+    https: true,
     ui: false,
     ghostMode: false
   });
+
+  // eleventyConfig.browserSyncConfig = {
+  //   https: true
+  // };
 
   // SUPPORT DRAFTS
   // https://giustino.blog/how-to-drafts-eleventy/
