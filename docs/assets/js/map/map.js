@@ -89,8 +89,8 @@ const svgPotential = L.icon({
 const svgShower = L.icon({
   iconUrl: markerPathWater,
   className: "marker-icon js-marker-icon shower",
-  iconSize: [24,32],
-  iconAnchor: [12,31]
+  iconSize: [12,16],
+  iconAnchor: [6,15]
 });
 
 const svgSpots = L.icon({
@@ -117,8 +117,8 @@ const svgTowers = L.icon({
 const svgWater = L.icon({
   iconUrl: markerPathWater,
   className: "marker-icon js-marker-icon water",
-  iconSize: [24,32],
-  iconAnchor: [12,31]
+  iconSize: [12,16],
+  iconAnchor: [6,15]
 });
 // END MAP MARKER ICONS
 
