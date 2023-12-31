@@ -399,10 +399,6 @@ function initMap(locations) {
   function success(position) {
     DEBUG && console.log("Current location: success() entered.")
 
-    if (document.querySelector('.js-marker-icon.current-location').classList.contains('current-location')) {
-      map.removeLayer(markerHere)
-    }
-
     const crd = position.coords;
     DEBUG && console.log(`Latitude : ${crd.latitude}`);
     DEBUG && console.log(`Longitude: ${crd.longitude}`);
