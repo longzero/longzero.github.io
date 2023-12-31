@@ -2763,6 +2763,22 @@
     },
     {
       "id": "",
+      "latitude": 32.69890174058646,
+      "longitude": -114.62427851161473,
+      "name": "Starbucks, Yuma (central)",
+      "notes": "Spacious with benches against walls and armchairs.",
+      "url": ""
+    },
+    {
+      "id": "",
+      "latitude": 32.67191152032451,
+      "longitude": -114.44196390716624,
+      "name": "Starbucks, Yuma (east edge)",
+      "notes": "Smaller than the other location, but it's the last one before going towards Quartzsite or Tucson or Phoenix",
+      "url": ""
+    },
+    {
+      "id": "",
       "latitude": 45.421671123441506,
       "longitude": -122.78380270478779,
       "name": "Starbucks, Tigard",
