@@ -379,7 +379,19 @@ function initMap(locations) {
 
 
   // CURRENT LOCATION
+  const options = {
+    enableHighAccuracy: true,
+    timeout: 5000,
+    maximumAge: 0,
+  };
   function success(position) {
+    DEBUG && console.log("Current location: success() entered.")
+
+    const crd = position.coords;
+    console.log(`Latitude : ${crd.latitude}`);
+    console.log(`Longitude: ${crd.longitude}`);
+    console.log(`More or less ${crd.accuracy} meters.`);
+
     var latitude = position.coords.latitude;
     var longitude = position.coords.longitude;
     // myresult.innerHTML = '<p>Latitude is ' + latitude + '° <br>Longitude is ' + longitude + '°</p>';
@@ -394,16 +406,26 @@ function initMap(locations) {
       setView: true, // true means the map zooms to current location.
       maxZoom: 8
     })
+
+    DEBUG && console.log("Current location: success() done.")
   }
-  function error() {
-    myresult.innerHTML = "Unable to retrieve your location";
+  function error(err) {
+    console.warn(`ERROR(${err.code}): ${err.message}`);
+    DEBUG && console.log("Current location: error() entered.")
+    DEBUG && console.log("Current location: unable to retrieve your location")
   }
 
   let located = false // true means the user already triggered location detection.
   document.querySelector('.js-map-legend-item.current-location').addEventListener('click', function(){
+    DEBUG && console.log("Current location: clicked to request location.")
     if (located == false) {
-      navigator.geolocation.getCurrentPosition(success, error);
+      DEBUG && console.log(`Current location: ${located}`)
+      // navigator.geolocation.getCurrentPosition(success, error);
+      navigator.geolocation.getCurrentPosition(success, error, options);
+
       located = true
+      DEBUG && console.log(`Current location: ${located}`)
+      DEBUG && console.log("Current location: requested location.")
     }
   })
   // END CURRENT LOCATION
