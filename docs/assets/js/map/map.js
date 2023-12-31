@@ -52,38 +52,40 @@ let svgIcon = L.icon({
   // Green: #3AAD64
   iconUrl: markerPathCampspot,
   className: "marker-icon js-marker-icon",
-  iconSize: [24,32],
-  iconAnchor: [12,31]
+  iconSize: [12,12],
+  iconAnchor: [6,11]
 });
 
 const svgBLM = L.icon({
   iconUrl: markerPathBLM,
   // Use the class hide to hide by default (use that string to search elsewhere it is used)
   className: "marker-icon marker-icon--fade js-marker-icon blm hide",
-  iconSize: [24,32],
-  iconAnchor: [12,31]
+  iconSize: [12,12],
+  iconAnchor: [6,11]
 });
 
 let svgCurrent = L.icon({
   iconUrl: markerPathCurrent,
   className: "marker-icon js-marker-icon current-location",
-  iconSize: [24,32],
-  iconAnchor: [12,31]
+  iconSize: [18,24],
+  iconAnchor: [9,23]
 });
 
 const svgPlace = L.icon({
   iconUrl: markerPathPlace,
   className: "marker-icon js-marker-icon places",
-  iconSize: [24,32],
-  iconAnchor: [12,31]
+  iconSize: [12,12],
+  iconAnchor: [6,11]
 });
 
 const svgPotential = L.icon({
   iconUrl: markerPathPotential,
   // Use the class hide to hide by default (use that string to search elsewhere it is used)
   className: "marker-icon marker-icon--fade js-marker-icon potential-spots hide",
-  iconSize: [24,32],
-  iconAnchor: [12,31]
+  // iconSize: [24,32],
+  // iconAnchor: [12,31]
+  iconSize: [12,12],
+  iconAnchor: [6,11]
 });
 
 const svgShower = L.icon({
@@ -96,22 +98,22 @@ const svgShower = L.icon({
 const svgSpots = L.icon({
   iconUrl: markerPathCampspot,
   className: "marker-icon js-marker-icon spots",
-  iconSize: [24,32],
-  iconAnchor: [12,31]
+  iconSize: [12,12],
+  iconAnchor: [6,11]
 });
 
 const svgStarbucks = L.icon({
   iconUrl: markerPathPlace,
   className: "marker-icon js-marker-icon starbucks",
-  iconSize: [24,32],
-  iconAnchor: [12,31]
+  iconSize: [12,12],
+  iconAnchor: [6,11]
 });
 
 const svgTowers = L.icon({
   iconUrl: markerPathTower,
   className: "marker-icon js-marker-icon towers",
-  iconSize: [24,32],
-  iconAnchor: [12,31]
+  iconSize: [12,12],
+  iconAnchor: [6,11]
 });
 
 const svgWater = L.icon({
