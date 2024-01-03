@@ -8,7 +8,7 @@
       "latitude": 32.88221456919514,
       "longitude": -114.83595396941834,
       "name": "Tumco Historic Townsite",
-      "notes": "<p>Signal is strange, but good, sort of... 22 0 (20231230).</p><p>Lots of space.</p><p>This place used to be a gold mine and check out the cemetery.",
+      "notes": "<p>Road noise every time a car passes by. It's annoying for sleeping.</p><p>Signal is strange, but good, sort of... 22 0 (20231230).</p><p>Lots of space.</p><p>This place used to be a gold mine and check out the cemetery.</p>",
       "url": "https://maps.app.goo.gl/gdFB371kfHKDeA79A",
       "visible": 1
     },
@@ -2572,15 +2572,6 @@
       "name": "Between Quartzsite and Blythe",
       "notes": "Skooliepalooza ungathering 2024/01/19-31",
       "url": "",
-      "visible": 1
-    },
-    {
-      "id": "",
-      "latitude": 32.8812,
-      "longitude": -114.834,
-      "name": "Tumco historic mine",
-      "notes": "Ghost town",
-      "url": "https://freeroam.app/campground/tumco-historic-mine",
       "visible": 1
     },
     {
