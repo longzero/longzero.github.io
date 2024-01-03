@@ -67,7 +67,7 @@ function addMarkers(count, locations, locationType) {
 
       // Place markers on the map.
       marker = new L.marker([location.latitude, location.longitude], {icon: svgIcon})
-        .bindPopup(locationContent, { offset: L.point(0,-14) })
+        .bindPopup(locationContent, { offset: L.point(0,-1) })
         // Comment this line if using clusters
         .addTo(map);
 
@@ -96,7 +96,7 @@ function parseLocations(locations) {
     // Set the marker path for the legend item icon.
     switch(locationType) {
       case "blm":
-        hideLocation = true
+        // hideLocation = true
         legendMarker = '/assets/images/map-icons/marker-icon-blm.svg'
         locationTypeHuman = 'Some BLM spots'
         svgIcon = getIcon(svgBaseClasses + locationType + ' marker-icon--fade', legendMarker, [12,12], [6,11])
@@ -109,7 +109,7 @@ function parseLocations(locations) {
         setMarker(locationType) // After the icon because if location is hidden by default, this function will modify the icon.
         break
       case "potential-spots":
-        hideLocation = true
+        // hideLocation = true
         legendMarker = '/assets/images/map-icons/marker-icon-potential.svg'
         locationTypeHuman = 'Potential spots'
         svgIcon = getIcon(svgBaseClasses + locationType + ' marker-icon--fade', legendMarker, [12,12], [6,11])
@@ -134,6 +134,7 @@ function parseLocations(locations) {
         setMarker(locationType) // After the icon because if location is hidden by default, this function will modify the icon.
         break
       case "towers":
+        hideLocation = true
         legendMarker = '/assets/images/map-icons/marker-icon-tower.svg'
         locationTypeHuman = 'Towers'
         svgIcon = getIcon(svgBaseClasses + locationType, legendMarker, [12,12], [6,11])

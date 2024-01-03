@@ -2558,6 +2558,24 @@
   "potential-spots": [
     {
       "id": "",
+      "latitude": 33.57994828883997,
+      "longitude": -114.4769768084264,
+      "name": "Between Quartzsite and Blythe",
+      "notes": "",
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 33.58126970876474,
+      "longitude": -114.47463722792351,
+      "name": "Between Quartzsite and Blythe",
+      "notes": "Skooliepalooza ungathering 2024/01/19-31",
+      "url": "",
+      "visible": 1
+    },
+    {
+      "id": "",
       "latitude": 32.8812,
       "longitude": -114.834,
       "name": "Tumco historic mine",
