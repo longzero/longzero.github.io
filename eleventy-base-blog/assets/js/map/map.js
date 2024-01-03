@@ -98,7 +98,7 @@ function parseLocations(locations) {
       case "blm":
         hideLocation = true
         legendMarker = '/assets/images/map-icons/marker-icon-blm.svg'
-        locationTypeHuman = 'Some BLM'
+        locationTypeHuman = 'Some BLM spots'
         svgIcon = getIcon(svgBaseClasses + locationType + ' marker-icon--fade', legendMarker, [12,12], [6,11])
         setMarker(locationType) // After the icon because if location is hidden by default, this function will modify the icon.
         break
