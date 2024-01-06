@@ -2558,6 +2558,75 @@
   "potential-spots": [
     {
       "id": "",
+      "latitude": 37.28399769856089,
+      "longitude": -100.32699135675843,
+      "name": "Meade City Park",
+      "notes": "<p>4.7 (7 reviews)<br>In the city.</p><p>Has toilets.</p>",
+      "url": "https://freeroam.app/campground/meade-city-park",
+      "weather": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 26.56723,
+      "longitude": -99.12831,
+      "name": "Falcon County Park",
+      "notes": "<p>4.3 (4 reviews)<br>Good reviews on Googlge.</p><p>Good signal.<br>Has toilets, hot shower, dumpster. No stay limit.</p>",
+      "url": "https://freeroam.app/campground/falcon-county-park",
+      "weather": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 35.107,
+      "longitude": -103.332,
+      "name": "San Jon City Park",
+      "notes": "<p>4.3 (35 reviews)<br>Not a camping spot, it's in the city.<br>Good signal.<br>Has toilets and dumpster.</p>",
+      "url": "https://freeroam.app/campground/san-jon-city-park",
+      "weather": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 35.8339,
+      "longitude": -106.374,
+      "name": "American Springs Dispersed camping",
+      "notes": "<p>4.4 (9 reviews)<br>Good reviews on Google too.<br>Lots of trees. Go right if low clearance.</p>",
+      "url": "",
+      "weather": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 35.50549,
+      "longitude": -87.45655,
+      "name": "Natchez Trace - Meriwether Lewis Campground NPS",
+      "notes": "<p>4.6 (20 reviews)<br>Good reviews on Google too.<br>There is signal and toilet.</p>",
+      "url": "https://maps.app.goo.gl/HC1seyqysWqjzErC8",
+      "weather": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 34.9013,
+      "longitude": -87.9973,
+      "name": "Brush Creek Park",
+      "notes": "<p>4.6 (12 reviews)<br>Good reviews on Google too.</p><p>Cold shower, one spigot.</p><p>Cameras in birdhouses?</p>",
+      "url": "https://freeroam.app/campground/brush-creek-park",
+      "weather": "Waterloo, Tennessee",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 34.42849,
+      "longitude": -89.70818,
+      "name": "Clear Creek Campground",
+      "notes": "3.8 (4 reviews)<br>There is a recreation area by the lake.",
+      "url": "https://freeroam.app/campground/clear-creek-campground-clear-creek-landing-public-use-area",
+      "visible": 1
+    },
+    {
+      "id": "",
       "latitude": 33.57994828883997,
       "longitude": -114.4769768084264,
       "name": "Between Quartzsite and Blythe",
@@ -2588,7 +2657,7 @@
       "latitude": 33.41703,
       "longitude": -89.26929,
       "name": "Natchez Trace - Jeff Busby Campground",
-      "notes": "T-Mobile sucks, others might be better. About 10 spots.",
+      "notes": "Good signal. T-Mobile sucks. Has toilet. Mostly shaded sites. Only one spigot. About 10 spots.",
       "url": "https://freeroam.app/campground/natchez-trace-jeff-busby-campground-jeff-busby-park",
       "visible": 1
     },

@@ -43,6 +43,6 @@ body {--header-height: 40px;}
 .map-wrapper {width: 100%;}
 .marker-icon {transition: .3s;}
 .marker-icon:hover {filter: grayscale(00%); opacity: 1}
-.marker-icon--fade {opacity: .4;}
+.marker-icon--fade {opacity: 1;}
 .marker-icon.hide {display: none;}
 .site-header {margin-bottom: 0;}
