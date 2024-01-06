@@ -48,7 +48,8 @@ function addMarkers(count, locations, locationType) {
 
       let locationName = "",
           locationNotes = "",
-          locationUrl = ""
+          locationUrl = "",
+          locationWeather = ""
 
       // Create URL to Google Maps from coordinates.
       let googleMapsUrl = "https://www.google.com/maps/search/?api=1&query=" + location.latitude + "%2C" + location.longitude
@@ -61,9 +62,11 @@ function addMarkers(count, locations, locationType) {
       // Check other content
       if (location.notes !== undefined && location.notes !== "") locationNotes = '<div class="location-tooltip-notes">' + location.notes + '</div>'
       if (location.url !== undefined && location.url !== "") locationUrl = '<a class="location-tooltip-action" target="_blank" href="' + location.url + '">' + location.url + '</a>'
+      if (location.weather !== undefined && location.weather !== "") locationWeather = '<a class="location-tooltip-action" target="_blank" href="https://www.accuweather.com/en/search-locations?query=' + location.weather + '">Weather search</a>'
+      else locationWeather = '<a class="location-tooltip-action" target="_blank" href="https://www.accuweather.com/en/search-locations?query=' + location.latitude + '%2C' + location.longitude + '">Weather search</a>'
 
       // Build the content of tooltips.
-      let locationContent = '<div class="location-tooltip-content">' + locationName + locationNotes + locationUrl + '</div>'
+      let locationContent = '<div class="location-tooltip-content">' + locationName + locationNotes + locationUrl + locationWeather + '</div>'
 
       // Place markers on the map.
       marker = new L.marker([location.latitude, location.longitude], {icon: svgIcon})
