@@ -9,6 +9,7 @@ body {--header-height: 40px;}
 .leaflet-popup-content-wrapper {border-radius: 5px; padding: 0;}
 
 .location-tooltip-action {display: inline-block; font-size: .85em; margin-top: var(--tooltip-content-spacing); text-overflow: ellipsis; white-space: nowrap; max-width: 100%; overflow: hidden;}
+.location-tooltip-name + .location-tooltip-action {margin-top: 0}
 .location-tooltip-content {--tooltip-content-spacing: 1em; font-size: .9rem;}
 .location-tooltip-name, .leaflet-container .location-tooltip-name {color: inherit; display: block; font-size: 1rem; font-weight: 700; margin-bottom: var(--tooltip-content-spacing); text-decoration: none; transition: .3s;}
 .location-tooltip-name:hover, .leaflet-container .location-tooltip-name:hover {color: var(--color-1);}

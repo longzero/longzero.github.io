@@ -5,6 +5,15 @@
     },
     {
       "id": "",
+      "latitude": 33.3754408,
+      "longitude": -114.1824585,
+      "name": "Vanlife Pride 2024",
+      "notes": "<p>There could be bad signal.</p>",
+      "url": "https://mailchi.mp/2faa5c23b35c/vanlife-pride-2024-location?e=1115321c59",
+      "visible": 1
+    },
+    {
+      "id": "",
       "latitude": 32.88221456919514,
       "longitude": -114.83595396941834,
       "name": "Tumco Historic Townsite",
@@ -2556,6 +2565,16 @@
 
   ],
   "potential-spots": [
+    {
+      "id": "",
+      "latitude": 33.258484024287604,
+      "longitude": -114.23155702343175,
+      "name": "King Rd. Kofa",
+      "notes": "<p>4.8 (6 reviews)<br>Signal seems good.</p>",
+      "url": "https://freeroam.app/campground/king-rd-kofa",
+      "weather": "",
+      "visible": 1
+    },
     {
       "id": "",
       "latitude": 37.28399769856089,
