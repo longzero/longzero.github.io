@@ -5,6 +5,15 @@
     },
     {
       "id": "",
+      "latitude": 33.3754408,
+      "longitude": -114.1824585,
+      "name": "Vanlife Pride 2024",
+      "notes": "<p>Terrible signal. Speed test is fine when it's measuring, but real world usage is horrible.</p><p>This is where Vanlife Pride took place in 2024.</p>",
+      "url": "https://mailchi.mp/2faa5c23b35c/vanlife-pride-2024-location?e=1115321c59",
+      "visible": 1
+    },
+    {
+      "id": "",
       "latitude": 32.88221456919514,
       "longitude": -114.83595396941834,
       "name": "Tumco Historic Townsite",
@@ -2556,15 +2565,6 @@
 
   ],
   "potential-spots": [
-    {
-      "id": "",
-      "latitude": 33.3754408,
-      "longitude": -114.1824585,
-      "name": "Vanlife Pride 2024",
-      "notes": "<p>There could be bad signal.</p><p>This is where Vanlife Pride took place in 2024.</p>",
-      "url": "https://mailchi.mp/2faa5c23b35c/vanlife-pride-2024-location?e=1115321c59",
-      "visible": 1
-    },
     {
       "id": "",
       "latitude": 33.258484024287604,
