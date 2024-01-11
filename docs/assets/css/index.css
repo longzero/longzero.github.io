@@ -82,6 +82,10 @@ code[class*="language-"],
 pre[class*="language-"] {
   font-size: 0.7em;
 }
+
+/* Default display of <code> is inline. Setting that to inline-block messes up with the appearance especially when it is part of a paragraph. */
+code {font-size: .8em; background-color: #efefef; border: 1px solid #ddd; border-radius: 3px; padding: 2px 3px;}
+
 h1 {
   line-height: 1.1;
   margin-bottom: 10px;
