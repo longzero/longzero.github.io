@@ -166,7 +166,7 @@ function parseLocations(locations) {
   // Use the class hide to hide by default (use that string to search elsewhere it is used)
   legendHtml += '<li class="'+ legendClass +' current-location hide">'
   + '<div class="map-legend-symbol"><img src="' + markerPathCurrent + '" alt=""></div>'
-  + '<div class="map-legend-label">Current location</div></li>'
+  + '<div class="map-legend-label">Current location<br>(double-check accuracy)</div></li>'
 }
 
 

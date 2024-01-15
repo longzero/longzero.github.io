@@ -7,8 +7,8 @@
       "id": "",
       "latitude": 33.3754408,
       "longitude": -114.1824585,
-      "name": "Vanlife Pride 2024",
-      "notes": "<p>Terrible signal. Speed test is fine when it's measuring, but real world usage is horrible. <code>git push</code> is taking forever just to update this map.</p><p>This is where Vanlife Pride took place in 2024.</p>",
+      "name": "Palm Canyon Rd",
+      "notes": "<p>20240111: Terrible signal. Speed test is fine when it's measuring, but real world usage is horrible. <code>git push</code> is taking forever just to update this map. Watching YouTube at 144p or 240p are working, but loading comments take forever. Loading this map locally is also taken forever.</p><p>Strangely, a one on one video call using Facebook Messenger was just fine.</p><p>20240115: Internet (Fizz) has become awesome 82 / 4.</p><p>Mountains all around at various distances.</p>",
       "url": "https://mailchi.mp/2faa5c23b35c/vanlife-pride-2024-location?e=1115321c59",
       "visible": 1
     },
