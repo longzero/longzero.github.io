@@ -3,8 +3,8 @@
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Freaking out about car camping for the next few months</title>
-  <meta name="description" content="My upcoming journey is freaking me out!">
+  <title>Units</title>
+  <meta name="description" content="My name is Long Nguyen. I am a Front-End Web Developer obsessed with UX. I am experienced in building simple, clean and user-friendly websites for clients across the globe. Reach me on Instagram or Twitter or by email long@longzero.com.">
 
   <link rel="apple-touch-icon" href="/assets/images/favicon.png">
   <link rel="icon" href="/assets/images/favicon.png">
@@ -23,8 +23,6 @@
   
   
   
-    
-  
 
   
   
@@ -32,11 +30,11 @@
   
 
   <meta property="og:site_name" content="Longzero ~ Long Nguyen">
-  <meta property="og:description" content="My upcoming journey is freaking me out!">
-  <meta property="og:image" content="http://localhost:8080/assets/images/articles/2022-05-14-car-camping-freaking-out.jpg">
-  <meta property="og:title" content="Freaking out about car camping for the next few months">
+  <meta property="og:description" content="">
+  <meta property="og:image" content="http://localhost:8080/assets/images/og.jpg">
+  <meta property="og:title" content="Units">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="http://localhost:8080/articles/freaking-out-about-car-camping/">
+  <meta property="og:url" content="http://localhost:8080/units/">
   
   
   
@@ -57,7 +55,7 @@
 </head>
 
 
-  <body class="template-post">
+  <body class="template-page">
     <header class="site-header">
   <div class="container container--fluid">
     <a href="/" aria-current="page" class="home-link router-link-exact-active router-link-active" title="Longzero ~ Long Nguyen">
@@ -102,31 +100,120 @@
       
 
       
+
+
+
 <header class="container container--content post-header">
   
-  <h1>Freaking out about car camping for the next few months</h1>
-  <time class="post-date" datetime="2022-05-14">2022-05-14</time>
-    <div class="post-media">
-      <img src="/assets/images/articles/2022-05-14-car-camping-freaking-out.jpg" alt="" loading="lazy">
-    </div>
+  <h1>Units</h1>
+  
 
 </header>
 
 <div class="container container--content rte">
-  <p>Cette graine de partir a grandi énormément et rapidement.</p>
-<p>J'ai vraiment peur de mon «déménagement».</p>
-<p>J'ai l'impression que ça sera une renaissance et je suis un fœtus en ce moment; ma date de «naissance» est estimée au 27 mai.</p>
-<p>L'énorme différence est que je suis un fœtus avec une conscience qu'il va naître et je ne suis pas sûr si je veux une vie ou pas.</p>
-<p>Mon plus gros problème n'est plus l'électricité sur la route, l'eau, l'internet, faire caca, etc.</p>
-<p>Mon plus gros problème est la peur grandissante au fur et à mesure que le 27 mai approche. C'est une peur qui me dit de ne pas partir.</p>
-<p>MAIS je sais que si je ne pars pas, je me regarderai dans le miroir à tous les jours: «Je te traite déjà de stupide à tous les jours, mais TU n'as jamais rien fait de plus stupide que de TOI-MÊME t'empêcher de partir.»</p>
-<p>My greatest fear is the dude in the mirror calling me stupid. He does it multiple times per day, but this would be different. It's the difference between falling and standing back up vs falling and breaking bones.</p>
-<p>At this point, I HAVE to go, otherwise my well-being will be shattered and I won't be able to live with myself, which I have been incredibly successful at.</p>
-<p>Another fear I have is to hate humanity more than I already do...</p>
+  <ul>
+<li>Make unit conversion tool USA vs the rest of the world</li>
+<li>Calculate gas cost per km</li>
+<li>Gas</li>
+<li>Length and distance</li>
+</ul>
+<section class="unit-conversion distance-section">
+  <div class="unit-group">
+    <input class="js-distance" id="kilometers" name="kilometers" type="number">
+    <span>kilometers</span>
+  </div>
+  <div class="unit-group">
+    <input class="js-distance" id="miles" name="miles" type="number">
+    <span>miles</span>
+  </div>
+</section>
+<section class="unit-conversion liquid-volume-section">
+  <div class="unit-group">
+    <input class="js-liquid-volume" id="liters" name="liters" type="number">
+    <span>liters</span>
+  </div>
+  <div class="unit-group">
+    <input class="js-liquid-volume" id="us-gallons" name="us-gallons" type="number">
+    <span>US liquid gallons</span>
+  </div>
+</section>
+<section class="unit-conversion temperature-section">
+  <div class="unit-group">
+    <input class="js-temperature" id="celcius" name="celcius" type="number">
+    <span>ºC</span>
+  </div>
+  <div class="unit-group">
+    <input class="js-temperature" id="fahrenheit" name="fahrenheit" type="number">
+    <span>ºF</span>
+  </div>
+</section>
+<script>
+  function getRound(num, decimals = 2) {
+    // Without EPSILON, there are bad conversions, like 1.005 get converted to 1 instead of 1.01.
+    return Math.round((num + Number.EPSILON) * Math.pow(10, decimals)) / Math.pow(10, decimals)
+  }
+
+
+  function getUsGallonsFromLiters(liters) {
+    return liters / 3.785411784;
+  }
+  function getLitersFromUsGallons(gallons) {
+    return gallons * 3.785411784;
+  }
+  const liquidVolumeInput = document.querySelectorAll('.js-liquid-volume')
+  liquidVolumeInput.forEach((liquidVolume) => {
+    liquidVolume.addEventListener('change', function(){
+      if (this.getAttribute('id') == 'liters') {
+        document.getElementById('us-gallons').value = getRound(getUsGallonsFromLiters(this.value))
+      }
+      else if (this.getAttribute('id') == 'us-gallons') {
+        document.getElementById('liters').value = getRound(getLitersFromUsGallons(this.value))
+      }
+    })
+  })
+
+
+
+  function getMilesFromKilometers(kilometers) {
+    return kilometers * 0.62137119;
+  }
+  function getKilometersFromMiles(miles) {
+    return miles * 1.609344;
+  }
+  const distanceInput = document.querySelectorAll('.js-distance')
+  distanceInput.forEach((distance) => {
+    distance.addEventListener('change', function(){
+      if (this.getAttribute('id') == 'kilometers') {
+        document.getElementById('miles').value = getRound(getMilesFromKilometers(this.value))
+      }
+      else if (this.getAttribute('id') == 'miles') {
+        document.getElementById('kilometers').value = getRound(getKilometersFromMiles(this.value))
+      }
+    })
+  })
+
+
+
+  function getCelciusFromFahrenheit(fahrenheit) {
+    return (fahrenheit - 32) * 5/9;
+  }
+  function getFahrenheitFromCelcius(celcius) {
+    return celcius * 9/5 + 32;
+  }
+  const temperatureInput = document.querySelectorAll('.js-temperature')
+  temperatureInput.forEach((temperature) => {
+    temperature.addEventListener('change', function(){
+      if (this.getAttribute('id') == 'celcius') {
+        document.getElementById('fahrenheit').value = getRound(getFahrenheitFromCelcius(this.value))
+      }
+      else if (this.getAttribute('id') == 'fahrenheit') {
+        document.getElementById('celcius').value = getRound(getCelciusFromFahrenheit(this.value))
+      }
+    })
+  })
+</script>
 
 </div>
-
-
 
 
     </main>
@@ -140,7 +227,7 @@
 
 <script src="/assets/js/main.js"></script>
 
-<!-- Current page: /articles/freaking-out-about-car-camping/ -->
+<!-- Current page: /units/ -->
 
 
   </body>
