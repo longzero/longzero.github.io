@@ -9,7 +9,8 @@
       "longitude": -114.1824585,
       "name": "Palm Canyon Rd",
       "notes": "<p>20240111: Terrible signal. Speed test is fine when it's measuring, but real world usage is horrible. <code>git push</code> is taking forever just to update this map. Watching YouTube at 144p or 240p are working, but loading comments take forever. Loading this map locally is also taken forever.</p><p>Strangely, a one on one video call using Facebook Messenger was just fine.</p><p>20240115: Internet (Fizz) has become awesome 82 / 4.</p><p>Mountains all around at various distances.</p>",
-      "url": "https://mailchi.mp/2faa5c23b35c/vanlife-pride-2024-location?e=1115321c59",
+      "url": "",
+      "url-2": "https://mailchi.mp/2faa5c23b35c/vanlife-pride-2024-location?e=1115321c59",
       "visible": 1
     },
     {
@@ -17,8 +18,17 @@
       "latitude": 32.88221456919514,
       "longitude": -114.83595396941834,
       "name": "Tumco Historic Townsite",
-      "notes": "<p>Road noise every time a car passes by. It's annoying for sleeping.</p><p>Signal is strange, but good, sort of... 22 0 (20231230).</p><p>Lots of space.</p><p>This place used to be a gold mine and check out the cemetery.</p>",
+      "notes": "<p>Road noise every time a car passes by. It's annoying for sleeping. This is due to the way the road is built.</p><p>Signal is strange, but good, sort of... 22 0 (20231230).</p><p>Lots of space.</p><p>This place used to be a gold mine and check out the cemetery.</p>",
       "url": "https://maps.app.goo.gl/gdFB371kfHKDeA79A",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 32.84936848632549,
+      "longitude": -114.80702301835007,
+      "name": "Closer to Obregon, beyond American Girl Mine Rd",
+      "notes": "<p>Internet 40 2 on 20240119</p><p>Very nice, very alone, except for some ATV.</p>",
+      "url": "",
       "visible": 1
     },
     {
@@ -26,7 +36,7 @@
       "latitude": 32.83534091307895,
       "longitude": -114.81631265887512,
       "name": "American Girl Mine Rd",
-      "notes": "<p>Best internet connection here 28 4 20240103.<br>It was 58 4 at 0400.</p>",
+      "notes": "<p>Best internet connection here 28 4 on 20240103.<br>58 4 at 0400.</p>",
       "url": "",
       "visible": 1
     },
@@ -2810,8 +2820,8 @@
       "id": "",
       "latitude": 32.68651354785565,
       "longitude": -114.58251943006417,
-      "name": "Love’s",
-      "notes": "Showers 17 USD 23 CAD (20231229)",
+      "name": "Love’s, Yuma",
+      "notes": "Showers 18 USD 25 CAD (20240120)",
       "url": "https://maps.app.goo.gl/5nbqFmf24igApX3r9"
     },
     {
@@ -3057,6 +3067,14 @@
       "name": "Free water at gas station",
       "notes": "One spigot where regular cars go and one where RVs and trucks go.",
       "url": ""
+    },
+    {
+      "id": "",
+      "latitude": 32.71196196717875,
+      "longitude": -114.65092978379938,
+      "name": "Walmart Neighborhood Market",
+      "notes": "<p>Coordinates are for the parking entrance.</p><p>I think water code is 9510 at self-checkout.</p>",
+      "url": "https://maps.app.goo.gl/25kE7sQs55YfUvVm9"
     },
     {
       "id": "",
