@@ -2577,6 +2577,36 @@
   "potential-spots": [
     {
       "id": "",
+      "latitude": 32.83781,
+      "longitude": -114.63826,
+      "name": "Picacho Rd",
+      "notes": "<p>Open desert. OHV traffic. 3 miles on a kinda rough road to get here, one really tight turn over a bridge, and a 14’ railroad underpass. But well worth it if you like solitude! Actually very nice and quiet, but not recommended on weekends. ATVs throughout the day and shots in the immediate vicinity.</p>",
+      "url": "https://ioverlander.com/places/142643-power-line-camp",
+      "url-2": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 32.79791619355167,
+      "longitude": -114.61231682671645,
+      "name": "Picacho Rd",
+      "notes": "<p>Is this is a spot? Presence of vehicle on satellite image.</p>",
+      "url": "",
+      "url-2": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 32.73056442010625,
+      "longitude": -114.27122676682815,
+      "name": "Muggins Mountain",
+      "notes": "<p>Traihead?</p>",
+      "url": "https://ioverlander.com/places/218895-muggins-peak-wilderness",
+      "url-2": "",
+      "visible": 1
+    },
+    {
+      "id": "",
       "latitude": 33.258484024287604,
       "longitude": -114.23155702343175,
       "name": "King Rd. Kofa",
