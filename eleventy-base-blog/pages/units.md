@@ -8,11 +8,8 @@ title: Units
 #   order: 3
 ---
 
-- Make unit conversion tool USA vs the rest of the world
-- Calculate gas cost per km
-- Gas
-- Length and distance
 
+Enter a number, then click anywhere.
 
 <section class="unit-conversion distance-section">
   <div class="unit-group">
