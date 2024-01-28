@@ -110,7 +110,7 @@ video {
 input, textarea {
   font-family: 'Oxygen'; font-size: 1rem;
 }
-input {padding: 5px 5px;}
+input, select {padding: 5px 5px; height: 35px;}
 
 
 @media (min-width: 768px) {
