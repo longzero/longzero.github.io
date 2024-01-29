@@ -107,10 +107,8 @@ video {
 }
 
 
-input, textarea {
-  font-family: 'Oxygen'; font-size: 1rem;
-}
-input, select {padding: 5px 5px; height: 35px;}
+input, select, textarea {border: 1px solid #000; border-radius: 0; font-family: 'Oxygen'; font-size: 1rem; padding: 5px 5px;}
+input, select {height: 35px;}
 
 
 @media (min-width: 768px) {
@@ -612,12 +610,15 @@ input, select {padding: 5px 5px; height: 35px;}
 .rte ol, .rte ul {padding-left: 20px;}
 
 
-.unit-conversion {gap: 20px; margin-bottom: 20px;}
-.unit-group {margin-bottom: 10px;}
+.unit-conversion {font-size: 1rem; padding: 5px 10px;}
+.unit-conversion:nth-child(even) {background-color: #ddd;}
+.unit-group {display: flex; align-items: center; gap: 10px; margin: 5px 0}
+.unit-group input {text-align: right;}
+#exchange-rate {width: 100px;}
 @media (min-width: 500px) {
-  .unit-conversion, .unit-group {display: flex;}
-  .unit-group {align-items: center; gap: 10px; width: 50%;}
-  .unit-group input {text-align: right; width: 130px;}
+  .unit-conversion, .unit-group {display: flex; align-items: center; gap: 20px;}
+  .unit-group {gap: 10px; width: 50%;}
+  .unit-group input {width: 130px;}
 }
 
 

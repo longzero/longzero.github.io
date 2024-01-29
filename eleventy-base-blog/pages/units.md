@@ -35,14 +35,14 @@ Enter a number, then click anywhere.
 </section>
 
 <section class="unit-conversion liquid-volume-section">
-  <div class="unit-group">
+  <label class="unit-group">
     <input class="js-liquid-volume" id="liters" name="liters" type="number">
     <span>liters</span>
-  </div>
-  <div class="unit-group">
+  </label>
+  <label class="unit-group">
     <input class="js-liquid-volume" id="us-gallons" name="us-gallons" type="number">
     <span>US liquid gallons</span>
-  </div>
+  </label>
 </section>
 
 <section class="unit-conversion exchange-rate-section">
@@ -51,25 +51,25 @@ Enter a number, then click anywhere.
 </section>
 
 <section class="unit-conversion gas-cost-section">
-  <div class="unit-group">
+  <label class="unit-group">
     <input class="js-gas-cost" id="cad-liter" name="cad-liter" type="number">
     <span>CAD / L</span>
-  </div>
-  <div class="unit-group">
+  </label>
+  <label class="unit-group">
     <input class="js-gas-cost" id="usd-gallon" name="usd-gallon" type="number">
     <span>USD / gallon</span>
-  </div>
+  </label>
 </section>
 
 <section class="unit-conversion temperature-section">
-  <div class="unit-group">
+  <label class="unit-group">
     <input class="js-temperature" id="celcius" name="celcius" type="number">
     <span>ºC</span>
-  </div>
-  <div class="unit-group">
+  </label>
+  <label class="unit-group">
     <input class="js-temperature" id="fahrenheit" name="fahrenheit" type="number">
     <span>ºF</span>
-  </div>
+  </label>
 </section>
 
 <script>
