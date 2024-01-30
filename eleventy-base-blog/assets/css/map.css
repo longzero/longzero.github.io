@@ -1,4 +1,5 @@
 body {--header-height: 40px;}
+input {height: auto;}
 .leaflet-container {font-size: 1rem;}
 .leaflet-control-attribution {font-size: 1em; transform: scale(.7); transform-origin: right bottom; transition: .3s; max-width: 320px; width: 100%;}
 .leaflet-control-attribution:hover {transform: scale(1);}

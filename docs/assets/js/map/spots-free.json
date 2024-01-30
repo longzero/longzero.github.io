@@ -5,6 +5,36 @@
     },
     {
       "id": "",
+      "latitude": 33.37720855478211,
+      "longitude": -114.19204481152273,
+      "name": "Palm Canyon Rd",
+      "notes": "<p>Internet 20 1 20240129 2133 from computer.</p><p>I moved here because I am trying to prevent someone showing up and blocking the view if I was at the spot west of here.</p>",
+      "url": "",
+      "url-2": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 33.37723319869614,
+      "longitude": -114.1926563981647,
+      "name": "Palm Canyon Rd",
+      "notes": "<p>Internet 64 15 20240128 1548.</p><p>I moved to the spot just east of here out of fear of someone going there and blocking the view of the mountains.</p>",
+      "url": "",
+      "url-2": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 33.373486879068395,
+      "longitude": -114.17620748560095,
+      "name": "Palm Canyon Rd",
+      "notes": "<p>Good signal.</p><p>Good spot, but expect people to visit the Spiral Labyrinth.</p>",
+      "url": "",
+      "url-2": "",
+      "visible": 1
+    },
+    {
+      "id": "",
       "latitude": 33.3754408,
       "longitude": -114.1824585,
       "name": "Palm Canyon Rd",
