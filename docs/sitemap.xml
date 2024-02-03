@@ -777,6 +777,21 @@
   </url>
   
   <url>
+    <loc>https://longzero.com/tags/dark-patterns/</loc>
+    <lastmod>2023-01-01</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://longzero.com/tags/design/</loc>
+    <lastmod>2023-01-01</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://longzero.com/tags/ux/</loc>
+    <lastmod>2023-01-01</lastmod>
+  </url>
+  
+  <url>
     <loc>https://longzero.com/articles/self-care-selfish-scam-therapy/</loc>
     <lastmod>2023-01-13</lastmod>
   </url>
@@ -854,5 +869,10 @@
   <url>
     <loc>https://longzero.com/units/</loc>
     <lastmod>2023-12-09</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://longzero.com/articles/2024-02-03-ux-dark-pattern-example-surfshark/</loc>
+    <lastmod>2024-02-03</lastmod>
   </url>
 </urlset>
