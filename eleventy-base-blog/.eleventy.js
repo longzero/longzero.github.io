@@ -19,6 +19,8 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addGlobalData("hostname", "http://localhost:8080");
   }
 
+  eleventyConfig.addNunjucksGlobal("emailAddress", "long@longzero.com");
+
   // Copy the `images` and `css` folders to the output
   eleventyConfig.addPassthroughCopy("assets");
   eleventyConfig.addPassthroughCopy("robots.txt");
