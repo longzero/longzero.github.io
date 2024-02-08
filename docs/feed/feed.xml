@@ -5,12 +5,49 @@
 	
 	<link href="https://longzero.com/feed/feed.xml" rel="self"/>
 	<link href="https://longzero.com/"/>
-	<updated>2023-10-11T00:00:00Z</updated>
+	<updated>2024-02-07T00:00:00Z</updated>
 	<id>https://longzero.com/</id>
 	<author>
 		<name>Longzero</name>
 		<email>long@longzero.com</email>
 	</author>
+	
+	<entry>
+		<title>Unexpected enjoyment of meeting new people</title>
+		<link href="https://longzero.com/articles/2024-02-07-unexpected-enjoyment-of-meeting-new-people/"/>
+		<updated>2024-02-07T00:00:00Z</updated>
+		<id>https://longzero.com/articles/2024-02-07-unexpected-enjoyment-of-meeting-new-people/</id>
+		<content type="html">&lt;p&gt;Something unexpected is happening in 2024:
+I&#39;m meeting new people and I&#39;m enjoying it.&lt;/p&gt;
+&lt;p&gt;Wanting and enjoying meeting new people has not been a personality trait of mine since 2012.&lt;/p&gt;
+&lt;p&gt;My enjoyment of 2024 started in January with Vanlife Pride. Those people were damn amazing and that led to an increase of 100 more people I follow on Instagram.&lt;/p&gt;
+&lt;p&gt;Now, I&#39;m meeting new colleagues virtually and trying to set up in-person meetings in various places in south west USA and I actually look forward to it.&lt;/p&gt;
+&lt;p&gt;I don&#39;t think this rhythm will last for the entirety of 2024, but I&#39;m definitely enjoying this moment.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://longzero.com/assets/images/articles/2024-02-07-unexpected-enjoyment-of-meeting-new-people-2.jpg&quot; alt=&quot;Screenshot with the message below this image&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;It&#39;s definitely better than 2023&#39;s unexpected thing:
+Spending a fortune on mechanical issues.&lt;/p&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title>An example of a UX dark pattern used by Surfshark</title>
+		<link href="https://longzero.com/articles/2024-02-03-ux-dark-pattern-example-surfshark/"/>
+		<updated>2024-02-03T00:00:00Z</updated>
+		<id>https://longzero.com/articles/2024-02-03-ux-dark-pattern-example-surfshark/</id>
+		<content type="html">&lt;p&gt;2024 is not the same as 1824, but one thing that remains important is reputation.&lt;/p&gt;
+&lt;p&gt;The way you think of a company or a person changes when they trick you, doesn&#39;t it?&lt;/p&gt;
+&lt;p&gt;When it comes to UX, there is this thing called dark patterns and this is one of them that I just faced.&lt;/p&gt;
+&lt;p&gt;I want to bring your attention to the buttons while knowing that my will is to cancel auto-renewal and the purpose of the page is to let users cancel auto-renewal.&lt;/p&gt;
+&lt;p&gt;There is clearly a main and secondary button. Then, there is the labelling of the buttons. Both those elements make this a dark pattern.&lt;/p&gt;
+&lt;p&gt;Knowing the purpose of existence of this page, the main button should be the one to cancel auto-renewal.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://longzero.com/assets/images/articles/2024-02-03-ux-dark-pattern-surfshark-2.jpg&quot; alt=&quot;Screenshot of an example of UX dark pattern used by Surfshark to trick users to click the wrong button&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;As for the labelling, I can tell you from a web developer&#39;s point of view that auto-renewal is naught but a on/off switch. It&#39;s a very easy and simple thing to code. However, the words make it sound like it&#39;s a grand thing.&lt;/p&gt;
+&lt;p&gt;“Stay subscribed” induces the feeling that if you don&#39;t click that button, you will no longer be subscribed, even if you don&#39;t intend to unsubscribe at all.&lt;/p&gt;
+&lt;p&gt;“Cancel plan renewal”, combined with the previous label, tries to make you think clicking it will cancel your subscription.&lt;/p&gt;
+&lt;p&gt;Put everything together, this is a dark pattern and I must praise whoever came up with it. I just wish they used their powers for good instead of evil.&lt;/p&gt;
+&lt;p&gt;Everytime a company or a person tries to trick others, our opinion of them changes, sometimes a little and sometimes a lot. In this case, I was already irritated to have to contact customer support just to turn off auto-renewal.&lt;/p&gt;
+</content>
+	</entry>
 	
 	<entry>
 		<title>Watching Clueless (1995) for the first time in 2023</title>

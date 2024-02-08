@@ -3,7 +3,7 @@ title: An example of a UX dark pattern used by Surfshark
 permalink: /articles/2024-02-03-ux-dark-pattern-example-surfshark/
 date: 2024-02-03
 postType: articles
-status: 0
+status: 1
 
 author: Long
 description: Description of an example of a UX dark pattern used by Surfshark for cancelling auto-renewal.
