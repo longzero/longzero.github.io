@@ -2607,10 +2607,30 @@
   "potential-spots": [
     {
       "id": "",
+      "latitude": 32.70744,
+      "longitude": -116.12636,
+      "name": "Southern tip of Anza Borrego state park",
+      "notes": "<p>Wind turbines. Lots of sand, high clearance recommended. Lots of wind.</p>",
+      "url": "https://ioverlander.com/places/49224-southern-tip-of-anza-borrego-state-park",
+      "url-2": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 32.82738653071691,
+      "longitude": -116.16521188554896,
+      "name": "State park Sweeny Pass Road",
+      "notes": "<p>Some signal. Beautiful and secluded.</p>",
+      "url": "https://freeroam.app/campground/state-park",
+      "url-2": "",
+      "visible": 1
+    },
+    {
+      "id": "",
       "latitude": 32.0255,
       "longitude": -85.0355,
       "name": "Rood Creek Campground",
-      "notes": "<p>5 stars with 7 reviews. Some signal. Free waterfront. </p>",
+      "notes": "<p>5 stars with 7 reviews. Some signal. Free waterfront.</p>",
       "url": "https://freeroam.app/campground/rood-creek-campground",
       "url-2": "",
       "visible": 1
