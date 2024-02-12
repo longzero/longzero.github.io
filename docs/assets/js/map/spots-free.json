@@ -129,7 +129,7 @@
       "latitude": 32.80944170646082,
       "longitude": -112.25435722478198,
       "name": "Smuggler’s Run - Vekol Valley Rd",
-      "notes": "<p>Check map to make sure of being on BLM land.</p>",
+      "notes": "<p>Check map to make sure of being on BLM land.</p><p>20240211 (Sunday): Back in this area because van is making weird noise and want to go to the garage first thing in the morning. It isn't really a great place. The views are fine, but the vibe is... I just have a poor feeling.</p>",
       "url": "https://freeroam.app/campground/smugglers-run",
       "visible": 1
     },
@@ -2607,6 +2607,16 @@
   "potential-spots": [
     {
       "id": "",
+      "latitude": 33.56055,
+      "longitude": -113.15994,
+      "name": "BLM road - Big Horn Peak view",
+      "notes": "<p>Endless pick of sites. Less than 10 minutes off highway.</p><p>bee hive area had unauthorized sign, but if you go down the road a little further you’ll see a nice level area, very quiet low hum from the free way, pretty good signal. few big puddles to avoid.</p><p>beautiful sunset and sunrise views and we heard lots of coyotes.</p><p>Nice spot as described & felt safe as a solo female traveler</p><p>Might need high clearance for further spots.</p><p><strong>good Verizon LTE</strong></p><p>The actual point isn’t on a road google knows about so it drops you off at a big flat area with a bunch of hives. You can drive through it to another flat area without hives and there’s a “road” that continues past that to the indicated point about a quarter mile away. I didn’t go all the way to the point, but stopped about halfway at a nice flat spot with a fire pit. 2 bees stopped by in the evening and about a half dozen were buzzing around in the morning. No biggie. Fast service on Verizon, 3 bars, but very slow service on T-Mobile.</p>",
+      "url": "https://ioverlander.com/places/49224-southern-tip-of-anza-borrego-state-park",
+      "url-2": "",
+      "visible": 1
+    },
+    {
+      "id": "",
       "latitude": 32.70744,
       "longitude": -116.12636,
       "name": "Southern tip of Anza Borrego state park",
@@ -2860,6 +2870,14 @@
       "name": "Meineke Car Care Center (auto repair shop)",
       "notes": "<p>At the time of this writing (2023-07-05), Google's marker is on the wrong building. It's actually the one at the back of the parking lot.</p><p>Mathew, Tiffany and  Alex are great people and they did whatever they could to help with my exhaust problems.</p>",
       "url": "https://goo.gl/maps/CDxYk37Bsd8tF97y9"
+    },
+    {
+      "id": "",
+      "latitude": 33.4806882968483,
+      "longitude": -111.90923509022603,
+      "name": "Meineke Car Care Center (auto repair shop)",
+      "notes": "<p></p>",
+      "url": "https://maps.app.goo.gl/gZCw9tAS2aEfZXws8"
     },
     {
       "id": "",

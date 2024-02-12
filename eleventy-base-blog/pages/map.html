@@ -24,8 +24,8 @@ eleventyNavigation:
   // https://stackoverflow.com/a/34579496/2716287
   document.addEventListener("DOMContentLoaded", function(){
     let date = new Date().getTime()
-    let file = "https://gist.githubusercontent.com/longzero/6c8bbe65ced9641f3b177a37011fb0f4/raw/spots-free.json?" + date
-    // loadJSON("/assets/js/map/spots-free.json", function(text){
+    // let file = "https://gist.githubusercontent.com/longzero/6c8bbe65ced9641f3b177a37011fb0f4/raw/spots-free.json?" + date
+    let file = "/assets/js/map/spots-free.json"
     loadJSON(file, function(text){
       data = JSON.parse(text);
       initMap(data)
