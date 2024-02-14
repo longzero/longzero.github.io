@@ -2607,6 +2607,36 @@
   "potential-spots": [
     {
       "id": "",
+      "latitude": 33.27227,
+      "longitude": -116.01624,
+      "name": "Salton Sea Overlook",
+      "notes": "<p></p>",
+      "url": "https://ioverlander.com/places/208670-salton-sea-overlook",
+      "url-2": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 33.28196,
+      "longitude": -116.06479,
+      "name": "Desert View",
+      "notes": "<p></p>",
+      "url": "https://ioverlander.com/places/111128-desert-view",
+      "url-2": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 33.27767,
+      "longitude": -116.05344,
+      "name": "Salton Sea View",
+      "notes": "<p></p>",
+      "url": "https://ioverlander.com/places/80737-salton-sea-view",
+      "url-2": "",
+      "visible": 1
+    },
+    {
+      "id": "",
       "latitude": 33.56055,
       "longitude": -113.15994,
       "name": "BLM road - Big Horn Peak view",
