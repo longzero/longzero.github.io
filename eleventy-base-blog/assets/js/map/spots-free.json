@@ -2607,6 +2607,16 @@
   "potential-spots": [
     {
       "id": "",
+      "latitude": 36.7125022931846,
+      "longitude": -120.86257706084278,
+      "name": "Panoche Hills (BLM)",
+      "notes": "<p></p>",
+      "url": "https://ioverlander.com/places/161031-panoche-hills-blm",
+      "url-2": "",
+      "visible": 1
+    },
+    {
+      "id": "",
       "latitude": 33.27227,
       "longitude": -116.01624,
       "name": "Salton Sea Overlook",
