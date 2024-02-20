@@ -5,6 +5,51 @@
     },
     {
       "id": "",
+      "latitude": 37.1117825025085,
+      "longitude": -121.01644445999348,
+      "name": "Canyon Badlands",
+      "notes": "<p>One rainy night here on my way to San Jose</p>",
+      "url": [
+        "https://maps.app.goo.gl/Zv2M3skULq2navCbA"
+      ],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 32.82827521512449,
+      "longitude": -116.1657969921132,
+      "name": "Canyon Badlands",
+      "notes": "<p>Good internet on the edge of the cliff on three sides.</p><p>It is right next to the off-road road and pretty close to the main road. Some vehicles pass by during the day and very silent at night.</p><p>Canyons, mountains (some snowy), stars are gorgeous.</p>",
+      "url": [
+        "https://freeroam.app/campground/state-park"
+      ],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 33.27912842722796,
+      "longitude": -116.05922366085649,
+      "name": "Salton City",
+      "notes": "<p>Internet 60 0 20240216 1314.</p><p>Edge of the canyon with a distant view of the lake. Lots of people with flags and ATV.</p><p>Otherwise good spot.</p><p>Closest Starbucks and Walmart 45 minutes away in Coachella (north) or Brawley (south).</p>",
+      "url": [
+        "https://ioverlander.com/places/208670-salton-sea-overlook",
+        "https://ioverlander.com/places/80737-salton-sea-view",
+        "https://ioverlander.com/places/111128-desert-view"
+      ],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 33.27173591658883,
+      "longitude": -116.01791904013729,
+      "name": "Salton City",
+      "notes": "<p>Good for video meetings, did it with 5 people.</p><p>Beautiful place, lake is visible and sunrise is beautiful.</p>",
+      "url": "",
+      "url-2": "",
+      "visible": 1
+    },
+    {
+      "id": "",
       "latitude": 33.37720855478211,
       "longitude": -114.19204481152273,
       "name": "Palm Canyon Rd",
@@ -2617,31 +2662,11 @@
     },
     {
       "id": "",
-      "latitude": 33.27227,
-      "longitude": -116.01624,
-      "name": "Salton Sea Overlook",
+      "latitude": 36.7125022931846,
+      "longitude": -120.86257706084278,
+      "name": "Panoche Hills (BLM)",
       "notes": "<p></p>",
-      "url": "https://ioverlander.com/places/208670-salton-sea-overlook",
-      "url-2": "",
-      "visible": 1
-    },
-    {
-      "id": "",
-      "latitude": 33.28196,
-      "longitude": -116.06479,
-      "name": "Desert View",
-      "notes": "<p></p>",
-      "url": "https://ioverlander.com/places/111128-desert-view",
-      "url-2": "",
-      "visible": 1
-    },
-    {
-      "id": "",
-      "latitude": 33.27767,
-      "longitude": -116.05344,
-      "name": "Salton Sea View",
-      "notes": "<p></p>",
-      "url": "https://ioverlander.com/places/80737-salton-sea-view",
+      "url": "https://ioverlander.com/places/161031-panoche-hills-blm",
       "url-2": "",
       "visible": 1
     },
@@ -2667,41 +2692,11 @@
     },
     {
       "id": "",
-      "latitude": 32.82738653071691,
-      "longitude": -116.16521188554896,
-      "name": "State park Sweeny Pass Road",
-      "notes": "<p>Some signal. Beautiful and secluded.</p>",
-      "url": "https://freeroam.app/campground/state-park",
-      "url-2": "",
-      "visible": 1
-    },
-    {
-      "id": "",
       "latitude": 32.0255,
       "longitude": -85.0355,
       "name": "Rood Creek Campground",
       "notes": "<p>5 stars with 7 reviews. Some signal. Free waterfront.</p>",
       "url": "https://freeroam.app/campground/rood-creek-campground",
-      "url-2": "",
-      "visible": 1
-    },
-    {
-      "id": "",
-      "latitude": 32.83781,
-      "longitude": -114.63826,
-      "name": "Picacho Rd",
-      "notes": "<p>Open desert. OHV traffic. 3 miles on a kinda rough road to get here, one really tight turn over a bridge, and a 14’ railroad underpass. But well worth it if you like solitude! Actually very nice and quiet, but not recommended on weekends. ATVs throughout the day and shots in the immediate vicinity.</p>",
-      "url": "https://ioverlander.com/places/142643-power-line-camp",
-      "url-2": "",
-      "visible": 1
-    },
-    {
-      "id": "",
-      "latitude": 32.79791619355167,
-      "longitude": -114.61231682671645,
-      "name": "Picacho Rd",
-      "notes": "<p>Is this is a spot? Presence of vehicle on satellite image.</p>",
-      "url": "",
       "url-2": "",
       "visible": 1
     },
@@ -2958,6 +2953,14 @@
     },
     {
       "id": "",
+      "latitude": 33.922231192477966,
+      "longitude": -116.95047881480679,
+      "name": "Planet Fitness",
+      "notes": "A lot of people at 6 AM Monday morning (20240219).",
+      "url": "https://maps.app.goo.gl/hMuKWubRmzCZT48PA"
+    },
+    {
+      "id": "",
       "latitude": 33.65733632184922,
       "longitude": -114.24131985649126,
       "name": "Love’s",
@@ -3024,6 +3027,17 @@
   "starbucks": [
     {
       "markerPath": "/assets/images/map-icons/marker-icon-place.svg"
+    },
+    {
+      "id": "",
+      "latitude": 33.74230322526479,
+      "longitude": -116.2333818134775,
+      "name": "Indio, close to Walmart",
+      "notes": "<p>This is a nice one, but it does get busy.</p><p>Door code is 52338# (20240219). They probably change it daily.</p>",
+      "url": [
+        "https://freeroam.app/campground/state-park"
+      ],
+      "visible": 1
     },
     {
       "id": "",
