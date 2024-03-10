@@ -50,6 +50,17 @@ Enter a number, then click anywhere.
   <input class="js-exchange-rate" id="exchange-rate" name="exchange-rate" type="number" value="1.35">
 </section>
 
+<section class="unit-conversion currency-cad-usd-section">
+  <label class="unit-group">
+    <input class="js-currency" id="cad-currency" name="cad-currency" type="number">
+    <span>CAD</span>
+  </label>
+  <label class="unit-group">
+    <input class="js-currency" id="usd-currency" name="usd-currency" type="number">
+    <span>USD</span>
+  </label>
+</section>
+
 <section class="unit-conversion gas-cost-section">
   <label class="unit-group">
     <input class="js-gas-cost" id="cad-liter" name="cad-liter" type="number">
@@ -106,14 +117,31 @@ Enter a number, then click anywhere.
   function getExchangeRate() {
     return document.getElementById('exchange-rate').value
   }
+  function getUsdFromCad(cad) {
+    return usd = cad / getExchangeRate()
+  }
+  function getCadFromUsd(usd) {
+    return cad = usd * getExchangeRate()
+  }
   function getUsdPerGallonFromCadPerLiter(cad) {
     let usd = cad / getExchangeRate()
-    return usd * 3.785411784;
+    return usd * 3.785411784; // 1 gallon = 3.785411784 liters
   }
   function getCadPerLiterFromUsdPerGallon(usd) {
     let cad = usd * getExchangeRate()
-    return cad / 3.785411784;
+    return cad / 3.785411784; // 1 gallon = 3.785411784 liters
   }
+  const currencyInput = document.querySelectorAll('.js-currency')
+  currencyInput.forEach((currency) => {
+    currency.addEventListener('change', function(){
+      if (this.getAttribute('id') == 'cad-currency') {
+        document.getElementById('usd-currency').value = getRound(getUsdFromCad(this.value))
+      }
+      else if (this.getAttribute('id') == 'usd-currency') {
+        document.getElementById('cad-currency').value = getRound(getCadFromUsd(this.value))
+      }
+    })
+  })
   const gasCostInput = document.querySelectorAll('.js-gas-cost')
   gasCostInput.forEach((gasCost) => {
     gasCost.addEventListener('change', function(){
