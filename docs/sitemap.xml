@@ -707,11 +707,6 @@
   </url>
   
   <url>
-    <loc>https://longzero.com/tags/time/</loc>
-    <lastmod>2023-01-01</lastmod>
-  </url>
-  
-  <url>
     <loc>https://longzero.com/tags/general/</loc>
     <lastmod>2023-01-01</lastmod>
   </url>
@@ -803,6 +798,11 @@
   
   <url>
     <loc>https://longzero.com/tags/ideas/</loc>
+    <lastmod>2023-01-01</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://longzero.com/tags/time/</loc>
     <lastmod>2023-01-01</lastmod>
   </url>
   
