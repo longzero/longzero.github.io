@@ -48,7 +48,11 @@
   {# <meta prefix="og: http://ogp.me/ns#" property="twitter:title" content="{{ title or metadata.title }}"> #}
   <meta prefix="og: http://ogp.me/ns#" property="og:article:author" content="Longzero">
 
-  {# <meta name="robots" content="index, follow"> #}
+  {% set index_follow %}index, follow{% endset %}
+  {% if index and follow %}
+    {% set index_follow %}{{ index }}, {{ follow }}{% endset %}
+    <meta name="robots" content="{{ index_follow }}">
+  {% endif %}
 
   <link rel="stylesheet" href="{{ '/assets/css/index.css' | url }}">
   {# <link rel="stylesheet" href="{{ '/assets/css/prism-base16-monokai.dark.css' | url }}"> #}

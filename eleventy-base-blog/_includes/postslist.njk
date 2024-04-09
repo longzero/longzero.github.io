@@ -16,27 +16,29 @@
 <div class="container container--fluid">
   <div class="post-list">
     {% for post in postslist | reverse %}
-      <div class="post-item fade-in move-up animation js-animate {% if post.url == url %}post-item--active active{% endif %}">
-        <a href="{{ post.url | url }}" class="post-link">
-          <span class="post-image">
-            {% if post.data.image %}
-              <picture>
-                <source srcset="/assets/images/articles/thumbnails/{{ post.data.image }}">
-                <img src="/assets/images/articles/thumbnails/{{ post.data.image }}" alt="" loading="lazy">
-              </picture>
-            {% endif %}
-          </span>
-          <span class="post-data">
-            {# The filter ` | urlize | safe` allows to parse HTML like `<br>` and `&nbsp;` #}
-            <span class="post-title">{{ post.data.title | urlize | safe }}</span>
-            <span class="post-date">
-              {% if post.data.updatedDate %} {{ post.data.date | readableDate }} | Update on {{ post.data.updatedDate | readableDate }}
-              {% else %} {{ post.data.date | readableDate }}
+      {% if post.data.index != "noindex" %}
+        <div class="post-item fade-in move-up animation js-animate {% if post.url == url %}post-item--active active{% endif %}">
+          <a href="{{ post.url | url }}" class="post-link">
+            <span class="post-image">
+              {% if post.data.image %}
+                <picture>
+                  <source srcset="/assets/images/articles/thumbnails/{{ post.data.image }}">
+                  <img src="/assets/images/articles/thumbnails/{{ post.data.image }}" alt="" loading="lazy">
+                </picture>
               {% endif %}
             </span>
-          </span>
-        </a>
-      </div>
+            <span class="post-data">
+              {# The filter ` | urlize | safe` allows to parse HTML like `<br>` and `&nbsp;` #}
+              <span class="post-title">{{ post.data.title | urlize | safe }}</span>
+              <span class="post-date">
+                {% if post.data.updatedDate %} {{ post.data.date | readableDate }} | Update on {{ post.data.updatedDate | readableDate }}
+                {% else %} {{ post.data.date | readableDate }}
+                {% endif %}
+              </span>
+            </span>
+          </a>
+        </div>
+      {% endif %}
     {% endfor %}
   </div>
 </div>

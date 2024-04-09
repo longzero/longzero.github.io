@@ -16,6 +16,9 @@ tags:
   - Life
   - Social
   - Time
+
+index: index
+follow: follow
 ---
 
 Ça affecte tout le monde, même si on n'y participe pas.
