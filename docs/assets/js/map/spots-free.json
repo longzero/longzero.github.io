@@ -2652,12 +2652,122 @@
   "potential-spots": [
     {
       "id": "",
-      "latitude": 36.7125022931846,
-      "longitude": -120.86257706084278,
-      "name": "Panoche Hills (BLM)",
-      "notes": "<p></p>",
-      "url": "https://ioverlander.com/places/161031-panoche-hills-blm",
+      "latitude": 50.24513986713833,
+      "longitude": -63.60264724852187,
+      "name": "NUITÉE VR HAVRE ST-PIERRE",
+      "notes": "<p><strong>Emplacement disponible seulement quand le terrain de camping est complet</strong></p><p>Aréna Denis-Perron - Côté Sud près de la rue de la Digue, terrain gazonné, pas de point d'eau, sans de table de pique-nique, sans poubelle.</p><p>10 espaces<br>Où se stationner: Perpendiculaire à la rue de la Digue. FEUX bois ou propane interdits.<br>Mi-juillet à la mi-août<br>7/7 jours, 24/24<br>Max 48 heures<br>Gratuit</p>",
+      "url": "https://www.google.com/maps/@50.2448695,-63.605103,759m/data=!3m1!1e3!4m2!6m1!1s1hzk8VpdKfaJkOSHWfMJldSKCG37tj-c?entry=ttu",
+      "url-2": "http://www.tourismehsp.com",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 50.27022437387556,
+      "longitude": -64.14464852530347,
+      "name": "NUITÉE VR LONGUE-POINTE-DE-MINGAN",
+      "notes": "<p>STATIONNEMENT INTERDIT SUR LA PLAGE.</p><p>À partir de la route 138, veuillez prendre la route de l’Aéroport et suivre les indications.</p><p>10 espaces<br>Dans l'espace de stationnement, <strong>stationnement sur la plage est interdit.</strong><br>25 juin au 1er septembre<br>7/7 jours, 24h/24h<br>Durée maximale du séjour: 72 heures<br>Gratuit</p>",
+      "url": "https://www.google.com/maps/@50.2719089,-64.1503586,2878m/data=!3m1!1e3!4m2!6m1!1s1hzk8VpdKfaJkOSHWfMJldSKCG37tj-c?entry=ttu",
+      "url-2": "http://www.longuepointedemingan.ca/a-decouvrir/",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 50.27435067594056,
+      "longitude": -64.7617886875593,
+      "name": "NUITÉE VR RIVIÈRE-AU-TONNERRE - VILLAGES-RELAIS",
+      "notes": "<p>Halte municipale<br>Stationnement VR 24 heures</p>",
+      "url": "https://www.google.com/maps/@50.2743547,-64.7620911,220m/data=!3m1!1e3!4m2!6m1!1s1hzk8VpdKfaJkOSHWfMJldSKCG37tj-c?entry=ttu",
       "url-2": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 50.27584683455032,
+      "longitude": -64.77501728359493,
+      "name": "NUITÉE VR RIVIÈRE-AU-TONNERRE - VILLAGES-RELAIS",
+      "notes": "<p>Stationnement municipal<br>Stationnement VR 24 heures</p>",
+      "url": "https://www.google.com/maps/@50.2752929,-64.7765398,539m/data=!3m1!1e3!4m2!6m1!1s1hzk8VpdKfaJkOSHWfMJldSKCG37tj-c?entry=ttu",
+      "url-2": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 50.27502186900731,
+      "longitude": -64.77604244573075,
+      "name": "NUITÉE VR Église Saint-Hippolyte (Villages-Relais)",
+      "notes": "<p>Juste à côté du 14 rue de l'Église (le stationnement de l'Église est trop petit et trop à proximité de la rue il y a donc enseigne d'interdiction)</p>",
+      "url": "https://www.google.com/maps/@50.2752929,-64.7765398,539m/data=!3m1!1e3!4m2!6m1!1s1hzk8VpdKfaJkOSHWfMJldSKCG37tj-c?entry=ttu",
+      "url-2": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 50.02485173539012,
+      "longitude": -66.86191761998963,
+      "name": "NUITÉE VR Centre d'interprétation de l'histoire de Port-Cartier",
+      "notes": "<p>Centre d'interprétation de l'histoire de Port-Cartier<br>45, boulevard du Portage-des-Mousses</p><p>Stationnement - lieu touristique. Le plus grand centre d'interprétation de l'histoire de la Côte-Nord.</p><p>4 espaces<br>Moins de 30 pieds<br>Où se stationner: À l'intérieur des espaces de stationnement.<br>Juin à Septembre, 7/7 jours<br>Heure d'arrivée: avant 16H00<br>Heure de départ: avant 16H00<br>Durée maximale du séjour: 48 heures</p><p><strong>Tarif: Contribution volontaire à remettre à l'accueil du Centre d'interprétation de l'histoire.</strong></p>",
+      "url": "https://www.google.com/maps/@50.0246643,-66.8621221,202m/data=!3m1!1e3!4m2!6m1!1s1hzk8VpdKfaJkOSHWfMJldSKCG37tj-c?entry=ttu",
+      "url-2": "https://www.facebook.com/tourismeportcartier",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 50.0257757813304,
+      "longitude": -66.87370676944072,
+      "name": "NUITÉE VR Parc du Barrage des Pionniers",
+      "notes": "<p>Parc du Barrage des Pionniers, Rue du Barrage</p><p>Asphalte, poubelles, tables à pique-nique. Cul-de-sac, intime, belle vue. Dormir au son d'une majestueuse chute à proximité.</p><p>2 places<br>24 pieds et moins<br>Juin à Septembre, 7/7 jours, 24h/24h<br>Durée maximale du séjour: 48 heures<br>Gratuit</p>",
+      "url": "https://www.google.com/maps/@50.025671,-66.8742564,197m/data=!3m1!1e3!4m2!6m1!1s1hzk8VpdKfaJkOSHWfMJldSKCG37tj-c?entry=ttu",
+      "url-2": "https://www.facebook.com/tourismeportcartier",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 49.2397208642277,
+      "longitude": -68.14396464904769,
+      "name": "NUITÉE VR Église – Quartier Saint-Georges",
+      "notes": "<p>RESPECTEZ LES ESPACES IDENTIFIÉS<br>Église – Quartier Saint-Georges (Le jardin des glaciers)</p><p>Stationnement sur gravier. Le stationnement de l’église Saint-Georges, construite en 1955 vous offre une magnifique vue sur le fleuve Saint-Laurent et une belle tranquillité. Située à proximité du lac Leven, une promenade s’impose dans les rues et les sentiers avoisinants. Pour les amateurs de pêche, sachez que le lac Leven est ensemencé et un quai flottant est accessible pour tous. Vous avez accès à un dépanneur tout près et vous êtes à seulement 5 minutes de place La Salle où vous découvrirez notamment la fontaine d’eau de la Place de la Biosphère, la Manufacture de savon Borale, le Manoir du Café, la Galerie d’art Claude Bonneau, la terrasse du Grand Hôtel ainsi que la Microbrasserie St-Pancrace.</p><p>30 espaces<br><strong>Se stationner sur les espaces identifiés<br>Mai à Octobre, 7/7 jours, 24h/24h<br>Durée maximale du séjour: 24hrs<br>Gratuit</p>",
+      "url": "https://www.google.com/maps/@49.239557,-68.1445094,194m/data=!3m1!1e3!4m2!6m1!1s1hzk8VpdKfaJkOSHWfMJldSKCG37tj-c?entry=ttu",
+      "url-2": "https://www.tourismebaiecomeau.com/",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 48.566022843129,
+      "longitude": -67.66325141213224,
+      "name": "NUITÉE VR Parc Pierre-Brochu",
+      "notes": "<p>Parc Pierre-Brochu 127, route 132 Est</p><p>Stationnement en gravier à proximité de tous les commerces (épicerie, restaurant, station-service), tables, poubelles sur place et accès au Lac Matapédia à proximité.</p><p>3 espaces<br>40 pieds maximum<br>Mai à octobre, 7/7 jours, 24h/24h<br>Durée maximale du séjour: 24 heures<br>Gratuit</p>",
+      "url": "https://www.google.com/maps/@48.566094,-67.664267,410m/data=!3m1!1e3!4m2!6m1!1s1hzk8VpdKfaJkOSHWfMJldSKCG37tj-c?entry=ttu",
+      "url-2": "https://municipalitesayabec.com/tourisme/attraits.html",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 48.46255920385007,
+      "longitude": -67.43344035456819,
+      "name": "NUITÉE VR Amqui Village Relais",
+      "notes": "<p></p>",
+      "url": "https://www.google.com/maps/@48.4624781,-67.4336363,200m/data=!3m1!1e3!4m2!6m1!1s1hzk8VpdKfaJkOSHWfMJldSKCG37tj-c?entry=ttu",
+      "url-2": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 48.85360847789322,
+      "longitude": -67.53500466887978,
+      "name": "NUITÉE VR Les Galeries du Vieux-Port",
+      "notes": "<p>Les Galeries du Vieux-Port 750 Av. du Phare O</p><p>Centre commercial, respectez les règles affichées sur place. À votre disposition dans le Centre commercial, des boutiques, bar, restaurant, pharmacie, SAQ, marché d'alimentation, etc Située au cœur de la ville, à proximité du Fleuve et à quelques pas de la Rivière Matane, vous aurez plein de choses à découvrir à distance de marche.</p><p>Où se stationner: À l'arrière du Centre commercial, le long de la bordure, côté fleuve. Respectez l'affichage de l'espace dédié aux VR. Stationnement en parallèle seulement - aucun stationnement en transversale autorisé.</p><p>Accessibilités: mai à octobre, 7/7 jours, 24h/24h<br>Durée maximale du séjour: 24 heures<br>Gratuit</p>",
+      "url": "https://www.google.com/maps/@48.8534321,-67.5355243,159m/data=!3m1!1e3!4m2!6m1!1s1hzk8VpdKfaJkOSHWfMJldSKCG37tj-c?entry=ttu",
+      "url-2": "https://www.galeriesduvieuxport.com/",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 49.67906010669912,
+      "longitude": -67.16759215782865,
+      "name": "Nuitée VR Musée Louis-Langlois",
+      "notes": "<p>Musée Louis-Langlois<br>rue Mgr-Labrie, secteur Pointe-aux-Anglais</p><p>Stationnement de gravier, poubelles, tables de pique-nique et toilette chimique. Accès direct à la plage et au terrain aménagé du musée.  Station de jeux aménagée pour les enfants.</p><p>2 places<br>Moins de 30 pieds<br>Juin à Août, 7/7 jours<br>Arrivée: Avant 16H00<br>Départ: Avant 16H00<br>Durée maximale: 48 heures<br>Gratuit</p>",
+      "url": "https://www.google.com/maps/@49.6790467,-67.1677628,21z/data=!4m2!6m1!1s1hzk8VpdKfaJkOSHWfMJldSKCG37tj-c?entry=ttu",
+      "url-2": "https://www.facebook.com/tourismeportcartier",
       "visible": 1
     },
     {
