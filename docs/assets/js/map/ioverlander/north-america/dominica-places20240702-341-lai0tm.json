@@ -1,0 +1,67 @@
+[
+  {
+    "id": 265239,
+    "name": "Mero beach",
+    "date_verified": "2024-03-08T00:00:00.000Z",
+    "description": "This is the nicest and closest beach to Roseau with all facilities and cold beers you'll likely to want during your beach stay. I spent two nights here in my tent and it was lovely. it is a very safe beach. the locals are really friendly too. \r\nbe aware though that the place can get busy when large cruise ships visit the island. it does not happen every day thankfully \r\n\r\nfree showers. toilet for 1EC.",
+    "location": {
+      "latitude": 15.41881157,
+      "longitude": -61.42941242
+    },
+    "category": {
+      "name": "Wild Camping"
+    }
+  },
+  {
+    "id": 265428,
+    "name": "Cold sulphur spring",
+    "date_verified": "2024-03-09T00:00:00.000Z",
+    "description": "naturally bubbling water that is actually cold. how cool isn't that! you'll find a medium sized pool to dip your feet or legs in and many hand sized ones. the experience is fun and quite unique. the sulphur smell is very present. \r\n\r\nif you're camping there are two rain shelters here; one next to the pools and one next to the road with a toilet.",
+    "location": {
+      "latitude": 15.61921746,
+      "longitude": -61.44030672
+    },
+    "category": {
+      "name": "Tourist Attraction"
+    }
+  },
+  {
+    "id": 265749,
+    "name": "Francois and Francois camping ",
+    "date_verified": "2024-03-09T00:00:00.000Z",
+    "description": "300m into a rubble road you'll find a riverside cabin/camping owned by Francois himself. He has created a few campsites next to a small river and a cabin just 30m above. The area is very relaxing and Francois is very kind. \r\n\r\nprice for camping is 10$ for one person in a tent.",
+    "location": {
+      "latitude": 15.51932756,
+      "longitude": -61.28016929
+    },
+    "category": {
+      "name": "Established Campground"
+    }
+  },
+  {
+    "id": 266216,
+    "name": "Roseau hostel",
+    "date_verified": "2024-03-12T00:00:00.000Z",
+    "description": "THE hostel of Dominica. there might be a second one in Roseau close to this one but I've got no clue how to reach it. anyways, here you'll find dorm beds for 25US$/per person and night. Pretty good deal for the Carribbean! the beds are nice and there are fans in the rooms.\r\nthe hostel has its own access to the beach/sea, a fully equipped kitchen a few places to chill with people and flushable toilet. It is a tiny hostel relative to worldwide which makes it kinda cozy. don't expect it to be full though even in high season. \r\n\r\nThere is no reception so you need to contact the number on the door or talk with the nearby Sukie bakery or grocery who will be able to help. \r\n\r\nif you want to meet other lower budget travellers in Dominica this is the place to go. There are those that just tick the country off and those who go hiking the full length of the trans-dominican. ",
+    "location": {
+      "latitude": 15.2937,
+      "longitude": -61.38322
+    },
+    "category": {
+      "name": "Hostel"
+    }
+  },
+  {
+    "id": 266217,
+    "name": "Rasta bar ",
+    "date_verified": "2024-03-13T00:00:00.000Z",
+    "description": "If you need to stay the night close to the airport (which is not open after the last flight of the day and opens 5am) this will be one of the better options. the owners are friendly and after my stay here any other person in a tent or bicycle will surely be well met. Tell them that Axel the Swedish cyclist recommended the place, get yourself a drink and enjoy a night of peace. The bar is probably not playing loud music and usually closes peacefully before 11pm. ",
+    "location": {
+      "latitude": 15.54780343,
+      "longitude": -61.29421519
+    },
+    "category": {
+      "name": "Informal Campsite"
+    }
+  }
+]
