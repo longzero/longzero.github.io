@@ -6,6 +6,8 @@ title: Units
 # eleventyNavigation:
 #   key: Time
 #   order: 3
+
+exchange_rate: 1.38
 ---
 
 
@@ -47,7 +49,7 @@ Enter a number, then click anywhere.
 
 <section class="unit-conversion exchange-rate-section">
   <label>Exchange rate (base is 1 USD)</label>
-  <input class="js-exchange-rate" id="exchange-rate" name="exchange-rate" type="number" value="1.35">
+  <input class="js-exchange-rate" id="exchange-rate" name="exchange-rate" type="number" value="{{ exchange_rate }}">
 </section>
 
 <section class="unit-conversion currency-cad-usd-section">
