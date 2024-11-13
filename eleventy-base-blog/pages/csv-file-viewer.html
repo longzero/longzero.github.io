@@ -9,10 +9,9 @@ title: CSV file viewer
 ---
 
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 20px;
-    }
+    * {box-sizing: border-box;}
+    html {font-size: 10px;}
+    body {font-family: Arial, sans-serif; font-size: 1.6rem; margin: 20px;}
     #dropArea {
         width: 100%;
         padding: 50px;
@@ -21,99 +20,200 @@ title: CSV file viewer
         color: #aaa;
         margin-bottom: 20px;
     }
-    table {
-        width: 100%;
-        border-collapse: collapse;
-    }
-    table, th, td {
-        border: 1px solid black;
-    }
-    th, td {
-        padding: 10px;
-        text-align: left;
-    }
+    table {width: 100%; border-collapse: collapse;}
+    table, th, td {border: 1px solid black;}
+    th, td {font-size: 1.4rem; padding: 10px; text-align: left;}
+    #summary {background-color: hsl(272, 61%, 34%); color: #fff; margin-bottom: 20px; padding: 20px;}
+    #summary:empty {margin: 0; padding: 0;}
+    #summary {display: flex; flex-wrap: wrap; gap: 2rem;}
+    .summary-box {flex: 1;}
+    .summary-box h3 {font-size: 1.4rem; font-weight: 400; margin: 0;}
+    .table-wrapper {max-width: 100%; overflow-x: auto;}
 </style>
 
 <h1>CSV File Viewer</h1>
 <div id="dropArea">Drag and drop your time-tracking.csv file here or press <strong>Ctrl + O</strong> to open a file</div>
-<input type="file" id="fileInput" accept=".csv">
-<div id="output"></div>
+<input type="file" id="fileInput" accept=".csv" style="margin-bottom: 2rem;">
+<div id="summary"></div>
+<div id="output" class="table-wrapper"></div>
 
-<script>
-    const dropArea = document.getElementById('dropArea');
-    const fileInput = document.getElementById('fileInput');
+    <script>
+        const dropArea = document.getElementById('dropArea');
+        const fileInput = document.getElementById('fileInput');
 
-    // Prevent default drag behaviors
-    ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
-        dropArea.addEventListener(eventName, preventDefaults, false);
-    });
+        // Prevent default drag behaviors
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            dropArea.addEventListener(eventName, preventDefaults, false);
+        });
 
-    function preventDefaults(e) {
-        e.preventDefault();
-        e.stopPropagation();
-    }
-
-    // Highlight the drop area when the file is over it
-    ['dragenter', 'dragover'].forEach(eventName => {
-        dropArea.addEventListener(eventName, () => dropArea.style.borderColor = 'green', false);
-    });
-
-    ['dragleave', 'drop'].forEach(eventName => {
-        dropArea.addEventListener(eventName, () => dropArea.style.borderColor = '#ccc', false);
-    });
-
-    // Handle file drop
-    dropArea.addEventListener('drop', function(e) {
-        const files = e.dataTransfer.files;
-        if (files.length > 0 && files[0].type === 'text/csv') {
-            const file = files[0];
-            readFile(file);
-        }
-    });
-
-    // File input change
-    fileInput.addEventListener('change', function() {
-        const file = fileInput.files[0];
-        if (file && file.type === 'text/csv') {
-            readFile(file);
-        }
-    });
-
-    // Keyboard shortcut (Ctrl + O or Cmd + O)
-    document.addEventListener('keydown', function(e) {
-        if ((e.ctrlKey || e.metaKey) && e.key === 'o') {
+        function preventDefaults(e) {
             e.preventDefault();
-            fileInput.click();  // Trigger the file input click
+            e.stopPropagation();
         }
-    });
 
-    // Read the file content
-    function readFile(file) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            const content = e.target.result;
-            displayCSV(content);
-        };
-        reader.readAsText(file);
-    }
+        // Highlight the drop area when the file is over it
+        ['dragenter', 'dragover'].forEach(eventName => {
+            dropArea.addEventListener(eventName, () => dropArea.style.borderColor = 'green', false);
+        });
 
-    // Display the CSV in a table
-    function displayCSV(content) {
-        const rows = content.split('\n');
-        let table = '<table>';
-        rows.forEach((row, index) => {
-            const cols = row.split(',');
-            table += '<tr>';
-            cols.forEach(col => {
+        ['dragleave', 'drop'].forEach(eventName => {
+            dropArea.addEventListener(eventName, () => dropArea.style.borderColor = '#ccc', false);
+        });
+
+        // Handle file drop
+        dropArea.addEventListener('drop', function(e) {
+            const files = e.dataTransfer.files;
+            if (files.length > 0 && files[0].type === 'text/csv') {
+                const file = files[0];
+                readFile(file);
+            }
+        });
+
+        // File input change
+        fileInput.addEventListener('change', function() {
+            const file = fileInput.files[0];
+            if (file && file.type === 'text/csv') {
+                readFile(file);
+            }
+        });
+
+        // Keyboard shortcut (Ctrl + O or Cmd + O)
+        document.addEventListener('keydown', function(e) {
+            if ((e.ctrlKey || e.metaKey) && e.key === 'o') {
+                e.preventDefault();
+                fileInput.click();  // Trigger the file input click
+            }
+        });
+
+        // Read the file content
+        function readFile(file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const content = e.target.result;
+                displayCSV(content);
+            };
+            reader.readAsText(file);
+        }
+
+        // Convert HH:mm:ss to seconds
+        function durationToSeconds(duration) {
+            const [hours, minutes, seconds] = duration.split(':').map(Number);
+            return hours * 3600 + minutes * 60 + seconds;
+        }
+
+        // Convert seconds back to HH:mm:ss
+        function secondsToDuration(totalSeconds) {
+            const hours = Math.floor(totalSeconds / 3600).toString().padStart(2, '0');
+            const minutes = Math.floor((totalSeconds % 3600) / 60).toString().padStart(2, '0');
+            const seconds = (totalSeconds % 60).toString().padStart(2, '0');
+            return `${hours}:${minutes}:${seconds}`;
+        }
+
+        // Group and sum durations by day, week, month, and year
+        function calculateSummary(entries) {
+            const summary = {
+                daily: {},
+                weekly: {},
+                monthly: {},
+                yearly: {}
+            };
+
+            entries.forEach(entry => {
+                const timestamp = entry.timestamp;
+                const duration = durationToSeconds(entry.duration);
+
+                const date = new Date(timestamp);
+                const year = date.getFullYear();
+                const month = `${year}-${(date.getMonth() + 1).toString().padStart(2, '0')}`;
+                const week = `${year}-W${getWeekNumber(date)}`;
+                const day = `${year}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
+
+                // Add to daily totals
+                summary.daily[day] = (summary.daily[day] || 0) + duration;
+
+                // Add to weekly totals
+                summary.weekly[week] = (summary.weekly[week] || 0) + duration;
+
+                // Add to monthly totals
+                summary.monthly[month] = (summary.monthly[month] || 0) + duration;
+
+                // Add to yearly totals
+                summary.yearly[year] = (summary.yearly[year] || 0) + duration;
+            });
+
+            return summary;
+        }
+
+        // Get week number from a date
+        function getWeekNumber(date) {
+            const firstDayOfYear = new Date(date.getFullYear(), 0, 1);
+            const pastDaysOfYear = (date - firstDayOfYear) / 86400000;
+            return Math.ceil((pastDaysOfYear + firstDayOfYear.getDay() + 1) / 7);
+        }
+
+        // Display summary
+        function displaySummary(summary) {
+            const summaryDiv = document.getElementById('summary');
+            let html = '';
+
+            html += '<div class="summary-box"><h3>Day</h3>';
+            for (const [day, totalSeconds] of Object.entries(summary.daily)) {
+                html += `<div class="summary-result"><span class="summary-date">${day}:</span> <span class="summary-result-value">${secondsToDuration(totalSeconds)}</span></div></div>`;
+            }
+
+            html += '<div class="summary-box"><h3>Week</h3>';
+            for (const [week, totalSeconds] of Object.entries(summary.weekly)) {
+                html += `<div class="summary-result"><span class="summary-date">${week}:</span> <span class="summary-result-value">${secondsToDuration(totalSeconds)}</span></div></div>`;
+            }
+
+            html += '<div class="summary-box"><h3>Month</h3>';
+            for (const [month, totalSeconds] of Object.entries(summary.monthly)) {
+                html += `<div class="summary-result"><span class="summary-date">${month}:</span> <span class="summary-result-value">${secondsToDuration(totalSeconds)}</span></div></div>`;
+            }
+
+            html += '<div class="summary-box"><h3>Year</h3>';
+            for (const [year, totalSeconds] of Object.entries(summary.yearly)) {
+                html += `<div class="summary-result"><span class="summary-date">${year}:</span> <span class="summary-result-value">${secondsToDuration(totalSeconds)}</span></div></div>`;
+            }
+
+            summaryDiv.innerHTML = html;
+        }
+
+        // Display the CSV in a table and calculate the summary
+        function displayCSV(content) {
+            const rows = content.split('\n').filter(row => row.trim() !== '');
+            let table = '<table>';
+            const entries = [];
+
+            rows.forEach((row, index) => {
+                const cols = row.split(',');
                 if (index === 0) {
-                    table += `<th>${col.trim()}</th>`;
+                    table += '<tr>';
+                    cols.forEach(col => {
+                        table += `<th>${col.trim()}</th>`;
+                    });
+                    table += '</tr>';
                 } else {
-                    table += `<td>${col.trim()}</td>`;
+                    const [timestamp, type, task, url, duration, category, note] = cols.map(col => col.trim());
+
+                    // Only process rows with a valid duration and timestamp
+                    if (timestamp && duration) {
+                        entries.push({ timestamp, duration });
+                    }
+
+                    table += '<tr>';
+                    cols.forEach(col => {
+                        table += `<td>${col.trim()}</td>`;
+                    });
+                    table += '</tr>';
                 }
             });
-            table += '</tr>';
-        });
-        table += '</table>';
-        document.getElementById('output').innerHTML = table;
-    }
-</script>
+
+            table += '</table>';
+            document.getElementById('output').innerHTML = table;
+
+            // Calculate and display summary
+            const summary = calculateSummary(entries);
+            displaySummary(summary);
+        }
+    </script>
