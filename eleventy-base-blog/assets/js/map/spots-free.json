@@ -5,6 +5,33 @@
     },
     {
       "id": "",
+      "latitude": 34.71345386285161,
+      "longitude": -114.4364348345622,
+      "name": "North of Lake Havasu City",
+      "notes": "<p>2024 1125.</p><p>Very good hotspot<br>75 3 networkQuality<br>53 3 measurement lab</p><p>On this day, at 10:00 a.m., there is a group of RVs forming a circle but no one else.</p>",
+      "url": [],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 34.59338773346728,
+      "longitude": -114.36176392655878,
+      "name": "Craggy Wash BLM Land Camping",
+      "notes": "<p>An option, but not a good choice.</p><p>202411 Lots of people. Some signal. Very close to hills and mountains so sunrise is late and sunset is early.</p>",
+      "url": [],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 32.837006886237944,
+      "longitude": -112.31064360738385,
+      "name": "Lost Horse Tank Dispersed",
+      "notes": "<p>Pretty good despite broken glass on the ground and proximity to highway.</p><p>Internet hotspot<br>20241130<br>5 10 measurement lab<br>50 17 networkQuality</p>",
+      "url": [],
+      "visible": 1
+    },
+    {
+      "id": "",
       "latitude": 47.78439568256199,
       "longitude": -64.74831899171048,
       "name": "By an empty beach of Caraquet Parish",
@@ -2659,6 +2686,15 @@
 
   ],
   "potential-spots": [
+    {
+      "id": "",
+      "latitude": 32.84369399108049,
+      "longitude": -112.32057581023882,
+      "name": "Lost Horse Tank Dispersed",
+      "notes": "<p>Drove by and it looks like an awesome spot, but it was occupied.</p>",
+      "url": "https://www.campendium.com/lost-horse-tank",
+      "visible": 1
+    },
     {
       "id": "",
       "latitude": 50.24513986713833,
