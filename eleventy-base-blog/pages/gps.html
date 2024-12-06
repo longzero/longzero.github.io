@@ -1,0 +1,196 @@
+---
+layout: layouts/blank.njk
+# description: Time
+permalink: /gps/
+title: GPS mapper
+# eleventyNavigation:
+#   key: Time
+#   order: 3
+---
+
+<style>
+    #map { max-height: 80vh; height: 1000px; }
+    #dropZone {
+        border: 2px dashed #ccc;
+        border-radius: 20px;
+        width: 480px;
+        margin: 20px auto;
+        padding: 20px;
+        text-align: center;
+    }
+    #dropZone.dragover {
+        background-color: #f0f0f0;
+        border-color: #000;
+    }
+</style>
+
+
+
+<div id="dropZone">
+    Drag and Drop CSV file here or
+    <input type="file" id="fileInput" accept=".csv">
+</div>
+<div id="map"></div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.heat/0.2.0/leaflet-heat.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.Default.min.css" integrity="sha512-fYyZwU1wU0QWB4Yutd/Pvhy5J1oWAwFXun1pt+Bps04WSe4Aq6tyHlT4+MHSJhD8JlLfgLuC4CbCnX5KHSjyCg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+
+<script>
+    const dropZone = document.getElementById('dropZone');
+    const fileInput = document.getElementById('fileInput');
+    const map = L.map('map');
+
+    // Initialize map
+    map.setView([0, 0], 2);
+
+    // Add OpenStreetMap tiles
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    function processFile(input) {
+        if (typeof input === 'string') {
+            // Parse raw CSV text
+            Papa.parse(input, {
+                complete: handleParsedData,
+                header: true
+            });
+        } else if (input instanceof File) {
+            // Parse a File object
+            Papa.parse(input, {
+                complete: handleParsedData,
+                header: true
+            });
+        } else {
+            console.error("Invalid input to processFile.");
+        }
+    }
+
+function handleParsedData(results) {
+const gpsData = results.data.map(row => ({
+    lat: parseFloat(row['lat']), // Latitude
+    lon: parseFloat(row['lon']), // Longitude
+    time: row['time'],           // Timestamp
+    elevation: row['elevation'], // Elevation
+    speed: row['speed'],         // Speed
+    accuracy: row['accuracy'],   // Accuracy
+    bearing: row['bearing']      // Bearing
+})).filter(point => !isNaN(point.lat) && !isNaN(point.lon));
+
+// Clear previous layers on the map
+map.eachLayer(layer => {
+    if (!(layer instanceof L.TileLayer)) {
+        map.removeLayer(layer);
+    }
+});
+
+if (gpsData.length > 0) {
+    const latlngs = gpsData.map(point => [point.lat, point.lon]);
+
+    // Create a polyline and add to the map
+    const polyline = L.polyline(latlngs, { color: 'rgba(0,0,0,.2)' }).addTo(map);
+
+    // Create a marker cluster group
+    const markerCluster = L.markerClusterGroup();
+
+    // Add markers with popups to the cluster group
+    gpsData.forEach(point => {
+        const popupContent = `
+            <strong>Details:</strong><br>
+            Time: ${point.time}<br>
+            Elevation: ${point.elevation} m<br>
+            Speed: ${point.speed} m/s<br>
+            Accuracy: ${point.accuracy} m<br>
+            Bearing: ${point.bearing}°
+        `;
+
+        const marker = L.marker([point.lat, point.lon])
+            .bindPopup(popupContent); // Attach popup to the marker
+
+        markerCluster.addLayer(marker); // Add marker to the cluster group
+    });
+
+    // Add the cluster group to the map
+    map.addLayer(markerCluster);
+
+    // Fit the map to bounds
+    const bounds = L.latLngBounds(latlngs);
+    map.fitBounds(bounds);
+
+    // Add a heatmap layer for visualization
+    const heatPoints = gpsData.map(point => [point.lat, point.lon]);
+    const heatLayer = L.heatLayer(heatPoints, {
+        radius: 10,
+        blur: 15,
+        maxZoom: 10,
+        gradient: {
+            0.4: 'blue',
+            0.6: 'lime',
+            0.8: 'red'
+        }
+    }).addTo(map);
+
+} else {
+    alert('No valid GPS data found.');
+}
+}
+
+    fetch('/assets/files/maps/20241203.csv') // Replace with the path to your CSV file
+        .then(response => {
+            if (!response.ok) throw new Error('Failed to load CSV file');
+            return response.text();
+        })
+        .then(csvText => {
+            processFile(csvText)
+        })
+        .catch(error => console.error('Error loading CSV:', error));
+
+
+
+    // File input change event
+    fileInput.addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        if (file) processFile(file);
+    });
+
+    // Drag and drop events
+    ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+        dropZone.addEventListener(eventName, preventDefaults, false);
+    });
+
+    function preventDefaults(e) {
+        e.preventDefault();
+        e.stopPropagation();
+    }
+
+    ['dragenter', 'dragover'].forEach(eventName => {
+        dropZone.addEventListener(eventName, highlight, false);
+    });
+
+    ['dragleave', 'drop'].forEach(eventName => {
+        dropZone.addEventListener(eventName, unhighlight, false);
+    });
+
+    function highlight() {
+        dropZone.classList.add('dragover');
+    }
+
+    function unhighlight() {
+        dropZone.classList.remove('dragover');
+    }
+
+    // Handle dropped files
+    dropZone.addEventListener('drop', handleDrop, false);
+
+    function handleDrop(e) {
+        const file = e.dataTransfer.files[0];
+        if (file && file.name.endsWith('.csv')) {
+            processFile(file);
+        }
+    }
+</script>
