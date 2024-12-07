@@ -9,7 +9,6 @@ title: GPS mapper
 ---
 
 <style>
-/*    body {margin: 0;}*/
     * {box-sizing: border-box;}
     #map { max-height: 80vh; height: 1000px; }
     #dropZone {
@@ -32,6 +31,16 @@ title: GPS mapper
     Drag and Drop CSV file here or
     <input type="file" id="fileInput" accept=".csv">
 </div>
+<div id="controls" style="text-align: center; margin: 20px;">
+    <button id="togglePolyline">Polyline</button>
+    <button id="toggleMarkers">Markers</button>
+    <button id="toggleHeatmap">Heatmap</button>
+    <label for="radius">Radius:</label>
+    <input type="number" id="radius" value="10" style="width: 50px;">
+    <label for="blur">Blur:</label>
+    <input type="number" id="blur" value="15" style="width: 50px;">
+    <button id="updateHeatmap">Update Heatmap</button>
+</div>
 <div id="map"></div>
 
 
@@ -46,6 +55,11 @@ title: GPS mapper
     const dropZone = document.getElementById('dropZone');
     const fileInput = document.getElementById('fileInput');
     const map = L.map('map');
+
+    let gpsData = [];
+    let polylineLayer;
+    let heatmapLayer;
+    let markerClusterGroup;
 
     // Initialize map
     map.setView([0, 0], 2);
@@ -73,74 +87,66 @@ title: GPS mapper
         }
     }
 
-function handleParsedData(results) {
-const gpsData = results.data.map(row => ({
-    lat: parseFloat(row['lat']), // Latitude
-    lon: parseFloat(row['lon']), // Longitude
-    time: row['time'],           // Timestamp
-    elevation: row['elevation'], // Elevation
-    speed: row['speed'],         // Speed
-    accuracy: row['accuracy'],   // Accuracy
-    bearing: row['bearing']      // Bearing
-})).filter(point => !isNaN(point.lat) && !isNaN(point.lon));
+    function handleParsedData(results) {
+        gpsData = results.data.map(row => ({
+            lat: parseFloat(row['lat']),
+            lon: parseFloat(row['lon']),
+            time: formatDateTime(row['time']),
+            elevation: row['elevation'],
+            speed: parseFloat(row['speed']) * 3.6, // Convert m/s to km/h
+            accuracy: row['accuracy'],
+            bearing: row['bearing']
+        })).filter(point => !isNaN(point.lat) && !isNaN(point.lon));
 
-// Clear previous layers on the map
-map.eachLayer(layer => {
-    if (!(layer instanceof L.TileLayer)) {
-        map.removeLayer(layer);
-    }
-});
+        // Clear previous layers on the map
+        map.eachLayer(layer => {
+            if (!(layer instanceof L.TileLayer)) {
+                map.removeLayer(layer);
+            }
+        });
 
-if (gpsData.length > 0) {
-    const latlngs = gpsData.map(point => [point.lat, point.lon]);
+        if (gpsData.length > 0) {
+            const latlngs = gpsData.map(point => [point.lat, point.lon]);
 
-    // Create a polyline and add to the map
-    const polyline = L.polyline(latlngs, { color: 'rgba(0,0,0,.2)' }).addTo(map);
+            // Create a polyline
+            polylineLayer = L.polyline(latlngs, { color: 'rgba(22,0,0,1)' })//.addTo(map);
 
-    // Create a marker cluster group
-    const markerCluster = L.markerClusterGroup();
+            // Create a marker cluster group
+            markerClusterGroup = L.markerClusterGroup();
+            gpsData.forEach(point => {
+                const popupContent = `
+                    <strong>Details:</strong><br>
+                    Time: ${point.time}<br>
+                    Elevation: ${point.elevation} m<br>
+                    Speed: ${point.speed} km/h<br>
+                    Accuracy: ${point.accuracy} m<br>
+                    Bearing: ${point.bearing}°
+                `;
+                const marker = L.marker([point.lat, point.lon]).bindPopup(popupContent);
+                markerClusterGroup.addLayer(marker);
+            });
+            // map.addLayer(markerClusterGroup);
 
-    // Add markers with popups to the cluster group
-    gpsData.forEach(point => {
-        const popupContent = `
-            <strong>Details:</strong><br>
-            Time: ${point.time}<br>
-            Elevation: ${point.elevation} m<br>
-            Speed: ${point.speed} m/s<br>
-            Accuracy: ${point.accuracy} m<br>
-            Bearing: ${point.bearing}°
-        `;
+            // Fit the map to bounds
+            const bounds = L.latLngBounds(latlngs);
+            map.fitBounds(bounds);
 
-        const marker = L.marker([point.lat, point.lon])
-            .bindPopup(popupContent); // Attach popup to the marker
-
-        markerCluster.addLayer(marker); // Add marker to the cluster group
-    });
-
-    // Add the cluster group to the map
-    map.addLayer(markerCluster);
-
-    // Fit the map to bounds
-    const bounds = L.latLngBounds(latlngs);
-    map.fitBounds(bounds);
-
-    // Add a heatmap layer for visualization
-    const heatPoints = gpsData.map(point => [point.lat, point.lon]);
-    const heatLayer = L.heatLayer(heatPoints, {
-        radius: 10,
-        blur: 15,
-        maxZoom: 10,
-        gradient: {
-            0.4: 'blue',
-            0.6: 'lime',
-            0.8: 'red'
+            // Add a heatmap layer
+            const heatPoints = gpsData.map(point => [point.lat, point.lon]);
+            heatmapLayer = L.heatLayer(heatPoints, {
+                radius: 10, // 4 is pretty good
+                blur: 15, // 4 is pretty good
+                maxZoom: 10,
+                gradient: {
+                    0.4: 'blue',
+                    0.6: 'lime',
+                    0.8: 'red'
+                }
+            }).addTo(map);
+        } else {
+            alert('No valid GPS data found.');
         }
-    }).addTo(map);
-
-} else {
-    alert('No valid GPS data found.');
-}
-}
+    }
 
     fetch('/assets/files/maps/20241203.csv') // Replace with the path to your CSV file
         .then(response => {
@@ -151,7 +157,6 @@ if (gpsData.length > 0) {
             processFile(csvText)
         })
         .catch(error => console.error('Error loading CSV:', error));
-
 
 
     // File input change event
@@ -195,4 +200,66 @@ if (gpsData.length > 0) {
             processFile(file);
         }
     }
+
+    function formatDateTime(isoString) {
+        const date = new Date(isoString);
+
+        // Extract components
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are 0-based
+        const day = String(date.getDate()).padStart(2, '0');
+        const hours = String(date.getHours()).padStart(2, '0');
+        const minutes = String(date.getMinutes()).padStart(2, '0');
+        const seconds = String(date.getSeconds()).padStart(2, '0');
+
+        // Combine into desired format
+        return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+    }
+
+    // TOGGLE FUNCTIONS
+    document.getElementById('togglePolyline').addEventListener('click', () => {
+        if (map.hasLayer(polylineLayer)) {
+            map.removeLayer(polylineLayer);
+        } else {
+            map.addLayer(polylineLayer);
+        }
+    });
+
+    document.getElementById('toggleMarkers').addEventListener('click', () => {
+        if (map.hasLayer(markerClusterGroup)) {
+            map.removeLayer(markerClusterGroup);
+        } else {
+            map.addLayer(markerClusterGroup);
+        }
+    });
+
+    document.getElementById('toggleHeatmap').addEventListener('click', () => {
+        if (map.hasLayer(heatmapLayer)) {
+            map.removeLayer(heatmapLayer);
+        } else {
+            map.addLayer(heatmapLayer);
+        }
+    });
+
+    document.getElementById('updateHeatmap').addEventListener('click', () => {
+        const radius = parseInt(document.getElementById('radius').value, 10);
+        const blur = parseInt(document.getElementById('blur').value, 10);
+
+        if (heatmapLayer) {
+            map.removeLayer(heatmapLayer); // Remove the existing heatmap
+        }
+
+        const heatPoints = gpsData.map(point => [point.lat, point.lon]);
+        heatmapLayer = L.heatLayer(heatPoints, {
+            radius: radius,
+            blur: blur,
+            maxZoom: 10,
+            gradient: {
+                0.4: 'blue',
+                0.6: 'lime',
+                0.8: 'red'
+            }
+        }).addTo(map);
+    });
+
 </script>
