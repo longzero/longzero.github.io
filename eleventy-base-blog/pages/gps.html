@@ -89,13 +89,14 @@ title: GPS mapper
 
     function handleParsedData(results) {
         gpsData = results.data.map(row => ({
+            accuracy: row['accuracy'],
+            bearing: row['bearing'],
+            elevation: row['elevation'],
+            frequency: row['frequency'],
             lat: parseFloat(row['lat']),
             lon: parseFloat(row['lon']),
             time: formatDateTime(row['time']),
-            elevation: row['elevation'],
-            speed: parseFloat(row['speed']) * 3.6, // Convert m/s to km/h
-            accuracy: row['accuracy'],
-            bearing: row['bearing']
+            speed: parseFloat(row['speed']) * 3.6 // Convert m/s to km/h
         })).filter(point => !isNaN(point.lat) && !isNaN(point.lon));
 
         // Clear previous layers on the map
@@ -116,7 +117,9 @@ title: GPS mapper
             gpsData.forEach(point => {
                 const popupContent = `
                     <strong>Details:</strong><br>
+                    ${point.lat}, ${point.lon}<br>
                     Time: ${point.time}<br>
+                    Frequency: ${point.frequency}<br>
                     Elevation: ${point.elevation} m<br>
                     Speed: ${point.speed} km/h<br>
                     Accuracy: ${point.accuracy} m<br>
@@ -125,7 +128,7 @@ title: GPS mapper
                 const marker = L.marker([point.lat, point.lon]).bindPopup(popupContent);
                 markerClusterGroup.addLayer(marker);
             });
-            // map.addLayer(markerClusterGroup);
+            map.addLayer(markerClusterGroup); // Comment this line to hide markers by default.
 
             // Fit the map to bounds
             const bounds = L.latLngBounds(latlngs);
@@ -148,7 +151,7 @@ title: GPS mapper
         }
     }
 
-    fetch('/assets/files/maps/20241203.csv') // Replace with the path to your CSV file
+    fetch('/assets/files/maps/20241203-out.csv') // Replace with the path to your CSV file
         .then(response => {
             if (!response.ok) throw new Error('Failed to load CSV file');
             return response.text();
