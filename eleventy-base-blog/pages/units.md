@@ -7,7 +7,7 @@ title: Units
 #   key: Time
 #   order: 3
 
-exchange_rate: 1.42
+exchange_rate: 1.44
 ---
 
 
