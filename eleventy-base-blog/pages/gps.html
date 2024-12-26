@@ -28,8 +28,16 @@ title: GPS mapper
 
 
 <div id="dropZone">
-    Drag and Drop CSV file here or
-    <input type="file" id="fileInput" accept=".csv">
+    Drag and Drop JSON/CSV file here or
+    <input type="file" id="fileInput" accept=".json,.csv">
+</div>
+<div id="locationSelect" style="text-align: center; margin: 20px;">
+    <select id="jsonSelector" style="min-width: 300px; padding: 5px;">
+        <option value="">Select a location...</option>
+        <option value="/assets/files/maps/ioverlander/north-america/canada-places20240702-335-wv9ekw.json">Canada</option>
+        <option value="/assets/files/maps/ioverlander/north-america/mexico-places20240702-356-dk0doh.json">Mexico</option>
+        <option value="/assets/files/maps/ioverlander/north-america/usa-places20240702-359-10sfxl7.json">USA</option>
+    </select>
 </div>
 <div id="controls" style="text-align: center; margin: 20px;">
     <button id="togglePolyline">Polyline</button>
@@ -43,17 +51,17 @@ title: GPS mapper
 </div>
 <div id="map"></div>
 
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.heat/0.2.0/leaflet-heat.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.Default.min.css" integrity="sha512-fYyZwU1wU0QWB4Yutd/Pvhy5J1oWAwFXun1pt+Bps04WSe4Aq6tyHlT4+MHSJhD8JlLfgLuC4CbCnX5KHSjyCg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.Default.min.css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
 
 <script>
     const dropZone = document.getElementById('dropZone');
     const fileInput = document.getElementById('fileInput');
+    const jsonSelector = document.getElementById('jsonSelector');
     const map = L.map('map');
 
     let gpsData = [];
@@ -69,25 +77,293 @@ title: GPS mapper
         attribution: '© OpenStreetMap contributors'
     }).addTo(map);
 
-    function processFile(input) {
-        if (typeof input === 'string') {
-            // Parse raw CSV text
-            Papa.parse(input, {
-                complete: handleParsedData,
-                header: true
-            });
-        } else if (input instanceof File) {
-            // Parse a File object
-            Papa.parse(input, {
-                complete: handleParsedData,
-                header: true
-            });
-        } else {
-            console.error("Invalid input to processFile.");
+
+    // First, add the LZ-string library for compression
+    const script = document.createElement('script');
+    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.4.4/lz-string.min.js';
+    document.head.appendChild(script);
+
+    // Cache management configuration
+    const CACHE_CONFIG = {
+        MAX_ITEMS: 5,                    // Maximum number of datasets to keep
+        MAX_AGE_DAYS: 7,                // Maximum age of cached items
+        COMPRESSION_THRESHOLD: 500000    // Size in bytes before compression (500KB)
+    };
+
+    // Cache management
+    const CACHE_KEY_PREFIX = 'mapData_';
+    const LAST_SELECTED_KEY = 'lastSelectedDataset';
+
+    function saveToCache(path, data) {
+        try {
+            const cacheKey = CACHE_KEY_PREFIX + path;
+            const timestamp = Date.now();
+
+            // Prepare the data object
+            const cacheObject = {
+                timestamp: timestamp,
+                data: data
+            };
+
+            // Convert to string and check size
+            const dataString = JSON.stringify(cacheObject);
+
+            // Compress if above threshold
+            const storageValue = dataString.length > CACHE_CONFIG.COMPRESSION_THRESHOLD ?
+                {
+                    compressed: true,
+                    value: LZString.compress(dataString)
+                } :
+                {
+                    compressed: false,
+                    value: dataString
+                };
+
+            // Try to save, handle quota exceeded
+            try {
+                localStorage.setItem(cacheKey, JSON.stringify(storageValue));
+            } catch (e) {
+                if (e.name === 'QuotaExceededError') {
+                    // Clean up strategy:
+                    // 1. Remove expired items
+                    cleanExpiredCache();
+
+                    // 2. If still not enough, remove oldest items
+                    try {
+                        localStorage.setItem(cacheKey, JSON.stringify(storageValue));
+                    } catch (e) {
+                        removeOldestCache();
+                        localStorage.setItem(cacheKey, JSON.stringify(storageValue));
+                    }
+                }
+            }
+
+            localStorage.setItem(LAST_SELECTED_KEY, path);
+
+            // Update cache index
+            updateCacheIndex(cacheKey, timestamp);
+
+        } catch (e) {
+            console.error('Error in enhanced cache save:', e);
         }
     }
 
-    function handleParsedData(results) {
+    function loadFromCache(path) {
+      try {
+          const cacheKey = CACHE_KEY_PREFIX + path;
+          const cachedItem = localStorage.getItem(cacheKey);
+
+          if (!cachedItem) return null;
+
+          const storageValue = JSON.parse(cachedItem);
+
+          // Handle compressed vs uncompressed data
+          const dataString = storageValue.compressed ?
+              LZString.decompress(storageValue.value) :
+              storageValue.value;
+
+          const cacheObject = JSON.parse(dataString);
+
+          // Check if expired
+          if (isExpired(cacheObject.timestamp)) {
+              localStorage.removeItem(cacheKey);
+              return null;
+          }
+
+          return cacheObject.data;
+      } catch (e) {
+          console.error('Error in enhanced cache load:', e);
+          return null;
+      }
+    }
+
+    function updateCacheIndex(key, timestamp) {
+        try {
+            const index = JSON.parse(localStorage.getItem('cacheIndex') || '{}');
+            index[key] = timestamp;
+            localStorage.setItem('cacheIndex', JSON.stringify(index));
+        } catch (e) {
+            console.error('Error updating cache index:', e);
+        }
+    }
+
+    function cleanExpiredCache() {
+        const index = JSON.parse(localStorage.getItem('cacheIndex') || '{}');
+
+        Object.entries(index).forEach(([key, timestamp]) => {
+            if (isExpired(timestamp)) {
+                localStorage.removeItem(key);
+                delete index[key];
+            }
+        });
+
+        localStorage.setItem('cacheIndex', JSON.stringify(index));
+    }
+
+    function removeOldestCache() {
+        const index = JSON.parse(localStorage.getItem('cacheIndex') || '{}');
+        const entries = Object.entries(index);
+
+        if (entries.length === 0) return;
+
+        // Sort by timestamp and remove oldest
+        entries.sort((a, b) => a[1] - b[1]);
+        const [oldestKey] = entries[0];
+
+        localStorage.removeItem(oldestKey);
+        delete index[oldestKey];
+
+        localStorage.setItem('cacheIndex', JSON.stringify(index));
+    }
+
+    function isExpired(timestamp) {
+        const age = Date.now() - timestamp;
+        return age > (CACHE_CONFIG.MAX_AGE_DAYS * 24 * 60 * 60 * 1000);
+    }
+
+    // Add a debug function to check cache status
+    function debugCache() {
+        console.log('--- Enhanced Cache Debug Info ---');
+        const index = JSON.parse(localStorage.getItem('cacheIndex') || '{}');
+
+        Object.entries(index).forEach(([key, timestamp]) => {
+            const item = localStorage.getItem(key);
+            const itemSize = item ? new Blob([item]).size : 0;
+            console.log(`${key}:`, {
+                age: Math.round((Date.now() - timestamp) / (1000 * 60 * 60 * 24)) + ' days',
+                size: Math.round(itemSize / 1024) + ' KB',
+                expired: isExpired(timestamp)
+            });
+        });
+
+        const totalSize = new Blob(Object.values(localStorage)).size;
+        console.log('Total storage usage:', Math.round(totalSize / 1024 / 1024 * 100) / 100 + ' MB');
+        console.log('--------------------');
+    }
+
+    async function loadJsonData(path) {
+        try {
+            console.log('Loading data for path:', path);
+            debugCache(); // Show cache status before loading
+
+            // First try to fetch fresh data
+            const response = await fetch(path);
+            if (response.ok) {
+                const data = await response.json();
+                console.log('Fetched fresh data, saving to cache...');
+                saveToCache(path, data);
+                handleJSONData(data);
+                debugCache(); // Show cache status after saving
+                return;
+            }
+            throw new Error('Network response was not ok.');
+        } catch (error) {
+            console.log('Network fetch failed, checking cache...');
+            const cachedData = loadFromCache(path);
+            if (cachedData) {
+                console.log('Using cached data');
+                handleJSONData(cachedData);
+            } else {
+                console.error('No cached data available and network fetch failed');
+            }
+        }
+    }
+
+    // Handle dataset selection
+    jsonSelector.addEventListener('change', (e) => {
+        const selectedPath = e.target.value;
+        if (selectedPath) {
+            console.log('Selected new path:', selectedPath); // Debug log
+            localStorage.setItem(LAST_SELECTED_KEY, selectedPath); // Save selection immediately
+            loadJsonData(selectedPath);
+        }
+    });
+
+    // Initialize application
+    function initializeApp() {
+        const lastSelected = localStorage.getItem(LAST_SELECTED_KEY);
+        if (lastSelected) {
+            // Set the select value AND trigger the data load
+            jsonSelector.value = lastSelected;
+            loadJsonData(lastSelected);
+        }
+    }
+
+    // Make sure DOM is loaded before initializing
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initializeApp);
+    } else {
+        initializeApp();
+    }
+
+    // Handle dataset selection
+    jsonSelector.addEventListener('change', (e) => {
+        const selectedPath = e.target.value;
+        if (selectedPath) {
+            loadJsonData(selectedPath);
+        }
+    });
+
+    function formatUrlSlug(name) {
+        return name
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, '-')
+            .replace(/^-+|-+$/g, '');
+    }
+
+    function createLocationUrl(id, name) {
+        const baseUrl = 'https://ioverlander.com/places/';
+        const slug = formatUrlSlug(name);
+        return `${baseUrl}${id}-${slug}`;
+    }
+
+    function processFile(input) {
+        if (typeof input === 'string') {
+            try {
+                const data = JSON.parse(input);
+                handleJSONData(data);
+            } catch (e) {
+                Papa.parse(input, {
+                    complete: handleCSVData,
+                    header: true
+                });
+            }
+        } else if (input instanceof File) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const fileContent = e.target.result;
+                if (input.name.endsWith('.json')) {
+                    try {
+                        const data = JSON.parse(fileContent);
+                        handleJSONData(data);
+                    } catch (e) {
+                        console.error("Error parsing JSON:", e);
+                    }
+                } else if (input.name.endsWith('.csv')) {
+                    Papa.parse(fileContent, {
+                        complete: handleCSVData,
+                        header: true
+                    });
+                }
+            };
+            reader.readAsText(input);
+        }
+    }
+
+    function handleJSONData(data) {
+        gpsData = data.map(point => ({
+            lat: point.location.latitude,
+            lon: point.location.longitude,
+            name: point.name,
+            description: point.description,
+            category: point.category.name,
+            date_verified: formatDateTime(point.date_verified),
+            id: point.id
+        }));
+        updateMap();
+    }
+
+    function handleCSVData(results) {
         gpsData = results.data.map(row => ({
             accuracy: row['accuracy'],
             bearing: row['bearing'],
@@ -96,10 +372,12 @@ title: GPS mapper
             lat: parseFloat(row['lat']),
             lon: parseFloat(row['lon']),
             time: formatDateTime(row['time']),
-            speed: parseFloat(row['speed']) * 3.6 // Convert m/s to km/h
+            speed: parseFloat(row['speed']) * 3.6
         })).filter(point => !isNaN(point.lat) && !isNaN(point.lon));
+        updateMap();
+    }
 
-        // Clear previous layers on the map
+    function updateMap() {
         map.eachLayer(layer => {
             if (!(layer instanceof L.TileLayer)) {
                 map.removeLayer(layer);
@@ -109,66 +387,76 @@ title: GPS mapper
         if (gpsData.length > 0) {
             const latlngs = gpsData.map(point => [point.lat, point.lon]);
 
-            // Create a polyline
-            polylineLayer = L.polyline(latlngs, { color: 'rgba(22,0,0,1)' })//.addTo(map);
+            polylineLayer = L.polyline(latlngs, { color: 'rgba(22,0,0,1)' });
 
-            // Create a marker cluster group
             markerClusterGroup = L.markerClusterGroup();
             gpsData.forEach(point => {
-                const popupContent = `
-                    <strong>Details:</strong><br>
-                    ${point.lat}, ${point.lon}<br>
-                    Time: ${point.time}<br>
-                    Frequency: ${point.frequency}<br>
-                    Elevation: ${point.elevation} m<br>
-                    Speed: ${point.speed} km/h<br>
-                    Accuracy: ${point.accuracy} m<br>
-                    Bearing: ${point.bearing}°
-                `;
+                let popupContent;
+                if (point.category) {
+                    const locationUrl = createLocationUrl(point.id, point.name);
+                    popupContent = `
+                        <strong><a href="${locationUrl}" target="_blank">${point.name}</a></strong><br>
+                        <strong>Category:</strong> ${point.category}<br>
+                        <strong>Verified:</strong> ${point.date_verified}<br>
+                        <strong>Description:</strong><br>
+                        ${point.description}
+                    `;
+                } else {
+                    popupContent = `
+                        <strong>Details:</strong><br>
+                        ${point.lat}, ${point.lon}<br>
+                        Time: ${point.time}<br>
+                        ${point.frequency ? `Frequency: ${point.frequency}<br>` : ''}
+                        ${point.elevation ? `Elevation: ${point.elevation} m<br>` : ''}
+                        ${point.speed ? `Speed: ${point.speed} km/h<br>` : ''}
+                        ${point.accuracy ? `Accuracy: ${point.accuracy} m<br>` : ''}
+                        ${point.bearing ? `Bearing: ${point.bearing}°` : ''}
+                    `;
+                }
+
                 const marker = L.marker([point.lat, point.lon]).bindPopup(popupContent);
                 markerClusterGroup.addLayer(marker);
             });
-            map.addLayer(markerClusterGroup); // Comment this line to hide markers by default.
+            map.addLayer(markerClusterGroup);
 
-            // Fit the map to bounds
-            const bounds = L.latLngBounds(latlngs);
-            map.fitBounds(bounds);
-
-            // Add a heatmap layer
             const heatPoints = gpsData.map(point => [point.lat, point.lon]);
             heatmapLayer = L.heatLayer(heatPoints, {
-                radius: 10, // 4 is pretty good
-                blur: 15, // 4 is pretty good
-                maxZoom: 10,
+                radius: 10,
+                blur: 15,
+                maxZoom: 19,
                 gradient: {
                     0.4: 'blue',
                     0.6: 'lime',
                     0.8: 'red'
                 }
             }).addTo(map);
-        } else {
-            alert('No valid GPS data found.');
+
+            const bounds = L.latLngBounds(latlngs);
+            map.fitBounds(bounds);
         }
     }
 
-    fetch('/assets/files/maps/20241203-out.csv') // Replace with the path to your CSV file
-        .then(response => {
-            if (!response.ok) throw new Error('Failed to load CSV file');
-            return response.text();
-        })
-        .then(csvText => {
-            processFile(csvText)
-        })
-        .catch(error => console.error('Error loading CSV:', error));
+    function formatDateTime(isoString) {
+        if (!isoString) return '';
+        const date = new Date(isoString);
+        if (isNaN(date.getTime())) return isoString;
 
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+        const hours = String(date.getHours()).padStart(2, '0');
+        const minutes = String(date.getMinutes()).padStart(2, '0');
+        const seconds = String(date.getSeconds()).padStart(2, '0');
 
-    // File input change event
+        return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+    }
+
+    // Event Listeners
     fileInput.addEventListener('change', function(e) {
         const file = e.target.files[0];
         if (file) processFile(file);
     });
 
-    // Drag and drop events
     ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
         dropZone.addEventListener(eventName, preventDefaults, false);
     });
@@ -194,32 +482,16 @@ title: GPS mapper
         dropZone.classList.remove('dragover');
     }
 
-    // Handle dropped files
     dropZone.addEventListener('drop', handleDrop, false);
 
     function handleDrop(e) {
         const file = e.dataTransfer.files[0];
-        if (file && file.name.endsWith('.csv')) {
+        if (file && (file.name.endsWith('.csv') || file.name.endsWith('.json'))) {
             processFile(file);
         }
     }
 
-    function formatDateTime(isoString) {
-        const date = new Date(isoString);
-
-        // Extract components
-        const year = date.getFullYear();
-        const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are 0-based
-        const day = String(date.getDate()).padStart(2, '0');
-        const hours = String(date.getHours()).padStart(2, '0');
-        const minutes = String(date.getMinutes()).padStart(2, '0');
-        const seconds = String(date.getSeconds()).padStart(2, '0');
-
-        // Combine into desired format
-        return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
-    }
-
-    // TOGGLE FUNCTIONS
+    // Toggle Controls
     document.getElementById('togglePolyline').addEventListener('click', () => {
         if (map.hasLayer(polylineLayer)) {
             map.removeLayer(polylineLayer);
@@ -249,7 +521,7 @@ title: GPS mapper
         const blur = parseInt(document.getElementById('blur').value, 10);
 
         if (heatmapLayer) {
-            map.removeLayer(heatmapLayer); // Remove the existing heatmap
+            map.removeLayer(heatmapLayer);
         }
 
         const heatPoints = gpsData.map(point => [point.lat, point.lon]);
@@ -264,5 +536,4 @@ title: GPS mapper
             }
         }).addTo(map);
     });
-
 </script>
