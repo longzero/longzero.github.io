@@ -421,8 +421,8 @@ title: GPS mapper
 
             const heatPoints = gpsData.map(point => [point.lat, point.lon]);
             heatmapLayer = L.heatLayer(heatPoints, {
-                radius: 10,
-                blur: 15,
+                radius: 6,
+                blur: 9,
                 maxZoom: 19,
                 gradient: {
                     0.4: 'blue',
