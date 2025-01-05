@@ -1,17 +1,31 @@
-require('dotenv').config();
+// const UpgradeHelper = require("@11ty/eleventy-upgrade-help");
+import UpgradeHelper from "@11ty/eleventy-upgrade-help";
+
+// require('dotenv').config();
+// const ENV = process.env.MY_ENVIRONMENT;
+
+// const fs = require("fs");
+
+// const { DateTime } = require("luxon");
+// const markdownIt = require("markdown-it");
+// const markdownItAnchor = require("markdown-it-anchor");
+
+// const pluginRss = require("@11ty/eleventy-plugin-rss");
+// const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+// const pluginNavigation = require("@11ty/eleventy-navigation");
+
+import 'dotenv/config';
 const ENV = process.env.MY_ENVIRONMENT;
+import fs from 'fs';
+import { DateTime } from 'luxon';
+import markdownIt from 'markdown-it';
+import markdownItAnchor from 'markdown-it-anchor';
+import pluginRss from '@11ty/eleventy-plugin-rss';
+import pluginSyntaxHighlight from '@11ty/eleventy-plugin-syntaxhighlight';
+import pluginNavigation from '@11ty/eleventy-navigation';
 
-const fs = require("fs");
-
-const { DateTime } = require("luxon");
-const markdownIt = require("markdown-it");
-const markdownItAnchor = require("markdown-it-anchor");
-
-const pluginRss = require("@11ty/eleventy-plugin-rss");
-const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
-const pluginNavigation = require("@11ty/eleventy-navigation");
-
-module.exports = function(eleventyConfig) {
+// module.exports = function(eleventyConfig) {
+export default function (eleventyConfig) {
   if (ENV != 'development' && ENV != 'dev') {
     eleventyConfig.addGlobalData("hostname", "https://longzero.com");
   }
@@ -30,6 +44,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
   eleventyConfig.addPlugin(pluginNavigation);
+  eleventyConfig.addPlugin(UpgradeHelper);
 
   eleventyConfig.addFilter("readableDate", dateObj => {
     // return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat("dd LLL yyyy");
@@ -157,8 +172,8 @@ module.exports = function(eleventyConfig) {
       input: ".",
       includes: "_includes", // Relative to input
       data: "_data",
-      output: "_site"
-      // output: "../docs"
+      output: "_site" // For vercel
+      // output: "../docs" // For github pages
     }
   };
 };
