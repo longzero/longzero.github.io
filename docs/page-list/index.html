@@ -31,10 +31,10 @@
 
   <meta property="og:site_name" content="Longzero ~ Long Nguyen">
   <meta property="og:description" content="">
-  <meta property="og:image" content="http://localhost:8080/assets/images/og.jpg">
+  <meta property="og:image" content="https://longzero.com/assets/images/og.jpg">
   <meta property="og:title" content="Longzero ~ Long Nguyen">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="http://localhost:8080/page-list/{% if pagination.pageNumber &amp;gt; 0 %}{{ pagination.pageNumber }}/{% endif %}">
+  <meta property="og:url" content="https://longzero.com/page-list/{% if pagination.pageNumber &amp;gt; 0 %}{{ pagination.pageNumber }}/{% endif %}">
   
   
   
@@ -71,13 +71,12 @@
     <div class="header-links">
       
       <div class="social-networks">
-  <button class="toggle-dark-light-mode js-toggle-dark-light-mode" title="Switch between dark mode and light mode">
-    <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="enable-background:new 0 0 24 24" viewBox="0 0 24 24" width="24" height="24"><path id="Layer_2" d="M12 22C6.5 22 2 17.5 2 12c0-4.7 3.4-8.9 8-9.8.4-.1.9.1 1.1.5.2.4.1.9-.2 1.2C9.7 5.1 9 6.8 9 8.5c0 3.6 2.9 6.5 6.5 6.5 1.7 0 3.4-.7 4.6-1.9.3-.3.8-.4 1.2-.2.4.2.6.6.5 1.1-.9 4.6-5.1 8-9.8 8zM7.6 5.3C5.4 6.8 4 9.2 4 12c0 4.4 3.6 8 8 8 2.8 0 5.2-1.4 6.7-3.6-1 .4-2.1.6-3.2.6C10.8 17 7 13.2 7 8.5c0-1.1.2-2.2.6-3.2z"/></svg>
-    <svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" fill="none" viewBox="0 0 24 24"><g stroke-width="2.5" clip-path="url(#a)"><circle cx="12" cy="12" r="4" stroke-linejoin="round"/><path stroke-linecap="round" d="M20 12h1M3 12h1M12 20v1M12 3v1M17.657 17.657l.707.707M5.636 5.636l.707.707M6.343 17.657l-.707.707M18.364 5.636l-.707.707"/></g></svg>
-  </button>
-  <a target="_blank" class="social-link" href="https://fb.com/longzerodesign" rel="me" title="Facebook">
-    <svg viewBox="0 0 19 19" width="19" height="19" xmlns="http://www.w3.org/2000/svg"><path d="M19 9.558C19 4.28 14.747 0 9.5 0S0 4.28 0 9.558c0 4.77 3.474 8.725 8.016 9.442v-6.68H5.604V9.559h2.412V7.452c0-2.395 1.418-3.718 3.588-3.718 1.04 0 2.126.186 2.126.186v2.352h-1.197c-1.18 0-1.549.737-1.549 1.493v1.793h2.635l-.421 2.763h-2.214V19C15.526 18.283 19 14.329 19 9.558" fill="#3A3A3A" fill-rule="evenodd"/></svg>
+  
+  <a target="_blank" class="social-link" href="https://bsky.app/profile/longzero.com" rel="me" title="Bluesky">
+    
+    <svg fill="none" viewBox="0 0 64 57" width="18" height="16"><path fill="#0085ff" d="M13.873 3.805C21.21 9.332 29.103 20.537 32 26.55v15.882c0-.338-.13.044-.41.867-1.512 4.456-7.418 21.847-20.923 7.944-7.111-7.32-3.819-14.64 9.125-16.85-7.405 1.264-15.73-.825-18.014-9.015C1.12 23.022 0 8.51 0 6.55 0-3.268 8.579-.182 13.873 3.805ZM50.127 3.805C42.79 9.332 34.897 20.537 32 26.55v15.882c0-.338.13.044.41.867 1.512 4.456 7.418 21.847 20.923 7.944 7.111-7.32 3.819-14.64-9.125-16.85 7.405 1.264 15.73-.825 18.014-9.015C62.88 23.022 64 8.51 64 6.55c0-9.818-8.578-6.732-13.873-2.745Z"></path></svg>
   </a>
+  
   <a target="_blank" class="social-link" href="https://instagram.com/longzero" rel="me" title="Instagram">
     <svg viewBox="0 0 22 22" width="22" height="22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11 5.61c-3 0-5.39 2.437-5.39 5.39 0 3 2.39 5.39 5.39 5.39 2.953 0 5.39-2.39 5.39-5.39 0-2.953-2.437-5.39-5.39-5.39zm0 8.906A3.51 3.51 0 017.484 11c0-1.922 1.547-3.469 3.516-3.469A3.46 3.46 0 0114.469 11c0 1.969-1.547 3.516-3.469 3.516zm6.844-9.094a1.26 1.26 0 00-1.266-1.266 1.26 1.26 0 00-1.265 1.266 1.26 1.26 0 001.265 1.266 1.26 1.26 0 001.266-1.266zm3.562 1.266C21.313 5 20.938 3.5 19.72 2.28 18.5 1.062 17 .687 15.312.594 13.579.5 8.375.5 6.642.594 4.953.688 3.5 1.063 2.234 2.28 1.016 3.5.641 5 .547 6.687c-.094 1.735-.094 6.938 0 8.672.094 1.688.469 3.141 1.687 4.407 1.266 1.218 2.72 1.593 4.407 1.687 1.734.094 6.937.094 8.671 0 1.688-.094 3.188-.469 4.407-1.687 1.218-1.266 1.593-2.72 1.687-4.407.094-1.734.094-6.937 0-8.671zm-2.25 10.5c-.328.937-1.078 1.64-1.968 2.015-1.407.563-4.688.422-6.188.422-1.547 0-4.828.14-6.188-.422a3.554 3.554 0 01-2.015-2.015c-.563-1.36-.422-4.641-.422-6.188 0-1.5-.14-4.781.422-6.188a3.616 3.616 0 012.015-1.968c1.36-.563 4.641-.422 6.188-.422 1.5 0 4.781-.14 6.188.422.89.328 1.593 1.078 1.968 1.969.563 1.406.422 4.687.422 6.187 0 1.547.14 4.828-.422 6.188z" fill="#231F20"/></svg>
   </a>
@@ -273,10 +272,6 @@
     <td>Cobra Kai Season 3</td>
   </tr>
   <tr>
-    <td><a href="false"><code>false</code></a></td>
-    <td>Testing post from git</td>
-  </tr>
-  <tr>
     <td><a href="/articles/hitting-an-asteroid-in-2021/"><code>/articles/hitting-an-asteroid-in-2021/</code></a></td>
     <td>Hitting an asteroid in 2021</td>
   </tr>
@@ -421,6 +416,42 @@
     <td>Artificial intelligence can have biases</td>
   </tr>
   <tr>
+    <td><a href="/articles/self-care-selfish-scam-therapy/"><code>/articles/self-care-selfish-scam-therapy/</code></a></td>
+    <td>Self-care lacks empathy in its current form, because it ignores everybody else</td>
+  </tr>
+  <tr>
+    <td><a href="/articles/kaleidoscope-series-giancarlo-esposito/"><code>/articles/kaleidoscope-series-giancarlo-esposito/</code></a></td>
+    <td>Kaleidoscope, Just like Giancalo Esposito’s suggestion, you should watch the white episode last</td>
+  </tr>
+  <tr>
+    <td><a href="/articles/new-paint-old-crap-boycott-cancel-culture-woke/"><code>/articles/new-paint-old-crap-boycott-cancel-culture-woke/</code></a></td>
+    <td>Cancel culture, woke; new paint, old&amp;nbsp;crap</td>
+  </tr>
+  <tr>
+    <td><a href="/articles/getting-sentimental-about-the-best-car-of-my-life/"><code>/articles/getting-sentimental-about-the-best-car-of-my-life/</code></a></td>
+    <td>Getting sentimental about the best car of my life</td>
+  </tr>
+  <tr>
+    <td><a href="/articles/2023-06-07-canada-wildfires-caused-by-humans-over-centuries-reach-nyc/"><code>/articles/2023-06-07-canada-wildfires-caused-by-humans-over-centuries-reach-nyc/</code></a></td>
+    <td>Canada wildfires caused by humans over centuries reach NYC</td>
+  </tr>
+  <tr>
+    <td><a href="/articles/watching-clueless-1995-for-the-first-time-in-2023/"><code>/articles/watching-clueless-1995-for-the-first-time-in-2023/</code></a></td>
+    <td>Watching Clueless (1995) for the first time in 2023</td>
+  </tr>
+  <tr>
+    <td><a href="/articles/2024-02-03-ux-dark-pattern-example-surfshark/"><code>/articles/2024-02-03-ux-dark-pattern-example-surfshark/</code></a></td>
+    <td>An example of a UX dark pattern used by Surfshark</td>
+  </tr>
+  <tr>
+    <td><a href="/articles/2024-02-07-unexpected-enjoyment-of-meeting-new-people/"><code>/articles/2024-02-07-unexpected-enjoyment-of-meeting-new-people/</code></a></td>
+    <td>Unexpected enjoyment of meeting new people</td>
+  </tr>
+  <tr>
+    <td><a href="/articles/2024-03-05-changement-heure-climat-enjeux-sociaux/"><code>/articles/2024-03-05-changement-heure-climat-enjeux-sociaux/</code></a></td>
+    <td>Le changement d&#39;heure me fait penser au climat et aux enjeux sociaux</td>
+  </tr>
+  <tr>
     <td><a href="/about/"><code>/about/</code></a></td>
     <td>About Me</td>
   </tr>
@@ -433,12 +464,44 @@
     <td></td>
   </tr>
   <tr>
-    <td><a href="/tags/"><code>/tags/</code></a></td>
+    <td><a href="/2.4/"><code>/2.4/</code></a></td>
+    <td>2.4 Ghz band</td>
+  </tr>
+  <tr>
+    <td><a href="/camping/"><code>/camping/</code></a></td>
     <td></td>
   </tr>
   <tr>
-    <td><a href="/tags/web-design-and-development/"><code>/tags/web-design-and-development/</code></a></td>
-    <td>Tagged “Web design and development”</td>
+    <td><a href="/coverage/"><code>/coverage/</code></a></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><a href="/map/blm/"><code>/map/blm/</code></a></td>
+    <td>Map of some BLM spots</td>
+  </tr>
+  <tr>
+    <td><a href="/map-vr/"><code>/map-vr/</code></a></td>
+    <td>Map of spots in Quebec</td>
+  </tr>
+  <tr>
+    <td><a href="/map/"><code>/map/</code></a></td>
+    <td>Map of my spots</td>
+  </tr>
+  <tr>
+    <td><a href="/maps/"><code>/maps/</code></a></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><a href="/spots/"><code>/spots/</code></a></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><a href="/time/"><code>/time/</code></a></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><a href="/tags/"><code>/tags/</code></a></td>
+    <td></td>
   </tr>
   <tr>
     <td><a href="/tags/career/"><code>/tags/career/</code></a></td>
@@ -455,6 +518,10 @@
   <tr>
     <td><a href="/tags/teamwork/"><code>/tags/teamwork/</code></a></td>
     <td>Tagged “Teamwork”</td>
+  </tr>
+  <tr>
+    <td><a href="/tags/web-design-and-development/"><code>/tags/web-design-and-development/</code></a></td>
+    <td>Tagged “Web design and development”</td>
   </tr>
   <tr>
     <td><a href="/tags/covid-19/"><code>/tags/covid-19/</code></a></td>
@@ -477,16 +544,24 @@
     <td>Tagged “Racism”</td>
   </tr>
   <tr>
-    <td><a href="/tags/us-elections/"><code>/tags/us-elections/</code></a></td>
-    <td>Tagged “US Elections”</td>
-  </tr>
-  <tr>
     <td><a href="/tags/well-being/"><code>/tags/well-being/</code></a></td>
     <td>Tagged “Well-being”</td>
   </tr>
   <tr>
     <td><a href="/tags/electric-unicycle/"><code>/tags/electric-unicycle/</code></a></td>
     <td>Tagged “Electric unicycle”</td>
+  </tr>
+  <tr>
+    <td><a href="/tags/leisure/"><code>/tags/leisure/</code></a></td>
+    <td>Tagged “Leisure”</td>
+  </tr>
+  <tr>
+    <td><a href="/tags/technology/"><code>/tags/technology/</code></a></td>
+    <td>Tagged “Technology”</td>
+  </tr>
+  <tr>
+    <td><a href="/tags/us-elections/"><code>/tags/us-elections/</code></a></td>
+    <td>Tagged “US Elections”</td>
   </tr>
   <tr>
     <td><a href="/tags/black-lives-matter/"><code>/tags/black-lives-matter/</code></a></td>
@@ -501,8 +576,8 @@
     <td>Tagged “Issues”</td>
   </tr>
   <tr>
-    <td><a href="/tags/leisure/"><code>/tags/leisure/</code></a></td>
-    <td>Tagged “Leisure”</td>
+    <td><a href="/tags/politics/"><code>/tags/politics/</code></a></td>
+    <td>Tagged “Politics”</td>
   </tr>
   <tr>
     <td><a href="/tags/accident/"><code>/tags/accident/</code></a></td>
@@ -511,30 +586,6 @@
   <tr>
     <td><a href="/tags/personal-life/"><code>/tags/personal-life/</code></a></td>
     <td>Tagged “Personal life”</td>
-  </tr>
-  <tr>
-    <td><a href="/tags/technology/"><code>/tags/technology/</code></a></td>
-    <td>Tagged “Technology”</td>
-  </tr>
-  <tr>
-    <td><a href="/tags/politics/"><code>/tags/politics/</code></a></td>
-    <td>Tagged “Politics”</td>
-  </tr>
-  <tr>
-    <td><a href="/tags/transportation/"><code>/tags/transportation/</code></a></td>
-    <td>Tagged “Transportation”</td>
-  </tr>
-  <tr>
-    <td><a href="/tags/driving/"><code>/tags/driving/</code></a></td>
-    <td>Tagged “Driving”</td>
-  </tr>
-  <tr>
-    <td><a href="/tags/traffic/"><code>/tags/traffic/</code></a></td>
-    <td>Tagged “Traffic”</td>
-  </tr>
-  <tr>
-    <td><a href="/tags/urban-planning/"><code>/tags/urban-planning/</code></a></td>
-    <td>Tagged “Urban planning”</td>
   </tr>
   <tr>
     <td><a href="/tags/celebration/"><code>/tags/celebration/</code></a></td>
@@ -553,28 +604,12 @@
     <td>Tagged “Sports”</td>
   </tr>
   <tr>
-    <td><a href="/tags/facebook/"><code>/tags/facebook/</code></a></td>
-    <td>Tagged “Facebook”</td>
+    <td><a href="/tags/camping/"><code>/tags/camping/</code></a></td>
+    <td>Tagged “Camping”</td>
   </tr>
   <tr>
     <td><a href="/tags/car-camping/"><code>/tags/car-camping/</code></a></td>
     <td>Tagged “Car camping”</td>
-  </tr>
-  <tr>
-    <td><a href="/tags/journey/"><code>/tags/journey/</code></a></td>
-    <td>Tagged “Journey”</td>
-  </tr>
-  <tr>
-    <td><a href="/tags/travel/"><code>/tags/travel/</code></a></td>
-    <td>Tagged “Travel”</td>
-  </tr>
-  <tr>
-    <td><a href="/tags/trip/"><code>/tags/trip/</code></a></td>
-    <td>Tagged “Trip”</td>
-  </tr>
-  <tr>
-    <td><a href="/tags/camping/"><code>/tags/camping/</code></a></td>
-    <td>Tagged “Camping”</td>
   </tr>
   <tr>
     <td><a href="/tags/community/"><code>/tags/community/</code></a></td>
@@ -589,8 +624,24 @@
     <td>Tagged “Individualism”</td>
   </tr>
   <tr>
+    <td><a href="/tags/journey/"><code>/tags/journey/</code></a></td>
+    <td>Tagged “Journey”</td>
+  </tr>
+  <tr>
+    <td><a href="/tags/travel/"><code>/tags/travel/</code></a></td>
+    <td>Tagged “Travel”</td>
+  </tr>
+  <tr>
+    <td><a href="/tags/trip/"><code>/tags/trip/</code></a></td>
+    <td>Tagged “Trip”</td>
+  </tr>
+  <tr>
     <td><a href="/tags/vanlife/"><code>/tags/vanlife/</code></a></td>
     <td>Tagged “Vanlife”</td>
+  </tr>
+  <tr>
+    <td><a href="/tags/facebook/"><code>/tags/facebook/</code></a></td>
+    <td>Tagged “Facebook”</td>
   </tr>
   <tr>
     <td><a href="/tags/artificial-intelligence/"><code>/tags/artificial-intelligence/</code></a></td>
@@ -633,20 +684,24 @@
     <td>Tagged “Therapy”</td>
   </tr>
   <tr>
+    <td><a href="/tags/driving/"><code>/tags/driving/</code></a></td>
+    <td>Tagged “Driving”</td>
+  </tr>
+  <tr>
+    <td><a href="/tags/traffic/"><code>/tags/traffic/</code></a></td>
+    <td>Tagged “Traffic”</td>
+  </tr>
+  <tr>
+    <td><a href="/tags/urban-planning/"><code>/tags/urban-planning/</code></a></td>
+    <td>Tagged “Urban planning”</td>
+  </tr>
+  <tr>
     <td><a href="/tags/series/"><code>/tags/series/</code></a></td>
     <td>Tagged “Series”</td>
   </tr>
   <tr>
     <td><a href="/tags/tv-show/"><code>/tags/tv-show/</code></a></td>
     <td>Tagged “TV show”</td>
-  </tr>
-  <tr>
-    <td><a href="/tags/climate-change/"><code>/tags/climate-change/</code></a></td>
-    <td>Tagged “Climate change”</td>
-  </tr>
-  <tr>
-    <td><a href="/tags/wildfire/"><code>/tags/wildfire/</code></a></td>
-    <td>Tagged “Wildfire”</td>
   </tr>
   <tr>
     <td><a href="/tags/dark-patterns/"><code>/tags/dark-patterns/</code></a></td>
@@ -661,6 +716,14 @@
     <td>Tagged “UX”</td>
   </tr>
   <tr>
+    <td><a href="/tags/climate-change/"><code>/tags/climate-change/</code></a></td>
+    <td>Tagged “Climate change”</td>
+  </tr>
+  <tr>
+    <td><a href="/tags/wildfire/"><code>/tags/wildfire/</code></a></td>
+    <td>Tagged “Wildfire”</td>
+  </tr>
+  <tr>
     <td><a href="/tags/life/"><code>/tags/life/</code></a></td>
     <td>Tagged “Life”</td>
   </tr>
@@ -669,12 +732,20 @@
     <td>Tagged “Social”</td>
   </tr>
   <tr>
+    <td><a href="/tags/time/"><code>/tags/time/</code></a></td>
+    <td>Tagged “Time”</td>
+  </tr>
+  <tr>
     <td><a href="/tags/general/"><code>/tags/general/</code></a></td>
     <td>Tagged “General”</td>
   </tr>
   <tr>
     <td><a href="/tags/vietnam/"><code>/tags/vietnam/</code></a></td>
     <td>Tagged “Vietnam”</td>
+  </tr>
+  <tr>
+    <td><a href="/tags/transportation/"><code>/tags/transportation/</code></a></td>
+    <td>Tagged “Transportation”</td>
   </tr>
   <tr>
     <td><a href="/tags/earth/"><code>/tags/earth/</code></a></td>
@@ -705,12 +776,12 @@
     <td>Tagged “Dinosaurs”</td>
   </tr>
   <tr>
-    <td><a href="/tags/television/"><code>/tags/television/</code></a></td>
-    <td>Tagged “Television”</td>
-  </tr>
-  <tr>
     <td><a href="/tags/movie-review/"><code>/tags/movie-review/</code></a></td>
     <td>Tagged “Movie review”</td>
+  </tr>
+  <tr>
+    <td><a href="/tags/television/"><code>/tags/television/</code></a></td>
+    <td>Tagged “Television”</td>
   </tr>
   <tr>
     <td><a href="/tags/number-2/"><code>/tags/number-2/</code></a></td>
@@ -745,84 +816,20 @@
     <td>Tagged “Ideas”</td>
   </tr>
   <tr>
-    <td><a href="/tags/time/"><code>/tags/time/</code></a></td>
-    <td>Tagged “Time”</td>
+    <td><a href="false"><code>false</code></a></td>
+    <td>Testing post from git</td>
   </tr>
   <tr>
-    <td><a href="/articles/self-care-selfish-scam-therapy/"><code>/articles/self-care-selfish-scam-therapy/</code></a></td>
-    <td>Self-care lacks empathy in its current form, because it ignores everybody else</td>
+    <td><a href="/csv/"><code>/csv/</code></a></td>
+    <td>CSV file viewer</td>
   </tr>
   <tr>
-    <td><a href="/articles/kaleidoscope-series-giancarlo-esposito/"><code>/articles/kaleidoscope-series-giancarlo-esposito/</code></a></td>
-    <td>Kaleidoscope, Just like Giancalo Esposito’s suggestion, you should watch the white episode last</td>
-  </tr>
-  <tr>
-    <td><a href="/articles/new-paint-old-crap-boycott-cancel-culture-woke/"><code>/articles/new-paint-old-crap-boycott-cancel-culture-woke/</code></a></td>
-    <td>Cancel culture, woke; new paint, old&amp;nbsp;crap</td>
-  </tr>
-  <tr>
-    <td><a href="/articles/getting-sentimental-about-the-best-car-of-my-life/"><code>/articles/getting-sentimental-about-the-best-car-of-my-life/</code></a></td>
-    <td>Getting sentimental about the best car of my life</td>
-  </tr>
-  <tr>
-    <td><a href="/articles/2023-06-07-canada-wildfires-caused-by-humans-over-centuries-reach-nyc/"><code>/articles/2023-06-07-canada-wildfires-caused-by-humans-over-centuries-reach-nyc/</code></a></td>
-    <td>Canada wildfires caused by humans over centuries reach NYC</td>
-  </tr>
-  <tr>
-    <td><a href="/camping/"><code>/camping/</code></a></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td><a href="/spots/"><code>/spots/</code></a></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td><a href="/map/"><code>/map/</code></a></td>
-    <td>Map of my spots</td>
-  </tr>
-  <tr>
-    <td><a href="/maps/"><code>/maps/</code></a></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td><a href="/2.4/"><code>/2.4/</code></a></td>
-    <td>2.4 Ghz band</td>
-  </tr>
-  <tr>
-    <td><a href="/time/"><code>/time/</code></a></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td><a href="/map-vr/"><code>/map-vr/</code></a></td>
-    <td>Map of spots in Quebec</td>
-  </tr>
-  <tr>
-    <td><a href="/map/blm/"><code>/map/blm/</code></a></td>
-    <td>Map of some BLM spots</td>
-  </tr>
-  <tr>
-    <td><a href="/articles/watching-clueless-1995-for-the-first-time-in-2023/"><code>/articles/watching-clueless-1995-for-the-first-time-in-2023/</code></a></td>
-    <td>Watching Clueless (1995) for the first time in 2023</td>
-  </tr>
-  <tr>
-    <td><a href="/Meteo/"><code>/Meteo/</code></a></td>
-    <td>Meteo</td>
+    <td><a href="/gps/"><code>/gps/</code></a></td>
+    <td>GPS mapper</td>
   </tr>
   <tr>
     <td><a href="/units/"><code>/units/</code></a></td>
     <td>Units</td>
-  </tr>
-  <tr>
-    <td><a href="/articles/2024-02-03-ux-dark-pattern-example-surfshark/"><code>/articles/2024-02-03-ux-dark-pattern-example-surfshark/</code></a></td>
-    <td>An example of a UX dark pattern used by Surfshark</td>
-  </tr>
-  <tr>
-    <td><a href="/articles/2024-02-07-unexpected-enjoyment-of-meeting-new-people/"><code>/articles/2024-02-07-unexpected-enjoyment-of-meeting-new-people/</code></a></td>
-    <td>Unexpected enjoyment of meeting new people</td>
-  </tr>
-  <tr>
-    <td><a href="/articles/2024-03-05-changement-heure-climat-enjeux-sociaux/"><code>/articles/2024-03-05-changement-heure-climat-enjeux-sociaux/</code></a></td>
-    <td>Le changement d&#39;heure me fait penser au climat et aux enjeux sociaux</td>
   </tr>
   </tbody>
 </table>
