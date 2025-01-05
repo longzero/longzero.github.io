@@ -27,7 +27,9 @@ html {
   --color-link: var(--color-1);
   --color-post-title: #000;
   --color-post-title-hover: var(--color-1);
-  --footer-background: linear-gradient(rgba(255,255,255,0) 0%, #ddd 25%, #ddd);
+  --font-size: 16;
+  --footer-background: linear-gradient(#fff 15%, #eee);
+  --rem: 1 / var(--font-size) * 1rem;
   font-size: 16px;
   scroll-behavior: smooth;
 }
@@ -248,8 +250,8 @@ input, select {height: 35px;}
 }
 .post-list {
   display: grid;
-  grid-gap: 40px /* Safari 10-11 */;
-  gap: grid-gap /* Safari 12+ */;
+  grid-gap: 40px; /* Safari 10-11 */
+  gap: grid-gap; /* Safari 12+ */
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 }
 .post-media {margin-bottom: 1em;}
@@ -630,3 +632,11 @@ input, select {height: 35px;}
 .toggle-dark-light-mode:hover svg {stroke: #000;}
 .dark-mode .toggle-dark-light-mode svg {display: none;}
 .dark-mode .toggle-dark-light-mode svg:nth-child(2) {display: block;}
+
+.story-item {--border-width: 3px; border-top: var(--border-width) solid var(--color-1); padding: calc(50 * var(--rem)) 0;}
+.story-item:nth-child(1) {margin-top: calc(50 * var(--rem));}
+.story-item:last-child {border-bottom: var(--border-width) solid var(--color-1);}
+.story-item h3 {line-height: 1.2;}
+.story-item h3 a {text-decoration: none;}
+.story-item h3 a:hover {text-decoration: underline;}
+.story-item img {float: right; max-width: 50%; margin-left: calc(20 * var(--rem));}

@@ -4,6 +4,8 @@
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Eleventy v3.0.0">
+
   <title>GPS mapper</title>
   <meta name="description" content="My name is Long Nguyen. I am a Front-End Web Developer obsessed with UX. I am experienced in building simple, clean and user-friendly websites for clients across the globe. Reach me on Instagram or Twitter or by email long@longzero.com.">
 
@@ -470,8 +472,8 @@
 
             const heatPoints = gpsData.map(point => [point.lat, point.lon]);
             heatmapLayer = L.heatLayer(heatPoints, {
-                radius: 10,
-                blur: 15,
+                radius: 6,
+                blur: 9,
                 maxZoom: 19,
                 gradient: {
                     0.4: 'blue',
