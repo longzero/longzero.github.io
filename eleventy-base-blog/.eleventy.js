@@ -1,5 +1,5 @@
 // const UpgradeHelper = require("@11ty/eleventy-upgrade-help");
-import UpgradeHelper from "@11ty/eleventy-upgrade-help";
+// import UpgradeHelper from "@11ty/eleventy-upgrade-help";
 
 // require('dotenv').config();
 // const ENV = process.env.MY_ENVIRONMENT;
@@ -44,7 +44,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
   eleventyConfig.addPlugin(pluginNavigation);
-  eleventyConfig.addPlugin(UpgradeHelper);
+  // eleventyConfig.addPlugin(UpgradeHelper);
 
   eleventyConfig.addFilter("readableDate", dateObj => {
     // return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat("dd LLL yyyy");
