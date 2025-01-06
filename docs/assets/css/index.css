@@ -636,7 +636,10 @@ input, select {height: 35px;}
 .story-item {--border-width: 3px; border-top: var(--border-width) solid var(--color-1); padding: calc(50 * var(--rem)) 0;}
 .story-item:nth-child(1) {margin-top: calc(50 * var(--rem));}
 .story-item:last-child {border-bottom: var(--border-width) solid var(--color-1);}
+.story-item h3, .story-item > small {margin-bottom: 1em;}
 .story-item h3 {line-height: 1.2;}
+.story-item h3:has(+ small) {margin-bottom: .2em;}
 .story-item h3 a {text-decoration: none;}
 .story-item h3 a:hover {text-decoration: underline;}
 .story-item img {float: right; max-width: 50%; margin-left: calc(20 * var(--rem));}
+.story-item > small {color: #999; display: block;}
