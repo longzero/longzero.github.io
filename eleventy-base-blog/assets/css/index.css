@@ -229,7 +229,7 @@ input, select {height: 35px;}
 .post-item:hover .post-title {
   color: var(--color-post-title-hover);
 }
-@media (min-width: 960px) {
+/*@media (min-width: 960px) {
   .post-item:nth-child(1) {
     grid-column: 1/span 2;
     grid-row: 1/span 2;
@@ -237,7 +237,7 @@ input, select {height: 35px;}
   .post-item:nth-child(1) .post-title {
     font-size: 2em;
   }
-}
+}*/
 .post-link {
   display: flex;
   text-decoration: none;
