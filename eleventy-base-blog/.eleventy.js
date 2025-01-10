@@ -133,7 +133,7 @@ export default function (eleventyConfig) {
   const publishedPosts = (post) => post.date <= now && post.data.status == 1; // [1]
   eleventyConfig.addCollection("posts", (collection) => { // [2]
     return collection
-        .getFilteredByGlob("./posts/*.md") // [3]
+        .getFilteredByGlob("./posts/**/*.md") // [3]
         .filter(publishedPosts); // [4]
   });
 
@@ -172,8 +172,8 @@ export default function (eleventyConfig) {
       input: ".",
       includes: "_includes", // Relative to input
       data: "_data",
-      output: "_site" // For vercel
-      // output: "../docs" // For github pages
+      // output: "_site" // For vercel: uncomment this line and commit this so vercel can build the website.
+      output: "../docs" // For github pages: this generates the docs folder locally and you can push it so the website also works with github pages.
     }
   };
 };
