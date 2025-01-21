@@ -38,7 +38,7 @@ else document.body.classList.remove('dark-mode')
 if (getParameterByName('dark') == 1) document.body.classList.add('dark-mode')
 
 // TOGGLE FOR COLOR SCHEME
-document.querySelector('.js-toggle-dark-light-mode').addEventListener('click', function() {
+document.querySelector('.js-toggle-dark-light-mode')?.addEventListener('click', function() {
   document.body.classList.toggle('dark-mode')
   if (colorScheme == "dark") colorScheme = "light"
   else colorScheme = "dark"

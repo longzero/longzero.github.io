@@ -1,10 +1,10 @@
 ---
-title: "Stories: Money kills democracy, Temu is bad, Child abuse online and real life"
+title: "Money kills democracy, Temu is bad, Child abuse online and real life"
 permalink: /stories/2025-01-05-money-democracy-temu-consumption-child-abuse-online-real-life-irl/
 date: 2025-01-05
-postType: articles
+postType: stories
 
-status: 1
+status: 0
 index: index
 follow: follow
 

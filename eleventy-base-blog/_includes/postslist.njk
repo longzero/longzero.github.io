@@ -13,7 +13,7 @@
 </ol>
  #}
 
-<div class="container container--fluid">
+<div class="container container--content">
   <div class="post-list">
     {% for post in postslist | reverse %}
       {% if post.data.index != "noindex" %}
@@ -29,12 +29,15 @@
             </span>
             <span class="post-data">
               {# The filter ` | urlize | safe` allows to parse HTML like `<br>` and `&nbsp;` #}
-              <span class="post-title">{{ post.data.title | urlize | safe }}</span>
+              {% if post.data.title %}
+                <span class="post-title">{{ post.data.title | urlize | safe }}</span>
+              {% endif %}
               <span class="post-date">
                 {% if post.data.updatedDate %} {{ post.data.date | readableDate }} | Update on {{ post.data.updatedDate | readableDate }}
                 {% else %} {{ post.data.date | readableDate }}
                 {% endif %}
               </span>
+              {# <span class="post-description">{{ post.templateContent | safe }}</span> #}
             </span>
           </a>
         </div>
