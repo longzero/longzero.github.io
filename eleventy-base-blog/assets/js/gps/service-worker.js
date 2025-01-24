@@ -18,11 +18,21 @@ self.addEventListener('install', event => {
     );
 });
 
+// self.addEventListener('fetch', event => {
+//     event.respondWith(
+//         caches.match(event.request)
+//             .then(response => {
+//                 return response || fetch(event.request);
+//             })
+//     );
+// });
 self.addEventListener('fetch', event => {
     event.respondWith(
         caches.match(event.request)
             .then(response => {
-                return response || fetch(event.request);
+                // Network-first strategy for dynamic resources
+                return fetch(event.request)
+                    .catch(() => response || caches.match('/index.html'))
             })
     );
 });
