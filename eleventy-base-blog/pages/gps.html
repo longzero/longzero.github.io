@@ -335,39 +335,65 @@ title: GPS mapper
         console.log('--------------------');
     }
 
-    async function loadJsonData(path) {
-        // First check localStorage cache
-        const cachedData = loadFromCache(path);
-        if (cachedData) {
-            console.log('Using cached data');
-            handleJSONData(cachedData);
-            return;
-        }
-        try {
-            console.log('Loading data for path:', path);
-            debugCache(); // Show cache status before loading
+    // async function loadJsonData(path) {
+    //     // First check localStorage cache
+    //     const cachedData = loadFromCache(path);
+    //     if (cachedData) {
+    //         console.log('Using cached data');
+    //         handleJSONData(cachedData);
+    //         return;
+    //     }
+    //     try {
+    //         console.log('Loading data for path:', path);
+    //         debugCache(); // Show cache status before loading
 
-            // First try to fetch fresh data
+    //         // First try to fetch fresh data
+    //         const response = await fetch(path);
+    //         if (response.ok) {
+    //             const data = await response.json();
+    //             saveToCache(path, data);
+    //             handleJSONData(data);
+    //             return;
+    //         }
+    //         throw new Error('Network response was not ok.');
+    //     } catch (error) {
+    //         console.error('Network fetch failed, using cached or offline data');
+    //         const cachedData = loadFromCache(path);
+    //         if (cachedData) {
+    //             console.log('Using cached data');
+    //             handleJSONData(cachedData);
+    //         } else {
+    //             alert('No offline data available. Please connect to the internet to load new data.');
+    //         }
+    //     }
+    // }
+    async function loadJsonData(path) {
+        try {
+            const cachedData = loadFromCache(path);
+
+            if (!navigator.onLine && cachedData) {
+                console.log('Using offline cached data');
+                handleJSONData(cachedData);
+                return;
+            }
+
             const response = await fetch(path);
             if (response.ok) {
                 const data = await response.json();
                 saveToCache(path, data);
                 handleJSONData(data);
-                return;
+            } else if (cachedData) {
+                console.log('Network failed, using cached data');
+                handleJSONData(cachedData);
             }
-            throw new Error('Network response was not ok.');
         } catch (error) {
-            console.error('Network fetch failed, using cached or offline data');
+            console.error('Data loading failed', error);
             const cachedData = loadFromCache(path);
             if (cachedData) {
-                console.log('Using cached data');
                 handleJSONData(cachedData);
-            } else {
-                alert('No offline data available. Please connect to the internet to load new data.');
             }
         }
     }
-
     // Add offline detection and status indicator
     window.addEventListener('online', () => {
         document.body.classList.remove('offline');
@@ -404,10 +430,29 @@ title: GPS mapper
     });
 
     // Initialize application
+    // function initializeApp() {
+    //     const lastSelected = localStorage.getItem(LAST_SELECTED_KEY);
+    //     if (lastSelected) {
+    //         // Set the select value AND trigger the data load
+    //         jsonSelector.value = lastSelected;
+    //         loadJsonData(lastSelected);
+    //     }
+    // }
     function initializeApp() {
+        // Ensure offline resilience
+        if (!navigator.onLine) {
+            // Retrieve last known good state from localStorage
+            const lastSelectedPath = localStorage.getItem(LAST_SELECTED_KEY) || '/assets/files/maps/ioverlander/empty.json';
+            const cachedData = loadFromCache(lastSelectedPath);
+
+            if (cachedData) {
+                // Force load cached data even in offline mode
+                handleJSONData(cachedData);
+            }
+        }
+
         const lastSelected = localStorage.getItem(LAST_SELECTED_KEY);
         if (lastSelected) {
-            // Set the select value AND trigger the data load
             jsonSelector.value = lastSelected;
             loadJsonData(lastSelected);
         }
