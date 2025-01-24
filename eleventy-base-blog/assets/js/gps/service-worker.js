@@ -17,11 +17,22 @@ const ASSETS_TO_CACHE = [
 //             .then(cache => cache.addAll(ASSETS_TO_CACHE))
 //     );
 // });
+// self.addEventListener('install', event => {
+//     self.skipWaiting(); // Activate service worker immediately
+//     event.waitUntil(
+//         caches.open(CACHE_NAME)
+//             .then(cache => cache.addAll(ASSETS_TO_CACHE))
+//     );
+// });
 self.addEventListener('install', event => {
-    self.skipWaiting(); // Activate service worker immediately
     event.waitUntil(
         caches.open(CACHE_NAME)
-            .then(cache => cache.addAll(ASSETS_TO_CACHE))
+            .then(cache => {
+                return cache.addAll(ASSETS_TO_CACHE)
+                    .catch(error => {
+                        console.error('Caching failed:', error);
+                    });
+            })
     );
 });
 
@@ -57,13 +68,22 @@ self.addEventListener('activate', event => {
 //             })
 //     );
 // });
+// self.addEventListener('fetch', event => {
+//     event.respondWith(
+//         caches.match(event.request)
+//             .then(cachedResponse => {
+//                 // Network-first strategy
+//                 return fetch(event.request)
+//                     .catch(() => cachedResponse || caches.match('/index.html'))
+//             })
+//     );
+// });
 self.addEventListener('fetch', event => {
     event.respondWith(
         caches.match(event.request)
-            .then(cachedResponse => {
-                // Network-first strategy
-                return fetch(event.request)
-                    .catch(() => cachedResponse || caches.match('/index.html'))
+            .then(response => {
+                return response || fetch(event.request)
+                    .catch(() => caches.match('/index.html'));
             })
     );
 });
