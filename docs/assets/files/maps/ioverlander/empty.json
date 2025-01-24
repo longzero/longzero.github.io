@@ -1,0 +1,28 @@
+[
+  {
+    "id":19718,
+    "name":"Random",
+    "date_verified":"2016-07-04T00:00:00.000Z",
+    "description":"",
+    "location":{
+      "latitude":51.88913993597053,
+      "longitude":-127.7083275346642
+    },
+    "category":{
+      "name":"Financial"
+    }
+  },
+  {
+    "id":19718,
+    "name":"Banco Metropolitano ATM",
+    "date_verified":"2016-07-04T00:00:00.000Z",
+    "description":"ATM in Havana centro. It ONLY accepts VISA. NO Mastercard!",
+    "location":{
+      "latitude":23.13267,
+      "longitude":-82.3628
+    },
+    "category":{
+      "name":"Financial"
+    }
+  }
+]
