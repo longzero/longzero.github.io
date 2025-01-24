@@ -23,6 +23,17 @@ title: GPS mapper
         background-color: #f0f0f0;
         border-color: #000;
     }
+    #dateControls {
+        text-align: center;
+        margin: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+    #dateControls label, #dateControls input {
+        margin: 0 5px;
+    }
 </style>
 
 
@@ -38,6 +49,14 @@ title: GPS mapper
         <option value="/assets/files/maps/ioverlander/north-america/mexico-places20250121-394-12e138s.json">Mexico (20250121)</option>
         <option value="/assets/files/maps/ioverlander/north-america/usa-places20250121-403-z2ziyx.json">USA (20250121)</option>
     </select>
+</div>
+<div id="dateControls">
+    <label for="startDate">Start Date:</label>
+    <input type="date" id="startDate">
+    <label for="endDate">End Date:</label>
+    <input type="date" id="endDate">
+    <button id="applyDateFilter">Apply Filter</button>
+    <button id="clearDateFilter">Clear Filter</button>
 </div>
 <div id="controls" style="text-align: center; margin: 20px;">
     <button id="togglePolyline">Polyline</button>
@@ -59,12 +78,32 @@ title: GPS mapper
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
 
 <script>
+
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/assets/js/gps/service-worker.js')
+                .then(registration => {
+                    console.log('Service Worker registered:', registration);
+                })
+                .catch(error => {
+                    console.log('Service Worker registration failed:', error);
+                });
+        });
+    }
+
     const dropZone = document.getElementById('dropZone');
     const fileInput = document.getElementById('fileInput');
     const jsonSelector = document.getElementById('jsonSelector');
     const map = L.map('map');
 
-    let gpsData = [];
+    // Date filter elements
+    const startDateInput = document.getElementById('startDate');
+    const endDateInput = document.getElementById('endDate');
+    const applyDateFilterBtn = document.getElementById('applyDateFilter');
+    const clearDateFilterBtn = document.getElementById('clearDateFilter');
+
+    let originalGpsData = []; // Store the original, unfiltered data
+    let gpsData = []; // Data that can be filtered
     let polylineLayer;
     let heatmapLayer;
     let markerClusterGroup;
@@ -76,6 +115,61 @@ title: GPS mapper
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '© OpenStreetMap contributors'
     }).addTo(map);
+
+    function updateDateInputRanges(data) {
+        // Find min and max dates in the dataset
+        const dates = data.map(point =>
+            point.date_verified || point.time || point.date
+        ).filter(date => date);
+
+        if (dates.length === 0) return;
+
+        const minDate = new Date(Math.min(...dates.map(d => new Date(d))));
+        const maxDate = new Date(Math.max(...dates.map(d => new Date(d))));
+
+        // Set min and max for date inputs
+        startDateInput.min = minDate.toISOString().split('T')[0];
+        startDateInput.max = maxDate.toISOString().split('T')[0];
+        endDateInput.min = minDate.toISOString().split('T')[0];
+        endDateInput.max = maxDate.toISOString().split('T')[0];
+
+        // Optionally set default values
+        startDateInput.value = startDateInput.min;
+        endDateInput.value = startDateInput.max;
+    }
+
+    function filterDataByDateRange(startDate, endDate) {
+        if (!startDate || !endDate) return originalGpsData;
+
+        const start = new Date(startDate);
+        const end = new Date(endDate);
+
+        return originalGpsData.filter(point => {
+            // Use different date fields depending on the data source
+            const pointDate = new Date(point.date_verified || point.time || point.date);
+            return pointDate >= start && pointDate <= end;
+        });
+    }
+
+    // Date filter event listeners
+    applyDateFilterBtn.addEventListener('click', () => {
+        const startDate = startDateInput.value;
+        const endDate = endDateInput.value;
+
+        // Filter the data
+        gpsData = filterDataByDateRange(startDate, endDate);
+        updateMap();
+    });
+
+    clearDateFilterBtn.addEventListener('click', () => {
+        // Restore original data
+        gpsData = [...originalGpsData];
+
+        // Reset date inputs to original min/max
+        updateDateInputRanges(originalGpsData);
+
+        updateMap();
+    });
 
 
     // First, add the LZ-string library for compression
@@ -242,6 +336,13 @@ title: GPS mapper
     }
 
     async function loadJsonData(path) {
+        // First check localStorage cache
+        const cachedData = loadFromCache(path);
+        if (cachedData) {
+            console.log('Using cached data');
+            handleJSONData(cachedData);
+            return;
+        }
         try {
             console.log('Loading data for path:', path);
             debugCache(); // Show cache status before loading
@@ -250,24 +351,47 @@ title: GPS mapper
             const response = await fetch(path);
             if (response.ok) {
                 const data = await response.json();
-                console.log('Fetched fresh data, saving to cache...');
                 saveToCache(path, data);
                 handleJSONData(data);
-                debugCache(); // Show cache status after saving
                 return;
             }
             throw new Error('Network response was not ok.');
         } catch (error) {
-            console.log('Network fetch failed, checking cache...');
+            console.error('Network fetch failed, using cached or offline data');
             const cachedData = loadFromCache(path);
             if (cachedData) {
                 console.log('Using cached data');
                 handleJSONData(cachedData);
             } else {
-                console.error('No cached data available and network fetch failed');
+                alert('No offline data available. Please connect to the internet to load new data.');
             }
         }
     }
+
+    // Add offline detection and status indicator
+    window.addEventListener('online', () => {
+        document.body.classList.remove('offline');
+    });
+    window.addEventListener('offline', () => {
+        document.body.classList.add('offline');
+    });
+    // Add CSS for offline indicator
+    const offlineStyle = document.createElement('style');
+    offlineStyle.textContent = `
+        body.offline::before {
+            content: 'Offline Mode';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: red;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            z-index: 1000;
+        }
+    `;
+    document.head.appendChild(offlineStyle);
 
     // Handle dataset selection
     jsonSelector.addEventListener('change', (e) => {
@@ -318,62 +442,79 @@ title: GPS mapper
     }
 
     function processFile(input) {
-        if (typeof input === 'string') {
-            try {
-                const data = JSON.parse(input);
-                handleJSONData(data);
-            } catch (e) {
-                Papa.parse(input, {
-                    complete: handleCSVData,
-                    header: true
-                });
-            }
-        } else if (input instanceof File) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                const fileContent = e.target.result;
-                if (input.name.endsWith('.json')) {
-                    try {
-                        const data = JSON.parse(fileContent);
-                        handleJSONData(data);
-                    } catch (e) {
-                        console.error("Error parsing JSON:", e);
-                    }
-                } else if (input.name.endsWith('.csv')) {
-                    Papa.parse(fileContent, {
+        try {
+            if (typeof input === 'string') {
+                try {
+                    const data = JSON.parse(input);
+                    handleJSONData(data);
+                } catch {
+                    Papa.parse(input, {
                         complete: handleCSVData,
-                        header: true
+                        header: true,
+                        skipEmptyLines: true
                     });
                 }
-            };
-            reader.readAsText(input);
+            } else if (input instanceof File) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const fileContent = e.target.result;
+                    try {
+                        if (input.name.endsWith('.json')) {
+                            const data = JSON.parse(fileContent);
+                            handleJSONData(data);
+                        } else if (input.name.endsWith('.csv')) {
+                            Papa.parse(fileContent, {
+                                complete: handleCSVData,
+                                header: true,
+                                skipEmptyLines: true
+                            });
+                        }
+                    } catch (e) {
+                        console.error("Error processing file:", e);
+                    }
+                };
+                reader.onerror = function(e) {
+                    console.error("File reading error", e);
+                };
+                reader.readAsText(input);
+            }
+        } catch (e) {
+            console.error("Unexpected error in file processing:", e);
         }
     }
 
     function handleJSONData(data) {
-        gpsData = data.map(point => ({
+        originalGpsData = data.map(point => ({
             lat: point.location.latitude,
             lon: point.location.longitude,
             name: point.name,
-            description: point.description,
-            category: point.category.name,
-            date_verified: formatDateTime(point.date_verified),
+            description: point.description || '',
+            category: point.category?.name || 'Unknown',
+            date_verified: point.date_verified ? formatDateTime(point.date_verified) : new Date().toISOString(),
             id: point.id
         }));
+
+        gpsData = [...originalGpsData];
+        updateDateInputRanges(originalGpsData);
         updateMap();
     }
 
     function handleCSVData(results) {
-        gpsData = results.data.map(row => ({
-            accuracy: row['accuracy'],
-            bearing: row['bearing'],
-            elevation: row['elevation'],
-            frequency: row['frequency'],
-            lat: parseFloat(row['lat']),
-            lon: parseFloat(row['lon']),
-            time: formatDateTime(row['time']),
-            speed: parseFloat(row['speed']) * 3.6
-        })).filter(point => !isNaN(point.lat) && !isNaN(point.lon));
+        originalGpsData = results.data
+            .filter(row => !isNaN(parseFloat(row['lat'])) && !isNaN(parseFloat(row['lon'])))
+            .map(row => ({
+                lat: parseFloat(row['lat']),
+                lon: parseFloat(row['lon']),
+                time: row['time'] ? formatDateTime(row['time']) : new Date().toISOString(),
+                accuracy: row['accuracy'] ? parseFloat(row['accuracy']) : null,
+                bearing: row['bearing'] ? parseFloat(row['bearing']) : null,
+                elevation: row['elevation'] ? parseFloat(row['elevation']) : null,
+                frequency: row['frequency'] || null,
+                speed: row['speed'] ? parseFloat(row['speed']) * 3.6 : null
+            }));
+
+        gpsData = [...originalGpsData];
+        updateDateInputRanges(originalGpsData);
         updateMap();
     }
 
@@ -436,19 +577,24 @@ title: GPS mapper
         }
     }
 
+    // function formatDateTime(isoString) {
+    //     if (!isoString) return '';
+    //     const date = new Date(isoString);
+    //     if (isNaN(date.getTime())) return isoString;
+
+    //     const year = date.getFullYear();
+    //     const month = String(date.getMonth() + 1).padStart(2, '0');
+    //     const day = String(date.getDate()).padStart(2, '0');
+    //     const hours = String(date.getHours()).padStart(2, '0');
+    //     const minutes = String(date.getMinutes()).padStart(2, '0');
+    //     const seconds = String(date.getSeconds()).padStart(2, '0');
+
+    //     return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+    // }
     function formatDateTime(isoString) {
-        if (!isoString) return '';
+        if (!isoString) return new Date().toISOString();
         const date = new Date(isoString);
-        if (isNaN(date.getTime())) return isoString;
-
-        const year = date.getFullYear();
-        const month = String(date.getMonth() + 1).padStart(2, '0');
-        const day = String(date.getDate()).padStart(2, '0');
-        const hours = String(date.getHours()).padStart(2, '0');
-        const minutes = String(date.getMinutes()).padStart(2, '0');
-        const seconds = String(date.getSeconds()).padStart(2, '0');
-
-        return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+        return isNaN(date.getTime()) ? new Date().toISOString() : date.toISOString();
     }
 
     // Event Listeners
