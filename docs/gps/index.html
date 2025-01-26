@@ -119,6 +119,11 @@
     <input type="number" id="blur" value="15" style="width: 50px;">
     <button id="updateHeatmap">Update Heatmap</button>
 </div>
+<div id="measureControls" style="text-align: center; margin: 20px;">
+    <button id="measureDistance">Measure Distance</button>
+    <button id="clearMeasurements">Clear Measurements</button>
+    <div id="distanceResult" style="margin-top: 10px;"></div>
+</div>
 <div id="map"></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.js"></script>
@@ -130,16 +135,16 @@
 
 <script>
 
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-            navigator.serviceWorker.register('/assets/js/gps/service-worker.js')
-                .then(registration => {
-                    console.log('Service Worker registered:', registration);
-                })
-                .catch(error => {
-                    console.log('Service Worker registration failed:', error);
-                });
-        });
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/assets/js/gps/service-worker.js')
+              .then(registration => {
+                  console.log('Service Worker registered:', registration);
+              })
+              .catch(error => {
+                  console.log('Service Worker registration failed:', error);
+              });
+      });
     }
 
     const dropZone = document.getElementById('dropZone');
@@ -161,6 +166,10 @@
 
     // Initialize map
     map.setView([0, 0], 2);
+    L.control.scale({
+      imperial: true,
+      metric: true
+    }).addTo(map);
 
     // Add OpenStreetMap tiles
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -386,39 +395,65 @@
         console.log('--------------------');
     }
 
-    async function loadJsonData(path) {
-        // First check localStorage cache
-        const cachedData = loadFromCache(path);
-        if (cachedData) {
-            console.log('Using cached data');
-            handleJSONData(cachedData);
-            return;
-        }
-        try {
-            console.log('Loading data for path:', path);
-            debugCache(); // Show cache status before loading
+    // async function loadJsonData(path) {
+    //     // First check localStorage cache
+    //     const cachedData = loadFromCache(path);
+    //     if (cachedData) {
+    //         console.log('Using cached data');
+    //         handleJSONData(cachedData);
+    //         return;
+    //     }
+    //     try {
+    //         console.log('Loading data for path:', path);
+    //         debugCache(); // Show cache status before loading
 
-            // First try to fetch fresh data
+    //         // First try to fetch fresh data
+    //         const response = await fetch(path);
+    //         if (response.ok) {
+    //             const data = await response.json();
+    //             saveToCache(path, data);
+    //             handleJSONData(data);
+    //             return;
+    //         }
+    //         throw new Error('Network response was not ok.');
+    //     } catch (error) {
+    //         console.error('Network fetch failed, using cached or offline data');
+    //         const cachedData = loadFromCache(path);
+    //         if (cachedData) {
+    //             console.log('Using cached data');
+    //             handleJSONData(cachedData);
+    //         } else {
+    //             alert('No offline data available. Please connect to the internet to load new data.');
+    //         }
+    //     }
+    // }
+    async function loadJsonData(path) {
+        try {
+            const cachedData = loadFromCache(path);
+
+            if (!navigator.onLine && cachedData) {
+                console.log('Using offline cached data');
+                handleJSONData(cachedData);
+                return;
+            }
+
             const response = await fetch(path);
             if (response.ok) {
                 const data = await response.json();
                 saveToCache(path, data);
                 handleJSONData(data);
-                return;
+            } else if (cachedData) {
+                console.log('Network failed, using cached data');
+                handleJSONData(cachedData);
             }
-            throw new Error('Network response was not ok.');
         } catch (error) {
-            console.error('Network fetch failed, using cached or offline data');
+            console.error('Data loading failed', error);
             const cachedData = loadFromCache(path);
             if (cachedData) {
-                console.log('Using cached data');
                 handleJSONData(cachedData);
-            } else {
-                alert('No offline data available. Please connect to the internet to load new data.');
             }
         }
     }
-
     // Add offline detection and status indicator
     window.addEventListener('online', () => {
         document.body.classList.remove('offline');
@@ -455,10 +490,29 @@
     });
 
     // Initialize application
+    // function initializeApp() {
+    //     const lastSelected = localStorage.getItem(LAST_SELECTED_KEY);
+    //     if (lastSelected) {
+    //         // Set the select value AND trigger the data load
+    //         jsonSelector.value = lastSelected;
+    //         loadJsonData(lastSelected);
+    //     }
+    // }
     function initializeApp() {
+        // Ensure offline resilience
+        if (!navigator.onLine) {
+            // Retrieve last known good state from localStorage
+            const lastSelectedPath = localStorage.getItem(LAST_SELECTED_KEY) || '/assets/files/maps/ioverlander/empty.json';
+            const cachedData = loadFromCache(lastSelectedPath);
+
+            if (cachedData) {
+                // Force load cached data even in offline mode
+                handleJSONData(cachedData);
+            }
+        }
+
         const lastSelected = localStorage.getItem(LAST_SELECTED_KEY);
         if (lastSelected) {
-            // Set the select value AND trigger the data load
             jsonSelector.value = lastSelected;
             loadJsonData(lastSelected);
         }
@@ -625,6 +679,28 @@
 
             const bounds = L.latLngBounds(latlngs);
             map.fitBounds(bounds);
+
+
+            // Calculate total route distance
+            if (polylineLayer) {
+                const totalDistance = getPolylineDistance(polylineLayer);
+                console.log(`Total route distance: ${totalDistance} km`);
+            }
+
+            function getPolylineDistance(polyline) {
+                let distance = 0;
+                const latlngs = polyline.getLatLngs();
+
+                for (let i = 1; i < latlngs.length; i++) {
+                    distance += calculateDistance(
+                        latlngs[i-1].lat, latlngs[i-1].lng,
+                        latlngs[i].lat, latlngs[i].lng
+                    );
+                }
+
+                return distance.toFixed(2);
+            }
+
         }
     }
 
@@ -733,6 +809,71 @@
             }
         }).addTo(map);
     });
+
+    // START MEASURE DISTANCE
+    let measurePoints = [];
+    let measurePolyline;
+    let measureMarkers = [];
+    document.getElementById('measureDistance').addEventListener('click', startMeasurement);
+    document.getElementById('clearMeasurements').addEventListener('click', clearMeasurements);
+    // Distance calculation function (Haversine formula)
+    function calculateDistance(lat1, lon1, lat2, lon2) {
+        const R = 6371; // Earth radius in km
+        const dLat = (lat2 - lat1) * Math.PI / 180;
+        const dLon = (lon2 - lon1) * Math.PI / 180;
+        const a =
+            Math.sin(dLat/2) * Math.sin(dLat/2) +
+            Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+            Math.sin(dLon/2) * Math.sin(dLon/2);
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        return R * c; // Distance in km
+    }
+
+    function startMeasurement() {
+      // alert('Click two points on the map to measure distance');
+      document.getElementById('distanceResult').innerHTML = "Click two points on the map to measure distance"
+      map.on('click', handleMeasureClick);
+    }
+
+    function handleMeasureClick(e) {
+        // Add marker
+        const marker = L.marker(e.latlng).addTo(map);
+        measureMarkers.push(marker);
+
+        // Store points
+        measurePoints.push(e.latlng);
+
+        // Update polyline
+        if (measurePolyline) map.removeLayer(measurePolyline);
+        measurePolyline = L.polyline(measurePoints, {color: 'red'}).addTo(map);
+
+        // Calculate distance when two points are selected
+        if (measurePoints.length === 2) {
+            const distanceKm = calculateDistance(
+                measurePoints[0].lat, measurePoints[0].lng,
+                measurePoints[1].lat, measurePoints[1].lng
+            );
+            const distanceMi = distanceKm * 0.621371;
+
+            document.getElementById('distanceResult').innerHTML = `
+                Distance: ${distanceKm.toFixed(2)} km / ${distanceMi.toFixed(2)} miles
+            `;
+
+            // Reset measurement system
+            map.off('click', handleMeasureClick);
+        }
+    }
+
+    function clearMeasurements() {
+        measurePoints = [];
+        if (measurePolyline) map.removeLayer(measurePolyline);
+        measureMarkers.forEach(marker => map.removeLayer(marker));
+        measureMarkers = [];
+        document.getElementById('distanceResult').innerHTML = '';
+        map.off('click', handleMeasureClick);
+    }
+
+    // For existing polylines (add to updateMap function)
 </script>
 
 

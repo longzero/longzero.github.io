@@ -11,18 +11,79 @@ const ASSETS_TO_CACHE = [
     'https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.4.4/lz-string.min.js'
 ];
 
+// self.addEventListener('install', event => {
+//     event.waitUntil(
+//         caches.open(CACHE_NAME)
+//             .then(cache => cache.addAll(ASSETS_TO_CACHE))
+//     );
+// });
+// self.addEventListener('install', event => {
+//     self.skipWaiting(); // Activate service worker immediately
+//     event.waitUntil(
+//         caches.open(CACHE_NAME)
+//             .then(cache => cache.addAll(ASSETS_TO_CACHE))
+//     );
+// });
 self.addEventListener('install', event => {
     event.waitUntil(
         caches.open(CACHE_NAME)
-            .then(cache => cache.addAll(ASSETS_TO_CACHE))
+            .then(cache => {
+                return cache.addAll(ASSETS_TO_CACHE)
+                    .catch(error => {
+                        console.error('Caching failed:', error);
+                    });
+            })
     );
 });
 
+self.addEventListener('activate', event => {
+    event.waitUntil(
+        caches.keys().then(cacheNames => {
+            return Promise.all(
+                cacheNames.map(cacheName => {
+                    if (cacheName !== CACHE_NAME) {
+                        return caches.delete(cacheName);
+                    }
+                })
+            );
+        }).then(() => self.clients.claim()) // Take control of all pages immediately
+    );
+});
+
+// self.addEventListener('fetch', event => {
+//     event.respondWith(
+//         caches.match(event.request)
+//             .then(response => {
+//                 return response || fetch(event.request);
+//             })
+//     );
+// });
+// self.addEventListener('fetch', event => {
+//     event.respondWith(
+//         caches.match(event.request)
+//             .then(response => {
+//                 // Network-first strategy for dynamic resources
+//                 return fetch(event.request)
+//                     .catch(() => response || caches.match('/index.html'))
+//             })
+//     );
+// });
+// self.addEventListener('fetch', event => {
+//     event.respondWith(
+//         caches.match(event.request)
+//             .then(cachedResponse => {
+//                 // Network-first strategy
+//                 return fetch(event.request)
+//                     .catch(() => cachedResponse || caches.match('/index.html'))
+//             })
+//     );
+// });
 self.addEventListener('fetch', event => {
     event.respondWith(
         caches.match(event.request)
             .then(response => {
-                return response || fetch(event.request);
+                return response || fetch(event.request)
+                    .catch(() => caches.match('/index.html'));
             })
     );
 });
