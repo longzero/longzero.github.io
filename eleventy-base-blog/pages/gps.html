@@ -628,6 +628,28 @@ title: GPS mapper
 
             const bounds = L.latLngBounds(latlngs);
             map.fitBounds(bounds);
+
+
+            // Calculate total route distance
+            if (polylineLayer) {
+                const totalDistance = getPolylineDistance(polylineLayer);
+                console.log(`Total route distance: ${totalDistance} km`);
+            }
+
+            function getPolylineDistance(polyline) {
+                let distance = 0;
+                const latlngs = polyline.getLatLngs();
+
+                for (let i = 1; i < latlngs.length; i++) {
+                    distance += calculateDistance(
+                        latlngs[i-1].lat, latlngs[i-1].lng,
+                        latlngs[i].lat, latlngs[i].lng
+                    );
+                }
+
+                return distance.toFixed(2);
+            }
+
         }
     }
 
@@ -801,22 +823,4 @@ title: GPS mapper
     }
 
     // For existing polylines (add to updateMap function)
-    if (polylineLayer) {
-        const totalDistance = getPolylineDistance(polylineLayer);
-        console.log(`Total route distance: ${totalDistance} km`);
-    }
-
-    function getPolylineDistance(polyline) {
-        let distance = 0;
-        const latlngs = polyline.getLatLngs();
-
-        for (let i = 1; i < latlngs.length; i++) {
-            distance += calculateDistance(
-                latlngs[i-1].lat, latlngs[i-1].lng,
-                latlngs[i].lat, latlngs[i].lng
-            );
-        }
-
-        return distance.toFixed(2);
-    }
 </script>
