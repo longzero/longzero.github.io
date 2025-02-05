@@ -24,7 +24,7 @@ tags:
 
 
 
-<a href="https://youtu.be/mfMRmFjzN9A" target="_blank"><img src="/assets/images/articles/stories-mirror-life/youtube-mirror-life.jpg"></a>
+<a href="https://youtu.be/mfMRmFjzN9A" target="_blank"><img src="/assets/images/articles/stories/youtube-mirror-life.jpg"></a>
 
 It's pretty amazing that scientists say it's too dangerous and stop themselves. It kind of makes me wonder at what point will humans stop themselves before reaching Terminator.
 
