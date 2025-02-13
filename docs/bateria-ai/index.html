@@ -1,0 +1,388 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Eleventy v3.0.0">
+
+  <title>Batería</title>
+  <meta name="description" content="My name is Long Nguyen. I am a Front-End Web Developer obsessed with UX. I am experienced in building simple, clean and user-friendly websites for clients across the globe. Reach me on Instagram or Twitter or by email long@longzero.com.">
+
+  <link rel="apple-touch-icon" href="/assets/images/favicon.png">
+  <link rel="icon" href="/assets/images/favicon.png">
+  <link rel="preload" crossorigin="anonymous" as="font" href="/assets/fonts/oxygen-v10-latin-regular.woff2">
+  <link rel="preload" crossorigin="anonymous" as="font" href="/assets/fonts/oxygen-v10-latin-700.woff2">
+
+  <script>
+    // Tracking code for longzero.com
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=true;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-25351410-3', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+  
+  
+  
+    
+  
+
+  <meta property="og:site_name" content="Longzero ~ Long Nguyen">
+  <meta property="og:description" content="">
+  <meta property="og:image" content="https://longzero.com/assets/images/og-map.jpg">
+  <meta property="og:title" content="Batería">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://longzero.com/bateria-ai/">
+
+  <meta name="theme-color" content="#336699">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  <meta prefix="og: http://ogp.me/ns#" property="og:article:author" content="Longzero">
+
+  
+
+  
+  
+  
+  
+  
+</head>
+
+
+  <body class="template-blank">
+    
+
+    <main>
+
+      
+<style>
+    /* Previous styles remain the same */
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+        max-width: 800px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+        background-color: #f5f5f5;
+    }
+    .calculator {
+        background: white;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .input-group {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+    .input-field {
+        margin-bottom: 1rem;
+    }
+    .capacity-group {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 0.5rem;
+    }
+    label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: #374151;
+        font-weight: 500;
+    }
+    input, select {
+        width: 100%;
+        padding: 0.5rem;
+        border: 1px solid #d1d5db;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    .section-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin: 1.5rem 0 1rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid #e5e7eb;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .results {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+    .result-card {
+        background: #f3f4f6;
+        padding: 1rem;
+        border-radius: 6px;
+    }
+    .result-label {
+        font-size: 0.875rem;
+        color: #4b5563;
+        margin-bottom: 0.5rem;
+    }
+    .result-value {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #111827;
+    }
+    .result-detail {
+        font-size: 0.875rem;
+        color: #4b5563;
+        margin-top: 0.5rem;
+    }
+    .pattern {
+        background: #f9fafb;
+        padding: 1rem;
+        border-radius: 6px;
+        margin-bottom: 1rem;
+    }
+    .pattern-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+    button {
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: 500;
+    }
+    .add-button {
+        background: #047857;
+        color: white;
+    }
+    .remove-button {
+        background: #dc2626;
+        color: white;
+    }
+</style>
+
+<div class="calculator">
+    <h1>Battery Power Calculator</h1>
+
+    <div class="input-group">
+        <div class="input-field">
+            <label for="capacity">Battery Capacity</label>
+            <div class="capacity-group">
+                <input type="number" id="capacity" value="1000">
+                <select id="capacity-unit">
+                    <option value="Wh">Wh</option>
+                    <option value="Ah">Ah</option>
+                </select>
+            </div>
+        </div>
+        <div class="input-field">
+            <label for="voltage">Battery Voltage (V)</label>
+            <input type="number" id="voltage" value="12">
+        </div>
+        <div class="input-field">
+            <label for="input-power">Charging Power (W)</label>
+            <input type="number" id="input-power" value="100">
+        </div>
+        <div class="input-field">
+            <label for="efficiency">Charging Efficiency (%)</label>
+            <input type="number" id="efficiency" value="85">
+        </div>
+    </div>
+
+    <div id="patterns-container">
+        <h2 class="section-title">
+            Power Usage Patterns
+            <button class="add-button" onclick="addPattern()">Add Pattern</button>
+        </h2>
+    </div>
+
+    <h2 class="section-title">Results</h2>
+    <div class="results">
+        <div class="result-card">
+            <div class="result-label">Battery Operation Analysis</div>
+            <div class="result-value" id="battery-status"></div>
+            <div class="result-detail" id="charge-time"></div>
+            <div class="result-detail" id="discharge-time"></div>
+            <div class="result-detail" id="net-status"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Previous pattern template and localStorage functions remain the same
+    const patternTemplate = `
+        <div class="pattern">
+            <div class="pattern-header">
+                <h3>Usage Pattern</h3>
+                <button class="remove-button" onclick="removePattern(this)">Remove</button>
+            </div>
+            <div class="input-group">
+                <div class="input-field">
+                    <label>Power Draw (W)</label>
+                    <input type="number" class="power-draw" value="25">
+                </div>
+                <div class="input-field">
+                    <label>Duration (minutes)</label>
+                    <input type="number" class="duration" value="480">
+                </div>
+            </div>
+        </div>
+    `;
+
+    function loadSavedData() {
+        const savedData = localStorage.getItem('batteryCalculator');
+        if (savedData) {
+            const data = JSON.parse(savedData);
+            document.getElementById('capacity').value = data.capacity;
+            document.getElementById('capacity-unit').value = data.capacityUnit;
+            document.getElementById('voltage').value = data.voltage;
+            document.getElementById('input-power').value = data.inputPower;
+            document.getElementById('efficiency').value = data.efficiency;
+
+            document.getElementById('patterns-container').innerHTML = `
+                <h2 class="section-title">
+                    Power Usage Patterns
+                    <button class="add-button" onclick="addPattern()">Add Pattern</button>
+                </h2>
+            `;
+
+            data.patterns.forEach(pattern => {
+                addPattern(pattern.power, pattern.duration);
+            });
+        } else {
+            addPattern(25, 480);
+            addPattern(40, 480);
+        }
+    }
+
+    function saveData() {
+        const patterns = Array.from(document.querySelectorAll('.pattern')).map(pattern => ({
+            power: Number(pattern.querySelector('.power-draw').value),
+            duration: Number(pattern.querySelector('.duration').value)
+        }));
+
+        const data = {
+            capacity: Number(document.getElementById('capacity').value),
+            capacityUnit: document.getElementById('capacity-unit').value,
+            voltage: Number(document.getElementById('voltage').value),
+            inputPower: Number(document.getElementById('input-power').value),
+            efficiency: Number(document.getElementById('efficiency').value),
+            patterns: patterns
+        };
+
+        localStorage.setItem('batteryCalculator', JSON.stringify(data));
+    }
+
+    function addPattern(power = 25, duration = 480) {
+        const container = document.getElementById('patterns-container');
+        const newPattern = document.createElement('div');
+        newPattern.innerHTML = patternTemplate;
+        container.appendChild(newPattern);
+
+        newPattern.querySelector('.power-draw').value = power;
+        newPattern.querySelector('.duration').value = duration;
+
+        newPattern.querySelectorAll('input').forEach(input => {
+            input.addEventListener('input', () => {
+                calculateTimes();
+                saveData();
+            });
+        });
+
+        calculateTimes();
+        saveData();
+    }
+
+    function removePattern(button) {
+        if (document.querySelectorAll('.pattern').length > 1) {
+            button.closest('.pattern').remove();
+            calculateTimes();
+            saveData();
+        } else {
+            alert('You must keep at least one usage pattern.');
+        }
+    }
+
+    function calculateTimes() {
+        let capacity = Number(document.getElementById('capacity').value);
+        const capacityUnit = document.getElementById('capacity-unit').value;
+        const voltage = Number(document.getElementById('voltage').value);
+        const inputPower = Number(document.getElementById('input-power').value);
+        const efficiency = Number(document.getElementById('efficiency').value);
+
+        // Convert Ah to Wh if necessary
+        if (capacityUnit === 'Ah') {
+            capacity = capacity * voltage;
+        }
+
+        // Calculate effective charging power (considering efficiency)
+        const effectiveChargingPower = inputPower * (efficiency / 100);
+
+        // Calculate total power consumption per hour
+        let totalPowerConsumptionPerHour = 0;
+        document.querySelectorAll('.pattern').forEach(pattern => {
+            const power = Number(pattern.querySelector('.power-draw').value);
+            const duration = Number(pattern.querySelector('.duration').value);
+            totalPowerConsumptionPerHour += (power * duration) / 60; // Convert to Wh
+        });
+
+        // Calculate net power per hour (charging - consumption)
+        const netPowerPerHour = effectiveChargingPower - (totalPowerConsumptionPerHour / 24);
+
+        // Update results based on net power
+        if (netPowerPerHour > 0) {
+            // Battery will eventually charge fully
+            const timeToFullCharge = capacity / netPowerPerHour;
+            const dischargeTime = capacity / (totalPowerConsumptionPerHour / 24);
+
+            document.getElementById('battery-status').textContent = 'Battery Will Charge ✓';
+            document.getElementById('charge-time').textContent =
+                `Time to full charge: ${timeToFullCharge.toFixed(2)} hours`;
+            document.getElementById('discharge-time').textContent =
+                `Time to discharge from full: ${dischargeTime.toFixed(2)} hours`;
+            document.getElementById('net-status').textContent =
+                `Net charging rate: ${netPowerPerHour.toFixed(2)} Wh per hour`;
+        } else {
+            // Battery will eventually drain
+            const timeToEmpty = capacity / Math.abs(netPowerPerHour);
+
+            document.getElementById('battery-status').textContent = 'Battery Will Drain ⚠';
+            document.getElementById('charge-time').textContent =
+                `Cannot reach full charge with current usage`;
+            document.getElementById('discharge-time').textContent =
+                `Time until empty: ${timeToEmpty.toFixed(2)} hours`;
+            document.getElementById('net-status').textContent =
+                `Net drain rate: ${Math.abs(netPowerPerHour).toFixed(2)} Wh per hour`;
+        }
+    }
+
+    // Add event listeners to all inputs
+    document.querySelectorAll('input, select').forEach(input => {
+        input.addEventListener('input', () => {
+            calculateTimes();
+            saveData();
+        });
+    });
+
+    // Initial load
+    loadSavedData();
+    calculateTimes();
+</script>
+
+
+    </main>
+
+    <script>
+      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+
+    
+
+  </body>
+</html>

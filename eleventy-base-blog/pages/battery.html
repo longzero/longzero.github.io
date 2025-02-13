@@ -1,0 +1,341 @@
+---
+layout: layouts/blank.njk
+# description: Time
+permalink: /bateria/
+title: Batería
+# eleventyNavigation:
+#   key: Time
+#   order: 3
+---
+
+<style>
+    html {font-size: 10px;}
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+        font-size: 1.6rem;
+        max-width: 800px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+        background-color: #f5f5f5;
+    }
+    .calculator {
+        background: white;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .input-group {
+        display: grid;
+/*        grid-template-columns: 1fr 1fr;*/
+        grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+    .input-field {
+        margin-bottom: 1rem;
+    }
+    .capacity-group {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 0.5rem;
+    }
+    label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: #374151;
+        font-weight: 500;
+    }
+    h1 {margin-top: 0;}
+    input, select {
+        width: 100%;
+        padding: 0.5rem;
+        border: 1px solid #d1d5db;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    [disabled] {background-color: #eee; border-color: #eee; color: #aaa; opacity: 1;}
+    .section-title {
+        border-top: 1px solid #e5e7eb;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 2rem;
+        font-weight: 600;
+        grid-column: 1 / -1;
+        margin: 2rem 0 1rem;
+        padding-top: 2rem;
+        width: 100%;
+    }
+    .results {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+    .result-card {
+        background: #f3f4f6;
+        padding: 1rem;
+        border-radius: 6px;
+    }
+    .result-label {
+        color: #4b5563;
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+    }
+    .result-value {
+        color: #111827;
+        display: flex; align-items: center; gap: 1rem;
+        font-size: 2rem;
+        font-weight: 600;
+        line-height: 1;
+        margin-bottom: 1rem;
+    }
+    .result-detail {
+        color: #4b5563;
+        margin-top: 0.5rem;
+    }
+    .pattern {
+        background: #f9fafb;
+        border-radius: 6px;
+        padding: 1rem;
+    }
+    #patterns-container:has(div > .pattern) {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
+    }
+    .pattern-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+    button {
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: 500;
+    }
+    .add-button {
+        background: #047857;
+        color: white;
+    }
+    .remove-button {
+        background: #dc2626;
+        color: white;
+    }
+</style>
+
+<div class="calculator">
+    <h1>Battery Power Calculator</h1>
+
+    <div class="input-group">
+        <div class="input-field">
+            <label for="capacity">Battery Capacity</label>
+            <div class="capacity-group">
+                <input type="number" id="capacity" value="1000">
+                <select id="capacity-unit" disabled>
+                    <option value="Wh">Wh</option>
+                    <option value="Ah">Ah</option>
+                </select>
+            </div>
+        </div>
+        <div class="input-field">
+            <label for="voltage">Battery Voltage (V)</label>
+            <input type="number" id="voltage" value="12" disabled>
+        </div>
+        <div class="input-field">
+            <label for="input-power">Charging Power (W)</label>
+            <input type="number" id="input-power" value="0">
+        </div>
+        <div class="input-field">
+            <label for="efficiency">Charging Efficiency (%)</label>
+            <input type="number" id="efficiency" value="80">
+        </div>
+    </div>
+
+    <div id="patterns-container">
+        <h2 class="section-title">
+            Power Usage Patterns
+            <button class="add-button" onclick="addPattern()">Add Pattern</button>
+        </h2>
+    </div>
+
+    <h2 class="section-title">Results</h2>
+    <div class="results">
+        <div class="result-card">
+            <div class="result-label">Battery Operation Analysis</div>
+            <div class="result-value" id="battery-status"></div>
+            <div class="result-detail" id="charge-time"></div>
+            <div class="result-detail" id="discharge-time"></div>
+            <div class="result-detail" id="net-status"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const patternTemplate = `
+        <div class="pattern">
+            <div class="pattern-header">
+                <h3>Usage Pattern</h3>
+                <button class="remove-button" onclick="removePattern(this)">Remove</button>
+            </div>
+            <div class="input-group">
+                <div class="input-field">
+                    <label>Power Draw (W)</label>
+                    <input type="number" class="power-draw" value="25">
+                </div>
+                <div class="input-field">
+                    <label>Duration (minutes)</label>
+                    <input type="number" class="duration" value="480" disabled>
+                </div>
+            </div>
+        </div>
+    `;
+
+    function loadSavedData() {
+        const savedData = localStorage.getItem('batteryCalculator');
+        if (savedData) {
+            const data = JSON.parse(savedData);
+            document.getElementById('capacity').value = data.capacity;
+            document.getElementById('capacity-unit').value = data.capacityUnit;
+            document.getElementById('voltage').value = data.voltage;
+            document.getElementById('input-power').value = data.inputPower;
+            document.getElementById('efficiency').value = data.efficiency;
+
+            document.getElementById('patterns-container').innerHTML = `
+                <h2 class="section-title">
+                    Power Usage Patterns
+                    <button class="add-button" onclick="addPattern()">Add Pattern</button>
+                </h2>
+            `;
+
+            data.patterns.forEach(pattern => {
+                addPattern(pattern.power, pattern.duration);
+            });
+        } else {
+            addPattern(25, 0); // 480 is 8 hours.
+            addPattern(40, 0); // 480 is 8 hours.
+        }
+    }
+
+    function saveData() {
+        const patterns = Array.from(document.querySelectorAll('.pattern')).map(pattern => ({
+            power: Number(pattern.querySelector('.power-draw').value),
+            duration: Number(pattern.querySelector('.duration').value)
+        }));
+
+        const data = {
+            capacity: Number(document.getElementById('capacity').value),
+            capacityUnit: document.getElementById('capacity-unit').value,
+            voltage: Number(document.getElementById('voltage').value),
+            inputPower: Number(document.getElementById('input-power').value),
+            efficiency: Number(document.getElementById('efficiency').value),
+            patterns: patterns
+        };
+
+        localStorage.setItem('batteryCalculator', JSON.stringify(data));
+    }
+
+    function addPattern(power = 25, duration = 0) { // 480 is 8 hours.
+        const container = document.getElementById('patterns-container');
+        const newPattern = document.createElement('div');
+        newPattern.innerHTML = patternTemplate;
+        container.appendChild(newPattern);
+
+        newPattern.querySelector('.power-draw').value = power;
+        newPattern.querySelector('.duration').value = duration;
+
+        newPattern.querySelectorAll('input').forEach(input => {
+            input.addEventListener('input', () => {
+                calculateTimes();
+                saveData();
+            });
+        });
+
+        calculateTimes();
+        saveData();
+    }
+
+    function removePattern(button) {
+        if (document.querySelectorAll('.pattern').length > 1) {
+            button.closest('.pattern').remove();
+            calculateTimes();
+            saveData();
+        } else {
+            alert('You must keep at least one usage pattern.');
+        }
+    }
+
+    function calculateTimes() {
+        let capacity = Number(document.getElementById('capacity').value);
+        const capacityUnit = document.getElementById('capacity-unit').value;
+        const voltage = Number(document.getElementById('voltage').value);
+        const inputPower = Number(document.getElementById('input-power').value);
+        const efficiency = Number(document.getElementById('efficiency').value);
+
+        // Convert Ah to Wh if necessary
+        if (capacityUnit === 'Ah') {
+            capacity = capacity * voltage;
+        }
+
+        // Calculate effective charging power (considering efficiency)
+        const effectiveChargingPower = inputPower * (efficiency / 100);
+
+        // Calculate total power consumption per hour
+        let totalPowerConsumptionPerDuration = 0;
+        let totalPowerConsumptionPerHour = 0;
+        document.querySelectorAll('.pattern').forEach(pattern => {
+            const power = Number(pattern.querySelector('.power-draw').value);
+            const duration = Number(pattern.querySelector('.duration').value);
+            totalPowerConsumptionPerDuration += (power * duration) / 60; // This calculation is for the total power consumption for the entire duration. At this point of the project, it is not useful at all.
+            totalPowerConsumptionPerHour += power; // This is per hour.
+        });
+
+        // Calculate net power per hour (charging - consumption)
+        const netPowerPerHour = effectiveChargingPower - totalPowerConsumptionPerHour;
+        // console.log(`netPowerPerHour: ${netPowerPerHour}`);
+        // console.log(`effectiveChargingPower: ${effectiveChargingPower}`);
+        // console.log(`totalPowerConsumptionPerHour: ${totalPowerConsumptionPerHour}`);
+
+        // Update results based on net power
+        if (netPowerPerHour > 0) {
+            // Battery will eventually charge fully
+            const timeToFullCharge = capacity / netPowerPerHour;
+            // const dischargeTime = capacity / totalPowerConsumptionPerHour;
+            const dischargeTime = capacity / Math.abs(netPowerPerHour);
+
+            document.getElementById('battery-status').innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check-big"><path d="M21.801 10A10 10 0 1 1 17 3.335"/><path d="m9 11 3 3L22 4"/></svg> Battery Will Charge';
+            document.getElementById('charge-time').textContent =
+                `Time to full charge: ${timeToFullCharge.toFixed(2)} hours`;
+            document.getElementById('discharge-time').textContent =
+                `Time to discharge from full: ${dischargeTime.toFixed(2)} hours`;
+            document.getElementById('net-status').textContent =
+                `Net charging rate: ${netPowerPerHour.toFixed(2)} Wh per hour`;
+        } else {
+            // Battery will eventually drain
+            const timeToEmpty = capacity / Math.abs(netPowerPerHour);
+
+            document.getElementById('battery-status').innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-alert"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg> Battery Will Drain';
+            document.getElementById('charge-time').textContent =
+                `Cannot reach full charge with current usage`;
+            document.getElementById('discharge-time').textContent =
+                `Time until empty: ${timeToEmpty.toFixed(2)} hours`;
+            document.getElementById('net-status').textContent =
+                `Net drain rate: ${Math.abs(netPowerPerHour).toFixed(2)} Wh per hour`;
+        }
+    }
+
+    // Add event listeners to all inputs
+    document.querySelectorAll('input, select').forEach(input => {
+        input.addEventListener('input', () => {
+            calculateTimes();
+            saveData();
+        });
+    });
+
+    // Initial load
+    loadSavedData();
+    calculateTimes();
+</script>
