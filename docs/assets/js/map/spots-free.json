@@ -5,6 +5,141 @@
     },
     {
       "id": "",
+      "latitude": 31.038960963650368,
+      "longitude": -114.8251162621945,
+      "name": "Campo Turistico # 1",
+      "notes": "<p>Paid. Good restaurant. Good sunrise. Easy access to San Felipe by any mode of transportation, including walking.</p>",
+      "url": ["https://maps.app.goo.gl/TSwkA8o11noxCp3S9"],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 30.3497848615767,
+      "longitude": -114.64051599851867,
+      "name": "Puertocitos",
+      "notes": "<p>Paid</p>",
+      "url": [""],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 30.031307398156567,
+      "longitude": -114.57511057258436,
+      "name": "Next to highway",
+      "notes": "<p>No signal. Be careful of soft sand.<br>Good spot with direct access to beach, but visible from highway. Very nice view of the mountains. Very nice view of the beach. Nice waves. 20250122.</p>",
+      "url": [""],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 27.98355945982496,
+      "longitude": -114.0145039477142,
+      "name": "Guerrero Negro Campground",
+      "notes": "<p>Nice paid camground with toilets and showers.</p><p>Beware that electric outlets don't all work.</p>",
+      "url": ["https://maps.app.goo.gl/K8SA2YuPGuNhyKj5A"],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 28.93098109338932,
+      "longitude": -113.547742716576,
+      "name": "Cactus forest",
+      "notes": "<p>No signal. Difficult road for low clearance but doable. Otherwise nice and peaceful.</p><p>Very early sunset because of the mountain; important consideration during winter when daylight is shorter.</p>",
+      "url": [],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 27.496027465439106,
+      "longitude": -113.30902804878998,
+      "name": "Cactus forest",
+      "notes": "<p>No signal. Lots of cactuses. Careful where you step. Very nice, peaceful and secluded.</p>",
+      "url": [],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 27.160383251826584,
+      "longitude": -112.1404502550755,
+      "name": "East of San Bruno",
+      "notes": "<p>Signal comes and goes. It's very good when it's there, but the connection can drop at any moment, so it is unreliable for meetings. Beautiful place. Locals drive by to go wherever they go, but they don't stop.</p><p>The road is kind of long and annoying to drive through, so stay for a while if you come back.</p>",
+      "url": [],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 26.761238259741194,
+      "longitude": -111.87827211087216,
+      "name": "Playa Piedrita",
+      "notes": "<p>Paid 200 pesos. No signal. One toilet that flushes using the water in the bin in front of it. Beautiful sunrise. Less people and more quiet than playa Santispac.</p>",
+      "url": [],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 26.636487769362493,
+      "longitude": -111.82916954310927,
+      "name": "Playa el Requeson",
+      "notes": "<p>Paid (200?). No signal. Multiple toilets. Nice views all around.</p>",
+      "url": [],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 26.588126614720608,
+      "longitude": -111.78787340143943,
+      "name": "South of Bahia Concepcion",
+      "notes": "<p>No signal, many dolphins pass by every few days. Unseen from the road and from other campers in the area, though they make walk by during their walk.</p><p>Rocks are nice for not getting sand inside.</p>",
+      "url": [],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 26.049583490854957,
+      "longitude": -111.3291804885598,
+      "name": "North of Loreto",
+      "notes": "<p>Signal is nice when it's there 80 90% of the time. Rocky and sandy terrain to get there. Rocky beach with a 100% chance of getting stuck, especially when getting out. Good views.</p>",
+      "url": [],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 24.128657512793726,
+      "longitude": -110.41741576552133,
+      "name": "El Comitán",
+      "notes": "<p>Lots of people, especially locals on weekends with loud mouths and music.</p><p>Campers are there too and they come and go.</p>",
+      "url": [],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 24.33957400602393,
+      "longitude": -110.30504871477548,
+      "name": "Playa El Tecolote (or Playa Ronquillo?)",
+      "notes": "<p>Sometimes, I've been lucky with signal, but assume there isn't any.</p><p>Nice spot on the edge of the beach where almost nobody camps. However, people do pass by to go to the other side of the mountain back and forth.</p>",
+      "url": [],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 24.128949282168872,
+      "longitude": -109.99814768244582,
+      "name": "North of La Ventana",
+      "notes": "<p>Strangely, cell signal only between sunrise and sunset.</p><p>Multiple spots for multiple rigs.</p>",
+      "url": [],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 24.128193171397438,
+      "longitude": -109.99812554680736,
+      "name": "North of La Ventana",
+      "notes": "<p>Moved after a few vehicles showed up at the other spot.</p><p>20250309<br>Signal<br>64 4 with networkQuality<br>83 4 with mlab</p>",
+      "url": [],
+      "visible": 1
+    },
+    {
+      "id": "",
       "latitude": 34.71345386285161,
       "longitude": -114.4364348345622,
       "name": "North of Lake Havasu City",
@@ -2993,6 +3128,24 @@
   "places": [
     {
       "markerPath": "/assets/images/map-icons/marker-icon-place.svg"
+    },
+    {
+      "id": "",
+      "latitude": 28.97122108995546,
+      "longitude": -113.54731241370754,
+      "name": "Siete Filos café",
+      "notes": "Nice coffee shop and restaurant for eating, working, charging power station, toilet and shower. It's also a campground for 11 USD.",
+      "url": "https://maps.app.goo.gl/FxbvZ4fRtYsuT3FC8",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 26.733136995682127,
+      "longitude": -111.90721183101721,
+      "name": "Nomadico",
+      "notes": "Good café and restaurant for eating and working, with wifi and toilet.",
+      "url": "https://maps.app.goo.gl/QcdPfhWDeEe3suBV6",
+      "visible": 1
     },
     {
       "id": "",
