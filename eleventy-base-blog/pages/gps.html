@@ -75,8 +75,6 @@ title: GPS mapper
 </div>
 <div id="map"></div>
 
-
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.css" />
 <script src="{{ '/assets/js/map/SmoothWheelZoom.js' | url }}"></script>
@@ -760,7 +758,7 @@ title: GPS mapper
         heatmapLayer = L.heatLayer(heatPoints, {
             radius: radius,
             blur: blur,
-            maxZoom: 20,
+            maxZoom: 10,
             gradient: {
                 0.4: 'blue',
                 0.6: 'lime',
