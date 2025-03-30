@@ -1630,15 +1630,6 @@
     },
     {
       "id": "",
-      "name": "128 D3 | Apache Trail Dispersed 9",
-      "notes": "<p>Dispersed sites, No water, Vault/pit toilet, Tent & RV camping: Free, Stay limit: 14 days, Reservations not accepted, Elev: 1957ft/596m, Nearest town: Apache Junction. GPS: 33.451604, -111.498285</p>",
-      "latitude": 33.451604,
-      "longitude": -111.498285,
-      "url": "",
-      "visible": 1
-    },
-    {
-      "id": "",
       "name": "130. D3 | Brandenburg Dispersed",
       "notes": "<p>Dispersed sites, No water, Vault/pit toilet, Tent & RV camping: Free, Reservations not accepted, Elev: 2685ft/818m, Nearest town: Dudleyville. GPS: 32.871796, -110.598344</p>",
       "latitude": 32.871796,
@@ -2821,6 +2812,26 @@
 
   ],
   "potential-spots": [
+    {
+      "id": "",
+      "latitude": 35.40832527315106,
+      "longitude": -95.98096178499169,
+      "name": "Nichols Park",
+      "notes": "<p>Gates open 5-22. Good signal. 5 spots.</p>",
+      "url": "https://ioverlander.com/places/281187-nichols-park",
+      "url-2": "https://ioverlander.com/places/75018-nichols-park",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 38.509873,
+      "longitude": -94.674381,
+      "name": "Louisburg Middle Creek Lake",
+      "notes": "<p>Signal 3 bars, 10 spots. People come to fish. Overall nice.</p>",
+      "url": "https://ioverlander.com/places/153032-louisburg-middle-creek-lake",
+      "url-2": "https://ksoutdoors.com/KDWP-Info/Locations/State-Fishing-Lakes/Northeast-Region/Louisburg-Middle-Creek",
+      "visible": 1
+    },
     {
       "id": "",
       "latitude": 32.84369399108049,

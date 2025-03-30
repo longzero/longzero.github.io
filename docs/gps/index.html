@@ -61,7 +61,7 @@
       
 <style>
     * {box-sizing: border-box;}
-    #map { max-height: 70vh; height: 1000px; }
+    #map { max-height: 90vh; height: 1000px; }
     #dropZone {
         border: 2px dashed #ccc;
         border-radius: 20px;
@@ -128,6 +128,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.css" />
+<script src="/assets/js/map/SmoothWheelZoom.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.heat/0.2.0/leaflet-heat.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.Default.min.css" />
@@ -150,7 +151,14 @@
     const dropZone = document.getElementById('dropZone');
     const fileInput = document.getElementById('fileInput');
     const jsonSelector = document.getElementById('jsonSelector');
-    const map = L.map('map');
+    const map = L.map('map', {
+      maxZoom: 20,
+      // https://github.com/mutsuyuki/Leaflet.SmoothWheelZoom
+      scrollWheelZoom: false, // disable original zoom function
+      smoothWheelZoom: true,  // enable smooth zoom
+      smoothSensitivity: 8,   // zoom speed. default is 1
+      // END https://github.com/mutsuyuki/Leaflet.SmoothWheelZoom
+    });
 
     // Date filter elements
     const startDateInput = document.getElementById('startDate');
@@ -669,7 +677,7 @@
             heatmapLayer = L.heatLayer(heatPoints, {
                 radius: 6,
                 blur: 9,
-                maxZoom: 19,
+                maxZoom: 20,
                 gradient: {
                     0.4: 'blue',
                     0.6: 'lime',
