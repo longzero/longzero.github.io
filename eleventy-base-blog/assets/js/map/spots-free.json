@@ -2814,6 +2814,26 @@
   "potential-spots": [
     {
       "id": "",
+      "latitude": 35.40832527315106,
+      "longitude": -95.98096178499169,
+      "name": "Nichols Park",
+      "notes": "<p>Gates open 5-22. Good signal. 5 spots.</p>",
+      "url": "https://ioverlander.com/places/281187-nichols-park",
+      "url-2": "https://ioverlander.com/places/75018-nichols-park",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 38.509873,
+      "longitude": -94.674381,
+      "name": "Louisburg Middle Creek Lake",
+      "notes": "<p>Signal 3 bars, 10 spots. People come to fish. Overall nice.</p>",
+      "url": "https://ioverlander.com/places/153032-louisburg-middle-creek-lake",
+      "url-2": "https://ksoutdoors.com/KDWP-Info/Locations/State-Fishing-Lakes/Northeast-Region/Louisburg-Middle-Creek",
+      "visible": 1
+    },
+    {
+      "id": "",
       "latitude": 32.84369399108049,
       "longitude": -112.32057581023882,
       "name": "Lost Horse Tank Dispersed",
