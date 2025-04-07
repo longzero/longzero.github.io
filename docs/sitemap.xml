@@ -462,6 +462,11 @@
   </url>
   
   <url>
+    <loc>https://longzero.com/clock/</loc>
+    <lastmod>2024-10-27</lastmod>
+  </url>
+  
+  <url>
     <loc>https://longzero.com/coverage/</loc>
     <lastmod>2024-10-27</lastmod>
   </url>
@@ -488,11 +493,6 @@
   
   <url>
     <loc>https://longzero.com/spots/</loc>
-    <lastmod>2024-10-27</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://longzero.com/time/</loc>
     <lastmod>2024-10-27</lastmod>
   </url>
   
@@ -979,5 +979,10 @@
   <url>
     <loc>https://longzero.com/bateria-ai/</loc>
     <lastmod>2025-02-13</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://longzero.com/time-tracker/</loc>
+    <lastmod>2025-04-07</lastmod>
   </url>
 </urlset>

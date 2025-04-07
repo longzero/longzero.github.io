@@ -1,0 +1,880 @@
+---
+layout: layouts/blank.njk
+# description: Time tracker
+permalink: /time-tracker/
+# title: Time tracker
+# eleventyNavigation:
+#   key: Time tracker
+#   order: 3
+---
+
+  <div class="container">
+    <h1>Time Tracker</h1>
+
+    <div class="card">
+      <div id="activeTracking" class="tracking-status">
+        Not currently tracking any task
+      </div>
+
+      <div class="actions">
+        <button id="startTracking">Start Tracking</button>
+        <button id="endTracking" class="warning" disabled>End Tracking</button>
+        <button id="exportCsv">Export to CSV</button>
+        <button id="importCsv">Import from CSV</button>
+        <input type="file" id="csvFile" accept=".csv" style="display: none;">
+      </div>
+
+      <div id="alertContainer"></div>
+
+      <div id="startTrackingForm" style="display: none;">
+        <div class="form-group">
+          <label for="description">Task Description:</label>
+          <input type="text" id="description" placeholder="What are you working on?">
+        </div>
+
+        <div class="form-group">
+          <label for="project">Project:</label>
+          <input type="text" id="project" placeholder="Project name">
+        </div>
+
+        <div class="form-group">
+          <label for="client">Client:</label>
+          <input type="text" id="client" value="Globalia">
+        </div>
+
+        <div class="form-group">
+          <label for="tags">Tags (comma separated):</label>
+          <input type="text" id="tags" placeholder="e.g. coding, meeting, research">
+        </div>
+
+        <div class="form-group">
+          <label for="billable">Billable:</label>
+          <select id="billable">
+            <option value="No">No</option>
+            <option value="Yes">Yes</option>
+          </select>
+        </div>
+
+        <button id="confirmStart">Start</button>
+        <button id="cancelStart" class="danger">Cancel</button>
+      </div>
+    </div>
+
+    <div class="card" id="summaryCard">
+      <h2>Time Tracking Summary</h2>
+
+      <div class="tab-container">
+        <div class="tab active" data-period="today">Today</div>
+        <div class="tab" data-period="yesterday">Yesterday</div>
+        <div class="tab" data-period="week">This Week</div>
+        <div class="tab" data-period="last-week">Last Week</div>
+        <div class="tab" data-period="month">This Month</div>
+        <div class="tab" data-period="year">This Year</div>
+      </div>
+
+      <div id="summaryContent"></div>
+    </div>
+  </div>
+
+  <div id="notification" class="notification"></div>
+
+  <script>
+    // Configuration
+    const CONFIG = {
+      DEFAULT_USER: "long@longzero.com",
+      DEFAULT_EMAIL: "long@longzero.com",
+      DEFAULT_CLIENT: "Globalia",
+      DEFAULT_BILLABLE: "Yes",
+      NOTIFICATION_INTERVAL: 15 * 60 * 1000, // 15 minutes in milliseconds
+      STORAGE_KEY: "time-tracking-data",
+      CURRENT_SESSION_KEY: "time-tracking-current-session"
+    };
+
+    // Word lists for generating passphrases
+    const ADJECTIVES = ["swift", "lazy", "bright", "dark", "epic", "calm", "bold", "wise", "quiet", "loud"];
+    const NOUNS = ["fox", "bird", "wolf", "bear", "owl", "hawk", "lion", "deer", "tiger", "eagle"];
+    const VERBS = ["jumps", "runs", "flies", "sleeps", "hunts", "walks", "swims", "dances", "climbs", "sings"];
+
+    const exportCsvBtn = document.getElementById('exportCsv');
+    const importCsvBtn = document.getElementById('importCsv');
+    const csvFileEl = document.getElementById('csvFile');
+
+    // State management
+    let notificationTimer = null;
+    let currentSession = null;
+    let trackingData = [];
+
+    // DOM Elements
+    const activeTrackingEl = document.getElementById('activeTracking');
+    const startTrackingBtn = document.getElementById('startTracking');
+    const endTrackingBtn = document.getElementById('endTracking');
+    // const showSummaryBtn = document.getElementById('showSummary');
+    const startTrackingForm = document.getElementById('startTrackingForm');
+    const confirmStartBtn = document.getElementById('confirmStart');
+    const cancelStartBtn = document.getElementById('cancelStart');
+    const summaryCard = document.getElementById('summaryCard');
+    const summaryContent = document.getElementById('summaryContent');
+    const alertContainer = document.getElementById('alertContainer');
+    const notificationEl = document.getElementById('notification');
+
+    // Helper Functions
+    function generatePassphrase() {
+      const adj = ADJECTIVES[Math.floor(Math.random() * ADJECTIVES.length)];
+      const noun = NOUNS[Math.floor(Math.random() * NOUNS.length)];
+      const verb = VERBS[Math.floor(Math.random() * VERBS.length)];
+      return `${adj}-${noun}-${verb}`;
+    }
+
+    function formatDateTime(date) {
+      return {
+        date: date.toISOString().split('T')[0],
+        time: date.toTimeString().split(' ')[0]
+      };
+    }
+
+    function calculateDuration(startDate, startTime, endDate, endTime) {
+      const start = new Date(`${startDate}T${startTime}`);
+      const end = new Date(`${endDate}T${endTime}`);
+
+      const durationInSeconds = Math.floor((end - start) / 1000);
+      return formatTimeFromSeconds(durationInSeconds);
+    }
+
+    function formatTimeFromSeconds(totalSeconds) {
+      const hours = Math.floor(totalSeconds / 3600);
+      const minutes = Math.floor((totalSeconds % 3600) / 60);
+      const seconds = totalSeconds % 60;
+
+      return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+    }
+
+    function secondsFromDuration(duration) {
+      const [hours, minutes, seconds] = duration.split(':').map(Number);
+      return hours * 3600 + minutes * 60 + seconds;
+    }
+
+    function calculateTotalDuration(durations) {
+      let totalSeconds = 0;
+      durations.forEach(duration => {
+        totalSeconds += secondsFromDuration(duration);
+      });
+
+      return formatTimeFromSeconds(totalSeconds);
+    }
+
+    function showAlert(message, type = 'success') {
+      const alert = document.createElement('div');
+      alert.className = `alert ${type}`;
+      alert.textContent = message;
+
+      alertContainer.appendChild(alert);
+
+      setTimeout(() => {
+        alert.remove();
+      }, 5000);
+    }
+
+    function showNotification(message) {
+      notificationEl.textContent = message;
+      notificationEl.classList.add('show');
+
+      setTimeout(() => {
+        notificationEl.classList.remove('show');
+      }, 5000);
+    }
+
+    function updateTrackingStatus() {
+      if (currentSession) {
+        const now = new Date();
+        const start = new Date(`${currentSession.startDate}T${currentSession.startTime}`);
+        const elapsedSeconds = Math.floor((now - start) / 1000);
+        const duration = formatTimeFromSeconds(elapsedSeconds);
+
+        activeTrackingEl.textContent = `Currently tracking: ${currentSession.description} (Duration: ${duration})`;
+        document.title = `[${duration}] ${currentSession.description} - Time Tracker`;
+      } else {
+        activeTrackingEl.textContent = 'Not currently tracking any task';
+        document.title = 'Time Tracker';
+      }
+
+      updateExportImportButtons();
+    }
+
+    function startNotificationTimer() {
+      if (notificationTimer) {
+        clearInterval(notificationTimer);
+      }
+
+      notificationTimer = setInterval(() => {
+        if (currentSession) {
+          const now = new Date();
+          const start = new Date(`${currentSession.startDate}T${currentSession.startTime}`);
+          const elapsedSeconds = Math.floor((now - start) / 1000);
+          const duration = formatTimeFromSeconds(elapsedSeconds);
+
+          showNotification(`Still tracking: ${currentSession.description} (Duration: ${duration})`);
+        }
+      }, CONFIG.NOTIFICATION_INTERVAL);
+    }
+
+    function stopNotificationTimer() {
+      if (notificationTimer) {
+        clearInterval(notificationTimer);
+        notificationTimer = null;
+      }
+    }
+
+    function exportToCsv() {
+      if (trackingData.length === 0) {
+        showAlert("No data to export.", "warning");
+        return;
+      }
+
+      const headers = Object.keys(trackingData[0]).join(',');
+      const csvRows = [
+        headers,
+        ...trackingData.map(entry => Object.values(entry).map(value => `"${value}"`).join(','))
+      ];
+      const csvString = csvRows.join('\n');
+
+      const blob = new Blob([csvString], { type: 'text/csv' });
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.style.display = 'none'; // Hide the anchor element
+      a.setAttribute('href', url);
+      a.setAttribute('download', 'time_tracking_data.csv');
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      window.URL.revokeObjectURL(url);
+    }
+
+    function importFromCsv(file) {
+      const reader = new FileReader();
+
+      reader.onload = function(event) {
+        const csvString = event.target.result;
+        const lines = csvString.split('\n');
+        if (lines.length < 2) {
+          showAlert("Invalid CSV format.", "error");
+          return;
+        }
+
+        const headers = lines[0].split(',').map(header => header.replace(/"/g, '')); // Remove quotes
+        const newData = [];
+
+        for (let i = 1; i < lines.length; i++) {
+          const values = lines[i].split(',').map(value => value.replace(/"/g, '')); // Remove quotes
+          if (values.length === headers.length) {
+            const entry = headers.reduce((obj, header, index) => {
+              obj[header] = values[index] || '';
+              return obj;
+            }, {});
+            newData.push(entry);
+          }
+        }
+        trackingData = newData; // Overwrite existing data
+        localStorage.setItem(CONFIG.STORAGE_KEY, JSON.stringify(trackingData));
+        showAlert("Data imported successfully!", "success");
+        displaySummary(document.querySelector('.tab.active').getAttribute('data-period')); // Refresh summary
+      };
+
+      reader.readAsText(file);
+    }
+
+
+    // Main Functions
+    function startTracking(description, project, client, tags, billable) {
+      if (currentSession) {
+        showAlert('Previous tracking session still in progress. Please end it first.', 'error');
+        return;
+      }
+
+      const now = new Date();
+      const { date: startDate, time: startTime } = formatDateTime(now);
+
+      // Generate task from first word of description
+      const task = description.split(' ')[0];
+
+      currentSession = {
+        user: CONFIG.DEFAULT_USER,
+        email: CONFIG.DEFAULT_EMAIL,
+        client: client || CONFIG.DEFAULT_CLIENT,
+        project: project || '',
+        task,
+        description,
+        billable: billable || CONFIG.DEFAULT_BILLABLE,
+        startDate,
+        startTime,
+        endDate: '',
+        endTime: '',
+        duration: '',
+        tags: tags || ''
+      };
+
+      localStorage.setItem(CONFIG.CURRENT_SESSION_KEY, JSON.stringify(currentSession));
+
+      startNotificationTimer();
+      updateTrackingStatus();
+
+      endTrackingBtn.disabled = false;
+      showAlert(`Started tracking: ${description}`);
+    }
+
+    function endTracking() {
+      if (!currentSession) {
+        showAlert('No tracking session in progress.', 'error');
+        return;
+      }
+
+      stopNotificationTimer();
+
+      const now = new Date();
+      const { date: endDate, time: endTime } = formatDateTime(now);
+
+      currentSession.endDate = endDate;
+      currentSession.endTime = endTime;
+      currentSession.duration = calculateDuration(
+        currentSession.startDate,
+        currentSession.startTime,
+        endDate,
+        endTime
+      );
+
+      // Add to tracking data
+      trackingData.push({...currentSession});
+      localStorage.setItem(CONFIG.STORAGE_KEY, JSON.stringify(trackingData));
+
+      showAlert(`Tracking ended. Duration: ${currentSession.duration}`);
+
+      // Clean up current session
+      localStorage.removeItem(CONFIG.CURRENT_SESSION_KEY);
+      currentSession = null;
+
+      updateTrackingStatus();
+      endTrackingBtn.disabled = true;
+    }
+
+    function displaySummary(period = 'today') {
+      const now = new Date();
+      const today = now.toISOString().split('T')[0];
+
+      // Calculate date boundaries
+      const yesterday = new Date(now);
+      yesterday.setDate(yesterday.getDate() - 1);
+      const yesterdayStr = yesterday.toISOString().split('T')[0];
+
+      // Calculate week boundaries
+      const weekStart = new Date(now);
+      weekStart.setDate(weekStart.getDate() - weekStart.getDay() + (weekStart.getDay() === 0 ? -6 : 1)); // Monday
+      const weekStartStr = weekStart.toISOString().split('T')[0];
+
+      const lastWeekStart = new Date(weekStart);
+      lastWeekStart.setDate(lastWeekStart.getDate() - 7);
+      const lastWeekStartStr = lastWeekStart.toISOString().split('T')[0];
+
+      const lastWeekEnd = new Date(weekStart);
+      lastWeekEnd.setDate(lastWeekEnd.getDate() - 1);
+      const lastWeekEndStr = lastWeekEnd.toISOString().split('T')[0];
+
+      // Calculate month boundaries
+      const currentMonth = today.substring(0, 7); // YYYY-MM
+      const currentYear = today.substring(0, 4); // YYYY
+
+      // Filter data based on selected period
+      let filteredData = [];
+
+      switch (period) {
+        case 'today':
+          filteredData = trackingData.filter(entry => entry.startDate === today);
+          break;
+        case 'yesterday':
+          filteredData = trackingData.filter(entry => entry.startDate === yesterdayStr);
+          break;
+        case 'week':
+          filteredData = trackingData.filter(entry => entry.startDate >= weekStartStr);
+          break;
+        case 'last-week':
+          filteredData = trackingData.filter(entry =>
+            entry.startDate >= lastWeekStartStr && entry.startDate <= lastWeekEndStr
+          );
+          break;
+        case 'month':
+          filteredData = trackingData.filter(entry => entry.startDate.startsWith(currentMonth));
+          break;
+        case 'year':
+          filteredData = trackingData.filter(entry => entry.startDate.startsWith(currentYear));
+          break;
+        default:
+          filteredData = trackingData;
+      }
+
+      // Sort by date and time
+      filteredData.sort((a, b) => {
+        if (a.startDate === b.startDate) {
+          return a.startTime.localeCompare(b.startTime);
+        }
+        return a.startDate.localeCompare(b.startDate);
+      });
+
+      summaryContent.addEventListener('click', (event) => {   // Event listener for "Continue" button
+
+        // const continueButton = event.target.classList.contains('continue-tracking');
+        const continueButton = event.target.closest('.continue-tracking');
+
+        if (continueButton) {
+          const originalIndex = continueButton.getAttribute('data-original-index');
+          const entry = trackingData[parseInt(originalIndex, 10)]; // Access trackingData
+
+
+          if (entry) {// Prefill the form
+              document.getElementById('description').value = entry.description;
+              document.getElementById('project').value = entry.project;
+              document.getElementById('client').value = entry.client;
+              document.getElementById('tags').value = entry.tags;
+              document.getElementById('billable').value = entry.billable;
+
+              startTrackingForm.style.display = 'block';
+            }
+            else {
+              showAlert("Error: Could not find tracking entry.", "error");
+            }
+        }
+      });
+
+      // Generate summary HTML
+      let html = '';
+
+      const periodLabels = {
+        'today': "Today's Activities",
+        'yesterday': "Yesterday's Activities",
+        'week': "This Week's Activities",
+        'last-week': "Last Week's Activities",
+        'month': "This Month's Activities",
+        'year': "This Year's Activities"
+      };
+
+      html += `<h3>${periodLabels[period]}</h3>`;
+
+      if (filteredData.length === 0) {
+        html += '<p>No activities recorded for this period.</p>';
+      } else {
+        html += `
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th class="column-date">Date</th>
+                  <th class="column-time">Time</th>
+                  <th class="column-project">Project</th>
+                  <th class="column-description">Description</th>
+                  <th class="column-duration">Duration</th>
+                </tr>
+              </thead>
+              <tbody>
+        `;
+                  // <th class="column-client">Client</th>
+                  // <th class="column-tags">Tags</th>
+
+        let lastDate = '';
+        let durations = [];
+
+        filteredData.forEach(entry => {
+          // Add empty row between dates
+          if (lastDate !== '' && lastDate !== entry.startDate) {
+            html += '<tr><td colspan="7" style="height:10px;"></td></tr>';
+          }
+
+          durations.push(entry.duration);
+
+          // Truncate long text
+          // const description = entry.description.length > 30
+          //   ? entry.description.substring(0, 27) + '...'
+          //   : entry.description;
+
+          const tags = entry.tags.length > 20
+            ? entry.tags.substring(0, 17) + '...'
+            : entry.tags;
+
+          const originalIndex = trackingData.indexOf(entry);
+
+          html += `
+            <tr>
+              <td class="column-date">${entry.startDate}</td>
+              <td class="column-time">${entry.startTime}</td>
+              <td class="column-project">${entry.project || '-'}</td>
+              <td class="column-description">
+                <div>${entry.description || '-'}</div>
+                <button class="continue-tracking" data-original-index="${originalIndex}">Continue</button>
+              </td>
+              <td class="column-duration">${entry.duration}</td>
+            </tr>
+          `;
+              // <td class="column-client">${entry.client || '-'}</td>
+              // <td class="column-tags">${tags || '-'}</td>
+
+          lastDate = entry.startDate;
+        });
+
+        html += '</tbody></table></div>';
+
+        // Calculate total duration
+        const totalDuration = calculateTotalDuration(durations);
+        html += `<div class="total-time">Total duration: ${totalDuration}</div>`;
+      }
+
+      summaryContent.innerHTML = html;
+      summaryCard.style.display = 'block';
+    }
+
+    function updateExportImportButtons() {
+      const isTracking = !!currentSession; // Boolean: true if currentSession exists
+      exportCsvBtn.disabled = isTracking;
+      importCsvBtn.disabled = isTracking;
+
+      if (isTracking) {
+        exportCsvBtn.title = "Cannot export while tracking is active";
+        importCsvBtn.title = "Cannot import while tracking is active";
+      } else {
+        exportCsvBtn.title = ""; // Clear the title
+        importCsvBtn.title = "";
+      }
+    }
+
+    // Initialize the application
+    function initApp() {
+      // Load tracking data from localStorage
+      const storedData = localStorage.getItem(CONFIG.STORAGE_KEY);
+      if (storedData) {
+        trackingData = JSON.parse(storedData);
+      }
+
+      // Check for active session
+      const storedSession = localStorage.getItem(CONFIG.CURRENT_SESSION_KEY);
+      if (storedSession) {
+        currentSession = JSON.parse(storedSession);
+        endTrackingBtn.disabled = false;
+        startNotificationTimer();
+      }
+
+      // Set up status update timer
+      setInterval(updateTrackingStatus, 1000);
+      updateTrackingStatus();
+
+      // Set up event listeners
+      startTrackingBtn.addEventListener('click', () => {
+        startTrackingForm.style.display = 'block';
+
+        // Pre-fill with random passphrase if description is empty
+        if (!document.getElementById('description').value) {
+          document.getElementById('description').value = generatePassphrase();
+        }
+      });
+
+      endTrackingBtn.addEventListener('click', endTracking);
+
+      confirmStartBtn.addEventListener('click', () => {
+        const description = document.getElementById('description').value || generatePassphrase();
+        const project = document.getElementById('project').value;
+        const client = document.getElementById('client').value;
+        const tags = document.getElementById('tags').value;
+        const billable = document.getElementById('billable').value;
+
+        startTracking(description, project, client, tags, billable);
+        startTrackingForm.style.display = 'none';
+      });
+
+      cancelStartBtn.addEventListener('click', () => {
+        startTrackingForm.style.display = 'none';
+      });
+
+      // showSummaryBtn.addEventListener('click', () => {
+      //   displaySummary('today');
+      // });
+      displaySummary('week'); // today, yesterday, week, last-week, month, year
+
+      // Tab handling for summary periods
+      document.querySelectorAll('.tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+          document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+
+          const period = tab.getAttribute('data-period');
+          displaySummary(period);
+        });
+      });
+
+      // Initialize with default values
+      document.getElementById('client').value = CONFIG.DEFAULT_CLIENT;
+      document.getElementById('billable').value = CONFIG.DEFAULT_BILLABLE;
+
+      // Setup Export/Import Listeners
+      exportCsvBtn.addEventListener('click', exportToCsv);
+
+      importCsvBtn.addEventListener('click', () => {
+        csvFileEl.click(); // Programmatically click the file input
+      });
+
+      csvFileEl.addEventListener('change', (event) => {
+        importFromCsv(event.target.files[0]);
+      });
+
+      updateExportImportButtons();
+    }
+
+    // Start the app when DOM is loaded
+    document.addEventListener('DOMContentLoaded', initApp);
+
+    // Handle visibility change to update status when tab becomes visible again
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden) {
+        updateTrackingStatus();
+      }
+    });
+
+    // Handle page unload to save current data
+    window.addEventListener('beforeunload', () => {
+      if (currentSession) {
+        localStorage.setItem(CONFIG.CURRENT_SESSION_KEY, JSON.stringify(currentSession));
+      }
+
+      localStorage.setItem(CONFIG.STORAGE_KEY, JSON.stringify(trackingData));
+    });
+  </script>
+
+
+  <style>
+    :root {
+      --primary-color: #4CAF50;
+      --secondary-color: #2196F3;
+      --error-color: #F44336;
+      --warning-color: #FFC107;
+      --text-color: #333;
+      --border-color: #ddd;
+      --bg-color: #f9f9f9;
+      --card-bg: white;
+
+      font-size: 10px;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 1.6rem;
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: var(--bg-color);
+      padding: 20px;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    h1, h2, h3 {
+      color: var(--text-color);
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .column-date, .column-description, .column-duration, .column-time {white-space: nowrap;}
+    .column-description {max-width: 380px;}
+    .column-description div {overflow: hidden; text-overflow: ellipsis; width: 100%;}
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: var(--primary-color);
+      color: white;
+      cursor: pointer;
+      border: none;
+      padding: 10px 15px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1.4rem;
+      transition: background-color 0.3s;
+    }
+
+    button[disabled] {cursor: not-allowed; opacity: .4;}
+
+    button:hover {
+      background-color: #388E3C;
+    }
+
+    button.secondary {
+      background-color: var(--secondary-color);
+    }
+
+    button.secondary:hover {
+      background-color: #0b7dda;
+    }
+
+    button.warning {
+      background-color: var(--warning-color);
+      color: #333;
+    }
+
+    button.danger {
+      background-color: var(--error-color);
+    }
+
+    .alert {
+      padding: 15px;
+      border-radius: 4px;
+      margin-bottom: 15px;
+    }
+
+    .alert.success {
+      background-color: rgba(76, 175, 80, 0.1);
+      border-left: 4px solid var(--primary-color);
+      color: #388E3C;
+    }
+
+    .alert.error {
+      background-color: rgba(244, 67, 54, 0.1);
+      border-left: 4px solid var(--error-color);
+      color: #d32f2f;
+    }
+
+    .alert.warning {
+      background-color: rgba(255, 193, 7, 0.1);
+      border-left: 4px solid var(--warning-color);
+      color: #f57c00;
+    }
+
+    .tracking-status {
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .table-wrapper {max-width: 100%; overflow-x: auto;}
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+      overflow-x: auto;
+    }
+
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    th {
+      background-color: var(--secondary-color);
+      color: white;
+      font-size: 1.4rem;
+      position: sticky;
+      top: 0;
+    }
+
+    tr:nth-child(even) {
+      background-color: rgba(0, 0, 0, 0.02);
+    }
+
+    .tab-container {
+      display: flex;
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 20px;
+    }
+
+    .tab {
+      padding: 10px 20px;
+      cursor: pointer;
+      border: 1px solid transparent;
+      border-bottom: none;
+      margin-right: 5px;
+      border-radius: 4px 4px 0 0;
+    }
+
+    .tab.active {
+      background-color: white;
+      border-color: var(--border-color);
+      color: var(--primary-color);
+      font-weight: bold;
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .summary-period {
+      margin-bottom: 10px;
+    }
+
+    .total-time {
+      font-weight: bold;
+      margin-top: 10px;
+      font-size: 1.6rem;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .notification {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: var(--primary-color);
+      color: white;
+      padding: 15px 20px;
+      border-radius: 4px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      z-index: 1000;
+      transition: transform 0.3s, opacity 0.3s;
+      transform: translateY(100px);
+      opacity: 0;
+    }
+
+    .notification.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    @media (max-width: 768px) {
+      .card {
+        padding: 15px;
+      }
+
+      button {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+    }
+  </style>
