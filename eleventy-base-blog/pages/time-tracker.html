@@ -6,7 +6,18 @@ permalink: /time-tracker/
 # eleventyNavigation:
 #   key: Time tracker
 #   order: 3
+
+# This code requires a CSV file with the following headings:
+# user,email,client,project,task,description,billable,startDate,startTime,endDate,endTime,duration,tags
+
+# It is technically the same columns as the detailed export file from toggl, but not the same headings.
+# "User","Email","Client","Project","Task","Description","Billable","Start date","Start time","End date","End time","Duration","Tags"
 ---
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.43/moment-timezone-with-data-10-year-range.min.js"></script>
+
 
   <div class="container">
     <h1>Time Tracker</h1>
@@ -22,6 +33,15 @@ permalink: /time-tracker/
         <button id="exportCsv">Export to CSV</button>
         <button id="importCsv">Import from CSV</button>
         <input type="file" id="csvFile" accept=".csv" style="display: none;">
+        <button id="openSettings">Settings</button>
+      </div>
+
+      <div id="settingsModal" style="display: none;">
+        <h2>Timezone Settings</h2>
+        <label for="timezoneSelect">Select Timezone:</label>
+        <select id="timezoneSelect"></select>
+        <button id="saveTimezone">Save</button>
+        <button id="closeSettings">Close</button>
       </div>
 
       <div id="alertContainer"></div>
@@ -87,8 +107,67 @@ permalink: /time-tracker/
       DEFAULT_BILLABLE: "Yes",
       NOTIFICATION_INTERVAL: 15 * 60 * 1000, // 15 minutes in milliseconds
       STORAGE_KEY: "time-tracking-data",
-      CURRENT_SESSION_KEY: "time-tracking-current-session"
+      CURRENT_SESSION_KEY: "time-tracking-current-session",
+      DEFAULT_TIMEZONE: "UTC", // Fallback default
+      USER_TIMEZONE_KEY: "user-timezone" // Key for localStorage
     };
+
+    let userTimezone = localStorage.getItem(CONFIG.USER_TIMEZONE_KEY) || moment.tz.guess() || CONFIG.DEFAULT_TIMEZONE;
+
+    const timezoneSelect = document.getElementById('timezoneSelect');
+    const saveTimezoneBtn = document.getElementById('saveTimezone');
+    const settingsModal = document.getElementById('settingsModal');
+    const openSettingsBtn = document.getElementById('openSettings');
+    const closeSettingsBtn = document.getElementById('closeSettings');
+
+    function populateTimezoneSelector() {
+      const timezones = moment.tz.names();
+      timezones.forEach(tz => {
+        const option = document.createElement('option');
+        option.value = tz;
+        option.text = tz;
+        if (tz === userTimezone) {
+          option.selected = true;
+        }
+        timezoneSelect.add(option);
+      });
+    }
+
+    saveTimezoneBtn.addEventListener('click', () => {
+      userTimezone = timezoneSelect.value;
+      localStorage.setItem(CONFIG.USER_TIMEZONE_KEY, userTimezone);
+      showAlert(`Timezone set to ${userTimezone}`, 'success');
+      updateUIWithTimezone(); // Update displayed times
+      settingsModal.style.display = 'none';
+    });
+
+    openSettingsBtn.addEventListener('click', () => {
+      settingsModal.style.display = 'block';
+    });
+
+    closeSettingsBtn.addEventListener('click', () => {
+      settingsModal.style.display = 'none';
+    });
+
+    function formatDateTimeWithTimezone(date, format = 'YYYY-MM-DD HH:mm:ss') {
+      return moment.tz(date, userTimezone).format(format);
+    }
+
+    function updateUIWithTimezone() {
+      // Update all displayed dates and times in the UI
+      // You'll need to adapt this to your specific UI elements
+      document.querySelectorAll('.time-display').forEach(el => {
+        const originalDate = el.getAttribute('data-original-date');
+        if (originalDate) {
+          el.textContent = formatDateTimeWithTimezone(originalDate);
+        }
+      });
+      displaySummary(document.querySelector('.tab.active').getAttribute('data-period'));
+      updateTrackingStatus();
+    }
+
+
+
 
     // Word lists for generating passphrases
     const ADJECTIVES = ["swift", "lazy", "bright", "dark", "epic", "calm", "bold", "wise", "quiet", "loud"];
@@ -185,12 +264,16 @@ permalink: /time-tracker/
 
     function updateTrackingStatus() {
       if (currentSession) {
-        const now = new Date();
-        const start = new Date(`${currentSession.startDate}T${currentSession.startTime}`);
-        const elapsedSeconds = Math.floor((now - start) / 1000);
+        // const now = new Date();
+        // const start = new Date(`${currentSession.startDate}T${currentSession.startTime}`);
+        // const elapsedSeconds = Math.floor((now - start) / 1000);
+        // const duration = formatTimeFromSeconds(elapsedSeconds);
+        const now = moment.tz(userTimezone); // Get current time in user's timezone
+        const start = moment.tz(currentSession.startDate + ' ' + currentSession.startTime, userTimezone); // Parse start time in user's timezone
+        const elapsedSeconds = Math.floor(now.diff(start, 'seconds')); // Calculate difference in seconds
         const duration = formatTimeFromSeconds(elapsedSeconds);
 
-        activeTrackingEl.textContent = `Currently tracking: ${currentSession.description} (Duration: ${duration})`;
+        activeTrackingEl.textContent = `Currently tracking: ${currentSession.description} (Duration: ${duration} )`;
         document.title = `[${duration}] ${currentSession.description} - Time Tracker`;
       } else {
         activeTrackingEl.textContent = 'Not currently tracking any task';
@@ -309,7 +392,9 @@ permalink: /time-tracker/
         endDate: '',
         endTime: '',
         duration: '',
-        tags: tags || ''
+        tags: tags || '',
+        startTime: moment().tz(userTimezone).format('HH:mm:ss'), // Store time with timezone
+        startDate: moment().tz(userTimezone).format('YYYY-MM-DD'),
       };
 
       localStorage.setItem(CONFIG.CURRENT_SESSION_KEY, JSON.stringify(currentSession));
@@ -327,32 +412,49 @@ permalink: /time-tracker/
         return;
       }
 
-      stopNotificationTimer();
+      const now = moment.tz(userTimezone); // Get end time in user's timezone
+      const start = moment.tz(currentSession.startDate + ' ' + currentSession.startTime, userTimezone);
+      const elapsedSeconds = Math.floor(now.diff(start, 'seconds'));
+      const duration = formatTimeFromSeconds(elapsedSeconds);
 
-      const now = new Date();
-      const { date: endDate, time: endTime } = formatDateTime(now);
+      currentSession = {
+        ...currentSession,
+        endDate: now.format('YYYY-MM-DD'), // Format end date with moment-timezone
+        endTime: now.format('HH:mm:ss'),   // Format end time with moment-timezone
+        duration: duration,
+      };
 
-      currentSession.endDate = endDate;
-      currentSession.endTime = endTime;
-      currentSession.duration = calculateDuration(
-        currentSession.startDate,
-        currentSession.startTime,
-        endDate,
-        endTime
-      );
-
-      // Add to tracking data
-      trackingData.push({...currentSession});
+      trackingData.push(currentSession);
+      localStorage.removeItem(CONFIG.CURRENT_SESSION_KEY);
       localStorage.setItem(CONFIG.STORAGE_KEY, JSON.stringify(trackingData));
 
-      showAlert(`Tracking ended. Duration: ${currentSession.duration}`);
-
-      // Clean up current session
-      localStorage.removeItem(CONFIG.CURRENT_SESSION_KEY);
       currentSession = null;
-
       updateTrackingStatus();
+      stopNotificationTimer();
+
+      startTrackingBtn.disabled = false;
       endTrackingBtn.disabled = true;
+      startTrackingForm.style.display = 'none';
+
+      // const now = new Date();
+      // const { date: endDate, time: endTime } = formatDateTime(now);
+
+      // currentSession.endDate = endDate;
+      // currentSession.endTime = endTime;
+      // currentSession.duration = calculateDuration(
+      //   currentSession.startDate,
+      //   currentSession.startTime,
+      //   endDate,
+      //   endTime
+      // );
+
+      // Add to tracking data
+      // trackingData.push({...currentSession});
+      // localStorage.setItem(CONFIG.STORAGE_KEY, JSON.stringify(trackingData));
+
+      // showAlert(`Tracking ended. Duration: ${currentSession.duration}`);
+      showAlert(`Tracking ended. Duration: ${duration}`); // Use the calculated duration
+      displaySummary(document.querySelector('.tab.active').getAttribute('data-period'));
     }
 
     function displaySummary(period = 'today') {
@@ -479,7 +581,7 @@ permalink: /time-tracker/
         let lastDate = '';
         let durations = [];
 
-        filteredData.forEach(entry => {
+        filteredData.forEach((entry) => {
           // Add empty row between dates
           if (lastDate !== '' && lastDate !== entry.startDate) {
             html += '<tr><td colspan="7" style="height:10px;"></td></tr>';
@@ -500,8 +602,8 @@ permalink: /time-tracker/
 
           html += `
             <tr>
-              <td class="column-date">${entry.startDate}</td>
-              <td class="column-time">${entry.startTime}</td>
+              <td class="column-date" data-original-date="${entry.startDate}">${formatDateTimeWithTimezone(entry.startDate, 'YYYY-MM-DD')}</td>
+              <td class="column-time" data-original-date="${entry.startDate} ${entry.startTime}">${formatDateTimeWithTimezone(entry.startDate + ' ' + entry.startTime, 'HH:mm:ss')}</td>
               <td class="column-project">${entry.project || '-'}</td>
               <td class="column-description">
                 <div>${entry.description || '-'}</div>
@@ -560,6 +662,9 @@ permalink: /time-tracker/
       // Set up status update timer
       setInterval(updateTrackingStatus, 1000);
       updateTrackingStatus();
+
+      populateTimezoneSelector();
+      updateUIWithTimezone();
 
       // Set up event listeners
       startTrackingBtn.addEventListener('click', () => {
