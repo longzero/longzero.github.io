@@ -20,8 +20,6 @@ permalink: /time-tracker/
 
 
   <div class="container">
-    <h1>Time Tracker</h1>
-
     <div class="card">
       <div id="activeTracking" class="tracking-status">
         Not currently tracking any task
@@ -44,9 +42,9 @@ permalink: /time-tracker/
         <button id="closeSettings">Close</button>
       </div>
 
-      <div id="alertContainer"></div>
+      <div class="show-alert" id="alertContainer"></div>
 
-      <div id="startTrackingForm" style="display: none;">
+      <div class="tracking-form" id="startTrackingForm" style="display: none;">
         <div class="form-group">
           <label for="description">Task Description:</label>
           <input type="text" id="description" placeholder="What are you working on?">
@@ -81,8 +79,6 @@ permalink: /time-tracker/
     </div>
 
     <div class="card" id="summaryCard">
-      <h2>Time Tracking Summary</h2>
-
       <div class="tab-container">
         <div class="tab active" data-period="today">Today</div>
         <div class="tab" data-period="yesterday">Yesterday</div>
@@ -250,7 +246,7 @@ permalink: /time-tracker/
 
       setTimeout(() => {
         alert.remove();
-      }, 5000);
+      }, 10000);
     }
 
     function showNotification(message) {
@@ -458,65 +454,49 @@ permalink: /time-tracker/
     }
 
     function displaySummary(period = 'today') {
-      const now = new Date();
-      const today = now.toISOString().split('T')[0];
 
-      // Calculate date boundaries
-      const yesterday = new Date(now);
-      yesterday.setDate(yesterday.getDate() - 1);
-      const yesterdayStr = yesterday.toISOString().split('T')[0];
-
-      // Calculate week boundaries
-      const weekStart = new Date(now);
-      weekStart.setDate(weekStart.getDate() - weekStart.getDay() + (weekStart.getDay() === 0 ? -6 : 1)); // Monday
-      const weekStartStr = weekStart.toISOString().split('T')[0];
-
-      const lastWeekStart = new Date(weekStart);
-      lastWeekStart.setDate(lastWeekStart.getDate() - 7);
-      const lastWeekStartStr = lastWeekStart.toISOString().split('T')[0];
-
-      const lastWeekEnd = new Date(weekStart);
-      lastWeekEnd.setDate(lastWeekEnd.getDate() - 1);
-      const lastWeekEndStr = lastWeekEnd.toISOString().split('T')[0];
-
-      // Calculate month boundaries
-      const currentMonth = today.substring(0, 7); // YYYY-MM
-      const currentYear = today.substring(0, 4); // YYYY
+      const now = moment.tz(userTimezone).startOf('day'); // Current date, start of day in user's timezone
+      const today = now.format('YYYY-MM-DD');
+      const yesterday = moment.tz(userTimezone).subtract(1, 'day').format('YYYY-MM-DD');
+      const weekStart = moment.tz(userTimezone).startOf('week'); // Monday start
+      const lastWeekStart = moment.tz(userTimezone).subtract(1, 'week').startOf('week').format('YYYY-MM-DD');
+      const lastWeekEnd = moment.tz(userTimezone).subtract(1, 'week').endOf('week').format('YYYY-MM-DD');
+      const currentMonth = now.format('YYYY-MM');
+      const currentYear = now.format('YYYY');
 
       // Filter data based on selected period
       let filteredData = [];
 
       switch (period) {
         case 'today':
-          filteredData = trackingData.filter(entry => entry.startDate === today);
+          filteredData = trackingData.filter(entry => moment.tz(entry.startDate, userTimezone).isSame(now, 'day'));
           break;
         case 'yesterday':
-          filteredData = trackingData.filter(entry => entry.startDate === yesterdayStr);
+          filteredData = trackingData.filter(entry => moment.tz(entry.startDate, userTimezone).isSame(moment.tz(yesterday, userTimezone), 'day'));
           break;
         case 'week':
-          filteredData = trackingData.filter(entry => entry.startDate >= weekStartStr);
+          filteredData = trackingData.filter(entry => moment.tz(entry.startDate, userTimezone).isSameOrAfter(weekStart, 'day'));
           break;
         case 'last-week':
           filteredData = trackingData.filter(entry =>
-            entry.startDate >= lastWeekStartStr && entry.startDate <= lastWeekEndStr
+            moment.tz(entry.startDate, userTimezone).isSameOrAfter(moment.tz(lastWeekStart, userTimezone), 'day') &&
+            moment.tz(entry.startDate, userTimezone).isSameOrBefore(moment.tz(lastWeekEnd, userTimezone), 'day')
           );
           break;
         case 'month':
-          filteredData = trackingData.filter(entry => entry.startDate.startsWith(currentMonth));
+          filteredData = trackingData.filter(entry => moment.tz(entry.startDate, userTimezone).format('YYYY-MM') === currentMonth);
           break;
         case 'year':
-          filteredData = trackingData.filter(entry => entry.startDate.startsWith(currentYear));
+          filteredData = trackingData.filter(entry => moment.tz(entry.startDate, userTimezone).format('YYYY') === currentYear);
           break;
         default:
           filteredData = trackingData;
       }
 
-      // Sort by date and time
       filteredData.sort((a, b) => {
-        if (a.startDate === b.startDate) {
-          return a.startTime.localeCompare(b.startTime);
-        }
-        return a.startDate.localeCompare(b.startDate);
+        const aMoment = moment.tz(a.startDate + ' ' + a.startTime, userTimezone);
+        const bMoment = moment.tz(b.startDate + ' ' + b.startTime, userTimezone);
+        return aMoment.valueOf() - bMoment.valueOf(); // Compare as milliseconds
       });
 
       summaryContent.addEventListener('click', (event) => {   // Event listener for "Continue" button
@@ -607,7 +587,7 @@ permalink: /time-tracker/
               <td class="column-project">${entry.project || '-'}</td>
               <td class="column-description">
                 <div>${entry.description || '-'}</div>
-                <button class="continue-tracking" data-original-index="${originalIndex}">Continue</button>
+                <a class="continue-tracking" data-original-index="${originalIndex}">Continue</a>
               </td>
               <td class="column-duration">${entry.duration}</td>
             </tr>
@@ -773,7 +753,7 @@ permalink: /time-tracker/
     }
 
     .container {
-      max-width: 1000px;
+      max-width: 1800px;
       margin: 0 auto;
     }
 
@@ -785,13 +765,15 @@ permalink: /time-tracker/
       background-color: var(--card-bg);
       border-radius: 8px;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      padding: 20px;
+      padding: 15px;
       margin-bottom: 20px;
     }
 
     .column-date, .column-description, .column-duration, .column-time {white-space: nowrap;}
     .column-description {max-width: 380px;}
     .column-description div {overflow: hidden; text-overflow: ellipsis; width: 100%;}
+
+    .continue-tracking {cursor: pointer; text-decoration: underline;}
 
     .form-group {
       margin-bottom: 15px;
@@ -817,8 +799,6 @@ permalink: /time-tracker/
       cursor: pointer;
       border: none;
       padding: 10px 15px;
-      margin-right: 10px;
-      margin-bottom: 10px;
       border-radius: 4px;
       cursor: pointer;
       font-size: 1.4rem;
@@ -888,9 +868,10 @@ permalink: /time-tracker/
     }
 
     th, td {
-      padding: 12px 15px;
-      text-align: left;
       border-bottom: 1px solid var(--border-color);
+      font-size: 1.4rem;
+      padding: 7px 10px;
+      text-align: left;
     }
 
     th {
@@ -912,7 +893,8 @@ permalink: /time-tracker/
     }
 
     .tab {
-      padding: 10px 20px;
+      font-size: 1.4rem;
+      padding: 5px 10px;
       cursor: pointer;
       border: 1px solid transparent;
       border-bottom: none;
@@ -949,7 +931,6 @@ permalink: /time-tracker/
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-bottom: 20px;
     }
 
     .notification {
@@ -972,14 +953,12 @@ permalink: /time-tracker/
       opacity: 1;
     }
 
-    @media (max-width: 768px) {
-      .card {
-        padding: 15px;
-      }
+    .show-alert:empty {display: none;}
+    .show-alert, .tracking-form {margin-top: 1rem;}
 
+    @media (max-width: 768px) {
       button {
         width: 100%;
-        margin-bottom: 10px;
       }
     }
   </style>
