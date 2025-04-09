@@ -528,15 +528,13 @@ permalink: /time-tracker/
       let html = '';
 
       const periodLabels = {
-        'today': "Today's Activities",
-        'yesterday': "Yesterday's Activities",
-        'week': "This Week's Activities",
-        'last-week': "Last Week's Activities",
-        'month': "This Month's Activities",
-        'year': "This Year's Activities"
+        'today': "Today",
+        'yesterday': "Yesterday",
+        'week': "This Week",
+        'last-week': "Last Week",
+        'month': "This Month",
+        'year': "This Year"
       };
-
-      html += `<h3>${periodLabels[period]}</h3>`;
 
       if (filteredData.length === 0) {
         html += '<p>No activities recorded for this period.</p>';
@@ -549,7 +547,13 @@ permalink: /time-tracker/
         filteredData.forEach((entry) => {
           // Add empty row between dates
           if (lastDate !== '' && lastDate !== entry.startDate) {
-            htmlRows += '<tr><td colspan="7" style="height:10px;"></td></tr>';
+            htmlRows += '<tr class="">'
+                  + '<th class="column-date">Date</th>'
+                  + '<th class="column-time">Time</th>'
+                  + '<th class="column-project">Project</th>'
+                  + '<th class="column-description">Description</th>'
+                  + '<th class="column-duration">Duration</th>'
+                + '</tr>';
           }
 
           durations.push(entry.duration);
@@ -585,7 +589,7 @@ permalink: /time-tracker/
 
         // Calculate total duration
         const totalDuration = calculateTotalDuration(durations);
-        html += `<div class="total-time">Total duration: ${totalDuration}</div>`;
+        html += `<h3 class="total-time">${periodLabels[period]}: ${totalDuration}</h3>`;
 
         html += `
           <div class="table-wrapper">
@@ -606,7 +610,7 @@ permalink: /time-tracker/
 
         html += htmlRows;
         html += '</tbody></table></div>'; // Close the table wrapper
-        html += `<div class="total-time">Total duration: ${totalDuration}</div>`;
+        html += `<h3 class="total-time">Total duration: ${totalDuration}</h3>`;
       }
 
       summaryContent.innerHTML = html;
@@ -882,9 +886,7 @@ permalink: /time-tracker/
       top: 0;
     }
 
-    /*tr:nth-child(even) {
-      background-color: rgba(0, 0, 0, 0.02);
-    }*/
+    tr td:only-child {background-color: var(--table-heading-color);}
 
     .tab-container {
       display: flex;
