@@ -80,9 +80,9 @@ permalink: /time-tracker/
 
     <div class="card" id="summaryCard">
       <div class="tab-container">
-        <div class="tab active" data-period="today">Today</div>
+        <div class="tab" data-period="today">Today</div>
         <div class="tab" data-period="yesterday">Yesterday</div>
-        <div class="tab" data-period="week">This Week</div>
+        <div class="tab active" data-period="week">This Week</div>
         <div class="tab" data-period="last-week">Last Week</div>
         <div class="tab" data-period="month">This Month</div>
         <div class="tab" data-period="year">This Year</div>
@@ -541,30 +541,15 @@ permalink: /time-tracker/
       if (filteredData.length === 0) {
         html += '<p>No activities recorded for this period.</p>';
       } else {
-        html += `
-          <div class="table-wrapper">
-            <table>
-              <thead>
-                <tr>
-                  <th class="column-date">Date</th>
-                  <th class="column-time">Time</th>
-                  <th class="column-project">Project</th>
-                  <th class="column-description">Description</th>
-                  <th class="column-duration">Duration</th>
-                </tr>
-              </thead>
-              <tbody>
-        `;
-                  // <th class="column-client">Client</th>
-                  // <th class="column-tags">Tags</th>
 
         let lastDate = '';
         let durations = [];
+        let htmlRows = '';
 
         filteredData.forEach((entry) => {
           // Add empty row between dates
           if (lastDate !== '' && lastDate !== entry.startDate) {
-            html += '<tr><td colspan="7" style="height:10px;"></td></tr>';
+            htmlRows += '<tr><td colspan="7" style="height:10px;"></td></tr>';
           }
 
           durations.push(entry.duration);
@@ -580,7 +565,7 @@ permalink: /time-tracker/
 
           const originalIndex = trackingData.indexOf(entry);
 
-          html += `
+          htmlRows += `
             <tr>
               <td class="column-date" data-original-date="${entry.startDate}">${formatDateTimeWithTimezone(entry.startDate, 'YYYY-MM-DD')}</td>
               <td class="column-time" data-original-date="${entry.startDate} ${entry.startTime}">${formatDateTimeWithTimezone(entry.startDate + ' ' + entry.startTime, 'HH:mm:ss')}</td>
@@ -598,10 +583,29 @@ permalink: /time-tracker/
           lastDate = entry.startDate;
         });
 
-        html += '</tbody></table></div>';
-
         // Calculate total duration
         const totalDuration = calculateTotalDuration(durations);
+        html += `<div class="total-time">Total duration: ${totalDuration}</div>`;
+
+        html += `
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th class="column-date">Date</th>
+                  <th class="column-time">Time</th>
+                  <th class="column-project">Project</th>
+                  <th class="column-description">Description</th>
+                  <th class="column-duration">Duration</th>
+                </tr>
+              </thead>
+              <tbody>
+        `;
+                  // <th class="column-client">Client</th>
+                  // <th class="column-tags">Tags</th>
+
+        html += htmlRows;
+        html += '</tbody></table></div>'; // Close the table wrapper
         html += `<div class="total-time">Total duration: ${totalDuration}</div>`;
       }
 
@@ -738,6 +742,7 @@ permalink: /time-tracker/
       --border-color: #ddd;
       --bg-color: #f9f9f9;
       --card-bg: white;
+      --table-heading-color: var(--border-color);
 
       font-size: 10px;
     }
@@ -858,33 +863,31 @@ permalink: /time-tracker/
       margin-bottom: 15px;
     }
 
-    .table-wrapper {max-width: 100%; overflow-x: auto;}
+    .table-wrapper {margin: 1rem 0; max-width: 100%; overflow-x: auto;}
 
     table {
       width: 100%;
       border-collapse: collapse;
-      margin-bottom: 20px;
       overflow-x: auto;
     }
 
     th, td {
       border-bottom: 1px solid var(--border-color);
       font-size: 1.4rem;
-      padding: 7px 10px;
+      padding: 5px 10px;
       text-align: left;
     }
 
     th {
-      background-color: var(--secondary-color);
-      color: white;
+      background-color: var(--table-heading-color);
       font-size: 1.4rem;
       position: sticky;
       top: 0;
     }
 
-    tr:nth-child(even) {
+    /*tr:nth-child(even) {
       background-color: rgba(0, 0, 0, 0.02);
-    }
+    }*/
 
     .tab-container {
       display: flex;
@@ -922,8 +925,6 @@ permalink: /time-tracker/
     }
 
     .total-time {
-      font-weight: bold;
-      margin-top: 10px;
       font-size: 1.6rem;
     }
 
