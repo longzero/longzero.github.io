@@ -269,7 +269,7 @@ permalink: /time-tracker/
         const elapsedSeconds = Math.floor(now.diff(start, 'seconds')); // Calculate difference in seconds
         const duration = formatTimeFromSeconds(elapsedSeconds);
 
-        activeTrackingEl.textContent = `Currently tracking: ${currentSession.description} (Duration: ${duration} )`;
+        activeTrackingEl.textContent = `<div><span class="sr-only">Currently tracking:</span> <span>${currentSession.description}</span></div><div><span class="sr-only">Duration:</span> <span>${duration}</span></div>`;
         document.title = `[${duration}] ${currentSession.description} - Time Tracker`;
       } else {
         activeTrackingEl.textContent = 'Not currently tracking any task';
