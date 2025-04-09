@@ -17,6 +17,8 @@ permalink: /time-tracker/
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.43/moment-timezone-with-data-10-year-range.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+
 
 
   <div class="container">
@@ -309,10 +311,20 @@ permalink: /time-tracker/
         return;
       }
 
-      const headers = Object.keys(trackingData[0]).join(',');
+      // const headers = Object.keys(trackingData[0]).join(',');
+      const headers = ["Description", "Project", "Duration", "Start date", "Tags"].join(',');
       const csvRows = [
         headers,
-        ...trackingData.map(entry => Object.values(entry).map(value => `"${value}"`).join(','))
+        ...trackingData.map(entry =>
+          ["description", "project", "duration", "startDate", "tags"].map(key => {
+          // Object.values(entry).map(value => {
+            let value = entry[key];
+            if (typeof value === 'string') {
+              return `"${value.replace(/"/g, '""')}"`; // Quote and escape double quotes
+            }
+            return `"${value}"`;
+          }).join(',')
+        )
       ];
       const csvString = csvRows.join('\n');
 
@@ -328,39 +340,80 @@ permalink: /time-tracker/
       window.URL.revokeObjectURL(url);
     }
 
-    function importFromCsv(file) {
-      const reader = new FileReader();
+function importFromCsv(file) {
+  const reader = new FileReader();
 
-      reader.onload = function(event) {
-        const csvString = event.target.result;
-        const lines = csvString.split('\n');
-        if (lines.length < 2) {
-          showAlert("Invalid CSV format.", "error");
-          return;
-        }
+  reader.onload = function(event) {
+    const csvString = event.target.result;
 
-        const headers = lines[0].split(',').map(header => header.replace(/"/g, '')); // Remove quotes
-        const newData = [];
+    const results = Papa.parse(csvString, {
+      header: true,       // Treat the first row as headers
+      dynamicTyping: false, // Leave values as strings
+      skipEmptyLines: true // Skip empty rows
+    });
 
-        for (let i = 1; i < lines.length; i++) {
-          const values = lines[i].split(',').map(value => value.replace(/"/g, '')); // Remove quotes
-          if (values.length === headers.length) {
-            const entry = headers.reduce((obj, header, index) => {
-              obj[header] = values[index] || '';
-              return obj;
-            }, {});
-            newData.push(entry);
-          }
-        }
-        trackingData = newData; // Overwrite existing data
-        localStorage.setItem(CONFIG.STORAGE_KEY, JSON.stringify(trackingData));
-        showAlert("Data imported successfully!", "success");
-        displaySummary(document.querySelector('.tab.active').getAttribute('data-period')); // Refresh summary
-      };
-
-      reader.readAsText(file);
+    if (results.errors.length > 0) {
+      console.error("CSV Parsing Errors:", results.errors);
+      showAlert("Error parsing CSV. Please check the format.", "error");
+      return;
     }
 
+    const newData = results.data; // Parsed data
+
+    if (newData.length === 0) {
+      showAlert("No data found in CSV.", "warning");
+      return;
+    }
+
+    const headerMap = {
+      "description": ["description"],
+      "project": ["project"],
+      "duration": ["duration"],
+      "start date": ["startDate", "start date"],
+      "tags": ["tags"]
+    };
+
+    const mappedData = newData.map(row => {
+      const entry = {};
+      let startTime = "00:00:00";
+      for (const csvHeader in row) {
+        if (row.hasOwnProperty(csvHeader)) {
+          const normalizedHeader = csvHeader.trim().toLowerCase();
+          const mappedProperties = headerMap[normalizedHeader];
+          if (mappedProperties) {
+            mappedProperties.forEach(prop => {
+              if (entry[prop] === undefined) {
+                entry[prop] = row[csvHeader];
+                if (prop === "startTime") {
+                  startTime = row[csvHeader]; // If startTime exists, use it
+                }
+              }
+            });
+          }
+        }
+      }
+      entry.startTime = startTime;
+      return entry;
+    });
+
+    // -- Modified Section: Handle Active Tracking --
+    if (currentSession) {
+      endTracking();
+      trackingData.push(currentSession);
+      currentSession = null;
+      localStorage.removeItem(CONFIG.CURRENT_SESSION_KEY);
+      updateTrackingStatus();
+    }
+    // -- End Modified Section --
+
+    trackingData = mappedData;
+    localStorage.setItem(CONFIG.STORAGE_KEY, JSON.stringify(trackingData));
+    showAlert("Data imported successfully!", "success");
+    displaySummary(document.querySelector('.tab.active').getAttribute('data-period'));
+  };
+
+  reader.readAsText(file);
+}
 
     // Main Functions
     function startTracking(description, project, client, tags, billable) {
@@ -453,12 +506,12 @@ permalink: /time-tracker/
       displaySummary(document.querySelector('.tab.active').getAttribute('data-period'));
     }
 
-    function displaySummary(period = 'today') {
+    function displaySummary(period = 'week') {
 
       const now = moment.tz(userTimezone).startOf('day'); // Current date, start of day in user's timezone
       const today = now.format('YYYY-MM-DD');
       const yesterday = moment.tz(userTimezone).subtract(1, 'day').format('YYYY-MM-DD');
-      const weekStart = moment.tz(userTimezone).startOf('week'); // Monday start
+      const weekStart = moment.tz(userTimezone).startOf('week').subtract(1, 'day'); // Sunday start
       const lastWeekStart = moment.tz(userTimezone).subtract(1, 'week').startOf('week').format('YYYY-MM-DD');
       const lastWeekEnd = moment.tz(userTimezone).subtract(1, 'week').endOf('week').format('YYYY-MM-DD');
       const currentMonth = now.format('YYYY-MM');
