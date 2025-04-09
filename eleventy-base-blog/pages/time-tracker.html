@@ -269,7 +269,7 @@ permalink: /time-tracker/
         const elapsedSeconds = Math.floor(now.diff(start, 'seconds')); // Calculate difference in seconds
         const duration = formatTimeFromSeconds(elapsedSeconds);
 
-        activeTrackingEl.textContent = `<div><span class="sr-only">Currently tracking:</span> <span>${currentSession.description}</span></div><div><span class="sr-only">Duration:</span> <span>${duration}</span></div>`;
+        activeTrackingEl.innerHTML = `<div><span class="sr-only">Currently tracking:</span> <span class="tracking-status-value">${currentSession.description}</span></div><div><span class="sr-only">Duration:</span> <span class="tracking-status-value">${duration}</span></div>`;
         document.title = `[${duration}] ${currentSession.description} - Time Tracker`;
       } else {
         activeTrackingEl.textContent = 'Not currently tracking any task';
@@ -857,11 +857,8 @@ permalink: /time-tracker/
       color: #f57c00;
     }
 
-    .tracking-status {
-      font-size: 1.8rem;
-      font-weight: bold;
-      margin-bottom: 15px;
-    }
+    .tracking-status {font-size: 1.8rem; margin-bottom: 15px;}
+    .tracking-status-value {font-weight: 700;}
 
     .table-wrapper {margin: 1rem 0; max-width: 100%; overflow-x: auto;}
 
