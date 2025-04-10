@@ -59,9 +59,14 @@
     <main>
 
       
-  <div class="container">
-    <h1>Time Tracker</h1>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.43/moment-timezone-with-data-10-year-range.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+
+
+
+  <div class="container">
     <div class="card">
       <div id="activeTracking" class="tracking-status">
         Not currently tracking any task
@@ -73,11 +78,20 @@
         <button id="exportCsv">Export to CSV</button>
         <button id="importCsv">Import from CSV</button>
         <input type="file" id="csvFile" accept=".csv" style="display: none;">
+        <button id="openSettings">Settings</button>
       </div>
 
-      <div id="alertContainer"></div>
+      <div id="settingsModal" style="display: none;">
+        <h2>Timezone Settings</h2>
+        <label for="timezoneSelect">Select Timezone:</label>
+        <select id="timezoneSelect"></select>
+        <button id="saveTimezone">Save</button>
+        <button id="closeSettings">Close</button>
+      </div>
 
-      <div id="startTrackingForm" style="display: none;">
+      <div class="show-alert" id="alertContainer"></div>
+
+      <div class="tracking-form" id="startTrackingForm" style="display: none;">
         <div class="form-group">
           <label for="description">Task Description:</label>
           <input type="text" id="description" placeholder="What are you working on?">
@@ -112,12 +126,10 @@
     </div>
 
     <div class="card" id="summaryCard">
-      <h2>Time Tracking Summary</h2>
-
       <div class="tab-container">
-        <div class="tab active" data-period="today">Today</div>
+        <div class="tab" data-period="today">Today</div>
         <div class="tab" data-period="yesterday">Yesterday</div>
-        <div class="tab" data-period="week">This Week</div>
+        <div class="tab active" data-period="week">This Week</div>
         <div class="tab" data-period="last-week">Last Week</div>
         <div class="tab" data-period="month">This Month</div>
         <div class="tab" data-period="year">This Year</div>
@@ -138,8 +150,67 @@
       DEFAULT_BILLABLE: "Yes",
       NOTIFICATION_INTERVAL: 15 * 60 * 1000, // 15 minutes in milliseconds
       STORAGE_KEY: "time-tracking-data",
-      CURRENT_SESSION_KEY: "time-tracking-current-session"
+      CURRENT_SESSION_KEY: "time-tracking-current-session",
+      DEFAULT_TIMEZONE: "UTC", // Fallback default
+      USER_TIMEZONE_KEY: "user-timezone" // Key for localStorage
     };
+
+    let userTimezone = localStorage.getItem(CONFIG.USER_TIMEZONE_KEY) || moment.tz.guess() || CONFIG.DEFAULT_TIMEZONE;
+
+    const timezoneSelect = document.getElementById('timezoneSelect');
+    const saveTimezoneBtn = document.getElementById('saveTimezone');
+    const settingsModal = document.getElementById('settingsModal');
+    const openSettingsBtn = document.getElementById('openSettings');
+    const closeSettingsBtn = document.getElementById('closeSettings');
+
+    function populateTimezoneSelector() {
+      const timezones = moment.tz.names();
+      timezones.forEach(tz => {
+        const option = document.createElement('option');
+        option.value = tz;
+        option.text = tz;
+        if (tz === userTimezone) {
+          option.selected = true;
+        }
+        timezoneSelect.add(option);
+      });
+    }
+
+    saveTimezoneBtn.addEventListener('click', () => {
+      userTimezone = timezoneSelect.value;
+      localStorage.setItem(CONFIG.USER_TIMEZONE_KEY, userTimezone);
+      showAlert(`Timezone set to ${userTimezone}`, 'success');
+      updateUIWithTimezone(); // Update displayed times
+      settingsModal.style.display = 'none';
+    });
+
+    openSettingsBtn.addEventListener('click', () => {
+      settingsModal.style.display = 'block';
+    });
+
+    closeSettingsBtn.addEventListener('click', () => {
+      settingsModal.style.display = 'none';
+    });
+
+    function formatDateTimeWithTimezone(date, format = 'YYYY-MM-DD HH:mm:ss') {
+      return moment.tz(date, userTimezone).format(format);
+    }
+
+    function updateUIWithTimezone() {
+      // Update all displayed dates and times in the UI
+      // You'll need to adapt this to your specific UI elements
+      document.querySelectorAll('.time-display').forEach(el => {
+        const originalDate = el.getAttribute('data-original-date');
+        if (originalDate) {
+          el.textContent = formatDateTimeWithTimezone(originalDate);
+        }
+      });
+      displaySummary(document.querySelector('.tab.active').getAttribute('data-period'));
+      updateTrackingStatus();
+    }
+
+
+
 
     // Word lists for generating passphrases
     const ADJECTIVES = ["swift", "lazy", "bright", "dark", "epic", "calm", "bold", "wise", "quiet", "loud"];
@@ -222,7 +293,7 @@
 
       setTimeout(() => {
         alert.remove();
-      }, 5000);
+      }, 10000);
     }
 
     function showNotification(message) {
@@ -236,12 +307,16 @@
 
     function updateTrackingStatus() {
       if (currentSession) {
-        const now = new Date();
-        const start = new Date(`${currentSession.startDate}T${currentSession.startTime}`);
-        const elapsedSeconds = Math.floor((now - start) / 1000);
+        // const now = new Date();
+        // const start = new Date(`${currentSession.startDate}T${currentSession.startTime}`);
+        // const elapsedSeconds = Math.floor((now - start) / 1000);
+        // const duration = formatTimeFromSeconds(elapsedSeconds);
+        const now = moment.tz(userTimezone); // Get current time in user's timezone
+        const start = moment.tz(currentSession.startDate + ' ' + currentSession.startTime, userTimezone); // Parse start time in user's timezone
+        const elapsedSeconds = Math.floor(now.diff(start, 'seconds')); // Calculate difference in seconds
         const duration = formatTimeFromSeconds(elapsedSeconds);
 
-        activeTrackingEl.textContent = `Currently tracking: ${currentSession.description} (Duration: ${duration})`;
+        activeTrackingEl.innerHTML = `<div><span class="sr-only">Currently tracking:</span> <span class="tracking-status-value">${currentSession.description}</span></div><div><span class="sr-only">Duration:</span> <span class="tracking-status-value">${duration}</span></div>`;
         document.title = `[${duration}] ${currentSession.description} - Time Tracker`;
       } else {
         activeTrackingEl.textContent = 'Not currently tracking any task';
@@ -281,10 +356,20 @@
         return;
       }
 
-      const headers = Object.keys(trackingData[0]).join(',');
+      // const headers = Object.keys(trackingData[0]).join(',');
+      const headers = ["Description", "Project", "Duration", "Start date", "Tags"].join(',');
       const csvRows = [
         headers,
-        ...trackingData.map(entry => Object.values(entry).map(value => `"${value}"`).join(','))
+        ...trackingData.map(entry =>
+          ["description", "project", "duration", "startDate", "tags"].map(key => {
+          // Object.values(entry).map(value => {
+            let value = entry[key];
+            if (typeof value === 'string') {
+              return `"${value.replace(/"/g, '""')}"`; // Quote and escape double quotes
+            }
+            return `"${value}"`;
+          }).join(',')
+        )
       ];
       const csvString = csvRows.join('\n');
 
@@ -300,39 +385,80 @@
       window.URL.revokeObjectURL(url);
     }
 
-    function importFromCsv(file) {
-      const reader = new FileReader();
+function importFromCsv(file) {
+  const reader = new FileReader();
 
-      reader.onload = function(event) {
-        const csvString = event.target.result;
-        const lines = csvString.split('\n');
-        if (lines.length < 2) {
-          showAlert("Invalid CSV format.", "error");
-          return;
-        }
+  reader.onload = function(event) {
+    const csvString = event.target.result;
 
-        const headers = lines[0].split(',').map(header => header.replace(/"/g, '')); // Remove quotes
-        const newData = [];
+    const results = Papa.parse(csvString, {
+      header: true,       // Treat the first row as headers
+      dynamicTyping: false, // Leave values as strings
+      skipEmptyLines: true // Skip empty rows
+    });
 
-        for (let i = 1; i < lines.length; i++) {
-          const values = lines[i].split(',').map(value => value.replace(/"/g, '')); // Remove quotes
-          if (values.length === headers.length) {
-            const entry = headers.reduce((obj, header, index) => {
-              obj[header] = values[index] || '';
-              return obj;
-            }, {});
-            newData.push(entry);
-          }
-        }
-        trackingData = newData; // Overwrite existing data
-        localStorage.setItem(CONFIG.STORAGE_KEY, JSON.stringify(trackingData));
-        showAlert("Data imported successfully!", "success");
-        displaySummary(document.querySelector('.tab.active').getAttribute('data-period')); // Refresh summary
-      };
-
-      reader.readAsText(file);
+    if (results.errors.length > 0) {
+      console.error("CSV Parsing Errors:", results.errors);
+      showAlert("Error parsing CSV. Please check the format.", "error");
+      return;
     }
 
+    const newData = results.data; // Parsed data
+
+    if (newData.length === 0) {
+      showAlert("No data found in CSV.", "warning");
+      return;
+    }
+
+    const headerMap = {
+      "description": ["description"],
+      "project": ["project"],
+      "duration": ["duration"],
+      "start date": ["startDate", "start date"],
+      "tags": ["tags"]
+    };
+
+    const mappedData = newData.map(row => {
+      const entry = {};
+      let startTime = "00:00:00";
+      for (const csvHeader in row) {
+        if (row.hasOwnProperty(csvHeader)) {
+          const normalizedHeader = csvHeader.trim().toLowerCase();
+          const mappedProperties = headerMap[normalizedHeader];
+          if (mappedProperties) {
+            mappedProperties.forEach(prop => {
+              if (entry[prop] === undefined) {
+                entry[prop] = row[csvHeader];
+                if (prop === "startTime") {
+                  startTime = row[csvHeader]; // If startTime exists, use it
+                }
+              }
+            });
+          }
+        }
+      }
+      entry.startTime = startTime;
+      return entry;
+    });
+
+    // -- Modified Section: Handle Active Tracking --
+    if (currentSession) {
+      endTracking();
+      trackingData.push(currentSession);
+      currentSession = null;
+      localStorage.removeItem(CONFIG.CURRENT_SESSION_KEY);
+      updateTrackingStatus();
+    }
+    // -- End Modified Section --
+
+    trackingData = mappedData;
+    localStorage.setItem(CONFIG.STORAGE_KEY, JSON.stringify(trackingData));
+    showAlert("Data imported successfully!", "success");
+    displaySummary(document.querySelector('.tab.active').getAttribute('data-period'));
+  };
+
+  reader.readAsText(file);
+}
 
     // Main Functions
     function startTracking(description, project, client, tags, billable) {
@@ -360,7 +486,9 @@
         endDate: '',
         endTime: '',
         duration: '',
-        tags: tags || ''
+        tags: tags || '',
+        startTime: moment().tz(userTimezone).format('HH:mm:ss'), // Store time with timezone
+        startDate: moment().tz(userTimezone).format('YYYY-MM-DD'),
       };
 
       localStorage.setItem(CONFIG.CURRENT_SESSION_KEY, JSON.stringify(currentSession));
@@ -378,94 +506,95 @@
         return;
       }
 
-      stopNotificationTimer();
+      const now = moment.tz(userTimezone); // Get end time in user's timezone
+      const start = moment.tz(currentSession.startDate + ' ' + currentSession.startTime, userTimezone);
+      const elapsedSeconds = Math.floor(now.diff(start, 'seconds'));
+      const duration = formatTimeFromSeconds(elapsedSeconds);
 
-      const now = new Date();
-      const { date: endDate, time: endTime } = formatDateTime(now);
+      currentSession = {
+        ...currentSession,
+        endDate: now.format('YYYY-MM-DD'), // Format end date with moment-timezone
+        endTime: now.format('HH:mm:ss'),   // Format end time with moment-timezone
+        duration: duration,
+      };
 
-      currentSession.endDate = endDate;
-      currentSession.endTime = endTime;
-      currentSession.duration = calculateDuration(
-        currentSession.startDate,
-        currentSession.startTime,
-        endDate,
-        endTime
-      );
-
-      // Add to tracking data
-      trackingData.push({...currentSession});
+      trackingData.push(currentSession);
+      localStorage.removeItem(CONFIG.CURRENT_SESSION_KEY);
       localStorage.setItem(CONFIG.STORAGE_KEY, JSON.stringify(trackingData));
 
-      showAlert(`Tracking ended. Duration: ${currentSession.duration}`);
-
-      // Clean up current session
-      localStorage.removeItem(CONFIG.CURRENT_SESSION_KEY);
       currentSession = null;
-
       updateTrackingStatus();
+      stopNotificationTimer();
+
+      startTrackingBtn.disabled = false;
       endTrackingBtn.disabled = true;
+      startTrackingForm.style.display = 'none';
+
+      // const now = new Date();
+      // const { date: endDate, time: endTime } = formatDateTime(now);
+
+      // currentSession.endDate = endDate;
+      // currentSession.endTime = endTime;
+      // currentSession.duration = calculateDuration(
+      //   currentSession.startDate,
+      //   currentSession.startTime,
+      //   endDate,
+      //   endTime
+      // );
+
+      // Add to tracking data
+      // trackingData.push({...currentSession});
+      // localStorage.setItem(CONFIG.STORAGE_KEY, JSON.stringify(trackingData));
+
+      // showAlert(`Tracking ended. Duration: ${currentSession.duration}`);
+      showAlert(`Tracking ended. Duration: ${duration}`); // Use the calculated duration
+      displaySummary(document.querySelector('.tab.active').getAttribute('data-period'));
     }
 
-    function displaySummary(period = 'today') {
-      const now = new Date();
-      const today = now.toISOString().split('T')[0];
+    function displaySummary(period = 'week') {
 
-      // Calculate date boundaries
-      const yesterday = new Date(now);
-      yesterday.setDate(yesterday.getDate() - 1);
-      const yesterdayStr = yesterday.toISOString().split('T')[0];
-
-      // Calculate week boundaries
-      const weekStart = new Date(now);
-      weekStart.setDate(weekStart.getDate() - weekStart.getDay() + (weekStart.getDay() === 0 ? -6 : 1)); // Monday
-      const weekStartStr = weekStart.toISOString().split('T')[0];
-
-      const lastWeekStart = new Date(weekStart);
-      lastWeekStart.setDate(lastWeekStart.getDate() - 7);
-      const lastWeekStartStr = lastWeekStart.toISOString().split('T')[0];
-
-      const lastWeekEnd = new Date(weekStart);
-      lastWeekEnd.setDate(lastWeekEnd.getDate() - 1);
-      const lastWeekEndStr = lastWeekEnd.toISOString().split('T')[0];
-
-      // Calculate month boundaries
-      const currentMonth = today.substring(0, 7); // YYYY-MM
-      const currentYear = today.substring(0, 4); // YYYY
+      const now = moment.tz(userTimezone).startOf('day'); // Current date, start of day in user's timezone
+      const today = now.format('YYYY-MM-DD');
+      const yesterday = moment.tz(userTimezone).subtract(1, 'day').format('YYYY-MM-DD');
+      const weekStart = moment.tz(userTimezone).startOf('week').subtract(1, 'day'); // Sunday start
+      const lastWeekStart = moment.tz(userTimezone).subtract(1, 'week').startOf('week').format('YYYY-MM-DD');
+      const lastWeekEnd = moment.tz(userTimezone).subtract(1, 'week').endOf('week').format('YYYY-MM-DD');
+      const currentMonth = now.format('YYYY-MM');
+      const currentYear = now.format('YYYY');
 
       // Filter data based on selected period
       let filteredData = [];
 
       switch (period) {
         case 'today':
-          filteredData = trackingData.filter(entry => entry.startDate === today);
+          filteredData = trackingData.filter(entry => moment.tz(entry.startDate, userTimezone).isSame(now, 'day'));
           break;
         case 'yesterday':
-          filteredData = trackingData.filter(entry => entry.startDate === yesterdayStr);
+          filteredData = trackingData.filter(entry => moment.tz(entry.startDate, userTimezone).isSame(moment.tz(yesterday, userTimezone), 'day'));
           break;
         case 'week':
-          filteredData = trackingData.filter(entry => entry.startDate >= weekStartStr);
+          filteredData = trackingData.filter(entry => moment.tz(entry.startDate, userTimezone).isSameOrAfter(weekStart, 'day'));
           break;
         case 'last-week':
           filteredData = trackingData.filter(entry =>
-            entry.startDate >= lastWeekStartStr && entry.startDate <= lastWeekEndStr
+            moment.tz(entry.startDate, userTimezone).isSameOrAfter(moment.tz(lastWeekStart, userTimezone), 'day') &&
+            moment.tz(entry.startDate, userTimezone).isSameOrBefore(moment.tz(lastWeekEnd, userTimezone), 'day')
           );
           break;
         case 'month':
-          filteredData = trackingData.filter(entry => entry.startDate.startsWith(currentMonth));
+          filteredData = trackingData.filter(entry => moment.tz(entry.startDate, userTimezone).format('YYYY-MM') === currentMonth);
           break;
         case 'year':
-          filteredData = trackingData.filter(entry => entry.startDate.startsWith(currentYear));
+          filteredData = trackingData.filter(entry => moment.tz(entry.startDate, userTimezone).format('YYYY') === currentYear);
           break;
         default:
           filteredData = trackingData;
       }
 
-      // Sort by date and time
       filteredData.sort((a, b) => {
-        if (a.startDate === b.startDate) {
-          return a.startTime.localeCompare(b.startTime);
-        }
-        return a.startDate.localeCompare(b.startDate);
+        const aMoment = moment.tz(a.startDate + ' ' + a.startTime, userTimezone);
+        const bMoment = moment.tz(b.startDate + ' ' + b.startTime, userTimezone);
+        return aMoment.valueOf() - bMoment.valueOf(); // Compare as milliseconds
       });
 
       summaryContent.addEventListener('click', (event) => {   // Event listener for "Continue" button
@@ -497,19 +626,69 @@
       let html = '';
 
       const periodLabels = {
-        'today': "Today's Activities",
-        'yesterday': "Yesterday's Activities",
-        'week': "This Week's Activities",
-        'last-week': "Last Week's Activities",
-        'month': "This Month's Activities",
-        'year': "This Year's Activities"
+        'today': "Today",
+        'yesterday': "Yesterday",
+        'week': "This Week",
+        'last-week': "Last Week",
+        'month': "This Month",
+        'year': "This Year"
       };
-
-      html += `<h3>${periodLabels[period]}</h3>`;
 
       if (filteredData.length === 0) {
         html += '<p>No activities recorded for this period.</p>';
       } else {
+
+        let lastDate = '';
+        let durations = [];
+        let htmlRows = '';
+
+        filteredData.forEach((entry) => {
+          // Add empty row between dates
+          if (lastDate !== '' && lastDate !== entry.startDate) {
+            htmlRows += '<tr class="">'
+                  + '<th class="column-date">Date</th>'
+                  + '<th class="column-time">Time</th>'
+                  + '<th class="column-project">Project</th>'
+                  + '<th class="column-description">Description</th>'
+                  + '<th class="column-duration">Duration</th>'
+                + '</tr>';
+          }
+
+          durations.push(entry.duration);
+
+          // Truncate long text
+          // const description = entry.description.length > 30
+          //   ? entry.description.substring(0, 27) + '...'
+          //   : entry.description;
+
+          const tags = entry.tags.length > 20
+            ? entry.tags.substring(0, 17) + '...'
+            : entry.tags;
+
+          const originalIndex = trackingData.indexOf(entry);
+
+          htmlRows += `
+            <tr>
+              <td class="column-date" data-original-date="${entry.startDate}">${formatDateTimeWithTimezone(entry.startDate, 'YYYY-MM-DD')}</td>
+              <td class="column-time" data-original-date="${entry.startDate} ${entry.startTime}">${formatDateTimeWithTimezone(entry.startDate + ' ' + entry.startTime, 'HH:mm:ss')}</td>
+              <td class="column-project">${entry.project || '-'}</td>
+              <td class="column-description">
+                <div>${entry.description || '-'}</div>
+                <a class="continue-tracking" data-original-index="${originalIndex}">Continue</a>
+              </td>
+              <td class="column-duration">${entry.duration}</td>
+            </tr>
+          `;
+              // <td class="column-client">${entry.client || '-'}</td>
+              // <td class="column-tags">${tags || '-'}</td>
+
+          lastDate = entry.startDate;
+        });
+
+        // Calculate total duration
+        const totalDuration = calculateTotalDuration(durations);
+        html += `<h3 class="total-time">${periodLabels[period]}: ${totalDuration}</h3>`;
+
         html += `
           <div class="table-wrapper">
             <table>
@@ -527,51 +706,9 @@
                   // <th class="column-client">Client</th>
                   // <th class="column-tags">Tags</th>
 
-        let lastDate = '';
-        let durations = [];
-
-        filteredData.forEach(entry => {
-          // Add empty row between dates
-          if (lastDate !== '' && lastDate !== entry.startDate) {
-            html += '<tr><td colspan="7" style="height:10px;"></td></tr>';
-          }
-
-          durations.push(entry.duration);
-
-          // Truncate long text
-          // const description = entry.description.length > 30
-          //   ? entry.description.substring(0, 27) + '...'
-          //   : entry.description;
-
-          const tags = entry.tags.length > 20
-            ? entry.tags.substring(0, 17) + '...'
-            : entry.tags;
-
-          const originalIndex = trackingData.indexOf(entry);
-
-          html += `
-            <tr>
-              <td class="column-date">${entry.startDate}</td>
-              <td class="column-time">${entry.startTime}</td>
-              <td class="column-project">${entry.project || '-'}</td>
-              <td class="column-description">
-                <div>${entry.description || '-'}</div>
-                <button class="continue-tracking" data-original-index="${originalIndex}">Continue</button>
-              </td>
-              <td class="column-duration">${entry.duration}</td>
-            </tr>
-          `;
-              // <td class="column-client">${entry.client || '-'}</td>
-              // <td class="column-tags">${tags || '-'}</td>
-
-          lastDate = entry.startDate;
-        });
-
-        html += '</tbody></table></div>';
-
-        // Calculate total duration
-        const totalDuration = calculateTotalDuration(durations);
-        html += `<div class="total-time">Total duration: ${totalDuration}</div>`;
+        html += htmlRows;
+        html += '</tbody></table></div>'; // Close the table wrapper
+        html += `<h3 class="total-time">Total duration: ${totalDuration}</h3>`;
       }
 
       summaryContent.innerHTML = html;
@@ -611,6 +748,9 @@
       // Set up status update timer
       setInterval(updateTrackingStatus, 1000);
       updateTrackingStatus();
+
+      populateTimezoneSelector();
+      updateUIWithTimezone();
 
       // Set up event listeners
       startTrackingBtn.addEventListener('click', () => {
@@ -704,6 +844,7 @@
       --border-color: #ddd;
       --bg-color: #f9f9f9;
       --card-bg: white;
+      --table-heading-color: var(--border-color);
 
       font-size: 10px;
     }
@@ -719,7 +860,7 @@
     }
 
     .container {
-      max-width: 1000px;
+      max-width: 1800px;
       margin: 0 auto;
     }
 
@@ -731,13 +872,15 @@
       background-color: var(--card-bg);
       border-radius: 8px;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      padding: 20px;
+      padding: 15px;
       margin-bottom: 20px;
     }
 
     .column-date, .column-description, .column-duration, .column-time {white-space: nowrap;}
     .column-description {max-width: 380px;}
     .column-description div {overflow: hidden; text-overflow: ellipsis; width: 100%;}
+
+    .continue-tracking {cursor: pointer; text-decoration: underline;}
 
     .form-group {
       margin-bottom: 15px;
@@ -763,8 +906,6 @@
       cursor: pointer;
       border: none;
       padding: 10px 15px;
-      margin-right: 10px;
-      margin-bottom: 10px;
       border-radius: 4px;
       cursor: pointer;
       font-size: 1.4rem;
@@ -818,38 +959,32 @@
       color: #f57c00;
     }
 
-    .tracking-status {
-      font-size: 1.8rem;
-      font-weight: bold;
-      margin-bottom: 15px;
-    }
+    .tracking-status {font-size: 1.8rem; margin-bottom: 15px;}
+    .tracking-status-value {font-weight: 700;}
 
-    .table-wrapper {max-width: 100%; overflow-x: auto;}
+    .table-wrapper {margin: 1rem 0; max-width: 100%; overflow-x: auto;}
 
     table {
       width: 100%;
       border-collapse: collapse;
-      margin-bottom: 20px;
       overflow-x: auto;
     }
 
     th, td {
-      padding: 12px 15px;
-      text-align: left;
       border-bottom: 1px solid var(--border-color);
+      font-size: 1.4rem;
+      padding: 5px 10px;
+      text-align: left;
     }
 
     th {
-      background-color: var(--secondary-color);
-      color: white;
+      background-color: var(--table-heading-color);
       font-size: 1.4rem;
       position: sticky;
       top: 0;
     }
 
-    tr:nth-child(even) {
-      background-color: rgba(0, 0, 0, 0.02);
-    }
+    tr td:only-child {background-color: var(--table-heading-color);}
 
     .tab-container {
       display: flex;
@@ -858,7 +993,8 @@
     }
 
     .tab {
-      padding: 10px 20px;
+      font-size: 1.4rem;
+      padding: 5px 10px;
       cursor: pointer;
       border: 1px solid transparent;
       border-bottom: none;
@@ -886,8 +1022,6 @@
     }
 
     .total-time {
-      font-weight: bold;
-      margin-top: 10px;
       font-size: 1.6rem;
     }
 
@@ -895,7 +1029,6 @@
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-bottom: 20px;
     }
 
     .notification {
@@ -918,14 +1051,12 @@
       opacity: 1;
     }
 
-    @media (max-width: 768px) {
-      .card {
-        padding: 15px;
-      }
+    .show-alert:empty {display: none;}
+    .show-alert, .tracking-form {margin-top: 1rem;}
 
+    @media (max-width: 768px) {
       button {
         width: 100%;
-        margin-bottom: 10px;
       }
     }
   </style>

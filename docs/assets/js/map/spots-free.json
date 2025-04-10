@@ -5,6 +5,33 @@
     },
     {
       "id": "",
+      "latitude": 30.23419964348384,
+      "longitude": -93.22105770174394,
+      "name": "Lake Charles",
+      "notes": "<p>Very nice place. Good signal and plenty of places to park along the lake. Be aware that it is public, so people will come and go. On 20250410, there wasn't many people in the afternoon.</p>",
+      "url": ["https://ioverlander.com/places/56807-veterans-memorial-park-lake-charles"],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 30.276061707145104,
+      "longitude": -91.89964545684583,
+      "name": "Parc des Ponts Breaux",
+      "notes": "<p>Goose spit. No camping. Signal is slow. Latency is slow (mlab says infinity).</p><p>2025 0410<br>Empty. It's 18:08 and I can be in the the shade.</p>",
+      "url": [""],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 30.222942147595003,
+      "longitude": -91.90604429881277,
+      "name": "Lake Martin",
+      "notes": "<p>2025 0410<br>There's is signal, but nothing really gets through, so might as well say there's no signal.</p><p>It's a boat ramp and on this day, a lot of people are bringing their boats.</p>",
+      "url": ["https://ioverlander.com/places/48062-lake-martin"],
+      "visible": 1
+    },
+    {
+      "id": "",
       "latitude": 31.038960963650368,
       "longitude": -114.8251162621945,
       "name": "Campo Turistico # 1",
