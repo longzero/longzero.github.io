@@ -8,10 +8,10 @@ permalink: /time-tracker/
 #   order: 3
 
 # This code requires a CSV file with the following headings:
-# user,email,client,project,task,description,billable,startDate,startTime,endDate,endTime,duration,tags
+#
 
 # It is technically the same columns as the detailed export file from toggl, but not the same headings.
-# "User","Email","Client","Project","Task","Description","Billable","Start date","Start time","End date","End time","Duration","Tags"
+#
 ---
 
 
@@ -621,9 +621,9 @@ function importFromCsv(file) {
           //   ? entry.description.substring(0, 27) + '...'
           //   : entry.description;
 
-          const tags = entry.tags.length > 20
-            ? entry.tags.substring(0, 17) + '...'
-            : entry.tags;
+          // const tags = entry.tags.length > 20
+          //   ? entry.tags.substring(0, 17) + '...'
+          //   : entry.tags;
 
           const originalIndex = trackingData.indexOf(entry);
 
@@ -637,10 +637,10 @@ function importFromCsv(file) {
                 <a class="continue-tracking" data-original-index="${originalIndex}">Continue</a>
               </td>
               <td class="column-duration">${entry.duration}</td>
+              <td class="column-tags">${entry.tags || '-'}</td>
             </tr>
           `;
               // <td class="column-client">${entry.client || '-'}</td>
-              // <td class="column-tags">${tags || '-'}</td>
 
           lastDate = entry.startDate;
         });
@@ -659,12 +659,13 @@ function importFromCsv(file) {
                   <th class="column-project">Project</th>
                   <th class="column-description">Description</th>
                   <th class="column-duration">Duration</th>
+                  <th class="column-tags">Tags</th>
                 </tr>
               </thead>
               <tbody>
         `;
                   // <th class="column-client">Client</th>
-                  // <th class="column-tags">Tags</th>
+
 
         html += htmlRows;
         html += '</tbody></table></div>'; // Close the table wrapper
