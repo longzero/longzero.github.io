@@ -19,7 +19,8 @@ permalink: /time-tracker/
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.43/moment-timezone-with-data-10-year-range.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
 
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css">
+<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/umd/simple-datatables.js"></script>
 
   <div class="container">
     <div class="card">
@@ -553,7 +554,7 @@ function importFromCsv(file) {
       filteredData.sort((a, b) => {
         const aMoment = moment.tz(a.startDate + ' ' + a.startTime, userTimezone);
         const bMoment = moment.tz(b.startDate + ' ' + b.startTime, userTimezone);
-        return aMoment.valueOf() - bMoment.valueOf(); // Compare as milliseconds
+        return bMoment.valueOf() - aMoment.valueOf(); // Compare as milliseconds
       });
 
       summaryContent.addEventListener('click', (event) => {   // Event listener for "Continue" button
@@ -603,15 +604,15 @@ function importFromCsv(file) {
 
         filteredData.forEach((entry) => {
           // Add empty row between dates
-          if (lastDate !== '' && lastDate !== entry.startDate) {
-            htmlRows += '<tr class="">'
-                  + '<th class="column-date">Date</th>'
-                  + '<th class="column-time">Time</th>'
-                  + '<th class="column-project">Project</th>'
-                  + '<th class="column-description">Description</th>'
-                  + '<th class="column-duration">Duration</th>'
-                + '</tr>';
-          }
+          // if (lastDate !== '' && lastDate !== entry.startDate) {
+          //   htmlRows += '<tr class="">'
+          //         + '<th class="column-date">Date</th>'
+          //         + '<th class="column-time">Time</th>'
+          //         + '<th class="column-project">Project</th>'
+          //         + '<th class="column-description">Description</th>'
+          //         + '<th class="column-duration">Duration</th>'
+          //       + '</tr>';
+          // }
 
           durations.push(entry.duration);
 
@@ -650,7 +651,7 @@ function importFromCsv(file) {
 
         html += `
           <div class="table-wrapper">
-            <table>
+            <table id="summary-table">
               <thead>
                 <tr>
                   <th class="column-date">Date</th>
@@ -672,6 +673,14 @@ function importFromCsv(file) {
 
       summaryContent.innerHTML = html;
       summaryCard.style.display = 'block';
+
+      // Initialize Simple-DataTables
+      const dataTable = new simpleDatatables.DataTable("#summary-table", {
+        perPage: 90,         // Number of rows per page (must be in perPageSelect to reflect in <select>)
+        perPageSelect: [10, 30, 50, 90], // Options for rows per page
+        paging: true,      // Enable pagination (true by default)
+        searchable: true,  // Enable search (true by default)
+      });
     }
 
     function updateExportImportButtons() {
@@ -818,37 +827,13 @@ function importFromCsv(file) {
       margin: 0;
     }
 
-    .container {
-      max-width: 1800px;
-      margin: 0 auto;
-    }
-
     h1, h2, h3 {
       color: var(--text-color);
-    }
-
-    .card {
-      background-color: var(--card-bg);
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      padding: 15px;
-      margin-bottom: 20px;
-    }
-
-    .column-date, .column-description, .column-duration, .column-time {white-space: nowrap;}
-    .column-description {max-width: 380px;}
-    .column-description div {overflow: hidden; text-overflow: ellipsis; width: 100%;}
-
-    .continue-tracking {cursor: pointer; text-decoration: underline;}
-
-    .form-group {
-      margin-bottom: 15px;
     }
 
     label {
       display: block;
       margin-bottom: 5px;
-      font-weight: bold;
     }
 
     input, select, textarea {
@@ -894,6 +879,34 @@ function importFromCsv(file) {
       background-color: var(--error-color);
     }
 
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow-x: auto;
+    }
+
+    th, td {
+      border-bottom: 1px solid var(--border-color);
+      font-size: 1.4rem;
+      padding: 5px 10px;
+      text-align: left;
+    }
+
+    th {
+      background-color: var(--table-heading-color);
+      font-size: 1.4rem;
+      position: sticky;
+      top: 0;
+    }
+
+    tr td:only-child {background-color: var(--table-heading-color);}
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
     .alert {
       padding: 15px;
       border-radius: 4px;
@@ -918,32 +931,59 @@ function importFromCsv(file) {
       color: #f57c00;
     }
 
-    .tracking-status {font-size: 1.8rem; margin-bottom: 15px;}
-    .tracking-status-value {font-weight: 700;}
 
-    .table-wrapper {margin: 1rem 0; max-width: 100%; overflow-x: auto;}
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      overflow-x: auto;
+    .container {
+      max-width: 1800px;
+      margin: 0 auto;
+    }
+    .card {
+      background-color: var(--card-bg);
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 15px;
+      margin-bottom: 20px;
     }
 
-    th, td {
-      border-bottom: 1px solid var(--border-color);
-      font-size: 1.4rem;
-      padding: 5px 10px;
-      text-align: left;
+    .column-date, .column-description, .column-duration, .column-time {white-space: nowrap;}
+    .column-description {max-width: 380px;}
+    .column-description div {overflow: hidden; text-overflow: ellipsis; width: 100%;}
+
+    .continue-tracking {cursor: pointer; text-decoration: underline;}
+
+    .datatable-bottom, .datatable-top {font-size: 1.4rem; padding-left: 0; padding-right: 0;}
+    .datatable-selector {width: auto;}
+    .datatable-table th button {padding: 0;}
+
+    .form-group {
+      margin-bottom: 15px;
     }
 
-    th {
-      background-color: var(--table-heading-color);
-      font-size: 1.4rem;
-      position: sticky;
-      top: 0;
+    .notification {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: var(--primary-color);
+      color: white;
+      padding: 15px 20px;
+      border-radius: 4px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      z-index: 1000;
+      transition: transform 0.3s, opacity 0.3s;
+      transform: translateY(100px);
+      opacity: 0;
     }
 
-    tr td:only-child {background-color: var(--table-heading-color);}
+    .notification.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .show-alert:empty {display: none;}
+    .show-alert, .tracking-form {margin-top: 1rem;}
+
+    .summary-period {
+      margin-bottom: 10px;
+    }
 
     .tab-container {
       display: flex;
@@ -976,42 +1016,14 @@ function importFromCsv(file) {
       display: block;
     }
 
-    .summary-period {
-      margin-bottom: 10px;
-    }
+    .tracking-status {font-size: 1.8rem; margin-bottom: 15px;}
+    .tracking-status-value {font-weight: 700;}
+
+    .table-wrapper {margin: 1rem 0; max-width: 100%; overflow-x: auto;}
 
     .total-time {
       font-size: 1.6rem;
     }
-
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .notification {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: var(--primary-color);
-      color: white;
-      padding: 15px 20px;
-      border-radius: 4px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      z-index: 1000;
-      transition: transform 0.3s, opacity 0.3s;
-      transform: translateY(100px);
-      opacity: 0;
-    }
-
-    .notification.show {
-      transform: translateY(0);
-      opacity: 1;
-    }
-
-    .show-alert:empty {display: none;}
-    .show-alert, .tracking-form {margin-top: 1rem;}
 
     @media (max-width: 768px) {
       button {
