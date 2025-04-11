@@ -512,6 +512,7 @@ function importFromCsv(file) {
       const today = now.format('YYYY-MM-DD');
       const yesterday = moment.tz(userTimezone).subtract(1, 'day').format('YYYY-MM-DD');
       const weekStart = moment.tz(userTimezone).startOf('week').subtract(1, 'day'); // Sunday start
+      const weekEnd = moment.tz(userTimezone).endOf('week').subtract(1, 'day').format('YYYY-MM-DD'); // Sunday end
       const lastWeekStart = moment.tz(userTimezone).subtract(1, 'week').startOf('week').format('YYYY-MM-DD');
       const lastWeekEnd = moment.tz(userTimezone).subtract(1, 'week').endOf('week').format('YYYY-MM-DD');
       const currentMonth = now.format('YYYY-MM');
@@ -528,7 +529,10 @@ function importFromCsv(file) {
           filteredData = trackingData.filter(entry => moment.tz(entry.startDate, userTimezone).isSame(moment.tz(yesterday, userTimezone), 'day'));
           break;
         case 'week':
-          filteredData = trackingData.filter(entry => moment.tz(entry.startDate, userTimezone).isSameOrAfter(weekStart, 'day'));
+          filteredData = trackingData.filter(entry =>
+            moment.tz(entry.startDate, userTimezone).isSameOrAfter(weekStart, 'day') &&
+            moment.tz(entry.startDate, userTimezone).isSameOrBefore(moment.tz(weekEnd, 'day')  )
+          );
           break;
         case 'last-week':
           filteredData = trackingData.filter(entry =>
