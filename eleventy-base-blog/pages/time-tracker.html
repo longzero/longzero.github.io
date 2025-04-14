@@ -683,12 +683,14 @@ function importFromCsv(file) {
       summaryCard.style.display = 'block';
 
       // Initialize Simple-DataTables
-      const dataTable = new simpleDatatables.DataTable("#summary-table", {
-        perPage: 90,         // Number of rows per page (must be in perPageSelect to reflect in <select>)
-        perPageSelect: [10, 30, 50, 90], // Options for rows per page
-        paging: true,      // Enable pagination (true by default)
-        searchable: true,  // Enable search (true by default)
-      });
+      if (document.getElementById('summary-table')) {
+        const dataTable = new simpleDatatables.DataTable("#summary-table", {
+          perPage: 90,         // Number of rows per page (must be in perPageSelect to reflect in <select>)
+          perPageSelect: [10, 30, 50, 90], // Options for rows per page
+          paging: true,      // Enable pagination (true by default)
+          searchable: true,  // Enable search (true by default)
+        });
+      }
     }
 
     function updateExportImportButtons() {
