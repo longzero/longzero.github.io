@@ -90,9 +90,9 @@ permalink: /time-tracker/
 
     <div class="card" id="summaryCard">
       <div class="tab-container">
-        <div class="tab" data-period="today">Today</div>
+        <div class="tab active" data-period="today">Today</div>
         <div class="tab" data-period="yesterday">Yesterday</div>
-        <div class="tab active" data-period="week">This Week</div>
+        <div class="tab" data-period="week">This Week</div>
         <div class="tab" data-period="last-week">Last Week</div>
         <div class="tab" data-period="month">This Month</div>
         <div class="tab" data-period="year">This Year</div>
@@ -514,7 +514,7 @@ function importFromCsv(file) {
       displaySummary(document.querySelector('.tab.active').getAttribute('data-period'));
     }
 
-    function displaySummary(period = 'week') {
+    function displaySummary(period = 'today') {
 
       const now = moment.tz(userTimezone).startOf('day'); // Current date, start of day in user's timezone
       const today = now.format('YYYY-MM-DD');
@@ -760,7 +760,7 @@ function importFromCsv(file) {
       // showSummaryBtn.addEventListener('click', () => {
       //   displaySummary('today');
       // });
-      displaySummary('week'); // today, yesterday, week, last-week, month, year
+      displaySummary('today'); // today, yesterday, week, last-week, month, year
 
       // Tab handling for summary periods
       document.querySelectorAll('.tab').forEach(tab => {
@@ -1047,12 +1047,7 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () 
     transition: background-color 0.3s, color 0.3s; /* Smooth transition */
   }
 
-  .column-date,
-  .column-description,
-  .column-duration,
-  .column-time {
-    white-space: nowrap;
-  }
+/*  .column-date, .column-description, .column-duration, .column-time {white-space: nowrap;}*/
 
   .column-description {
     max-width: 380px;
