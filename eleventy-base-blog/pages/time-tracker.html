@@ -645,9 +645,9 @@ function importFromCsv(file) {
               </td>
               <td class="column-duration">${entry.duration}</td>
               <td class="column-tags">${entry.tags || '-'}</td>
+              <td class="column-client">${entry.client || '-'}</td>
             </tr>
           `;
-              // <td class="column-client">${entry.client || '-'}</td>
 
           lastDate = entry.startDate;
         });
@@ -667,12 +667,11 @@ function importFromCsv(file) {
                   <th class="column-description">Description</th>
                   <th class="column-duration">Duration</th>
                   <th class="column-tags">Tags</th>
+                  <th class="column-client">Client</th>
                 </tr>
               </thead>
               <tbody>
         `;
-                  // <th class="column-client">Client</th>
-
 
         html += htmlRows;
         html += '</tbody></table></div>'; // Close the table wrapper
