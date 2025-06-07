@@ -5,6 +5,33 @@
     },
     {
       "id": "",
+      "latitude": 46.22395697985156,
+      "longitude": -71.41696402571812,
+      "name": "Observatoire",
+      "notes": "<p>20250604<br>Good signal. Locals come for the beautiful sunset.</p>",
+      "url": [""],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 48.53960310618892,
+      "longitude": -67.56132085361926,
+      "name": "Halte municipale Val-Brillant",
+      "notes": "<p>2024<br>A sign shows no trailers. Good signal. Slept one night.</p>",
+      "url": [""],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 49.21318472052889,
+      "longitude": -66.10518132886367,
+      "name": "Halte ouest de Marsoui",
+      "notes": "<p>20250606<br>Rest stop with good signal and peaceful at night. Beautiful sunset. I missed the sunrise, but probable beautiful too.</p>",
+      "url": ["https://park4night.com/en/place/192687","https://ioverlander.com/places/eb8111a5-2ab6-4f7b-9366-4835a56b7c7c"],
+      "visible": 1
+    },
+    {
+      "id": "",
       "latitude": 30.23419964348384,
       "longitude": -93.22105770174394,
       "name": "Lake Charles",
@@ -2841,6 +2868,16 @@
   "potential-spots": [
     {
       "id": "",
+      "latitude": 48.901940667402116,
+      "longitude": -67.33824735562311,
+      "name": "Église Sainte-Félicité",
+      "notes": "<p>Behind the church. Unsure if the signal is good enough for video calls.</p>",
+      "url": "",
+      "url-2": "",
+      "visible": 1
+    },
+    {
+      "id": "",
       "latitude": 35.40832527315106,
       "longitude": -95.98096178499169,
       "name": "Nichols Park",
@@ -3296,6 +3333,14 @@
   "shower": [
     {
       "markerPath": "/assets/images/map-icons/marker-icon-water.svg"
+    },
+    {
+      "id": "",
+      "latitude": 48.901008433220646,
+      "longitude": -67.34059285349534,
+      "name": "Auberge de Jeunesse du Manoir des Sapins",
+      "notes": "20250606: 5$<br>Also a restaurant and a place to sleep for a price, depending on whether you are tent camping, in a van, getting a shared dorm room or a private room.",
+      "url": "https://maps.app.goo.gl/147hSEW2cXBC9Br28"
     },
     {
       "id": "",
