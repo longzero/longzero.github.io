@@ -5,6 +5,168 @@
     },
     {
       "id": "",
+      "latitude": 48.434323960892215,
+      "longitude": -70.45550792241029,
+      "name": "Lac Résimond",
+      "notes": "<p>Great place. No signal. 4 spots under trees. Beach. Noise from the road.</p>",
+      "url": [""],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 48.45995947655717,
+      "longitude": -70.9883206011504,
+      "name": "Halte de Valin",
+      "notes": "<p>Rest stop with lots of cars, vans, RVs.<br>You can park on the grass.<br>Nice view.</p>",
+      "url": [""],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 48.48972526741131,
+      "longitude": -71.40434088893257,
+      "name": "Camping Municipal st charles de Bourget",
+      "notes": "<p>Free with hot showers.<br>7 nights max.<br>14 spots.<br>2 showers.<br>Power outlets outside the building and in the toilets</p>",
+      "url": [""],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 46.33549845107891,
+      "longitude": -60.29320012289313,
+      "name": "Point Aconi",
+      "notes": "<p>Very good spot for seeing the sunset. On the east side, there is a spot to see the sunrise.</p><p>This place is good for sleeping before/after going/arriving to/from Newfoundland.</p>",
+      "url": [""],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 45.64693050005694,
+      "longitude": -61.76182573815927,
+      "name": "Bayfield",
+      "notes": "<p>Phenomenal place. Beautiful sunrise and sunset. Multiple spots for multiple people. Access to the beach.</p>",
+      "url": [""],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 50.2606575974603,
+      "longitude": -64.8766654490296,
+      "name": "Anse Caplan",
+      "notes": "<p>Amazing. Best place in this entire coast.<br>No signal. 360 view. Plenty of space to walk around.</p>",
+      "url": [""],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 49.188225719139446,
+      "longitude": -68.31507249337585,
+      "name": "Parc de la maison de la faune",
+      "notes": "<p>Nice place. Signal. Lots of people. Too known. Potable water at the information building before you get here.</p>",
+      "url": [""],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 49.1569651153371,
+      "longitude": -68.18642063877971,
+      "name": "Pointe-Lebel",
+      "notes": "<p>Very nice sunrise by the water.<br>Good signal.<br>Five vehicles including myself on 20240726.<br>Nobody else on 20240810.<br>Less than 30 minutes from Baie Comeau and yet, quiet and peaceful.</p><p>Saw auroras on one night, don't remember which night.</p>",
+      "url": ["https://ioverlander.com/places/282602-plage-chouinard"],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 48.08939266623813,
+      "longitude": -66.116938208202,
+      "name": "PAID: Camping de Carleton-sur-Mer",
+      "notes": "<p>One of the best and cheapest campgrounds in Quebec. Very nice because of the 360 view that includes a mountain and two bodies of water. The little town is also nice with a good café.</p>",
+      "url": ["https://maps.app.goo.gl/JcnH5eDK3p4i9iY77"],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 48.46770188093709,
+      "longitude": -59.266248234017965,
+      "name": "Boutte du Cap Park",
+      "notes": "<p>202506<br>Very windy location<br>On this day there are clouds and rain is coming. Signal is okay but I'm not sure for meetings.</p><p>Water and toilet at the round about at the entrance.</p>",
+      "url": ["https://ioverlander.com/places/099f48b9-a00c-43bd-9d9f-908f83ab19a1"],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 48.96366595217781,
+      "longitude": -57.89375389422975,
+      "name": "PAID: Kinsmen Prince Edward Campground & RV Park",
+      "notes": "<p>Cheap campground with hot shower, good Wi-Fi and good cell signal.</p><p>Spots without service are completely in the shade, so they are not a good option if you need solar power. I had a spot with electricity and water and it was in the open area which was very nice, even though people can be very close together.</p>",
+      "url": ["https://www.princeedwardrvpark.com/rates"],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 49.47812624457829,
+      "longitude": -57.97399246545509,
+      "name": "Tablelands trailhead",
+      "notes": "<p>20250627<br>Mostly no signal in the parking lot.<br>Windy, nobody here until daytime when it gets packed.</p>",
+      "url": [""],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 51.55875993224684,
+      "longitude": -55.74400643048868,
+      "name": "Raleigh",
+      "notes": "<p>Internet 4 3<br>Pretty good even if it's on the side of the road because nobody really comes here.</p>",
+      "url": [""],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 50.37401469010678,
+      "longitude": -57.526837418433985,
+      "name": "Spot",
+      "notes": "<p>No signal.<br>The vegetation makes you go deeper in many parts, so this exact spot is better. Let the front face the gulf.</p>",
+      "url": [""],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 51.34521293481218,
+      "longitude": -55.59075456828781,
+      "name": "Close to St. Anthony",
+      "notes": "<p>low signal 5 3<br>Latency infinity<br>Gorgeous view of the harbour<br>Very windy 30-60km/h on 20250629</p>",
+      "url": ["https://ioverlander.com/places/44b35e10-59b7-492e-bbb6-0bcacea1f4f4"],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 51.310709381033554,
+      "longitude": -55.639451683655864,
+      "name": "Goose Cove",
+      "notes": "<p>Great view, but I didn't feel comfortable. It isn't very spacious on the way in and also there.</p>",
+      "url": ["https://ioverlander.com/places/230862"],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 51.59165491406103,
+      "longitude": -55.87558959509593,
+      "name": "Bay View Rd",
+      "notes": "<p>Nice place.</p>",
+      "url": ["https://ioverlander.com/places/7de38515-1b8d-45f9-8f42-897c7e053471"],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 51.61105576673497,
+      "longitude": -55.94722423740775,
+      "name": "North",
+      "notes": "<p>20250701<br>Saw an iceberg!!<br>Signal ok for youtube. Wonderful place on a cliff in front of the Gulf of Saint Lawrence.</p></p><p>Entrance of this big area is south west of this marker.</p>",
+      "url": ["https://ioverlander.com/places/0f98f507-9bd3-4bf6-a46d-9f2f41685e31"],
+      "visible": 1
+    },
+    {
+      "id": "",
       "latitude": 46.22395697985156,
       "longitude": -71.41696402571812,
       "name": "Observatoire",
@@ -2868,6 +3030,16 @@
   "potential-spots": [
     {
       "id": "",
+      "latitude": 51.31492867843634,
+      "longitude": -55.64772422758539,
+      "name": "Goose Cove",
+      "notes": "<p>Not the best, but there's a view west for sunset. It would be good for one night.</p>",
+      "url": "",
+      "url-2": "",
+      "visible": 1
+    },
+    {
+      "id": "",
       "latitude": 48.901940667402116,
       "longitude": -67.33824735562311,
       "name": "Église Sainte-Félicité",
@@ -3206,6 +3378,24 @@
     },
     {
       "id": "",
+      "latitude": 49.22115353559337,
+      "longitude": -68.15138415174049,
+      "name": "Manoir du cafe",
+      "notes": "<p>Good café. Good for working. Has wifi.<br>Spotted power outlets; two in the front and one in the little corner in the middle before reaching the back.<br>Outdoor seats available, some tables with shade.</p>",
+      "url": "https://maps.app.goo.gl/YMs8oTiTnP5Wiqy77",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 51.36686977825619,
+      "longitude": -55.593197709654476,
+      "name": "Rebel Coffeehouse",
+      "notes": "Good small coffeehouse with souvenirs.",
+      "url": "https://maps.app.goo.gl/Gaq1MDzpVNZTKnvw9",
+      "visible": 1
+    },
+    {
+      "id": "",
       "latitude": 28.97122108995546,
       "longitude": -113.54731241370754,
       "name": "Siete Filos café",
@@ -3333,6 +3523,14 @@
   "shower": [
     {
       "markerPath": "/assets/images/map-icons/marker-icon-water.svg"
+    },
+    {
+      "id": "",
+      "latitude": 47.583035131346925,
+      "longitude": -59.16435148866669,
+      "name": "Bruce II Sports Centre",
+      "notes": "Entrance is at the northwest corner.<br>It's supposed to cost money (maybe 5$?), but it was free at the time I went (2025062 1000).",
+      "url": "https://maps.app.goo.gl/o9ETGjrwcpeEs3KH9"
     },
     {
       "id": "",
@@ -3604,6 +3802,14 @@
   "water": [
     {
       "markerPath": "/assets/images/map-icons/marker-icon-water.svg"
+    },
+    {
+      "id": "",
+      "latitude": 47.58742792666738,
+      "longitude": -59.16507768099867,
+      "name": "Foodland - Port-aux-Basques",
+      "notes": "Between checkout and the exit there is a machine to fill in jugs.",
+      "url": "https://maps.app.goo.gl/fVitNaceB6tStJus7"
     },
     {
       "id": "",
