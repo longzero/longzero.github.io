@@ -5,6 +5,24 @@
     },
     {
       "id": "",
+      "latitude": 51.628792991979395,
+      "longitude": -55.902967592169155,
+      "name": "Cape Norman",
+      "notes": "<p>The spot south west, 6 minutes away is more spacious, more secluded, better 360 view, better road quality.</p>",
+      "url": ["https://ioverlander.com/places/13a96a64-4e62-4764-8133-ea3475ab5e7d"],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 51.312148043322225,
+      "longitude": -56.74186291880924,
+      "name": "Nameless Cove",
+      "notes": "<p>Good signal. Nice place. Beauitful sunset. Close to the village, but still away. Water in three directions.</p>",
+      "url": ["https://park4night.com/en/place/432712","https://ioverlander.com/places/1b777e38-521e-4fa1-b62f-f7afdc734da7"],
+      "visible": 1
+    },
+    {
+      "id": "",
       "latitude": 48.434323960892215,
       "longitude": -70.45550792241029,
       "name": "Lac Résimond",
@@ -161,7 +179,7 @@
       "latitude": 51.61105576673497,
       "longitude": -55.94722423740775,
       "name": "North",
-      "notes": "<p>20250701<br>Saw an iceberg!!<br>Signal ok for youtube. Wonderful place on a cliff in front of the Gulf of Saint Lawrence.</p></p><p>Entrance of this big area is south west of this marker.</p>",
+      "notes": "<p>20250701<br>Saw multiple icebergs!! Nine at one point.<br>Signal ok for youtube. Wonderful place on a cliff in front of the Gulf of Saint Lawrence.</p></p><p>Entrance of this big area is south west of this marker.</p>",
       "url": ["https://ioverlander.com/places/0f98f507-9bd3-4bf6-a46d-9f2f41685e31"],
       "visible": 1
     },
@@ -3390,7 +3408,7 @@
       "latitude": 51.36686977825619,
       "longitude": -55.593197709654476,
       "name": "Rebel Coffeehouse",
-      "notes": "Good small coffeehouse with souvenirs.",
+      "notes": "Good small coffeehouse that is also a gift shop. Nice patio and greenhouse where you can sit and drink your coffee.",
       "url": "https://maps.app.goo.gl/Gaq1MDzpVNZTKnvw9",
       "visible": 1
     },
@@ -3523,6 +3541,14 @@
   "shower": [
     {
       "markerPath": "/assets/images/map-icons/marker-icon-water.svg"
+    },
+    {
+      "id": "",
+      "latitude": 51.37355711683252,
+      "longitude": -55.59775248584261,
+      "name": "Swimming pool",
+      "notes": "<p>Beware, there are children.</p><p>20250709: strange experience, but good place for a quick shower. As soon as you open the door, there are doors left (women) and right (men). In front is also a door that looks like it's for staff; it also looks like the top half can open so it would become a reception.</p><p>At the time I came, early morning you have to choose immediately between left and right, women and men, then you just head take a shower.</p>",
+      "url": "https://maps.app.goo.gl/o9ETGjrwcpeEs3KH9"
     },
     {
       "id": "",
