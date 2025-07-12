@@ -8,9 +8,34 @@ title: GPS mapper
 #   order: 3
 ---
 
+<link rel="preload" crossorigin="anonymous" as="font" href="/assets/fonts/oxygen-v10-latin-regular.woff2">
+<link rel="preload" crossorigin="anonymous" as="font" href="/assets/fonts/oxygen-v10-latin-700.woff2">
+
 <style>
+    @font-face {
+      font-display: swap;
+      font-family: 'Oxygen';
+      font-style: normal;
+      font-weight: 400;
+      src: url("/assets/fonts/oxygen-v10-latin-regular.eot"); /* IE9 Compat Modes */
+      src: local(''), url("/assets/fonts/oxygen-v10-latin-regular.eot?#iefix") format('embedded-opentype'), url("/assets/fonts/oxygen-v10-latin-regular.woff2") format('woff2'), url("/assets/fonts/oxygen-v10-latin-regular.woff") format('woff'), url("/assets/fonts/oxygen-v10-latin-regular.ttf") format('truetype'), url("/assets/fonts/oxygen-v10-latin-regular.svg#Oxygen") format('svg');
+      Legacy: iOS;
+    }
+    @font-face {
+      font-display: swap;
+      font-family: 'Oxygen';
+      font-style: normal;
+      font-weight: 700;
+      src: url("/assets/fonts/oxygen-v10-latin-700.eot"); /* IE9 Compat Modes */
+      src: local(''), url("/assets/fonts/oxygen-v10-latin-700.eot?#iefix") format('embedded-opentype'), url("/assets/fonts/oxygen-v10-latin-700.woff2") format('woff2'), url("/assets/fonts/oxygen-v10-latin-700.woff") format('woff'), url("/assets/fonts/oxygen-v10-latin-700.ttf") format('truetype'), url("/assets/fonts/oxygen-v10-latin-700.svg#Oxygen") format('svg'); /* Legacy iOS */
+    }
     * {box-sizing: border-box;}
-    #map { max-height: 90vh; height: 1000px; }
+    html, body, button, input, label, select, textarea {font-family: 'Oxygen', sans-serif;}
+    html {font-size: 10px;}
+    body {font-size: 1.6rem;}
+    button, input, label, select, textarea {font-size: 1.4rem;}
+    select {appearance: none;}
+    #map { max-height: 85vh; height: 1000px; }
     #dropZone {
         border: 2px dashed #ccc;
         border-radius: 20px;
