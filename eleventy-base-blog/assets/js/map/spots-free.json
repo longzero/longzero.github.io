@@ -5,6 +5,15 @@
     },
     {
       "id": "",
+      "latitude": 49.02179006289782,
+      "longitude": -57.60837465215055,
+      "name": "Pasadena Beach",
+      "notes": "<p>Very nice. Came here twice.</p><p>No people in June.</p><p>More people in July, but only during daytime, though sunset is late, so some people stay a while.</p>",
+      "url": ["https://ioverlander.com/places/13a96a64-4e62-4764-8133-ea3475ab5e7d"],
+      "visible": 1
+    },
+    {
+      "id": "",
       "latitude": 51.628792991979395,
       "longitude": -55.902967592169155,
       "name": "Cape Norman",
@@ -3393,6 +3402,15 @@
   "places": [
     {
       "markerPath": "/assets/images/map-icons/marker-icon-place.svg"
+    },
+    {
+      "id": "",
+      "latitude": 48.94179452867941,
+      "longitude": -57.96811411433202,
+      "name": "Sugar & Dice",
+      "notes": "<p>Good café. Good for working, but music too loud for meetings. Only some power outlets. Good vibes</p><p>Very sugary. As the writing says “This is a bad place for a diet”</p>",
+      "url": "https://maps.app.goo.gl/2SepfD4r8dCzb2BfA",
+      "visible": 1
     },
     {
       "id": "",
