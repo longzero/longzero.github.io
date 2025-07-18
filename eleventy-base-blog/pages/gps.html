@@ -35,7 +35,7 @@ title: GPS mapper
     body {font-size: 1.6rem;}
     button, input, label, select, textarea {font-size: 1.4rem;}
     select {appearance: none;}
-    #map { max-height: 85vh; height: 1000px; }
+    #map { max-height: 80vh; height: 1000px; }
     #dropZone {
         border: 2px dashed #ccc;
         border-radius: 20px;
@@ -643,6 +643,7 @@ title: GPS mapper
                 }
 
                 const marker = L.marker([point.lat, point.lon]).bindPopup(popupContent);
+                console.log('Marker created with popup:', marker.getPopup()); // Should not be null
                 markerClusterGroup.addLayer(marker);
             });
             map.addLayer(markerClusterGroup);
