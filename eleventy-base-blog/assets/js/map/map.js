@@ -15,6 +15,7 @@ let svgCurrent = getIcon(svgBaseClasses + "current-location", markerPathCurrent,
 
 
 let map = L.map('map', {
+  fullscreenControl: true, // https://github.com/Leaflet/Leaflet.fullscreen
   maxZoom: 20,
   // https://github.com/mutsuyuki/Leaflet.SmoothWheelZoom
   scrollWheelZoom: false, // disable original zoom function
