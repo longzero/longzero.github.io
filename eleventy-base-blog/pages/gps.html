@@ -32,7 +32,7 @@ title: GPS mapper
     * {box-sizing: border-box;}
     html, body, button, input, label, select, textarea {font-family: 'Oxygen', sans-serif;}
     html {font-size: 10px;}
-    body {font-size: 1.6rem;}
+    body {font-size: 1.6rem; margin: 0;}
     button, input, label, select, textarea {font-size: 1.4rem;}
     select {appearance: none;}
     #map { max-height: 80vh; height: 1000px; }
@@ -48,61 +48,299 @@ title: GPS mapper
         background-color: #f0f0f0;
         border-color: #000;
     }
+
+
+    /* Date Controls Section */
     #dateControls {
-        text-align: center;
-        margin: 20px;
+        /*background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);*/
+        /*color: white;*/
+        /*padding: 20px;*/
         display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        align-items: end;
+    }
+
+    .control-group {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        min-width: 180px;
+    }
+
+    .control-group label {
+        font-weight: 600;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        opacity: 0.9;
+    }
+
+    .control-group input[type="date"], .control-group input[type="number"], .control-group input[type="text"] {
+        padding: 12px 16px;
+        /*border: none;*/
+        /*border-radius: 8px;*/
+        font-size: 14px;
+        /*background: rgba(255, 255, 255, 0.15);*/
+        /*color: white;*/
+        /*backdrop-filter: blur(10px);*/
+        /*transition: all 0.3s ease;*/
+    }
+
+    .control-group input[type="date"]::-webkit-calendar-picker-indicator {
+        cursor: pointer;
+    }
+
+    .control-actions {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+
+    /* Main Controls Section */
+    #controls {border-bottom: 1px solid #e5e7eb; margin-bottom: 1em; padding-bottom: 1em;}
+
+    #controls > * {
+        margin-bottom: 16px;
+    }
+
+    #controls > *:last-child {
+        margin-bottom: 0;
+    }
+
+    .controls-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 16px;
+        margin-bottom: 24px;
+    }
+
+    .input-controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
         justify-content: center;
         align-items: center;
-        gap: 10px;
+        margin: 20px 0;
     }
-    #dateControls label, #dateControls input {
-        margin: 0 5px;
+
+    .input-controls .control-group {
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+        min-width: auto;
     }
+
+    .input-controls .control-group label {
+        color: #374151;
+        font-weight: 500;
+        font-size: 14px;
+        text-transform: none;
+        letter-spacing: normal;
+    }
+
+    .input-controls input[type="number"] {
+        width: 80px;
+        padding: 8px 12px;
+        border: 2px solid #e5e7eb;
+        border-radius: 6px;
+        font-size: 14px;
+        text-align: center;
+        transition: all 0.3s ease;
+    }
+
+    .input-controls input[type="number"]:focus {
+        outline: none;
+        border-color: #667eea;
+        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+
+    /* Button Styles */
+    button {
+        padding: 12px 24px;
+        border: none;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    button:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.5s;
+    }
+
+    button:hover:before {
+        left: 100%;
+    }
+
+    /* Primary buttons (toggle buttons) */
+    #togglePolyline,
+    #toggleMarkers,
+    #toggleHeatmap {
+        background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+        color: white;
+        min-width: 120px;
+    }
+
+    #togglePolyline:hover,
+    #toggleMarkers:hover,
+    #toggleHeatmap:hover {
+        /*transform: translateY(-2px);*/
+        /*box-shadow: 0 8px 25px rgba(79, 70, 229, 0.3);*/
+    }
+
+    /* Secondary buttons */
+    #applyDateFilter,
+    #updateHeatmap {
+        background: linear-gradient(135deg, #059669 0%, #047857 100%);
+        color: white;
+        min-width: 140px;
+    }
+
+    /* Distance result styling */
+    #distanceResult {
+        margin-top: 16px;
+        padding: 12px;
+        background: #e0f2fe;
+        border-radius: 8px;
+        font-weight: 600;
+        color: #0369a1;
+    }
+    #distanceResult:empty {display: none;}
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        body {
+            /*padding: 10px;*/
+        }
+
+        .map-configurations {
+            border-radius: 12px;
+        }
+
+        #dateControls {
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .control-group {
+            min-width: 100%;
+        }
+
+        .control-actions {
+            justify-content: center;
+            margin-top: 16px;
+        }
+
+        #measureControls {text-align: center;}
+
+        .input-controls {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .input-controls .control-group {
+            justify-content: center;
+        }
+
+        button {
+            min-width: 100%;
+            margin-bottom: 8px;
+        }
+
+        .control-actions button {
+            flex: 1;
+            min-width: 120px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        button {
+            padding: 14px 20px;
+            font-size: 13px;
+        }
+
+        .input-controls input[type="number"] {
+            width: 70px;
+        }
+    }
+
+    .button--link {background: none; color: #639; padding: 0; min-width: 0; text-decoration: underline;}
+
+    .map-configurations {padding: 20px;}
 </style>
 
 
-
-<div id="dropZone">
-    Drag and Drop JSON/CSV file here or
-    <input type="file" id="fileInput" accept=".json,.csv">
+<div class="map-configurations">
+    <div id="dropZone">
+        Drag and Drop JSON/CSV file here or
+        <input type="file" id="fileInput" accept=".json,.csv">
+    </div>
+    <!--
+    <div id="locationSelect" style="text-align: center; margin: 20px;">
+        <select id="jsonSelector" style="min-width: 300px; padding: 5px;">
+            <option value="/assets/files/maps/ioverlander/empty.json">Select a location...</option>
+            <option value="/assets/files/maps/ioverlander/north-america/canada-places20250121-397-1cfjr01.json">Canada (20250121)</option>
+            <option value="/assets/files/maps/ioverlander/north-america/mexico-places20250121-394-12e138s.json">Mexico (20250121)</option>
+            <option value="/assets/files/maps/ioverlander/north-america/usa-places20250121-403-z2ziyx.json">USA (20250121)</option>
+        </select>
+    </div>
+    -->
+    <div id="dateControls">
+        <div class="control-group">
+            <label for="startDate">Start Date:</label>
+            <input type="date" id="startDate">
+        </div>
+        <div class="control-group">
+            <label for="endDate">End Date:</label>
+            <input type="date" id="endDate">
+        </div>
+        <div class="control-actions">
+            <button id="applyDateFilter">Apply Filter</button>
+            <button id="clearDateFilter">Clear Filter</button>
+        </div>
+    </div>
+    <div id="controls">
+        <button id="togglePolyline">Polyline</button>
+        <button id="toggleMarkers">Markers</button>
+        <button id="toggleHeatmap">Heatmap</button>
+        <div class="control-group">
+            <label for="radius">Radius:</label>
+            <input type="number" id="radius" value="10">
+        </div>
+        <div class="control-group">
+            <label for="blur">Blur:</label>
+            <input type="number" id="blur" value="15">
+        </div>
+        <button id="updateHeatmap">Update Heatmap</button>
+    </div>
+    <div id="measureControls">
+        <button class="button button--link" id="measureDistance">Measure Distance</button>
+        <button class="button button--link" id="clearMeasurements">Clear Measurements</button>
+        <div id="distanceResult"></div>
+    </div>
 </div>
-<div id="locationSelect" style="text-align: center; margin: 20px;">
-    <select id="jsonSelector" style="min-width: 300px; padding: 5px;">
-        <option value="/assets/files/maps/ioverlander/empty.json">Select a location...</option>
-        <option value="/assets/files/maps/ioverlander/north-america/canada-places20250121-397-1cfjr01.json">Canada (20250121)</option>
-        <option value="/assets/files/maps/ioverlander/north-america/mexico-places20250121-394-12e138s.json">Mexico (20250121)</option>
-        <option value="/assets/files/maps/ioverlander/north-america/usa-places20250121-403-z2ziyx.json">USA (20250121)</option>
-    </select>
+<div class="map-box">
+    <div id="map"></div>
 </div>
-<div id="dateControls">
-    <label for="startDate">Start Date:</label>
-    <input type="date" id="startDate">
-    <label for="endDate">End Date:</label>
-    <input type="date" id="endDate">
-    <button id="applyDateFilter">Apply Filter</button>
-    <button id="clearDateFilter">Clear Filter</button>
-</div>
-<div id="controls" style="text-align: center; margin: 20px;">
-    <button id="togglePolyline">Polyline</button>
-    <button id="toggleMarkers">Markers</button>
-    <button id="toggleHeatmap">Heatmap</button>
-    <label for="radius">Radius:</label>
-    <input type="number" id="radius" value="10" style="width: 50px;">
-    <label for="blur">Blur:</label>
-    <input type="number" id="blur" value="15" style="width: 50px;">
-    <button id="updateHeatmap">Update Heatmap</button>
-</div>
-<div id="measureControls" style="text-align: center; margin: 20px;">
-    <button id="measureDistance">Measure Distance</button>
-    <button id="clearMeasurements">Clear Measurements</button>
-    <div id="distanceResult" style="margin-top: 10px;"></div>
-</div>
-<div id="map"></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.css" />
 <script src="{{ '/assets/js/map/SmoothWheelZoom.js' | url }}"></script>
+<link rel="stylesheet" href="{{ '/assets/vendors/leaflet.fullscreen.css' | url }}" />
+<script src="{{ '/assets/vendors/Leaflet.fullscreen.min.js' | url }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.heat/0.2.0/leaflet-heat.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.Default.min.css" />
@@ -126,12 +364,13 @@ title: GPS mapper
     const fileInput = document.getElementById('fileInput');
     const jsonSelector = document.getElementById('jsonSelector');
     const map = L.map('map', {
-      maxZoom: 20,
-      // https://github.com/mutsuyuki/Leaflet.SmoothWheelZoom
-      scrollWheelZoom: false, // disable original zoom function
-      smoothWheelZoom: true,  // enable smooth zoom
-      smoothSensitivity: 8,   // zoom speed. default is 1
-      // END https://github.com/mutsuyuki/Leaflet.SmoothWheelZoom
+        fullscreenControl: true, // https://github.com/Leaflet/Leaflet.fullscreen
+        maxZoom: 20,
+        // https://github.com/mutsuyuki/Leaflet.SmoothWheelZoom
+        scrollWheelZoom: false, // disable original zoom function
+        smoothWheelZoom: true,  // enable smooth zoom
+        smoothSensitivity: 8,   // zoom speed. default is 1
+        // END https://github.com/mutsuyuki/Leaflet.SmoothWheelZoom
     });
 
     // Date filter elements
@@ -462,7 +701,7 @@ title: GPS mapper
     document.head.appendChild(offlineStyle);
 
     // Handle dataset selection
-    jsonSelector.addEventListener('change', (e) => {
+    jsonSelector && jsonSelector.addEventListener('change', (e) => {
         const selectedPath = e.target.value;
         if (selectedPath) {
             console.log('Selected new path:', selectedPath); // Debug log
@@ -508,7 +747,7 @@ title: GPS mapper
     }
 
     // Handle dataset selection
-    jsonSelector.addEventListener('change', (e) => {
+    jsonSelector && jsonSelector.addEventListener('change', (e) => {
         const selectedPath = e.target.value;
         if (selectedPath) {
             loadJsonData(selectedPath);
