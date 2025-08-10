@@ -5,6 +5,132 @@
     },
     {
       "id": "",
+      "latitude": 50.11741315042727,
+      "longitude": -56.123842549700996,
+      "name": "Fleur de Lys Harbour",
+      "notes": "<p>End of the road. Beautiful sunset.</p><p>This is the head of a trail and assigned said it was closed (some broken boardwalks), but I went anyway, and it was beautiful.</p><p>Samantha's Saltwater Joys Museum and Cafe is a very nice café. I asked for permission to charge my power station and had a good time.</p>",
+      "url": [""],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 49.24502849178007,
+      "longitude": -57.06594508951723,
+      "name": "401 north of Howley",
+      "notes": "<p>Very good. Secluded (specific coordinates) despite being next to the road. Nice sunrise and moonrise full moon (20250713). Shaded depending on the time of the day. Nice walk on the beach.</p><p>If looks like there used to be more spots, but they are blocked. Maybe this place will no longer be available in the future.</p>",
+      "url": [""],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 49.6830979259488,
+      "longitude": -54.80683205679022,
+      "name": "Sea Breeze Park",
+      "notes": "<p>Stayed multiple nights. Many spots on the way to this one. Has signal. Many campers. Front row to sunset. Beautiful hiking all over the place.</p><p>Nice walk to Crow's Nest Café.</p>",
+      "url": [""],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 47.830269167683134,
+      "longitude": -53.99502752949605,
+      "name": "Come By Chance Gut",
+      "notes": "<p>Entrance. After entering, I took the road all the way south.</p><p>No signal. Nice view of valley. Nice place. Huge in size and in views, but not many spots.</p>",
+      "url": [""],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 46.905191688103955,
+      "longitude": -53.61263335766253,
+      "name": "Gulch Beach",
+      "notes": "<p>Not level. Signal is slow. Wonderful view. So few people. Stayed for 2 nights</p><p>Other campers stayed in the parking lot and I went up here. Nice sunset and sunrise.</p>",
+      "url": [""],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 47.276317371601756,
+      "longitude": -54.00366677828089,
+      "name": "Beach south of Argentia",
+      "notes": "<p>Very nice place. Good signal, beautiful sunset. Nobody comes here. There are three spots.</p>",
+      "url": [""],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 47.577738170485965,
+      "longitude": -53.5643279656196,
+      "name": "Anderson's Cove",
+      "notes": "<p>Nice place, nice view. Locals come and go, as well as campers. Dildo is a nice town.</p>",
+      "url": [""],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 47.583149836614524,
+      "longitude": -52.69088007486581,
+      "name": "Big parking lot, Quidi Vidi Lake",
+      "notes": "<p>Easy spot for sleeping, especially if arriving late. Could also park here all day and walk around. Toilets up the hill.</p>",
+      "url": [""],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 47.57829999526881,
+      "longitude": -52.69426000359389,
+      "name": "Quidi Vidi Lake",
+      "notes": "<p>Easy spot for sleeping, especially if arriving late.</p>",
+      "url": [""],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 47.70097260676421,
+      "longitude": -52.70216969571463,
+      "name": "Father Troy’s Trail",
+      "notes": "<p>Good signal. Beautiful view of the cove and sunset. Beautiful of sunrise if willing to hike on the steep side at sunrise.</p><p>Trash bins and toilets at Ocean View Park (2-minute walk visible from this spot)</p>",
+      "url": [""],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 47.807469169058244,
+      "longitude": -52.78624041659969,
+      "name": "Old Cape St. Francis",
+      "notes": "<p>Beautiful view. Nobody comes here. Secluded and close to St. John's. A 5-minute hike up the mountain gives an even better 360 view.</p>",
+      "url": [""],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 48.365645992930105,
+      "longitude": -53.26469383581992,
+      "name": "Horse Chops Road - English Harbour",
+      "notes": "<p>Great signal. Very very few people, likely because the road is a dead end, much like pass Cook's Harbour north of Newfoundland.</p>",
+      "url": ["https://ioverlander.com/places/0763f2da-a87e-4c7b-801f-429be6a72952"],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 46.88433169116665,
+      "longitude": -55.40236730869224,
+      "name": "Shoal Cove Beach",
+      "notes": "<p>Very beautiful view, but I didn't stay, because I arrived in the evening and it was full of people; locals and campers.</p>",
+      "url": ["https://ioverlander.com/places/3eb485a9-4da0-40b2-a19d-80b30bde7793"],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 47.66617159905116,
+      "longitude": -54.72302368249221,
+      "name": "Terrenceville",
+      "notes": "<p>Good signal. Three designated spots. I was there for a week and there were mostly local people jogging, walking their dogs or with ATVs. Other campers (only 3 during my week) only came to sleep for a night.</p><p>360 view. Sunrise over water, sunset over water.</p>",
+      "url": ["https://ioverlander.com/places/8929ed76-d0b7-4e47-b86f-ffa4234871ca"],
+      "visible": 1
+    },
+    {
+      "id": "",
       "latitude": 49.02179006289782,
       "longitude": -57.60837465215055,
       "name": "Pasadena Beach",
@@ -3562,6 +3688,22 @@
     },
     {
       "id": "",
+      "latitude": 48.95837169462386,
+      "longitude": -54.61144418180863,
+      "name": "Swimming pool",
+      "notes": "<p>Very public shower in front of everyone showering, not private. Luckily, I was alone and just cleaned up quickly.</p>",
+      "url": ""
+    },
+    {
+      "id": "",
+      "latitude": 47.506393141868465,
+      "longitude": -52.816854832215256,
+      "name": "Mount Pearl swimming pool",
+      "notes": "<p>2 CAD. Nice swimming pool shower sort of like Planet Fitness.</p>",
+      "url": ""
+    },
+    {
+      "id": "",
       "latitude": 51.37355711683252,
       "longitude": -55.59775248584261,
       "name": "Swimming pool",
@@ -3846,6 +3988,14 @@
   "water": [
     {
       "markerPath": "/assets/images/map-icons/marker-icon-water.svg"
+    },
+    {
+      "id": "",
+      "latitude": 47.66274937282457,
+      "longitude": -54.71868607945368,
+      "name": "Esther Mary Water Well",
+      "notes": "Free spring water; cold and fresh (a local told me about it)",
+      "url": ""
     },
     {
       "id": "",
