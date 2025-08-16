@@ -5,6 +5,24 @@
     },
     {
       "id": "",
+      "latitude": 48.67827028436028,
+      "longitude": -53.09263391244944,
+      "name": "Dungeon Provincial Park UNESCO Geosite",
+      "notes": "<p>Excellent sunrise. Good signal.</p>",
+      "url": [""],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 48.67450353855486,
+      "longitude": -53.083932910465876,
+      "name": "Dungeon Provincial Park UNESCO Geosite",
+      "notes": "<p>Excellent sunrise. Good signal. Not level.</p><p>Exposed to wind and to people, yet isolated.</p><p>Saw animals: birds, cows, horses, sheeps</p><p>People say 3 nights maximum but I didn't see that sign. I saw the word unsupervised and I stayed five nights.</p>",
+      "url": [""],
+      "visible": 1
+    },
+    {
+      "id": "",
       "latitude": 50.11741315042727,
       "longitude": -56.123842549700996,
       "name": "Fleur de Lys Harbour",
@@ -3528,6 +3546,24 @@
   "places": [
     {
       "markerPath": "/assets/images/map-icons/marker-icon-place.svg"
+    },
+    {
+      "id": "",
+      "latitude": 48.6294076522593,
+      "longitude": -53.019056694444224,
+      "name": "Puffin Viewing Site",
+      "notes": "<p></p>",
+      "url": "https://maps.app.goo.gl/quQr9eq8G8UAs93Q8",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 48.16438970863733,
+      "longitude": -53.97511014339445,
+      "name": "Bakery '56",
+      "notes": "<p>Very nice at the top with a great view, big patio, big windows.</p><p>Went twice.</p>",
+      "url": "https://maps.app.goo.gl/8xY3XPeAL5aTUDAdA",
+      "visible": 1
     },
     {
       "id": "",
