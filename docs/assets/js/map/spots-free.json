@@ -5,6 +5,339 @@
     },
     {
       "id": "",
+      "latitude": 48.67827028436028,
+      "longitude": -53.09263391244944,
+      "name": "Dungeon Provincial Park UNESCO Geosite",
+      "notes": "<p>Excellent sunrise. Good signal.</p>",
+      "url": [""],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 48.67450353855486,
+      "longitude": -53.083932910465876,
+      "name": "Dungeon Provincial Park UNESCO Geosite",
+      "notes": "<p>Excellent sunrise. Good signal. Not level.</p><p>Exposed to wind and to people, yet isolated.</p><p>Saw animals: birds, cows, horses, sheeps</p><p>People say 3 nights maximum but I didn't see that sign. I saw the word unsupervised and I stayed five nights.</p>",
+      "url": [""],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 50.11741315042727,
+      "longitude": -56.123842549700996,
+      "name": "Fleur de Lys Harbour",
+      "notes": "<p>End of the road. Beautiful sunset.</p><p>This is the head of a trail and assigned said it was closed (some broken boardwalks), but I went anyway, and it was beautiful.</p><p>Samantha's Saltwater Joys Museum and Cafe is a very nice café. I asked for permission to charge my power station and had a good time.</p>",
+      "url": [""],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 49.24502849178007,
+      "longitude": -57.06594508951723,
+      "name": "401 north of Howley",
+      "notes": "<p>Very good. Secluded (specific coordinates) despite being next to the road. Nice sunrise and moonrise full moon (20250713). Shaded depending on the time of the day. Nice walk on the beach.</p><p>If looks like there used to be more spots, but they are blocked. Maybe this place will no longer be available in the future.</p>",
+      "url": [""],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 49.6830979259488,
+      "longitude": -54.80683205679022,
+      "name": "Sea Breeze Park",
+      "notes": "<p>Stayed multiple nights. Many spots on the way to this one. Has signal. Many campers. Front row to sunset. Beautiful hiking all over the place.</p><p>Nice walk to Crow's Nest Café.</p>",
+      "url": [""],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 47.830269167683134,
+      "longitude": -53.99502752949605,
+      "name": "Come By Chance Gut",
+      "notes": "<p>Entrance. After entering, I took the road all the way south.</p><p>No signal. Nice view of valley. Nice place. Huge in size and in views, but not many spots.</p>",
+      "url": [""],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 46.905191688103955,
+      "longitude": -53.61263335766253,
+      "name": "Gulch Beach",
+      "notes": "<p>Not level. Signal is slow. Wonderful view. So few people. Stayed for 2 nights</p><p>Other campers stayed in the parking lot and I went up here. Nice sunset and sunrise.</p>",
+      "url": [""],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 47.276317371601756,
+      "longitude": -54.00366677828089,
+      "name": "Beach south of Argentia",
+      "notes": "<p>Very nice place. Good signal, beautiful sunset. Nobody comes here. There are three spots.</p>",
+      "url": [""],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 47.577738170485965,
+      "longitude": -53.5643279656196,
+      "name": "Anderson's Cove",
+      "notes": "<p>Nice place, nice view. Locals come and go, as well as campers. Dildo is a nice town.</p>",
+      "url": [""],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 47.583149836614524,
+      "longitude": -52.69088007486581,
+      "name": "Big parking lot, Quidi Vidi Lake",
+      "notes": "<p>Easy spot for sleeping, especially if arriving late. Could also park here all day and walk around. Toilets up the hill.</p>",
+      "url": [""],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 47.57829999526881,
+      "longitude": -52.69426000359389,
+      "name": "Quidi Vidi Lake",
+      "notes": "<p>Easy spot for sleeping, especially if arriving late.</p>",
+      "url": [""],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 47.70097260676421,
+      "longitude": -52.70216969571463,
+      "name": "Father Troy’s Trail",
+      "notes": "<p>Good signal. Beautiful view of the cove and sunset. Beautiful of sunrise if willing to hike on the steep side at sunrise.</p><p>Trash bins and toilets at Ocean View Park (2-minute walk visible from this spot)</p>",
+      "url": [""],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 47.807469169058244,
+      "longitude": -52.78624041659969,
+      "name": "Old Cape St. Francis",
+      "notes": "<p>Beautiful view. Nobody comes here. Secluded and close to St. John's. A 5-minute hike up the mountain gives an even better 360 view.</p>",
+      "url": [""],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 48.365645992930105,
+      "longitude": -53.26469383581992,
+      "name": "Horse Chops Road - English Harbour",
+      "notes": "<p>Great signal. Very very few people, likely because the road is a dead end, much like pass Cook's Harbour north of Newfoundland.</p>",
+      "url": ["https://ioverlander.com/places/0763f2da-a87e-4c7b-801f-429be6a72952"],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 46.88433169116665,
+      "longitude": -55.40236730869224,
+      "name": "Shoal Cove Beach",
+      "notes": "<p>Very beautiful view, but I didn't stay, because I arrived in the evening and it was full of people; locals and campers.</p>",
+      "url": ["https://ioverlander.com/places/3eb485a9-4da0-40b2-a19d-80b30bde7793"],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 47.66617159905116,
+      "longitude": -54.72302368249221,
+      "name": "Terrenceville",
+      "notes": "<p>Good signal. Three designated spots. I was there for a week and there were mostly local people jogging, walking their dogs or with ATVs. Other campers (only 3 during my week) only came to sleep for a night.</p><p>360 view. Sunrise over water, sunset over water.</p>",
+      "url": ["https://ioverlander.com/places/8929ed76-d0b7-4e47-b86f-ffa4234871ca"],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 49.02179006289782,
+      "longitude": -57.60837465215055,
+      "name": "Pasadena Beach",
+      "notes": "<p>Very nice. Came here twice.</p><p>No people in June.</p><p>More people in July, but only during daytime, though sunset is late, so some people stay a while.</p>",
+      "url": ["https://ioverlander.com/places/13a96a64-4e62-4764-8133-ea3475ab5e7d"],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 51.628792991979395,
+      "longitude": -55.902967592169155,
+      "name": "Cape Norman",
+      "notes": "<p>The spot south west, 6 minutes away is more spacious, more secluded, better 360 view, better road quality.</p>",
+      "url": ["https://ioverlander.com/places/13a96a64-4e62-4764-8133-ea3475ab5e7d"],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 51.312148043322225,
+      "longitude": -56.74186291880924,
+      "name": "Nameless Cove",
+      "notes": "<p>Good signal. Nice place. Beauitful sunset. Close to the village, but still away. Water in three directions.</p>",
+      "url": ["https://park4night.com/en/place/432712","https://ioverlander.com/places/1b777e38-521e-4fa1-b62f-f7afdc734da7"],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 48.434323960892215,
+      "longitude": -70.45550792241029,
+      "name": "Lac Résimond",
+      "notes": "<p>Great place. No signal. 4 spots under trees. Beach. Noise from the road.</p>",
+      "url": [""],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 48.45995947655717,
+      "longitude": -70.9883206011504,
+      "name": "Halte de Valin",
+      "notes": "<p>Rest stop with lots of cars, vans, RVs.<br>You can park on the grass.<br>Nice view.</p>",
+      "url": [""],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 48.48972526741131,
+      "longitude": -71.40434088893257,
+      "name": "Camping Municipal st charles de Bourget",
+      "notes": "<p>Free with hot showers.<br>7 nights max.<br>14 spots.<br>2 showers.<br>Power outlets outside the building and in the toilets</p>",
+      "url": [""],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 46.33549845107891,
+      "longitude": -60.29320012289313,
+      "name": "Point Aconi",
+      "notes": "<p>Very good spot for seeing the sunset. On the east side, there is a spot to see the sunrise.</p><p>This place is good for sleeping before/after going/arriving to/from Newfoundland.</p>",
+      "url": [""],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 45.64693050005694,
+      "longitude": -61.76182573815927,
+      "name": "Bayfield",
+      "notes": "<p>Phenomenal place. Beautiful sunrise and sunset. Multiple spots for multiple people. Access to the beach.</p>",
+      "url": [""],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 50.2606575974603,
+      "longitude": -64.8766654490296,
+      "name": "Anse Caplan",
+      "notes": "<p>Amazing. Best place in this entire coast.<br>No signal. 360 view. Plenty of space to walk around.</p>",
+      "url": [""],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 49.188225719139446,
+      "longitude": -68.31507249337585,
+      "name": "Parc de la maison de la faune",
+      "notes": "<p>Nice place. Signal. Lots of people. Too known. Potable water at the information building before you get here.</p>",
+      "url": [""],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 49.1569651153371,
+      "longitude": -68.18642063877971,
+      "name": "Pointe-Lebel",
+      "notes": "<p>Very nice sunrise by the water.<br>Good signal.<br>Five vehicles including myself on 20240726.<br>Nobody else on 20240810.<br>Less than 30 minutes from Baie Comeau and yet, quiet and peaceful.</p><p>Saw auroras on one night, don't remember which night.</p>",
+      "url": ["https://ioverlander.com/places/282602-plage-chouinard"],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 48.08939266623813,
+      "longitude": -66.116938208202,
+      "name": "PAID: Camping de Carleton-sur-Mer",
+      "notes": "<p>One of the best and cheapest campgrounds in Quebec. Very nice because of the 360 view that includes a mountain and two bodies of water. The little town is also nice with a good café.</p>",
+      "url": ["https://maps.app.goo.gl/JcnH5eDK3p4i9iY77"],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 48.46770188093709,
+      "longitude": -59.266248234017965,
+      "name": "Boutte du Cap Park",
+      "notes": "<p>202506<br>Very windy location<br>On this day there are clouds and rain is coming. Signal is okay but I'm not sure for meetings.</p><p>Water and toilet at the round about at the entrance.</p>",
+      "url": ["https://ioverlander.com/places/099f48b9-a00c-43bd-9d9f-908f83ab19a1"],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 48.96366595217781,
+      "longitude": -57.89375389422975,
+      "name": "PAID: Kinsmen Prince Edward Campground & RV Park",
+      "notes": "<p>Cheap campground with hot shower, good Wi-Fi and good cell signal.</p><p>Spots without service are completely in the shade, so they are not a good option if you need solar power. I had a spot with electricity and water and it was in the open area which was very nice, even though people can be very close together.</p>",
+      "url": ["https://www.princeedwardrvpark.com/rates"],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 49.47812624457829,
+      "longitude": -57.97399246545509,
+      "name": "Tablelands trailhead",
+      "notes": "<p>20250627<br>Mostly no signal in the parking lot.<br>Windy, nobody here until daytime when it gets packed.</p>",
+      "url": [""],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 51.55875993224684,
+      "longitude": -55.74400643048868,
+      "name": "Raleigh",
+      "notes": "<p>Internet 4 3<br>Pretty good even if it's on the side of the road because nobody really comes here.</p>",
+      "url": [""],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 50.37401469010678,
+      "longitude": -57.526837418433985,
+      "name": "Spot",
+      "notes": "<p>No signal.<br>The vegetation makes you go deeper in many parts, so this exact spot is better. Let the front face the gulf.</p>",
+      "url": [""],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 51.34521293481218,
+      "longitude": -55.59075456828781,
+      "name": "Close to St. Anthony",
+      "notes": "<p>low signal 5 3<br>Latency infinity<br>Gorgeous view of the harbour<br>Very windy 30-60km/h on 20250629</p>",
+      "url": ["https://ioverlander.com/places/44b35e10-59b7-492e-bbb6-0bcacea1f4f4"],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 51.310709381033554,
+      "longitude": -55.639451683655864,
+      "name": "Goose Cove",
+      "notes": "<p>Great view, but I didn't feel comfortable. It isn't very spacious on the way in and also there.</p>",
+      "url": ["https://ioverlander.com/places/230862"],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 51.59165491406103,
+      "longitude": -55.87558959509593,
+      "name": "Bay View Rd",
+      "notes": "<p>Nice place.</p>",
+      "url": ["https://ioverlander.com/places/7de38515-1b8d-45f9-8f42-897c7e053471"],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 51.61105576673497,
+      "longitude": -55.94722423740775,
+      "name": "North",
+      "notes": "<p>20250701<br>Saw multiple icebergs!! Nine at one point.<br>Signal ok for youtube. Wonderful place on a cliff in front of the Gulf of Saint Lawrence.</p></p><p>Entrance of this big area is south west of this marker.</p>",
+      "url": ["https://ioverlander.com/places/0f98f507-9bd3-4bf6-a46d-9f2f41685e31"],
+      "visible": 1
+    },
+    {
+      "id": "",
       "latitude": 46.22395697985156,
       "longitude": -71.41696402571812,
       "name": "Observatoire",
@@ -2868,6 +3201,16 @@
   "potential-spots": [
     {
       "id": "",
+      "latitude": 51.31492867843634,
+      "longitude": -55.64772422758539,
+      "name": "Goose Cove",
+      "notes": "<p>Not the best, but there's a view west for sunset. It would be good for one night.</p>",
+      "url": "",
+      "url-2": "",
+      "visible": 1
+    },
+    {
+      "id": "",
       "latitude": 48.901940667402116,
       "longitude": -67.33824735562311,
       "name": "Église Sainte-Félicité",
@@ -3206,6 +3549,51 @@
     },
     {
       "id": "",
+      "latitude": 48.6294076522593,
+      "longitude": -53.019056694444224,
+      "name": "Puffin Viewing Site",
+      "notes": "<p></p>",
+      "url": "https://maps.app.goo.gl/quQr9eq8G8UAs93Q8",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 48.16438970863733,
+      "longitude": -53.97511014339445,
+      "name": "Bakery '56",
+      "notes": "<p>Very nice at the top with a great view, big patio, big windows.</p><p>Went twice.</p>",
+      "url": "https://maps.app.goo.gl/8xY3XPeAL5aTUDAdA",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 48.94179452867941,
+      "longitude": -57.96811411433202,
+      "name": "Sugar & Dice",
+      "notes": "<p>Good café. Good for working, but music too loud for meetings. Only some power outlets. Good vibes</p><p>Very sugary. As the writing says “This is a bad place for a diet”</p>",
+      "url": "https://maps.app.goo.gl/2SepfD4r8dCzb2BfA",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 49.22115353559337,
+      "longitude": -68.15138415174049,
+      "name": "Manoir du cafe",
+      "notes": "<p>Good café. Good for working. Has wifi.<br>Spotted power outlets; two in the front and one in the little corner in the middle before reaching the back.<br>Outdoor seats available, some tables with shade.</p>",
+      "url": "https://maps.app.goo.gl/YMs8oTiTnP5Wiqy77",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 51.36686977825619,
+      "longitude": -55.593197709654476,
+      "name": "Rebel Coffeehouse",
+      "notes": "Good small coffeehouse that is also a gift shop. Nice patio and greenhouse where you can sit and drink your coffee.",
+      "url": "https://maps.app.goo.gl/Gaq1MDzpVNZTKnvw9",
+      "visible": 1
+    },
+    {
+      "id": "",
       "latitude": 28.97122108995546,
       "longitude": -113.54731241370754,
       "name": "Siete Filos café",
@@ -3333,6 +3721,38 @@
   "shower": [
     {
       "markerPath": "/assets/images/map-icons/marker-icon-water.svg"
+    },
+    {
+      "id": "",
+      "latitude": 48.95837169462386,
+      "longitude": -54.61144418180863,
+      "name": "Swimming pool",
+      "notes": "<p>Very public shower in front of everyone showering, not private. Luckily, I was alone and just cleaned up quickly.</p>",
+      "url": ""
+    },
+    {
+      "id": "",
+      "latitude": 47.506393141868465,
+      "longitude": -52.816854832215256,
+      "name": "Mount Pearl swimming pool",
+      "notes": "<p>2 CAD. Nice swimming pool shower sort of like Planet Fitness.</p>",
+      "url": ""
+    },
+    {
+      "id": "",
+      "latitude": 51.37355711683252,
+      "longitude": -55.59775248584261,
+      "name": "Swimming pool",
+      "notes": "<p>Beware, there are children.</p><p>20250709: strange experience, but good place for a quick shower. As soon as you open the door, there are doors left (women) and right (men). In front is also a door that looks like it's for staff; it also looks like the top half can open so it would become a reception.</p><p>At the time I came, early morning you have to choose immediately between left and right, women and men, then you just head take a shower.</p>",
+      "url": "https://maps.app.goo.gl/o9ETGjrwcpeEs3KH9"
+    },
+    {
+      "id": "",
+      "latitude": 47.583035131346925,
+      "longitude": -59.16435148866669,
+      "name": "Bruce II Sports Centre",
+      "notes": "Entrance is at the northwest corner.<br>It's supposed to cost money (maybe 5$?), but it was free at the time I went (2025062 1000).",
+      "url": "https://maps.app.goo.gl/o9ETGjrwcpeEs3KH9"
     },
     {
       "id": "",
@@ -3604,6 +4024,22 @@
   "water": [
     {
       "markerPath": "/assets/images/map-icons/marker-icon-water.svg"
+    },
+    {
+      "id": "",
+      "latitude": 47.66274937282457,
+      "longitude": -54.71868607945368,
+      "name": "Esther Mary Water Well",
+      "notes": "Free spring water; cold and fresh (a local told me about it)",
+      "url": ""
+    },
+    {
+      "id": "",
+      "latitude": 47.58742792666738,
+      "longitude": -59.16507768099867,
+      "name": "Foodland - Port-aux-Basques",
+      "notes": "Between checkout and the exit there is a machine to fill in jugs.",
+      "url": "https://maps.app.goo.gl/fVitNaceB6tStJus7"
     },
     {
       "id": "",

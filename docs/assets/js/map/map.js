@@ -15,6 +15,7 @@ let svgCurrent = getIcon(svgBaseClasses + "current-location", markerPathCurrent,
 
 
 let map = L.map('map', {
+  fullscreenControl: true, // https://github.com/Leaflet/Leaflet.fullscreen
   maxZoom: 20,
   // https://github.com/mutsuyuki/Leaflet.SmoothWheelZoom
   scrollWheelZoom: false, // disable original zoom function
@@ -109,31 +110,35 @@ function parseLocations(locations) {
         setMarker(locationType) // After the icon because if location is hidden by default, this function will modify the icon.
         break
       case "places":
+        hideLocation = true
         legendMarker = '/assets/images/map-icons/marker-icon-place.svg'
         locationTypeHuman = 'Random place'
         svgIcon = getIcon(svgBaseClasses + locationType, legendMarker, [12,12], [6,11])
         setMarker(locationType) // After the icon because if location is hidden by default, this function will modify the icon.
         break
       case "potential-spots":
-        // hideLocation = true
+        hideLocation = true
         legendMarker = '/assets/images/map-icons/marker-icon-potential.svg'
         locationTypeHuman = 'Potential spots'
         svgIcon = getIcon(svgBaseClasses + locationType + ' marker-icon--fade', legendMarker, [12,12], [6,11])
         setMarker(locationType) // After the icon because if location is hidden by default, this function will modify the icon.
         break
       case "spots":
+        // hideLocation = true
         legendMarker = '/assets/images/map-icons/marker-icon-campspot.svg'
         locationTypeHuman = 'Chilling, sleeping and/or working spot'
         svgIcon = getIcon(svgBaseClasses + locationType, legendMarker, [12,12], [6,11])
         setMarker(locationType) // After the icon because if location is hidden by default, this function will modify the icon.
         break
       case "starbucks":
+        hideLocation = true
         legendMarker = '/assets/images/map-icons/marker-icon-place.svg'
         locationTypeHuman = 'Starbucks'
         svgIcon = getIcon(svgBaseClasses + locationType, legendMarker, [12,12], [6,11])
         setMarker(locationType) // After the icon because if location is hidden by default, this function will modify the icon.
         break
       case "shower":
+        hideLocation = true
         legendMarker = '/assets/images/map-icons/marker-icon-water.svg'
         locationTypeHuman = 'Shower spot'
         svgIcon = getIcon(svgBaseClasses + locationType, legendMarker, [12,16], [6,15])
@@ -147,6 +152,7 @@ function parseLocations(locations) {
         setMarker(locationType) // After the icon because if location is hidden by default, this function will modify the icon.
         break
       case "water":
+        hideLocation = true
         legendMarker = '/assets/images/map-icons/marker-icon-water.svg'
         locationTypeHuman = 'Water for cleaning or drinking'
         svgIcon = getIcon(svgBaseClasses + locationType, legendMarker, [12,16], [6,15])

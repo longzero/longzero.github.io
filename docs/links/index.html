@@ -1,37 +1,12 @@
-
 <!doctype html>
-<html lang="en">
+<html lang="en" class="base">
   <head>
   <meta charset="utf-8">
-  <meta name="robots" value="noindex,nofollow">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="generator" content="Eleventy v3.0.0">
 
-  <title>Map of my spots</title>
-  <meta name="description" content="Map of my spots">
-
-  
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-
-  
-
-  
-  <link rel="stylesheet" href="/assets/vendors/leaflet.fullscreen.css" />
-  <script src="/assets/vendors/Leaflet.fullscreen.min.js"></script>
-
-
-  
-  <script src="/assets/js/map/SmoothWheelZoom.js"></script>
-
-  
-
-  
-  
-
-  
-  
-  <script src="/assets/js/map/leaflet-providers.js"></script>
+  <title>Links</title>
+  <meta name="description" content="My name is Long Nguyen. I am a Front-End Web Developer obsessed with UX. I am experienced in building simple, clean and user-friendly websites for clients across the globe. Reach me on Instagram or Twitter or by email long@longzero.com.">
 
   <link rel="apple-touch-icon" href="/assets/images/favicon.png">
   <link rel="icon" href="/assets/images/favicon.png">
@@ -57,11 +32,11 @@
   
 
   <meta property="og:site_name" content="Longzero ~ Long Nguyen">
-  <meta property="og:description" content="Map of my spots">
-  <meta property="og:image" content="https://longzero.com/assets/images/og-map.jpg">
-  <meta property="og:title" content="Map of my spots">
+  <meta property="og:description" content="">
+  <meta property="og:image" content="https://longzero.com/assets/images/og.jpg">
+  <meta property="og:title" content="Links">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://longzero.com/map/">
+  <meta property="og:url" content="https://longzero.com/links/">
   
   
   
@@ -73,19 +48,17 @@
   <meta prefix="og: http://ogp.me/ns#" property="og:article:author" content="Longzero">
 
   
+  
 
   <link rel="stylesheet" href="/assets/css/index.css">
-  <link rel="stylesheet" href="/assets/css/map.css">
   
   
+  <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Longzero ~ Long Nguyen">
+  <link rel="alternate" href="/feed/feed.json" type="application/json" title="Longzero ~ Long Nguyen">
 </head>
 
 
-  
-  
-  
-
-  <body class="template-map">
+  <body class="template-page">
     <header class="site-header">
   <div class="container container--fluid">
     <a href="/" aria-current="page" class="home-link router-link-exact-active router-link-active" title="Longzero ~ Long Nguyen">
@@ -123,43 +96,52 @@
       
 
       
-<div class="map-wrapper" id="map"></div>
-<div class="map-legend minimize" id="map-legend">
-  <h4 class="map-legend-heading js-legend-toggle">Legend</h4>
-  <ul id="map-legend-items">
-    <li>
-      <div class="map-legend-symbol"><img src="/assets/images/map-icons/marker-icon-campspot.svg" alt=""></div>
-      <div class="map-legend-label">Spots</div>
-    </li>
-  </ul>
+
+
+
+<header class="container container--content post-header">
+  
+  <h1>Links</h1>
+  
+
+</header>
+
+<div class="container container--content rte">
+  <h3 id="ne-zha-eastern-mythology-in-western-news" tabindex="-1">Ne Zha, eastern mythology in western news <a class="sr-only" href="#ne-zha-eastern-mythology-in-western-news" aria-hidden="true">#</a></h3>
+<ul>
+<li><a target="_blank" href="https://youtu.be/mfo7x6IDll0">English dub of Ne Zha II arrives in Canada, already having broken box office records | CBC News</a></li></li>
+<li><a target="_blank" href="https://www.youtube.com/watch?v=mcFetsBZ9dA">Ne Zha I: watch for FREE</a></li></li>
+</ul>
+<h3 id="personal-links" tabindex="-1">Personal links <a class="sr-only" href="#personal-links" aria-hidden="true">#</a></h3>
+<ul>
+<li><a target="_blank" href="/">Homepage of this website</a></li></li>
+<li><a target="_blank" href="//bsky.app/profile/longzero.com">Bluesky</a></li></li>
+<li><a target="_blank" href="//instagram.com/longzero">Instagram</a></li></li>
+</ul>
+
 </div>
-
-
-<script>
-  // https://stackoverflow.com/a/34579496/2716287
-  document.addEventListener("DOMContentLoaded", function(){
-    let date = new Date().getTime()
-    // let file = "https://gist.githubusercontent.com/longzero/6c8bbe65ced9641f3b177a37011fb0f4/raw/spots-free.json?" + date
-    let file = "/assets/js/map/spots-free.json"
-    loadJSON(file, function(text){
-      data = JSON.parse(text);
-      initMap(data)
-    });
-  });
-  // END https://stackoverflow.com/a/34579496/2716287
-</script>
 
 
     </main>
 
-    <script>
-      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-    </script>
-    <script defer src="/_vercel/insights/script.js"></script>
+    
 
-    <script src="/assets/js/map/map.js"></script>
+<footer class="site-footer">
+  <div class="container container--content">
+    
+    <p>Reach me by email <strong><a target="_blank" href="mailto:long@longzero.com?body=(From%20longzero.com,%20do%20not%20delete%20this%20line)">long@longzero.com</a></strong>.</p>
+  </div>
+</footer>
 
-    <!-- Current page: /map/ -->
+<script>
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+
+<script src="/assets/js/main.js"></script>
+
+<!-- Current page: /links/ -->
+
 
   </body>
 </html>
