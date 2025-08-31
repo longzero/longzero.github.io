@@ -5,6 +5,15 @@
     },
     {
       "id": "",
+      "latitude": 48.94283221768172,
+      "longitude": -57.91799203186746,
+      "name": "Corner Brook Visitor Center",
+      "notes": "<p>Easy place to sleep, charge (power outlet on the side of the building) and get free water.</p>",
+      "url": [""],
+      "visible": 1
+    },
+    {
+      "id": "",
       "latitude": 48.46845119393267,
       "longitude": -59.26607766999508,
       "name": "Boutte du Cap Park - Cape St George",
@@ -3733,6 +3742,14 @@
     },
     {
       "id": "",
+      "latitude": 48.57946063996816,
+      "longitude": -53.947642823612945,
+      "name": "Terra Nova National Park",
+      "notes": "<p>Two private free showers with big deep sink and paid self-serve laundry machines.</p><p>Must maintain the button for water to come out and it takes a while to get warm.</p>",
+      "url": ""
+    },
+    {
+      "id": "",
       "latitude": 48.95837169462386,
       "longitude": -54.61144418180863,
       "name": "Swimming pool",
@@ -4033,6 +4050,14 @@
   "water": [
     {
       "markerPath": "/assets/images/map-icons/marker-icon-water.svg"
+    },
+    {
+      "id": "",
+      "latitude": 48.94322472805758,
+      "longitude": -57.91812942254106,
+      "name": "Corner Brook Visitor Information",
+      "notes": "Also a power outlet on the side of the building.",
+      "url": "https://ioverlander.com/places/ab629057-7c9c-4176-843a-70f82c4acf08"
     },
     {
       "id": "",

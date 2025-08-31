@@ -138,7 +138,7 @@ function parseLocations(locations) {
         setMarker(locationType) // After the icon because if location is hidden by default, this function will modify the icon.
         break
       case "shower":
-        hideLocation = true
+        // hideLocation = true
         legendMarker = '/assets/images/map-icons/marker-icon-water.svg'
         locationTypeHuman = 'Shower spot'
         svgIcon = getIcon(svgBaseClasses + locationType, legendMarker, [12,16], [6,15])
@@ -152,7 +152,7 @@ function parseLocations(locations) {
         setMarker(locationType) // After the icon because if location is hidden by default, this function will modify the icon.
         break
       case "water":
-        hideLocation = true
+        // hideLocation = true
         legendMarker = '/assets/images/map-icons/marker-icon-water.svg'
         locationTypeHuman = 'Water for cleaning or drinking'
         svgIcon = getIcon(svgBaseClasses + locationType, legendMarker, [12,16], [6,15])
