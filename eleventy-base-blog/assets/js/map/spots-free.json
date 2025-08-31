@@ -5,10 +5,28 @@
     },
     {
       "id": "",
+      "latitude": 48.46845119393267,
+      "longitude": -59.26607766999508,
+      "name": "Boutte du Cap Park - Cape St George",
+      "notes": "<p>202506<br>Very windy location<br>On this day there are clouds and rain is coming. Signal is okay but I'm not sure for meetings.</p><p>Water and toilet at the round about at the entrance.</p><p>20250828<br>Much less people than in June. Only for other campers overnight. Less wind this time.</p><p>Very nice. Beautiful sunset. Beautiful moonlight. It's SO different when it doesn't rain and there is no wind.</p><p>Many spots at the bottom and many spots up the hill.</p><p>Good signal and had a video call in the afternoon, but at the end of the evening, it started sucking 1 0.</p><p>20250829<br>Good signal until the end of the afternoon then it started sucking again 1 0.</p>",
+      "url": ["https://ioverlander.com/places/099f48b9-a00c-43bd-9d9f-908f83ab19a1"],
+      "visible": 1
+    },
+    {
+      "id": "",
       "latitude": 48.67827028436028,
       "longitude": -53.09263391244944,
       "name": "Dungeon Provincial Park UNESCO Geosite",
       "notes": "<p>Excellent sunrise. Good signal.</p>",
+      "url": [""],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 47.620109984198535,
+      "longitude": -59.302401758939425,
+      "name": "Cape Ray",
+      "notes": "<p>Good signal and beautiful place 20 minutes away from the ferry. Some locals and some campers probably getting on or off the ferry.</p><p>Saw five foxes.</p>",
       "url": [""],
       "visible": 1
     },
@@ -152,7 +170,7 @@
       "latitude": 49.02179006289782,
       "longitude": -57.60837465215055,
       "name": "Pasadena Beach",
-      "notes": "<p>Very nice. Came here twice.</p><p>No people in June.</p><p>More people in July, but only during daytime, though sunset is late, so some people stay a while.</p>",
+      "notes": "<p>Very nice. Came here multiple times.</p><p>No people in June.</p><p>More people in July, but only during daytime, though sunset is late, so some people stay a while.</p>",
       "url": ["https://ioverlander.com/places/13a96a64-4e62-4764-8133-ea3475ab5e7d"],
       "visible": 1
     },
@@ -253,15 +271,6 @@
       "name": "PAID: Camping de Carleton-sur-Mer",
       "notes": "<p>One of the best and cheapest campgrounds in Quebec. Very nice because of the 360 view that includes a mountain and two bodies of water. The little town is also nice with a good café.</p>",
       "url": ["https://maps.app.goo.gl/JcnH5eDK3p4i9iY77"],
-      "visible": 1
-    },
-    {
-      "id": "",
-      "latitude": 48.46770188093709,
-      "longitude": -59.266248234017965,
-      "name": "Boutte du Cap Park",
-      "notes": "<p>202506<br>Very windy location<br>On this day there are clouds and rain is coming. Signal is okay but I'm not sure for meetings.</p><p>Water and toilet at the round about at the entrance.</p>",
-      "url": ["https://ioverlander.com/places/099f48b9-a00c-43bd-9d9f-908f83ab19a1"],
       "visible": 1
     },
     {
