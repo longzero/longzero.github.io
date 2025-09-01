@@ -5,6 +5,24 @@
     },
     {
       "id": "",
+      "latitude": 46.014028674567776,
+      "longitude": -60.396894341363776,
+      "name": "East Bay Chapel Rd",
+      "notes": "<p>Awesome! Good signal. Water on two sides. Camp next to water with direct access. Would definitely come back!</p>",
+      "url": ["https://ioverlander.com/places/66ec85a4-ca9b-4be0-b300-552b4f42de2d"],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 45.70553848287012,
+      "longitude": -60.77560227278723,
+      "name": "Mniku Plaque",
+      "notes": "<p>Pretty awesome big space. Has signal. Good views.</p>",
+      "url": ["https://park4night.com/en/place/585814","https://ioverlander.com/places/0ad982f6-47de-4563-89a2-f0208ea44359"],
+      "visible": 1
+    },
+    {
+      "id": "",
       "latitude": 48.94283221768172,
       "longitude": -57.91799203186746,
       "name": "Corner Brook Visitor Center",
@@ -3217,6 +3235,26 @@
 
   ],
   "potential-spots": [
+    {
+      "id": "",
+      "latitude": 44.102122490741394,
+      "longitude": -64.54062935162992,
+      "name": "Long Cove Rd close to Medway Head Lighthouse",
+      "notes": "<p>Recommended by sassvan</p>",
+      "url": "",
+      "url-2": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 49.38911931243631,
+      "longitude": -57.71255001790811,
+      "name": "Little Bonne Bay Pond",
+      "notes": "<p>Recommended by sassvan</p><p>Beware: may require high clearance.</p>",
+      "url": "",
+      "url-2": "",
+      "visible": 1
+    },
     {
       "id": "",
       "latitude": 51.31492867843634,
