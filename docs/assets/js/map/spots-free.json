@@ -5,10 +5,55 @@
     },
     {
       "id": "",
+      "latitude": 46.014028674567776,
+      "longitude": -60.396894341363776,
+      "name": "East Bay Chapel Rd",
+      "notes": "<p>Awesome! Good signal. Water on two sides. Camp next to water with direct access. Would definitely come back!</p>",
+      "url": ["https://ioverlander.com/places/66ec85a4-ca9b-4be0-b300-552b4f42de2d"],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 45.70553848287012,
+      "longitude": -60.77560227278723,
+      "name": "Mniku Plaque",
+      "notes": "<p>Pretty awesome big space. Has signal. Good views.</p>",
+      "url": ["https://park4night.com/en/place/585814","https://ioverlander.com/places/0ad982f6-47de-4563-89a2-f0208ea44359"],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 48.94283221768172,
+      "longitude": -57.91799203186746,
+      "name": "Corner Brook Visitor Center",
+      "notes": "<p>Easy place to sleep, charge (power outlet on the side of the building) and get free water.</p>",
+      "url": [""],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 48.46845119393267,
+      "longitude": -59.26607766999508,
+      "name": "Boutte du Cap Park - Cape St George",
+      "notes": "<p>202506<br>Very windy location<br>On this day there are clouds and rain is coming. Signal is okay but I'm not sure for meetings.</p><p>Water and toilet at the round about at the entrance.</p><p>20250828<br>Much less people than in June. Only for other campers overnight. Less wind this time.</p><p>Very nice. Beautiful sunset. Beautiful moonlight. It's SO different when it doesn't rain and there is no wind.</p><p>Many spots at the bottom and many spots up the hill.</p><p>Good signal and had a video call in the afternoon, but at the end of the evening, it started sucking 1 0.</p><p>20250829<br>Good signal until the end of the afternoon then it started sucking again 1 0.</p>",
+      "url": ["https://ioverlander.com/places/099f48b9-a00c-43bd-9d9f-908f83ab19a1"],
+      "visible": 1
+    },
+    {
+      "id": "",
       "latitude": 48.67827028436028,
       "longitude": -53.09263391244944,
       "name": "Dungeon Provincial Park UNESCO Geosite",
       "notes": "<p>Excellent sunrise. Good signal.</p>",
+      "url": [""],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 47.620109984198535,
+      "longitude": -59.302401758939425,
+      "name": "Cape Ray",
+      "notes": "<p>Good signal and beautiful place 20 minutes away from the ferry. Some locals and some campers probably getting on or off the ferry.</p><p>Saw five foxes.</p>",
       "url": [""],
       "visible": 1
     },
@@ -152,7 +197,7 @@
       "latitude": 49.02179006289782,
       "longitude": -57.60837465215055,
       "name": "Pasadena Beach",
-      "notes": "<p>Very nice. Came here twice.</p><p>No people in June.</p><p>More people in July, but only during daytime, though sunset is late, so some people stay a while.</p>",
+      "notes": "<p>Very nice. Came here multiple times.</p><p>No people in June.</p><p>More people in July, but only during daytime, though sunset is late, so some people stay a while.</p>",
       "url": ["https://ioverlander.com/places/13a96a64-4e62-4764-8133-ea3475ab5e7d"],
       "visible": 1
     },
@@ -253,15 +298,6 @@
       "name": "PAID: Camping de Carleton-sur-Mer",
       "notes": "<p>One of the best and cheapest campgrounds in Quebec. Very nice because of the 360 view that includes a mountain and two bodies of water. The little town is also nice with a good café.</p>",
       "url": ["https://maps.app.goo.gl/JcnH5eDK3p4i9iY77"],
-      "visible": 1
-    },
-    {
-      "id": "",
-      "latitude": 48.46770188093709,
-      "longitude": -59.266248234017965,
-      "name": "Boutte du Cap Park",
-      "notes": "<p>202506<br>Very windy location<br>On this day there are clouds and rain is coming. Signal is okay but I'm not sure for meetings.</p><p>Water and toilet at the round about at the entrance.</p>",
-      "url": ["https://ioverlander.com/places/099f48b9-a00c-43bd-9d9f-908f83ab19a1"],
       "visible": 1
     },
     {
@@ -3201,6 +3237,26 @@
   "potential-spots": [
     {
       "id": "",
+      "latitude": 44.102122490741394,
+      "longitude": -64.54062935162992,
+      "name": "Long Cove Rd close to Medway Head Lighthouse",
+      "notes": "<p>Recommended by sassvan</p>",
+      "url": "",
+      "url-2": "",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 49.38911931243631,
+      "longitude": -57.71255001790811,
+      "name": "Little Bonne Bay Pond",
+      "notes": "<p>Recommended by sassvan</p><p>Beware: may require high clearance.</p>",
+      "url": "",
+      "url-2": "",
+      "visible": 1
+    },
+    {
+      "id": "",
       "latitude": 51.31492867843634,
       "longitude": -55.64772422758539,
       "name": "Goose Cove",
@@ -3724,6 +3780,14 @@
     },
     {
       "id": "",
+      "latitude": 48.57946063996816,
+      "longitude": -53.947642823612945,
+      "name": "Terra Nova National Park",
+      "notes": "<p>Two private free showers with big deep sink and paid self-serve laundry machines.</p><p>Must maintain the button for water to come out and it takes a while to get warm.</p>",
+      "url": ""
+    },
+    {
+      "id": "",
       "latitude": 48.95837169462386,
       "longitude": -54.61144418180863,
       "name": "Swimming pool",
@@ -4024,6 +4088,14 @@
   "water": [
     {
       "markerPath": "/assets/images/map-icons/marker-icon-water.svg"
+    },
+    {
+      "id": "",
+      "latitude": 48.94322472805758,
+      "longitude": -57.91812942254106,
+      "name": "Corner Brook Visitor Information",
+      "notes": "Also a power outlet on the side of the building.",
+      "url": "https://ioverlander.com/places/ab629057-7c9c-4176-843a-70f82c4acf08"
     },
     {
       "id": "",
