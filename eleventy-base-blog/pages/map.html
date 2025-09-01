@@ -8,6 +8,24 @@ eleventyNavigation:
   order: 3
 ---
 
+<style>
+  /* The map only has light mode. */
+  html {
+    --color-1: #639;
+    --color-background: #fff;
+    --color-copy: #444;
+    --color-link: var(--color-1);
+    --color-post-title: var(--color-1);
+    --color-post-title-hover: var(--color-1);
+    --color-post-image-hover: var(--color-1);
+    --font-size: 16;
+    --footer-background: linear-gradient(#fff 15%, #eee);
+    --rem: 1 / var(--font-size) * 1rem;
+    font-size: 16px;
+    scroll-behavior: smooth;
+  }
+</style>
+
 <div class="map-wrapper" id="map"></div>
 <div class="map-legend minimize" id="map-legend">
   <h4 class="map-legend-heading js-legend-toggle">Legend</h4>
