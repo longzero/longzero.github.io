@@ -306,6 +306,27 @@ title: Clock
     const utils = {
       pad: n => n < 10 ? "0"+n : n,
 
+      // Cookie utilities
+      setCookie: (name, value, days = 365) => {
+        const d = new Date();
+        d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+        const expires = "expires=" + d.toUTCString();
+        document.cookie = name + "=" + value + ";" + expires + ";path=/";
+      },
+
+      getCookie: (name) => {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+        return null;
+      },
+
+      // Get URL parameters
+      getUrlParam: (param) => {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+      },
+
       updateFavicon: () => {
         const canvas = document.createElement('canvas');
         canvas.width = 32;
@@ -403,6 +424,22 @@ title: Clock
         this.initControls();
       },
 
+      setClockType: function(type) {
+        const timeContainer = document.querySelector('.time-container');
+        const isAnalog = type === 'analog';
+
+        // Update UI
+        if (isAnalog) {
+          timeContainer.classList.add('analog');
+        } else {
+          timeContainer.classList.remove('analog');
+        }
+
+        // Update storage
+        localStorage.setItem('clockType', type);
+        utils.setCookie('clockType', type);
+      },
+
       initClock: function() {
         const timeContainer = document.querySelector('.time-container');
         const hoursHand = document.querySelector('.hours-hand');
@@ -432,14 +469,19 @@ title: Clock
 
         // Add clock toggle handler
         document.getElementById('clockBtn').addEventListener('click', () => {
-          timeContainer.classList.toggle('analog');
-          localStorage.setItem('clockType', timeContainer.classList.contains('analog') ? 'analog' : 'digital');
+          const newType = timeContainer.classList.contains('analog') ? 'digital' : 'analog';
+          this.setClockType(newType);
         });
 
-        // Set and restore clock type preference (default to analog)
-        const savedType = localStorage.getItem('clockType') || 'analog';
-        if (savedType === 'analog') {
-          timeContainer.classList.add('analog');
+        // Check URL parameter first, then cookie, then localStorage, default to analog
+        const urlType = utils.getUrlParam('clockType');
+        if (urlType === 'analog' || urlType === 'digital') {
+          this.setClockType(urlType);
+        } else {
+          const cookieType = utils.getCookie('clockType');
+          const storageType = localStorage.getItem('clockType');
+          const savedType = cookieType || storageType || 'analog';
+          this.setClockType(savedType);
         }
 
         const updateAll = () => {
