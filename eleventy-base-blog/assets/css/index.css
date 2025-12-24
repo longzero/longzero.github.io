@@ -4,7 +4,7 @@
   font-style: normal;
   font-weight: 400;
   src: url("../fonts/oxygen-v10-latin-regular.eot"); /* IE9 Compat Modes */
-  src: local(''), url("../fonts/oxygen-v10-latin-regular.eot?#iefix") format('embedded-opentype'), url("../fonts/oxygen-v10-latin-regular.woff2") format('woff2'), url("../fonts/oxygen-v10-latin-regular.woff") format('woff'), url("../fonts/oxygen-v10-latin-regular.ttf") format('truetype'), url("../fonts/oxygen-v10-latin-regular.svg#Oxygen") format('svg');
+  src: local(''), url("../fonts/oxygen-v10-latin-regular.eot?#iefix") format('embedded-opentype'), url("../fonts/oxygen-v10-latin-regular.woff2") format('woff2'), url("../fonts/oxygen-v10-latin-regula[...]")
   Legacy: iOS;
 }
 @font-face {
@@ -13,7 +13,7 @@
   font-style: normal;
   font-weight: 700;
   src: url("../fonts/oxygen-v10-latin-700.eot"); /* IE9 Compat Modes */
-  src: local(''), url("../fonts/oxygen-v10-latin-700.eot?#iefix") format('embedded-opentype'), url("../fonts/oxygen-v10-latin-700.woff2") format('woff2'), url("../fonts/oxygen-v10-latin-700.woff") format('woff'), url("../fonts/oxygen-v10-latin-700.ttf") format('truetype'), url("../fonts/oxygen-v10-latin-700.svg#Oxygen") format('svg'); /* Legacy iOS */
+  src: local(''), url("../fonts/oxygen-v10-latin-700.eot?#iefix") format('embedded-opentype'), url("../fonts/oxygen-v10-latin-700.woff2") format('woff2'), url("../fonts/oxygen-v10-latin-700.woff") for[...]
 }
 * {
   box-sizing: border-box;
@@ -28,6 +28,10 @@ html {
   --color-post-title: var(--color-1);
   --color-post-title-hover: var(--color-1);
   --color-post-image-hover: var(--color-1);
+
+  /* unit conversion even-row background (light-mode default) */
+  --unit-conversion-even-bg: #ddd;
+
   --font-size: 16;
   --footer-background: linear-gradient(#fff 15%, #eee);
   --rem: 1 / var(--font-size) * 1rem;
@@ -43,6 +47,10 @@ html {
     --color-post-title: #eef;
     --color-post-title-hover: #96c;
     --footer-background: linear-gradient(rgba(0,0,0,0) 0%, #112 25%, #112);
+
+    /* unit conversion even-row background for dark mode: choose a subtle dark stripe */
+    --unit-conversion-evern-bg: #111;
+    --unit-conversion-even-bg: #111;
   }
 }
 
@@ -168,7 +176,7 @@ input, select {height: 35px;}
   font-size: 0.8em;
   margin-bottom: 1em;
 }
-.post-header h1 {color: var(--color-post-title);}
+.post-header h1 {color: var(--color-post-title);} 
 .post-header h1:not(:has(+ .post-date)) {margin-bottom: 1em;}
 .post-image {
   --size: 100px;
@@ -590,12 +598,14 @@ input, select {height: 35px;}
 .rte .video-wrapper + h6 {
   padding-top: 2em;
 }
-/*.rte img {border: 1px solid var(--color-1);}*/
+/*.rte img {border: 1px solid var(--color-1);}"*/
 .rte ol, .rte ul {padding-left: 20px;}
 
 
 .unit-conversion {font-size: 1rem; padding: 5px 10px;}
-.unit-conversion:nth-child(even) {background-color: #ddd;}
+.unit-conversion:nth-child(even) {
+  background-color: var(--unit-conversion-even-bg, #ddd);
+}
 .unit-group {display: flex; align-items: center; gap: 10px; margin: 5px 0}
 .unit-group input {text-align: right;}
 #exchange-rate {width: 100px;}
