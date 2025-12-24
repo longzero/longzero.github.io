@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="generator" content="Eleventy v3.0.0">
 
-  <title>Longzero ~ Long Nguyen</title>
+  <title>Clock</title>
   <meta name="description" content="My name is Long Nguyen. I am a Front-End Web Developer obsessed with UX. I am experienced in building simple, clean and user-friendly websites for clients across the globe. Reach me on Instagram or Twitter or by email long@longzero.com.">
 
   <link rel="apple-touch-icon" href="/assets/images/favicon.png">
@@ -33,7 +33,7 @@
   <meta property="og:site_name" content="Longzero ~ Long Nguyen">
   <meta property="og:description" content="">
   <meta property="og:image" content="https://longzero.com/assets/images/og-map.jpg">
-  <meta property="og:title" content="Longzero ~ Long Nguyen">
+  <meta property="og:title" content="Clock">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://longzero.com/clock/">
 
@@ -59,6 +59,554 @@
     <main>
 
       
+<link id="favicon" rel="icon" href="#" type="image/png">
+
+<style>
+  :root{
+    --bg-overlay: rgba(0,0,0,0.35);
+    --glass-overlay: rgba(255,255,255,0.06);
+    --accent: rgba(255,255,255,0.9);
+    --muted: rgba(255,255,255,0.85);
+  }
+  html,body{
+    height:100%;
+    margin:0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    color: white;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+  }
+
+  body{
+    /* background will be set by JS for daily image */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    position:relative;
+    transition: background-image 800ms ease-in-out;
+  }
+
+  /* dark overlay for readability */
+  .overlay{
+    position: absolute;
+    inset:0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.28), rgba(0,0,0,0.48));
+    pointer-events: none;
+  }
+
+  .container{
+    position: relative;
+    z-index: 2;
+    width: min(92vw, 1100px);
+    padding: 40px;
+    box-sizing: border-box;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:14px;
+    /* backdrop-filter: blur(6px) saturate(1.05); */
+  }
+
+  .time{
+    font-size: clamp(48px, 12vw, 140px);
+    font-weight: 600;
+    letter-spacing: -1px;
+    line-height: 0.95;
+    color: var(--accent);
+    text-shadow: 0 6px 24px rgba(0,0,0,0.6);
+    margin:0;
+  }
+
+  .mantra{
+    font-size: clamp(14px, 2.6vw, 20px);
+    opacity:0.98;
+    margin:0;
+    font-weight:500;
+    color: rgba(255,255,255,0.95);
+    text-shadow: 0 3px 10px rgba(0,0,0,0.45);
+  }
+
+  .quote{
+    margin:0;
+    font-size: clamp(12px, 2vw, 16px);
+    opacity:0.95;
+    font-style: italic;
+    color: rgba(255,255,255,0.92);
+    max-width: 70ch;
+    text-shadow: 0 3px 10px rgba(0,0,0,0.45);
+  }
+
+  .attribution{
+    margin-top:8px;
+    font-size:12px;
+    color: rgba(255,255,255,0.8);
+    opacity:0.9;
+  }
+
+  /* Clock styles */
+  .time-container {
+    position: relative;
+    width: clamp(120px, 30vw, 300px);
+    height: clamp(120px, 30vw, 300px);
+  }
+
+  .digital-time {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s;
+  }
+
+  .analog-time {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+  }
+
+  .time-container.analog .digital-time {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .time-container.analog .analog-time {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .clock-face {
+    width: 100%;
+    height: 100%;
+    border: 3px solid rgba(255,255,255,0.8);
+    border-radius: 50%;
+    position: relative;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(4px);
+  }
+
+  .clock-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: white;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+  }
+
+  .clock-hand {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform-origin: bottom;
+    background: white;
+    border-radius: 4px;
+  }
+
+  .hours-hand {
+    width: 4px;
+    height: 25%;
+    transform: translateX(-50%);
+  }
+
+  .minutes-hand {
+    width: 3px;
+    height: 35%;
+    transform: translateX(-50%);
+  }
+
+  .seconds-hand {
+    width: 2px;
+    height: 40%;
+    background: var(--accent);
+    transform: translateX(-50%);
+  }
+
+  /* small corner controls (edit text) */
+  .controls{
+    display:flex;
+    /*display: none; */
+    /* hide by default, enable for testing */
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index:5;
+    gap:8px;
+  }
+  .btn{
+    background: var(--glass-overlay);
+    border: 1px solid rgba(255,255,255,0.08);
+    padding:6px 8px;
+    border-radius:8px;
+    cursor:pointer;
+    color:var(--muted);
+    font-size:13px;
+    backdrop-filter: blur(4px);
+  }
+
+  /* responsive spacing */
+  @media (max-height:520px){
+    .container{ padding:18px; gap:8px; }
+    .time{ font-size: clamp(36px, 10vw, 84px); }
+  }
+</style>
+
+<main>
+  <div class="overlay" aria-hidden="true"></div>
+
+  <div class="container" role="main" aria-live="polite">
+    <div class="time-container analog">
+      <div class="digital-time">
+        <h1 id="time" class="time" aria-label="Current time">--:--:--</h1>
+      </div>
+      <div class="analog-time">
+        <div class="clock-face">
+          <div class="clock-hand hours-hand"></div>
+          <div class="clock-hand minutes-hand"></div>
+          <div class="clock-hand seconds-hand"></div>
+          <div class="clock-center"></div>
+        </div>
+      </div>
+    </div>
+    <div class="mantra" id="mantra">Breathe. Focus. Start.</div>
+    <div class="quote" id="quote">"A small step today is a big step tomorrow." — unknown</div>
+    <div class="attribution" id="attrib" aria-hidden="true"></div>
+  </div>
+
+  <!-- small controls: edit mantra/quote or refresh background -->
+  <div class="controls" aria-hidden="false">
+    <button id="clockBtn" class="btn" title="Toggle between analog and digital clock">Toggle Clock</button>
+    <!-- <button id="editBtn" class="btn" title="Edit mantra & quote">Edit</button> -->
+    <!-- <button id="refreshBtn" class="btn" title="Force new background image">Refresh BG</button> -->
+  </div>
+</main>
+
+<script>
+  (function(){
+    // ---------- content configuration ----------
+    const dailyContent = {
+      mantras: [
+      "Breathe. Focus. Start.",
+      "Do one thing that moves the day forward.",
+      "Keep it simple. Keep it steady.",
+      "Progress over perfection.",
+      "Finish what you started.",
+      "Small steps, consistent action.",
+      "Choose clarity over chaos.",
+      "Present moment, precious moment.",
+      "Every day is a fresh canvas.",
+      "Flow like water, stand like mountain.",
+      "Mindful steps create the path.",
+      "Patience breeds possibility.",
+      "Simple actions, profound impact.",
+      "Aim for excellence, not perfection.",
+      "Trust the journey within."
+      ],
+
+      quotes: [
+        {q: "The secret of getting ahead is getting started.", a:"Mark Twain"},
+        {q: "Small deeds done are better than great deeds planned.", a:"Peter Marshall"},
+        {q: "Start where you are. Use what you have. Do what you can.", a:"Arthur Ashe"},
+        {q: "You don’t have to be great to start, but you have to start to be great.", a:"Zig Ziglar"},
+        {q: "Do the hard jobs first. The easy jobs will take care of themselves.", a:"Dale Carnegie"},
+        {q: "Little by little, a little becomes a lot.", a:"Tanzanian proverb"},
+        {q: "Action is the foundational key to all success.", a:"Pablo Picasso"},
+        {q: "Motivation is what gets you started. Habit is what keeps you going.", a:"Jim Ryun"},
+        {q: "It always seems impossible until it's done.", a:"Nelson Mandela"},
+        {q: "The best time to plant a tree was 20 years ago. The second best time is now.", a:"Chinese proverb"},
+        {q: "Patience is bitter, but its fruit is sweet.", a:"Persian proverb"},
+        {q: "Fall seven times, stand up eight.", a:"Japanese proverb"},
+        {q: "The world is not in your books and maps, it's out there.", a:"J.R.R. Tolkien"},
+        {q: "No hay mal que por bien no venga. (There is no bad from which good does not come.)", a:"Latin American proverb"},
+        {q: "Life is not measured by the number of breaths we take, but by the moments that take our breath away.", a:"Maya Angelou"},
+        {q: "The wound is the place where the Light enters you.", a:"Rumi"},
+        {q: "Better to light a candle than to curse the darkness.", a:"Chinese proverb"},
+        {q: "El tiempo es oro. (Time is gold.)", a:"Spanish proverb"},
+        {q: "Even the longest night will end and the sun will rise.", a:"Victor Hugo"},
+        {q: "What we fear doing most is usually what we most need to do.", a:"Ralph Waldo Emerson"},
+        {q: "Well begun is half done.", a:"Aristotle"},
+        {q: "The journey of a thousand miles begins with one step.", a:"Lao Tzu"},
+        {q: "Do not go where the path may lead, go instead where there is no path and leave a trail.", a:"Ralph Waldo Emerson"},
+        {q: "To live is the rarest thing in the world. Most people exist, that is all.", a:"Oscar Wilde"},
+        {q: "Idealistic as it may sound, altruism should be the driving force in business, not just competition and a desire for wealth.", a:"Dalai Lama"}
+      ],
+
+      // Each background can be from any source as long as it's a full URL
+      backgrounds: [
+        // Unsplash collection
+        'https://images.unsplash.com/photo-1497436072909-60f360e1d4b1',  // Norway mountains
+        'https://images.unsplash.com/photo-1506744038136-46273834b3fb',  // Yosemite
+        'https://images.unsplash.com/photo-1433086966358-54859d0ed716',  // Forest waterfall
+        'https://images.unsplash.com/photo-1469474968028-56623f02e42e',  // Misty mountains
+        'https://images.unsplash.com/photo-1501785888041-af3ef285b470',  // Calm lake sunrise
+        'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05',  // Foggy mountains
+        'https://images.unsplash.com/photo-1441974231531-c6227db76b6e',  // Sunlit forest
+        'https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f',  // Cherry blossoms
+      ]
+    };
+
+    // ---------- utilities ----------
+    const utils = {
+      pad: n => n < 10 ? "0"+n : n,
+
+      // Cookie utilities
+      setCookie: (name, value, days = 365) => {
+        const d = new Date();
+        d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+        const expires = "expires=" + d.toUTCString();
+        document.cookie = name + "=" + value + ";" + expires + ";path=/";
+      },
+
+      getCookie: (name) => {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+        return null;
+      },
+
+      // Get URL parameters
+      getUrlParam: (param) => {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+      },
+
+      updateFavicon: () => {
+        const canvas = document.createElement('canvas');
+        canvas.width = 32;
+        canvas.height = 32;
+        const ctx = canvas.getContext('2d');
+        const now = new Date();
+
+        // Clear canvas
+        ctx.clearRect(0, 0, 32, 32);
+
+        // Draw clock face
+        ctx.beginPath();
+        ctx.arc(16, 16, 14, 0, 2 * Math.PI);
+        ctx.strokeStyle = '#FFFFFF';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        // Calculate hand angles
+        const hours = now.getHours() % 12;
+        const minutes = now.getMinutes();
+        const seconds = now.getSeconds();
+
+        const hoursAngle = (hours + minutes / 60) * (Math.PI * 2 / 12) - Math.PI / 2;
+        const minutesAngle = minutes * (Math.PI * 2 / 60) - Math.PI / 2;
+        const secondsAngle = seconds * (Math.PI * 2 / 60) - Math.PI / 2;
+
+        // Draw hour hand
+        ctx.beginPath();
+        ctx.moveTo(16, 16);
+        ctx.lineTo(
+          16 + Math.cos(hoursAngle) * 8,
+          16 + Math.sin(hoursAngle) * 8
+        );
+        ctx.strokeStyle = '#FFFFFF';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        // Draw minute hand
+        ctx.beginPath();
+        ctx.moveTo(16, 16);
+        ctx.lineTo(
+          16 + Math.cos(minutesAngle) * 10,
+          16 + Math.sin(minutesAngle) * 10
+        );
+        ctx.strokeStyle = '#FFFFFF';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        // Draw second hand
+        ctx.beginPath();
+        ctx.moveTo(16, 16);
+        ctx.lineTo(
+          16 + Math.cos(secondsAngle) * 12,
+          16 + Math.sin(secondsAngle) * 12
+        );
+        ctx.strokeStyle = '#FF0000';
+        ctx.lineWidth = 1;
+        ctx.stroke();
+
+        // Draw center dot
+        ctx.beginPath();
+        ctx.arc(16, 16, 2, 0, 2 * Math.PI);
+        ctx.fillStyle = '#FFFFFF';
+        ctx.fill();
+
+        // Update favicon
+        document.getElementById('favicon').href = canvas.toDataURL();
+      },
+
+      getDateSeed: () => {
+        const d = new Date();
+        return `${d.getFullYear()}${utils.pad(d.getMonth()+1)}${utils.pad(d.getDate())}`;
+      },
+
+      seedToNumber: (seed) => {
+        return [...seed].reduce((sum, char) => sum + char.charCodeAt(0), 0);
+      },
+
+      pickFromArray: (arr, seed) => {
+        return arr[utils.seedToNumber(seed) % arr.length];
+      }
+    };
+
+    // ---------- core functionality ----------
+    const app = {
+      timeEl: document.getElementById('time'),
+      mantraEl: document.getElementById('mantra'),
+      quoteEl: document.getElementById('quote'),
+      attribEl: document.getElementById('attrib'),
+      dateSeed: utils.getDateSeed(),
+
+      init: function() {
+        this.initClock();
+        this.setDailyContent();
+        this.initControls();
+      },
+
+      setClockType: function(type) {
+        const timeContainer = document.querySelector('.time-container');
+        const isAnalog = type === 'analog';
+
+        // Update UI
+        if (isAnalog) {
+          timeContainer.classList.add('analog');
+        } else {
+          timeContainer.classList.remove('analog');
+        }
+
+        // Update storage
+        localStorage.setItem('clockType', type);
+        utils.setCookie('clockType', type);
+      },
+
+      initClock: function() {
+        const timeContainer = document.querySelector('.time-container');
+        const hoursHand = document.querySelector('.hours-hand');
+        const minutesHand = document.querySelector('.minutes-hand');
+        const secondsHand = document.querySelector('.seconds-hand');
+
+        const updateTime = () => {
+          const now = new Date();
+          const hours = now.getHours();
+          const minutes = now.getMinutes();
+          const seconds = now.getSeconds();
+
+          // Update digital display
+          this.timeEl.textContent = [hours, minutes, seconds]
+            .map(utils.pad)
+            .join(':');
+
+          // Update analog hands
+          const hoursAngle = (hours % 12 + minutes / 60) * 30; // 360/12 = 30 degrees per hour
+          const minutesAngle = minutes * 6; // 360/60 = 6 degrees per minute
+          const secondsAngle = seconds * 6; // 360/60 = 6 degrees per second
+
+          hoursHand.style.transform = `translateX(-50%) rotate(${hoursAngle}deg)`;
+          minutesHand.style.transform = `translateX(-50%) rotate(${minutesAngle}deg)`;
+          secondsHand.style.transform = `translateX(-50%) rotate(${secondsAngle}deg)`;
+        };
+
+        // Add clock toggle handler
+        document.getElementById('clockBtn').addEventListener('click', () => {
+          const newType = timeContainer.classList.contains('analog') ? 'digital' : 'analog';
+          this.setClockType(newType);
+        });
+
+        // Check URL parameter first, then cookie, then localStorage, default to analog
+        const urlType = utils.getUrlParam('clockType');
+        if (urlType === 'analog' || urlType === 'digital') {
+          this.setClockType(urlType);
+        } else {
+          const cookieType = utils.getCookie('clockType');
+          const storageType = localStorage.getItem('clockType');
+          const savedType = cookieType || storageType || 'analog';
+          this.setClockType(savedType);
+        }
+
+        const updateAll = () => {
+          updateTime();
+          utils.updateFavicon();
+        };
+        updateAll();
+        setInterval(updateAll, 1000);
+      },
+
+      setDailyContent: function(forceSeed) {
+        const seed = forceSeed || this.dateSeed;
+
+        // Set mantra and quote
+        const mantra = utils.pickFromArray(dailyContent.mantras, seed);
+        const quote = utils.pickFromArray(dailyContent.quotes, seed);
+
+        this.mantraEl.textContent = mantra;
+        this.quoteEl.textContent = `"${quote.q}"`;
+        this.attribEl.textContent = `— ${quote.a}`;
+
+        // Set background
+        const w = window.innerWidth;
+        const h = Math.max(window.innerHeight, 720);
+        const baseUrl = utils.pickFromArray(dailyContent.backgrounds, seed);
+        const url = `${baseUrl}?auto=format&fit=crop&w=${Math.round(w)}&h=${Math.round(h)}`;
+
+        const img = new Image();
+        img.onload = () => document.body.style.backgroundImage = `url('${url}')`;
+        img.onerror = () => document.body.style.background = "linear-gradient(180deg,#2c3e50,#4b6cb7)";
+        img.src = url;
+
+        // Update page title
+        document.title = `Time: ${this.timeEl.textContent} — ${mantra}`;
+      },
+
+      initControls: function() {
+        // Refresh background
+        document.getElementById('refreshBtn').addEventListener('click', () => {
+          this.setDailyContent(Date.now().toString());
+        });
+
+        // Edit content
+        document.getElementById('editBtn').addEventListener('click', () => {
+          const curMantra = this.mantraEl.textContent;
+          const curQuote = this.quoteEl.textContent.replace(/^"|"$/g,'');
+          const curAttrib = this.attribEl.textContent.replace(/^—\s*/,'');
+
+          const newMantra = prompt("Edit mantra (short, single line):", curMantra);
+          if(newMantra) this.mantraEl.textContent = newMantra.slice(0,200);
+
+          const newQuote = prompt("Edit quote (text):", curQuote);
+          if(newQuote) this.quoteEl.textContent = `"${newQuote.slice(0,240)}"`;
+
+          const newAttrib = prompt("Quote author / attribution:", curAttrib);
+          if(newAttrib) this.attribEl.textContent = `— ${newAttrib.slice(0,80)}`;
+        });
+
+        // Update title periodically
+        setInterval(() => {
+          document.title = `Time: ${this.timeEl.textContent} — ${this.mantraEl.textContent}`;
+        }, 60*1000);
+      }
+    }
+
+    // Initialize app
+    app.init();
+  })();
+</script>
+
+
+<!--
 <h3>UTC</h3>
 <p><time id="time"></time></p>
 <h3>Los Angeles</h3>
@@ -99,6 +647,7 @@
   document.querySelector('#time-chicago').innerHTML = getTime('America/Chicago')
   document.querySelector('#time-montreal').innerHTML = getTime('America/Toronto')
 </script>
+ -->
 
 
     </main>
