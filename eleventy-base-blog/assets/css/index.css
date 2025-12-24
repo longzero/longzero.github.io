@@ -31,6 +31,8 @@ html {
   --font-size: 16;
   --footer-background: linear-gradient(#fff 15%, #eee);
   --rem: 1 / var(--font-size) * 1rem;
+  --unit-conversion-even-bg: #ddd;
+
   font-size: 16px;
   scroll-behavior: smooth;
 }
@@ -43,6 +45,7 @@ html {
     --color-post-title: #eef;
     --color-post-title-hover: #96c;
     --footer-background: linear-gradient(rgba(0,0,0,0) 0%, #112 25%, #112);
+    --unit-conversion-even-bg: #222;
   }
 }
 
@@ -269,6 +272,9 @@ input, select {height: 35px;}
 }
 .site-footer:after {
   z-index: 0;
+}
+.site-footer a {
+  text-decoration: none;
 }
 .site-footer a:hover {
   text-decoration: underline;
@@ -595,7 +601,7 @@ input, select {height: 35px;}
 
 
 .unit-conversion {font-size: 1rem; padding: 5px 10px;}
-.unit-conversion:nth-child(even) {background-color: #ddd;}
+.unit-conversion:nth-child(even) {background-color: var(--unit-conversion-even-bg);}
 .unit-group {display: flex; align-items: center; gap: 10px; margin: 5px 0}
 .unit-group input {text-align: right;}
 #exchange-rate {width: 100px;}

@@ -7,7 +7,9 @@ title: Units
 #   key: Time
 #   order: 3
 
-exchange_rate: 1.44
+exchange_rate: 1.37
+# winter 2025: 1.44
+# 2025-12-24: 1.37
 ---
 
 
