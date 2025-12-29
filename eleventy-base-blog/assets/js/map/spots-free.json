@@ -5,6 +5,42 @@
     },
     {
       "id": "",
+      "latitude": 48.458000646549884,
+      "longitude": -71.17854492776651,
+      "name": "Rivière Saguenay",
+      "notes": "<p>Good place to be alone.</p><p>Get in slowly. Good signal.<br>Downloaded a movie at almost 20 Mbps.</p>",
+      "url": [""],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 48.45767247833093,
+      "longitude": -71.18344493372442,
+      "name": "Rivière Saguenay",
+      "notes": "<p>Good place to be alone.</p><p>Only room for one small vehicle otherwise it may be difficult to reverse out, because it's tight for a U-turn.</p><p>There's at least one other spot east and one other spot west of here.</p><p>20251004<br>Good signal. Alone, next to river.</p>",
+      "url": [""],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 45.222216312279464,
+      "longitude": -72.5317846434533,
+      "name": "Stationnement parc des lions",
+      "notes": "<p>En VR pour pas cher</p><p>20251017<br>Big parking. Good signal.<br>One neighbour.</p>",
+      "url": [""],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 46.23792032971102,
+      "longitude": -72.05019088729243,
+      "name": "Plage proche de Victoriaville",
+      "notes": "<p>Nice place. Good signal.</p><p>20251014 1332<br>Nobody around.</p>",
+      "url": ["https://park4night.com/en/place/527163","https://ioverlander.com/places/5b73865b-1ffb-42a6-9396-3f1631e6d8cb"],
+      "visible": 1
+    },
+    {
+      "id": "",
       "latitude": 35.230621015211746,
       "longitude": -114.59394048344991,
       "name": "Nevada Telephone Cove",
