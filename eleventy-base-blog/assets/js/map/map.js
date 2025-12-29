@@ -62,7 +62,16 @@ function addMarkers(count, locations, locationType) {
 
       // Check other content
       if (location.notes !== undefined && location.notes !== "") locationNotes = '<div class="location-tooltip-notes">' + location.notes + '</div>'
-      if (location.url !== undefined && location.url !== "") locationUrl = '<a class="location-tooltip-action" target="_blank" href="' + location.url + '">' + location.url + '</a>'
+      if (location.url !== undefined && location.url !== "") {
+        if (Array.isArray(location.url)) {
+          for (let i = 0; i < location.url.length; i++) {
+            if (locationUrl !== "") locationUrl += ' ';
+            locationUrl += '<a class="location-tooltip-action" target="_blank" href="' + location.url[i] + '">' + location.url[i] + '</a>'
+          }
+        } else {
+          locationUrl = '<a class="location-tooltip-action" target="_blank" href="' + location.url + '">' + location.url + '</a>'
+        }
+      }
       if (location.weather !== undefined && location.weather !== "") locationWeather = '<a class="location-tooltip-action" target="_blank" href="https://www.accuweather.com/en/search-locations?query=' + location.weather + '">Accuweather</a>'
       else locationWeather = '<a class="location-tooltip-action" target="_blank" href="https://www.accuweather.com/en/search-locations?query=' + location.latitude + '%2C' + location.longitude + '">Accuweather</a>'
 
