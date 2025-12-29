@@ -5,6 +5,24 @@
     },
     {
       "id": "",
+      "latitude": 35.230621015211746,
+      "longitude": -114.59394048344991,
+      "name": "Nevada Telephone Cove",
+      "notes": "<p>Very nice! Little and slow signal. Not suitable for work, especially not calls.</p><p>7 days max. Toilets and trash container.</p>",
+      "url": ["https://ioverlander.com/places/5aa9e398-8ce1-42d7-8df3-ee3210dfe492"],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 35.74998205451474,
+      "longitude": -99.71876971300271,
+      "name": "Black Kettle Campground",
+      "notes": "<p>Very nice! Good signal. Toilets. 14 days.</p>",
+      "url": ["https://ioverlander.com/places/d3ef99b9-98e1-4d64-907a-40dd1b7e0650", "https://ioverlander.com/places/f9f15654-4248-496f-9693-9e50be26a8e6"],
+      "visible": 1
+    },
+    {
+      "id": "",
       "latitude": 46.014028674567776,
       "longitude": -60.396894341363776,
       "name": "East Bay Chapel Rd",
