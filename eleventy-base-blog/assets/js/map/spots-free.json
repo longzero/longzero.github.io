@@ -657,7 +657,6 @@
       "name": "Salton City",
       "notes": "<p>Good for video meetings, did it with 5 people.</p><p>Beautiful place, lake is visible and sunrise is beautiful.</p>",
       "url": "",
-      "url-2": "",
       "visible": 1
     },
     {
@@ -667,7 +666,6 @@
       "name": "Palm Canyon Rd",
       "notes": "<p>Internet 20 1 20240129 2133 from computer.</p><p>I moved here because I am trying to prevent someone showing up and blocking the view if I was at the spot west of here.</p>",
       "url": "",
-      "url-2": "",
       "visible": 1
     },
     {
@@ -677,7 +675,6 @@
       "name": "Palm Canyon Rd",
       "notes": "<p>Internet 64 15 20240128 1548.</p><p>I moved to the spot just east of here out of fear of someone going there and blocking the view of the mountains.</p>",
       "url": "",
-      "url-2": "",
       "visible": 1
     },
     {
@@ -687,7 +684,6 @@
       "name": "Palm Canyon Rd",
       "notes": "<p>Good signal.</p><p>Good spot, but expect people to visit the Spiral Labyrinth.</p>",
       "url": "",
-      "url-2": "",
       "visible": 1
     },
     {
@@ -696,8 +692,7 @@
       "longitude": -114.1824585,
       "name": "Palm Canyon Rd",
       "notes": "<p>20240111: Terrible signal. Speed test is fine when it's measuring, but real world usage is horrible. <code>git push</code> is taking forever just to update this map. Watching YouTube at 144p or 240p are working, but loading comments take forever. Loading this map locally is also taken forever.</p><p>Strangely, a one on one video call using Facebook Messenger was just fine.</p><p>20240115: Internet (Fizz) has become awesome 82 / 4.</p><p>Mountains all around at various distances.</p>",
-      "url": "",
-      "url-2": "https://mailchi.mp/2faa5c23b35c/vanlife-pride-2024-location?e=1115321c59",
+      "url": "https://mailchi.mp/2faa5c23b35c/vanlife-pride-2024-location?e=1115321c59",
       "visible": 1
     },
     {
@@ -3260,7 +3255,6 @@
       "name": "Long Cove Rd close to Medway Head Lighthouse",
       "notes": "<p>Recommended by sassvan</p>",
       "url": "",
-      "url-2": "",
       "visible": 1
     },
     {
@@ -3270,7 +3264,6 @@
       "name": "Little Bonne Bay Pond",
       "notes": "<p>Recommended by sassvan</p><p>Beware: may require high clearance.</p>",
       "url": "",
-      "url-2": "",
       "visible": 1
     },
     {
@@ -3280,7 +3273,6 @@
       "name": "Goose Cove",
       "notes": "<p>Not the best, but there's a view west for sunset. It would be good for one night.</p>",
       "url": "",
-      "url-2": "",
       "visible": 1
     },
     {
@@ -3290,7 +3282,6 @@
       "name": "Église Sainte-Félicité",
       "notes": "<p>Behind the church. Unsure if the signal is good enough for video calls.</p>",
       "url": "",
-      "url-2": "",
       "visible": 1
     },
     {
@@ -3299,8 +3290,7 @@
       "longitude": -95.98096178499169,
       "name": "Nichols Park",
       "notes": "<p>Gates open 5-22. Good signal. 5 spots.</p>",
-      "url": "https://ioverlander.com/places/281187-nichols-park",
-      "url-2": "https://ioverlander.com/places/75018-nichols-park",
+      "url": ["https://ioverlander.com/places/281187-nichols-park", "https://ioverlander.com/places/75018-nichols-park"],
       "visible": 1
     },
     {
@@ -3309,8 +3299,7 @@
       "longitude": -94.674381,
       "name": "Louisburg Middle Creek Lake",
       "notes": "<p>Signal 3 bars, 10 spots. People come to fish. Overall nice.</p>",
-      "url": "https://ioverlander.com/places/153032-louisburg-middle-creek-lake",
-      "url-2": "https://ksoutdoors.com/KDWP-Info/Locations/State-Fishing-Lakes/Northeast-Region/Louisburg-Middle-Creek",
+      "url": ["https://ioverlander.com/places/153032-louisburg-middle-creek-lake","https://ksoutdoors.com/KDWP-Info/Locations/State-Fishing-Lakes/Northeast-Region/Louisburg-Middle-Creek"],
       "visible": 1
     },
     {
@@ -3328,8 +3317,7 @@
       "longitude": -63.60264724852187,
       "name": "NUITÉE VR HAVRE ST-PIERRE",
       "notes": "<p><strong>Emplacement disponible seulement quand le terrain de camping est complet</strong></p><p>Aréna Denis-Perron - Côté Sud près de la rue de la Digue, terrain gazonné, pas de point d'eau, sans de table de pique-nique, sans poubelle.</p><p>10 espaces<br>Où se stationner: Perpendiculaire à la rue de la Digue. FEUX bois ou propane interdits.<br>Mi-juillet à la mi-août<br>7/7 jours, 24/24<br>Max 48 heures<br>Gratuit</p>",
-      "url": "https://www.google.com/maps/@50.2448695,-63.605103,759m/data=!3m1!1e3!4m2!6m1!1s1hzk8VpdKfaJkOSHWfMJldSKCG37tj-c?entry=ttu",
-      "url-2": "http://www.tourismehsp.com",
+      "url": ["https://www.google.com/maps/@50.2448695,-63.605103,759m/data=!3m1!1e3!4m2!6m1!1s1hzk8VpdKfaJkOSHWfMJldSKCG37tj-c?entry=ttu","http://www.tourismehsp.com"],
       "visible": 1
     },
     {
@@ -3338,8 +3326,7 @@
       "longitude": -64.14464852530347,
       "name": "NUITÉE VR LONGUE-POINTE-DE-MINGAN",
       "notes": "<p>STATIONNEMENT INTERDIT SUR LA PLAGE.</p><p>À partir de la route 138, veuillez prendre la route de l’Aéroport et suivre les indications.</p><p>10 espaces<br>Dans l'espace de stationnement, <strong>stationnement sur la plage est interdit.</strong><br>25 juin au 1er septembre<br>7/7 jours, 24h/24h<br>Durée maximale du séjour: 72 heures<br>Gratuit</p>",
-      "url": "https://www.google.com/maps/@50.2719089,-64.1503586,2878m/data=!3m1!1e3!4m2!6m1!1s1hzk8VpdKfaJkOSHWfMJldSKCG37tj-c?entry=ttu",
-      "url-2": "http://www.longuepointedemingan.ca/a-decouvrir/",
+      "url": ["https://www.google.com/maps/@50.2719089,-64.1503586,2878m/data=!3m1!1e3!4m2!6m1!1s1hzk8VpdKfaJkOSHWfMJldSKCG37tj-c?entry=ttu", "http://www.longuepointedemingan.ca/a-decouvrir/"],
       "visible": 1
     },
     {
@@ -3349,7 +3336,6 @@
       "name": "NUITÉE VR RIVIÈRE-AU-TONNERRE - VILLAGES-RELAIS",
       "notes": "<p>Halte municipale<br>Stationnement VR 24 heures</p>",
       "url": "https://www.google.com/maps/@50.2743547,-64.7620911,220m/data=!3m1!1e3!4m2!6m1!1s1hzk8VpdKfaJkOSHWfMJldSKCG37tj-c?entry=ttu",
-      "url-2": "",
       "visible": 1
     },
     {
@@ -3359,7 +3345,6 @@
       "name": "NUITÉE VR RIVIÈRE-AU-TONNERRE - VILLAGES-RELAIS",
       "notes": "<p>Stationnement municipal<br>Stationnement VR 24 heures</p>",
       "url": "https://www.google.com/maps/@50.2752929,-64.7765398,539m/data=!3m1!1e3!4m2!6m1!1s1hzk8VpdKfaJkOSHWfMJldSKCG37tj-c?entry=ttu",
-      "url-2": "",
       "visible": 1
     },
     {
@@ -3369,7 +3354,6 @@
       "name": "NUITÉE VR Église Saint-Hippolyte (Villages-Relais)",
       "notes": "<p>Juste à côté du 14 rue de l'Église (le stationnement de l'Église est trop petit et trop à proximité de la rue il y a donc enseigne d'interdiction)</p>",
       "url": "https://www.google.com/maps/@50.2752929,-64.7765398,539m/data=!3m1!1e3!4m2!6m1!1s1hzk8VpdKfaJkOSHWfMJldSKCG37tj-c?entry=ttu",
-      "url-2": "",
       "visible": 1
     },
     {
@@ -3378,8 +3362,7 @@
       "longitude": -66.86191761998963,
       "name": "NUITÉE VR Centre d'interprétation de l'histoire de Port-Cartier",
       "notes": "<p>Centre d'interprétation de l'histoire de Port-Cartier<br>45, boulevard du Portage-des-Mousses</p><p>Stationnement - lieu touristique. Le plus grand centre d'interprétation de l'histoire de la Côte-Nord.</p><p>4 espaces<br>Moins de 30 pieds<br>Où se stationner: À l'intérieur des espaces de stationnement.<br>Juin à Septembre, 7/7 jours<br>Heure d'arrivée: avant 16H00<br>Heure de départ: avant 16H00<br>Durée maximale du séjour: 48 heures</p><p><strong>Tarif: Contribution volontaire à remettre à l'accueil du Centre d'interprétation de l'histoire.</strong></p>",
-      "url": "https://www.google.com/maps/@50.0246643,-66.8621221,202m/data=!3m1!1e3!4m2!6m1!1s1hzk8VpdKfaJkOSHWfMJldSKCG37tj-c?entry=ttu",
-      "url-2": "https://www.facebook.com/tourismeportcartier",
+      "url": ["https://www.google.com/maps/@50.0246643,-66.8621221,202m/data=!3m1!1e3!4m2!6m1!1s1hzk8VpdKfaJkOSHWfMJldSKCG37tj-c?entry=ttu","https://www.facebook.com/tourismeportcartier"],
       "visible": 1
     },
     {
@@ -3388,8 +3371,7 @@
       "longitude": -66.87370676944072,
       "name": "NUITÉE VR Parc du Barrage des Pionniers",
       "notes": "<p>Parc du Barrage des Pionniers, Rue du Barrage</p><p>Asphalte, poubelles, tables à pique-nique. Cul-de-sac, intime, belle vue. Dormir au son d'une majestueuse chute à proximité.</p><p>2 places<br>24 pieds et moins<br>Juin à Septembre, 7/7 jours, 24h/24h<br>Durée maximale du séjour: 48 heures<br>Gratuit</p>",
-      "url": "https://www.google.com/maps/@50.025671,-66.8742564,197m/data=!3m1!1e3!4m2!6m1!1s1hzk8VpdKfaJkOSHWfMJldSKCG37tj-c?entry=ttu",
-      "url-2": "https://www.facebook.com/tourismeportcartier",
+      "url": ["https://www.google.com/maps/@50.025671,-66.8742564,197m/data=!3m1!1e3!4m2!6m1!1s1hzk8VpdKfaJkOSHWfMJldSKCG37tj-c?entry=ttu","https://www.facebook.com/tourismeportcartier"],
       "visible": 1
     },
     {
@@ -3398,8 +3380,7 @@
       "longitude": -68.14396464904769,
       "name": "NUITÉE VR Église – Quartier Saint-Georges",
       "notes": "<p>RESPECTEZ LES ESPACES IDENTIFIÉS<br>Église – Quartier Saint-Georges (Le jardin des glaciers)</p><p>Stationnement sur gravier. Le stationnement de l’église Saint-Georges, construite en 1955 vous offre une magnifique vue sur le fleuve Saint-Laurent et une belle tranquillité. Située à proximité du lac Leven, une promenade s’impose dans les rues et les sentiers avoisinants. Pour les amateurs de pêche, sachez que le lac Leven est ensemencé et un quai flottant est accessible pour tous. Vous avez accès à un dépanneur tout près et vous êtes à seulement 5 minutes de place La Salle où vous découvrirez notamment la fontaine d’eau de la Place de la Biosphère, la Manufacture de savon Borale, le Manoir du Café, la Galerie d’art Claude Bonneau, la terrasse du Grand Hôtel ainsi que la Microbrasserie St-Pancrace.</p><p>30 espaces<br><strong>Se stationner sur les espaces identifiés<br>Mai à Octobre, 7/7 jours, 24h/24h<br>Durée maximale du séjour: 24hrs<br>Gratuit</p>",
-      "url": "https://www.google.com/maps/@49.239557,-68.1445094,194m/data=!3m1!1e3!4m2!6m1!1s1hzk8VpdKfaJkOSHWfMJldSKCG37tj-c?entry=ttu",
-      "url-2": "https://www.tourismebaiecomeau.com/",
+      "url": ["https://www.google.com/maps/@49.239557,-68.1445094,194m/data=!3m1!1e3!4m2!6m1!1s1hzk8VpdKfaJkOSHWfMJldSKCG37tj-c?entry=ttu","https://www.tourismebaiecomeau.com/"],
       "visible": 1
     },
     {
@@ -3408,8 +3389,7 @@
       "longitude": -67.66325141213224,
       "name": "NUITÉE VR Parc Pierre-Brochu",
       "notes": "<p>Parc Pierre-Brochu 127, route 132 Est</p><p>Stationnement en gravier à proximité de tous les commerces (épicerie, restaurant, station-service), tables, poubelles sur place et accès au Lac Matapédia à proximité.</p><p>3 espaces<br>40 pieds maximum<br>Mai à octobre, 7/7 jours, 24h/24h<br>Durée maximale du séjour: 24 heures<br>Gratuit</p>",
-      "url": "https://www.google.com/maps/@48.566094,-67.664267,410m/data=!3m1!1e3!4m2!6m1!1s1hzk8VpdKfaJkOSHWfMJldSKCG37tj-c?entry=ttu",
-      "url-2": "https://municipalitesayabec.com/tourisme/attraits.html",
+      "url": ["https://www.google.com/maps/@48.566094,-67.664267,410m/data=!3m1!1e3!4m2!6m1!1s1hzk8VpdKfaJkOSHWfMJldSKCG37tj-c?entry=ttu","https://municipalitesayabec.com/tourisme/attraits.html"],
       "visible": 1
     },
     {
@@ -3419,7 +3399,6 @@
       "name": "NUITÉE VR Amqui Village Relais",
       "notes": "<p></p>",
       "url": "https://www.google.com/maps/@48.4624781,-67.4336363,200m/data=!3m1!1e3!4m2!6m1!1s1hzk8VpdKfaJkOSHWfMJldSKCG37tj-c?entry=ttu",
-      "url-2": "",
       "visible": 1
     },
     {
@@ -3428,8 +3407,7 @@
       "longitude": -67.53500466887978,
       "name": "NUITÉE VR Les Galeries du Vieux-Port",
       "notes": "<p>Les Galeries du Vieux-Port 750 Av. du Phare O</p><p>Centre commercial, respectez les règles affichées sur place. À votre disposition dans le Centre commercial, des boutiques, bar, restaurant, pharmacie, SAQ, marché d'alimentation, etc Située au cœur de la ville, à proximité du Fleuve et à quelques pas de la Rivière Matane, vous aurez plein de choses à découvrir à distance de marche.</p><p>Où se stationner: À l'arrière du Centre commercial, le long de la bordure, côté fleuve. Respectez l'affichage de l'espace dédié aux VR. Stationnement en parallèle seulement - aucun stationnement en transversale autorisé.</p><p>Accessibilités: mai à octobre, 7/7 jours, 24h/24h<br>Durée maximale du séjour: 24 heures<br>Gratuit</p>",
-      "url": "https://www.google.com/maps/@48.8534321,-67.5355243,159m/data=!3m1!1e3!4m2!6m1!1s1hzk8VpdKfaJkOSHWfMJldSKCG37tj-c?entry=ttu",
-      "url-2": "https://www.galeriesduvieuxport.com/",
+      "url": ["https://www.google.com/maps/@48.8534321,-67.5355243,159m/data=!3m1!1e3!4m2!6m1!1s1hzk8VpdKfaJkOSHWfMJldSKCG37tj-c?entry=ttu","https://www.galeriesduvieuxport.com/"],
       "visible": 1
     },
     {
@@ -3438,8 +3416,7 @@
       "longitude": -67.16759215782865,
       "name": "Nuitée VR Musée Louis-Langlois",
       "notes": "<p>Musée Louis-Langlois<br>rue Mgr-Labrie, secteur Pointe-aux-Anglais</p><p>Stationnement de gravier, poubelles, tables de pique-nique et toilette chimique. Accès direct à la plage et au terrain aménagé du musée.  Station de jeux aménagée pour les enfants.</p><p>2 places<br>Moins de 30 pieds<br>Juin à Août, 7/7 jours<br>Arrivée: Avant 16H00<br>Départ: Avant 16H00<br>Durée maximale: 48 heures<br>Gratuit</p>",
-      "url": "https://www.google.com/maps/@49.6790467,-67.1677628,21z/data=!4m2!6m1!1s1hzk8VpdKfaJkOSHWfMJldSKCG37tj-c?entry=ttu",
-      "url-2": "https://www.facebook.com/tourismeportcartier",
+      "url": ["https://www.google.com/maps/@49.6790467,-67.1677628,21z/data=!4m2!6m1!1s1hzk8VpdKfaJkOSHWfMJldSKCG37tj-c?entry=ttu","https://www.facebook.com/tourismeportcartier"],
       "visible": 1
     },
     {
@@ -3449,7 +3426,6 @@
       "name": "Panoche Hills (BLM)",
       "notes": "<p></p>",
       "url": "https://ioverlander.com/places/161031-panoche-hills-blm",
-      "url-2": "",
       "visible": 1
     },
     {
@@ -3459,7 +3435,6 @@
       "name": "BLM road - Big Horn Peak view",
       "notes": "<p>Endless pick of sites. Less than 10 minutes off highway.</p><p>bee hive area had unauthorized sign, but if you go down the road a little further you’ll see a nice level area, very quiet low hum from the free way, pretty good signal. few big puddles to avoid.</p><p>beautiful sunset and sunrise views and we heard lots of coyotes.</p><p>Nice spot as described & felt safe as a solo female traveler</p><p>Might need high clearance for further spots.</p><p><strong>good Verizon LTE</strong></p><p>The actual point isn’t on a road google knows about so it drops you off at a big flat area with a bunch of hives. You can drive through it to another flat area without hives and there’s a “road” that continues past that to the indicated point about a quarter mile away. I didn’t go all the way to the point, but stopped about halfway at a nice flat spot with a fire pit. 2 bees stopped by in the evening and about a half dozen were buzzing around in the morning. No biggie. Fast service on Verizon, 3 bars, but very slow service on T-Mobile.</p>",
       "url": "https://ioverlander.com/places/49224-southern-tip-of-anza-borrego-state-park",
-      "url-2": "",
       "visible": 1
     },
     {
@@ -3469,7 +3444,6 @@
       "name": "Southern tip of Anza Borrego state park",
       "notes": "<p>Wind turbines. Lots of sand, high clearance recommended. Lots of wind.</p>",
       "url": "https://ioverlander.com/places/49224-southern-tip-of-anza-borrego-state-park",
-      "url-2": "",
       "visible": 1
     },
     {
@@ -3479,7 +3453,6 @@
       "name": "Rood Creek Campground",
       "notes": "<p>5 stars with 7 reviews. Some signal. Free waterfront.</p>",
       "url": "https://freeroam.app/campground/rood-creek-campground",
-      "url-2": "",
       "visible": 1
     },
     {
@@ -3489,7 +3462,6 @@
       "name": "Muggins Mountain",
       "notes": "<p>Traihead?</p>",
       "url": "https://ioverlander.com/places/218895-muggins-peak-wilderness",
-      "url-2": "",
       "visible": 1
     },
     {
