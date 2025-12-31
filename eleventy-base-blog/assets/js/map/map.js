@@ -119,7 +119,7 @@ function parseLocations(locations) {
         setMarker(locationType) // After the icon because if location is hidden by default, this function will modify the icon.
         break
       case "places":
-        hideLocation = true
+        // hideLocation = true
         legendMarker = '/assets/images/map-icons/marker-icon-place.svg'
         locationTypeHuman = 'Random place'
         svgIcon = getIcon(svgBaseClasses + locationType, legendMarker, [12,12], [6,11])
