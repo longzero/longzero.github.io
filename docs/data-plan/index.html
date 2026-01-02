@@ -1,0 +1,406 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Eleventy v3.0.0">
+
+  <title>Data Plan Cost Calculator</title>
+  <meta name="description" content="My name is Long Nguyen. I am a Front-End Web Developer obsessed with UX. I am experienced in building simple, clean and user-friendly websites for clients across the globe. Reach me on Instagram or Twitter or by email long@longzero.com.">
+
+  <link rel="apple-touch-icon" href="/assets/images/favicon.png">
+  <link rel="icon" href="/assets/images/favicon.png">
+  <link rel="preload" crossorigin="anonymous" as="font" href="/assets/fonts/oxygen-v10-latin-regular.woff2">
+  <link rel="preload" crossorigin="anonymous" as="font" href="/assets/fonts/oxygen-v10-latin-700.woff2">
+
+  <script>
+    // Tracking code for longzero.com
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=true;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-25351410-3', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+  
+  
+  
+    
+  
+
+  <meta property="og:site_name" content="Longzero ~ Long Nguyen">
+  <meta property="og:description" content="">
+  <meta property="og:image" content="https://longzero.com/assets/images/og-map.jpg">
+  <meta property="og:title" content="Data Plan Cost Calculator">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://longzero.com/data-plan/">
+
+  <meta name="theme-color" content="#336699">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  <meta prefix="og: http://ogp.me/ns#" property="og:article:author" content="Longzero">
+
+  
+
+  
+  
+  
+  
+  
+</head>
+
+
+  <body class="template-blank">
+    
+
+    <main>
+
+      
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script> -->
+<script src="/assets/vendors/chart.min.js"></script>
+<style>
+  * {box-sizing: border-box;}
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        max-width: 900px;
+        margin: 0 auto;
+        /*padding: 20px;*/
+        background: #f5f5f5;
+    }
+    .container {
+        background: white;
+        padding: 30px;
+        /*border-radius: 10px;*/
+        /*box-shadow: 0 2px 10px rgba(0,0,0,0.1);*/
+    }
+    h1 {
+        color: #333;
+        margin-bottom: 10px;
+    }
+    .subtitle {
+        color: #666;
+        margin-bottom: 30px;
+    }
+    .controls {
+        display: flex;
+        flex-wrap: wrap;
+        grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+        gap: 20px;
+        align-items: stretch;
+        margin-bottom: 30px;
+        padding: 20px;
+        background: #f9f9f9;
+        border-radius: 8px;
+        position: relative;
+    }
+    .control-group {
+      display: flex;
+      flex-direction: column;
+      width: calc(100% / 4 - 3 * 20px / 4);
+    }
+    .reset-btn {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+      /*font-weight: 600;*/
+      margin-left: auto;
+      padding: 0;
+      text-decoration: underline;
+      /*text-decoration-thickness: 2px;*/
+      text-underline-offset: 4px;
+      transition: background 0.3s;
+    }
+    .reset-btn:hover {
+      text-decoration: none;
+    }
+    .control-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #555;
+      font-size: 14px;
+    }
+    .control-group input {
+      border: 2px solid #ddd;
+      border-radius: 5px;
+      display: block;
+      font-size: 16px;
+      margin-top: auto;
+      padding: 10px;
+      transition: border-color 0.3s;
+      max-width: 100%;
+    }
+    .control-group input:focus {
+        outline: none;
+        border-color: #4CAF50;
+    }
+    .chart-container {
+        position: relative;
+        height: 400px;
+        margin-top: 20px;
+    }
+    .formula {
+        background: #e8f5e9;
+        padding: 15px;
+        border-radius: 5px;
+        margin-top: 20px;
+        font-family: 'Courier New', monospace;
+        font-size: 14px;
+        color: #2e7d32;
+    }
+    .info-box {
+        background: #e3f2fd;
+        padding: 15px;
+        border-radius: 5px;
+        margin-top: 10px;
+        font-size: 14px;
+        color: #1565c0;
+    }
+</style>
+
+<div class="container">
+    <h1>📊 Data Plan Cost Calculator</h1>
+    <p class="subtitle">Adjust the parameters below to match your data plan</p>
+
+    <div class="controls">
+        <div class="control-group">
+            <label for="baseAllowance">Initial Allowance (GB)</label>
+            <input type="number" id="baseAllowance" value="50" min="0" step="1">
+        </div>
+        <div class="control-group">
+            <label for="baseCost">Base Cost</label>
+            <input type="number" id="baseCost" value="70" min="0" step="0.01">
+        </div>
+        <div class="control-group">
+            <label for="overageCost">Cost per Extra GB</label>
+            <input type="number" id="overageCost" value="1.40" min="0" step="0.01">
+        </div>
+        <div class="control-group">
+            <label for="maxCost">Maximum Cost for Y-axis</label>
+            <input type="number" id="maxCost" value="200" min="0" step="10">
+        </div>
+        <button class="reset-btn" onclick="resetToDefaults()">Reset to Defaults</button>
+    </div>
+
+    <div class="chart-container">
+        <canvas id="costChart"></canvas>
+    </div>
+
+    <div class="info-box">
+        💡 <strong>Tip:</strong> Hover over the graph to see exact costs at different usage levels
+    </div>
+
+    <div class="formula" id="formulaDisplay"></div>
+
+</div>
+
+<script>
+    let chart;
+
+    function saveValues() {
+        const values = {
+            baseAllowance: document.getElementById('baseAllowance').value,
+            baseCost: document.getElementById('baseCost').value,
+            overageCost: document.getElementById('overageCost').value,
+            maxCost: document.getElementById('maxCost').value
+        };
+
+        for (let key in values) {
+            localStorage.setItem(key, values[key]);
+        }
+    }
+
+    function loadValues() {
+        const fields = ['baseAllowance', 'baseCost', 'overageCost', 'maxCost'];
+
+        fields.forEach(field => {
+            const saved = localStorage.getItem(field);
+            if (saved !== null) {
+                document.getElementById(field).value = saved;
+            }
+        });
+    }
+
+    function resetToDefaults() {
+        const defaults = {
+            baseAllowance: 50,
+            baseCost: 70,
+            overageCost: 1.40,
+            maxCost: 200
+        };
+
+        for (let key in defaults) {
+            localStorage.removeItem(key);
+            document.getElementById(key).value = defaults[key];
+        }
+
+        updateChart();
+    }
+
+    function updateFormula() {
+        const allowance = document.getElementById('baseAllowance').value;
+        const base = document.getElementById('baseCost').value;
+        const overage = document.getElementById('overageCost').value;
+
+        const formulaText = 'Cost(x) = ' + base + '  if x <= ' + allowance + ' GB<br>' +
+                           'Cost(x) = ' + base + ' + ' + overage + ' * (x - ' + allowance + ') if x > ' + allowance + ' GB';
+
+        document.getElementById('formulaDisplay').textContent = formulaText;
+    }
+
+    function calculateCost(usage, allowance, baseCost, overageCost) {
+        if (usage <= allowance) {
+            return baseCost;
+        }
+        return baseCost + overageCost * (usage - allowance);
+    }
+
+    function updateChart() {
+        const allowance = parseFloat(document.getElementById('baseAllowance').value);
+        const baseCost = parseFloat(document.getElementById('baseCost').value);
+        const overageCost = parseFloat(document.getElementById('overageCost').value);
+        const maxCost = parseFloat(document.getElementById('maxCost').value);
+
+        saveValues();
+        updateFormula();
+
+        // Calculate the maximum usage that would reach maxCost
+        let maxUsage;
+        if (overageCost > 0) {
+            maxUsage = allowance + (maxCost - baseCost) / overageCost;
+        } else {
+            maxUsage = allowance * 2.5;
+        }
+
+        // Ensure we show at least some data beyond the allowance
+        if (maxUsage < allowance * 1.5) {
+            maxUsage = allowance * 1.5;
+        }
+
+        const dataPoints = [];
+
+        for (let usage = 0; usage <= maxUsage; usage += maxUsage / 100) {
+            dataPoints.push({
+                x: usage,
+                y: calculateCost(usage, allowance, baseCost, overageCost)
+            });
+        }
+
+        if (chart) {
+            chart.destroy();
+        }
+
+        const ctx = document.getElementById('costChart').getContext('2d');
+        chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                datasets: [{
+                    label: 'Total Cost',
+                    data: dataPoints,
+                    borderColor: '#4CAF50',
+                    backgroundColor: 'rgba(76, 175, 80, 0.1)',
+                    borderWidth: 3,
+                    pointRadius: 0,
+                    pointHoverRadius: 6,
+                    tension: 0
+                }, {
+                    label: 'Base Plan Limit',
+                    data: [{x: allowance, y: 0}, {x: allowance, y: maxCost}],
+                    borderColor: '#ff9800',
+                    borderWidth: 2,
+                    borderDash: [5, 5],
+                    pointRadius: 0,
+                    fill: false
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                interaction: {
+                    mode: 'index',
+                    intersect: false,
+                    axis: 'x'
+                },
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top'
+                    },
+                    tooltip: {
+                        enabled: true,
+                        mode: 'index',
+                        intersect: false,
+                        callbacks: {
+                            label: function(context) {
+                                if (context.datasetIndex === 0) {
+                                    return 'Cost: $' + context.parsed.y.toFixed(2) + ' at ' + context.parsed.x.toFixed(1) + ' GB';
+                                }
+                                return 'Plan Limit';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        type: 'linear',
+                        title: {
+                            display: true,
+                            text: 'Data Usage (GB)',
+                            font: {
+                                size: 14,
+                                weight: 'bold'
+                            }
+                        },
+                        ticks: {
+                            callback: function(value) {
+                                return value.toFixed(0) + ' GB';
+                            }
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Total Cost',
+                            font: {
+                                size: 14,
+                                weight: 'bold'
+                            }
+                        },
+                        ticks: {
+                            callback: function(value) {
+                                return '$' + value.toFixed(0);
+                            }
+                        },
+                        beginAtZero: true,
+                        max: maxCost
+                    }
+                }
+            }
+        });
+    }
+
+    document.getElementById('baseAllowance').addEventListener('input', updateChart);
+    document.getElementById('baseCost').addEventListener('input', updateChart);
+    document.getElementById('overageCost').addEventListener('input', updateChart);
+    document.getElementById('maxCost').addEventListener('input', updateChart);
+
+    loadValues();
+    updateChart();
+</script>
+
+
+    </main>
+
+    <script>
+      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+
+    
+
+  </body>
+</html>

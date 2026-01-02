@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Plan Cost Calculator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .controls {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            position: relative;
+        }
+        .reset-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 8px 16px;
+            background: #f44336;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        .reset-btn:hover {
+            background: #d32f2f;
+        }
+        .control-group {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #555;
+            font-size: 14px;
+        }
+        input {
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        input:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+        .chart-container {
+            position: relative;
+            height: 400px;
+            margin-top: 20px;
+        }
+        .formula {
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            color: #2e7d32;
+        }
+        .info-box {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #1565c0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Data Plan Cost Calculator</h1>
+        <p class="subtitle">Adjust the parameters below to match your data plan</p>
+        
+        <div class="controls">
+            <button class="reset-btn" onclick="resetToDefaults()">Reset to Defaults</button>
+            <div class="control-group">
+                <label for="baseAllowance">Initial Allowance (GB)</label>
+                <input type="number" id="baseAllowance" value="50" min="0" step="1">
+            </div>
+            <div class="control-group">
+                <label for="baseCost">Base Cost (CAD)</label>
+                <input type="number" id="baseCost" value="70" min="0" step="0.01">
+            </div>
+            <div class="control-group">
+                <label for="overageCost">Cost per Extra GB (CAD)</label>
+                <input type="number" id="overageCost" value="1.40" min="0" step="0.01">
+            </div>
+            <div class="control-group">
+                <label for="maxCost">Maximum Cost for Y-axis (CAD)</label>
+                <input type="number" id="maxCost" value="200" min="0" step="10">
+            </div>
+        </div>
+
+        <div class="formula" id="formulaDisplay"></div>
+        
+        <div class="chart-container">
+            <canvas id="costChart"></canvas>
+        </div>
+
+        <div class="info-box">
+            💡 <strong>Tip:</strong> Hover over the graph to see exact costs at different usage levels
+        </div>
+    </div>
+
+    <script>
+        let chart;
+        
+        function saveValues() {
+            const values = {
+                baseAllowance: document.getElementById('baseAllowance').value,
+                baseCost: document.getElementById('baseCost').value,
+                overageCost: document.getElementById('overageCost').value,
+                maxCost: document.getElementById('maxCost').value
+            };
+            
+            for (let key in values) {
+                localStorage.setItem(key, values[key]);
+            }
+        }
+        
+        function loadValues() {
+            const fields = ['baseAllowance', 'baseCost', 'overageCost', 'maxCost'];
+            
+            fields.forEach(field => {
+                const saved = localStorage.getItem(field);
+                if (saved !== null) {
+                    document.getElementById(field).value = saved;
+                }
+            });
+        }
+        
+        function resetToDefaults() {
+            const defaults = {
+                baseAllowance: 50,
+                baseCost: 70,
+                overageCost: 1.40,
+                maxCost: 200
+            };
+            
+            for (let key in defaults) {
+                localStorage.removeItem(key);
+                document.getElementById(key).value = defaults[key];
+            }
+            
+            updateChart();
+        }
+        
+        function updateFormula() {
+            const allowance = document.getElementById('baseAllowance').value;
+            const base = document.getElementById('baseCost').value;
+            const overage = document.getElementById('overageCost').value;
+            
+            const formulaText = 'Cost(x) = ' + base + ' CAD if x <= ' + allowance + ' GB\n' +
+                               'Cost(x) = ' + base + ' + ' + overage + ' * (x - ' + allowance + ') if x > ' + allowance + ' GB';
+            
+            document.getElementById('formulaDisplay').textContent = formulaText;
+        }
+        
+        function calculateCost(usage, allowance, baseCost, overageCost) {
+            if (usage <= allowance) {
+                return baseCost;
+            }
+            return baseCost + overageCost * (usage - allowance);
+        }
+        
+        function updateChart() {
+            const allowance = parseFloat(document.getElementById('baseAllowance').value);
+            const baseCost = parseFloat(document.getElementById('baseCost').value);
+            const overageCost = parseFloat(document.getElementById('overageCost').value);
+            const maxCost = parseFloat(document.getElementById('maxCost').value);
+            
+            saveValues();
+            updateFormula();
+            
+            // Calculate the maximum usage that would reach maxCost
+            let maxUsage;
+            if (overageCost > 0) {
+                maxUsage = allowance + (maxCost - baseCost) / overageCost;
+            } else {
+                maxUsage = allowance * 2.5;
+            }
+            
+            // Ensure we show at least some data beyond the allowance
+            if (maxUsage < allowance * 1.5) {
+                maxUsage = allowance * 1.5;
+            }
+            
+            const dataPoints = [];
+            
+            for (let usage = 0; usage <= maxUsage; usage += maxUsage / 100) {
+                dataPoints.push({
+                    x: usage,
+                    y: calculateCost(usage, allowance, baseCost, overageCost)
+                });
+            }
+            
+            if (chart) {
+                chart.destroy();
+            }
+            
+            const ctx = document.getElementById('costChart').getContext('2d');
+            chart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    datasets: [{
+                        label: 'Total Cost (CAD)',
+                        data: dataPoints,
+                        borderColor: '#4CAF50',
+                        backgroundColor: 'rgba(76, 175, 80, 0.1)',
+                        borderWidth: 3,
+                        pointRadius: 0,
+                        pointHoverRadius: 6,
+                        tension: 0
+                    }, {
+                        label: 'Base Plan Limit',
+                        data: [{x: allowance, y: 0}, {x: allowance, y: maxCost}],
+                        borderColor: '#ff9800',
+                        borderWidth: 2,
+                        borderDash: [5, 5],
+                        pointRadius: 0,
+                        fill: false
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    interaction: {
+                        mode: 'index',
+                        intersect: false,
+                        axis: 'x'
+                    },
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top'
+                        },
+                        tooltip: {
+                            enabled: true,
+                            mode: 'index',
+                            intersect: false,
+                            callbacks: {
+                                label: function(context) {
+                                    if (context.datasetIndex === 0) {
+                                        return 'Cost: $' + context.parsed.y.toFixed(2) + ' CAD at ' + context.parsed.x.toFixed(1) + ' GB';
+                                    }
+                                    return 'Plan Limit';
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            type: 'linear',
+                            title: {
+                                display: true,
+                                text: 'Data Usage (GB)',
+                                font: {
+                                    size: 14,
+                                    weight: 'bold'
+                                }
+                            },
+                            ticks: {
+                                callback: function(value) {
+                                    return value.toFixed(0) + ' GB';
+                                }
+                            }
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'Total Cost (CAD)',
+                                font: {
+                                    size: 14,
+                                    weight: 'bold'
+                                }
+                            },
+                            ticks: {
+                                callback: function(value) {
+                                    return '$' + value.toFixed(0);
+                                }
+                            },
+                            beginAtZero: true,
+                            max: maxCost
+                        }
+                    }
+                }
+            });
+        }
+        
+        document.getElementById('baseAllowance').addEventListener('input', updateChart);
+        document.getElementById('baseCost').addEventListener('input', updateChart);
+        document.getElementById('overageCost').addEventListener('input', updateChart);
+        document.getElementById('maxCost').addEventListener('input', updateChart);
+        
+        loadValues();
+        updateChart();
+    </script>
+</body>
+</html>

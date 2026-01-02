@@ -5,10 +5,82 @@
     },
     {
       "id": "",
+      "latitude": 22.959703975122423,
+      "longitude": -109.80028920589686,
+      "name": "Playa El Tule",
+      "notes": "<p>Ok signal.</p><p>Good place for staying close to Cabo San Lucas and San Jose del Cabo.</p><p>Very similar to El Comitan outside La Paz in the sense of, big space, lots of rigs and lots of locals.</p><p>Trash cans and toilets.</p><p>Good view of the ocean. Likely awesome to see a full moon rise</p>",
+      "url": ["https://ioverlander.com/places/c0525564-3f47-4581-badb-c9f37c4ca02c","https://ioverlander.com/places/7768ce0f-70a8-4b2a-ae41-3208935e51e2"],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 23.441296563443345,
+      "longitude": -109.42793329476942,
+      "name": "Cabo Pulmo",
+      "notes": "<p>The spot where I stayed was 23.44477162349536, -109.42609937478926.</p><p>Very slow signal. Unsuitable for work. If coming from the south, take the long road, because the coastal road sucks.</p><p>The sun sets early behind the giant mountain.</p><p>Other than that, it's a great place with turquoise beach of pebbles. Big place, but very few with a view of the water because of the hill of rocks.</p><p>Full trash bins.<br>Gorgeous turquoise water. <br>Gorgeous mountains.</p><p>20251230: ioverlander shows two pins for this place and one of them is marked as closed. However, the other has comments of people who went in the few months.</p>",
+      "url": ["https://ioverlander.com/places/669c8d16-732c-4ab4-93eb-54e9548fb56a","https://ioverlander.com/places/a044e159-676f-4712-9a79-8c9ede68f855","https://brookebeyond.com/the-ultimate-baja-camping-guide","https://www.campendium.com/cabo-pulmo-beach"],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 23.11950019562403,
+      "longitude": -109.52803840360146,
+      "name": "El Cardón",
+      "notes": "<p>No signal.</p><p>The northeast side is better because it is where sunset shines last.</p><p>Only 30 minutes to numerous groceries and big city.</p><p>Lots of locals on weekends (Sunday 20250316), all families with children.</p><p>People come and go, but it's still quiet. The ATVs are more annoying but they are not numerous.</p><p>Sometimes, there are whales left and right, far and near.</p><p>A sign at the entrance says beachfront for sale, so this place might disappear one day.</p>",
+      "url": ["https://ioverlander.com/places/615a86ba-6e88-4657-ba82-727c6b6e12ad"],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 23.145016559644905,
+      "longitude": -109.50580833406008,
+      "name": "La Fortuna",
+      "notes": "<p>No signal. Mostly sandy.</p><p>Nice beach café. Surf spot. Restaurants around.</p><p>Parking on soft sand.</p><p>From brookebeyond.com:<br> As with almost all of the beaches in this undeveloped area, it's possible to park on or just in front of this sandy beach; no facilities or mobile reception, but there's an upscale sushi restaurant just above the beach where you can find food, toilets & WIFI; more importantly, there are heaps of humpback whales offshore and great beginner surfing</p>",
+      "url": ["https://ioverlander.com/places/efe65e33-2cfd-4637-bc1d-8e3314a3780b","https://brookebeyond.com/the-ultimate-baja-camping-guide"],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 48.458000646549884,
+      "longitude": -71.17854492776651,
+      "name": "Rivière Saguenay",
+      "notes": "<p>Good place to be alone.</p><p>Get in slowly. Good signal.<br>Downloaded a movie at almost 20 Mbps.</p>",
+      "url": [""],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 48.45767247833093,
+      "longitude": -71.18344493372442,
+      "name": "Rivière Saguenay",
+      "notes": "<p>Good place to be alone.</p><p>Only room for one small vehicle otherwise it may be difficult to reverse out, because it's tight for a U-turn.</p><p>There's at least one other spot east and one other spot west of here.</p><p>20251004<br>Good signal. Alone, next to river.</p>",
+      "url": [""],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 45.222216312279464,
+      "longitude": -72.5317846434533,
+      "name": "Stationnement parc des lions",
+      "notes": "<p>En VR pour pas cher</p><p>20251017<br>Big parking. Good signal.<br>One neighbour.</p>",
+      "url": [""],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 46.23792032971102,
+      "longitude": -72.05019088729243,
+      "name": "Plage proche de Victoriaville",
+      "notes": "<p>Nice place. Good signal.</p><p>20251014 1332<br>Nobody around.</p>",
+      "url": ["https://park4night.com/en/place/527163","https://ioverlander.com/places/5b73865b-1ffb-42a6-9396-3f1631e6d8cb"],
+      "visible": 1
+    },
+    {
+      "id": "",
       "latitude": 35.230621015211746,
       "longitude": -114.59394048344991,
       "name": "Nevada Telephone Cove",
-      "notes": "<p>Very nice! Little and slow signal. Not suitable for work, especially not calls.</p><p>7 days max. Toilets and trash container.</p>",
+      "notes": "<p>Very nice place!</p><p>No signal to the south.<br>Signal to the north, but inconsistent and slow. Must find the right spot to get anything good. Not suitable for work, especially not video calls.</p><p>62 17 networkQuality<br>29 0 Measurement Lab</p><p>7 days max. Toilets and trash container.</p><p>US park ranger patrol randomly, seems to be every few days.</p>",
       "url": ["https://ioverlander.com/places/5aa9e398-8ce1-42d7-8df3-ee3210dfe492"],
       "visible": 1
     },
@@ -3654,6 +3726,24 @@
       "name": "Nomadico",
       "notes": "Good café and restaurant for eating and working, with wifi and toilet.",
       "url": "https://maps.app.goo.gl/QcdPfhWDeEe3suBV6",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 23.145297649664766,
+      "longitude": -109.5063638993818,
+      "name": "The Baja Station Cafe",
+      "notes": "Good outdoor café with toilet and evening program, sometimes.",
+      "url": "https://maps.app.goo.gl/ABnWKgL3SDpBraGL9",
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 23.686580642719694,
+      "longitude": -109.69760609749379,
+      "name": "Green Dot",
+      "notes": "<p>Nice small café restaurant for breakfast and smoothie. All outdoor seating.</p><p>Found this place while seeing someone put a sign on the street corner.</p>",
+      "url": "https://maps.app.goo.gl/xbBwdLFwPpcXDZLB9",
       "visible": 1
     },
     {
