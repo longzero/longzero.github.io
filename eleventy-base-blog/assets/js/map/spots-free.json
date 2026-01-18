@@ -584,7 +584,25 @@
       "latitude": 26.761238259741194,
       "longitude": -111.87827211087216,
       "name": "Playa Piedrita",
-      "notes": "<p>Paid 200 pesos. No signal. One toilet that flushes using the water in the bin in front of it. Beautiful sunrise. Less people and more quiet than playa Santispac.</p>",
+      "notes": "<p>Paid 200 pesos. No signal. One toilet that flushes using the water in the bin in front of it. Beautiful sunrise. Less people and more quiet than playa Santispac.</p><p>2025-02: Half full.<br>2026-01: Full.</p>",
+      "url": [],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 26.745314664435387,
+      "longitude": -111.8955727416578,
+      "name": "Playa La Escondida",
+      "notes": "<p>No signal. The road in sucks, but right on the beach.</p> <p>2026-01: No more space and less cramped than Playa Los Cocos.</p>",
+      "url": [],
+      "visible": 1
+    },
+    {
+      "id": "",
+      "latitude": 26.7434265691092,
+      "longitude": -111.9003523376219,
+      "name": "Playa Los Cocos",
+      "notes": "<p>No signal. The road in sucks, but right on the beach.</p> <p>2026-01: No more space and cramped, but still seems great and seems to be a good choice for daylight sun for solar power, especially if staying towards the east.</p>",
       "url": [],
       "visible": 1
     },
