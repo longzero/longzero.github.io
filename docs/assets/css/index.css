@@ -145,7 +145,7 @@ input, select {height: 35px;}
   width: 100%;
 }
 .container--content {
-  max-width: 60ch;
+  max-width: 70ch;
 }
 @media (min-width: 1400px) {
   .container--fluid {
@@ -336,7 +336,7 @@ input, select {height: 35px;}
   color: var(--color-1);
   text-decoration: underline;
 }
-@media (min-width: $MQMobile) {
+@media (min-width: 768px) {
   .site-header .nav-item > a:not(.external):hover,
   .site-header .nav-item > a:not(.external).router-link-active {
     border-bottom: 0;
@@ -603,12 +603,15 @@ input, select {height: 35px;}
 .unit-conversion {font-size: 1rem; padding: 5px 10px;}
 .unit-conversion:nth-child(even) {background-color: var(--unit-conversion-even-bg);}
 .unit-group {display: flex; align-items: center; gap: 10px; margin: 5px 0}
-.unit-group input {text-align: right;}
-#exchange-rate {width: 100px;}
+.unit-group input[type="number"] {text-align: right; width: 100px;}
+.unit-group input.exchange-rate-field {width: 50px;}
+.exchange-rate-section .label {display: inline-block; width: 100px;}
 @media (min-width: 500px) {
-  .unit-conversion, .unit-group {display: flex; align-items: center; gap: 20px;}
-  .unit-group {gap: 10px; width: 50%;}
+  .unit-conversion {display: flex; align-items: center; column-gap: 20px; flex-wrap: wrap;}
+  .unit-group {gap: 10px; width: auto;}
   .unit-group input {width: 130px;}
+  .currency-section .unit-group:nth-child(1), .gas-cost-section .unit-group:nth-child(1) {width: 170px;}
+  .currency-section .unit-group:nth-child(2), .gas-cost-section .unit-group:nth-child(2) {width: 204px;}
 }
 
 .sr-only {
@@ -634,7 +637,7 @@ input, select {height: 35px;}
     position: static;
     width: auto;
     height: auto;
-    // padding: 0;
+    /* padding: 0; */
     margin: 0;
     overflow: visible;
     clip: auto;
