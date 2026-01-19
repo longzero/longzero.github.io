@@ -246,46 +246,57 @@ function initMap(locations) {
   // var map = L.map('map').setView([38.973268454455706, -105.03998309979006], 14);
 
   const basemaps = {
-    // Default: L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',   {attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}),
-    Default: L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'),
-    Esri_WorldImagery: L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+    // Standard OpenStreetMap: Reliable, all-purpose map with street-level detail.
+    "Default": L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 20,
+      attribution: '&copy; <a href="http://openstreetmap.org" target="_blank">OpenStreetMap</a> contributors. This map is personal and contains places where I have been with my personal impression.'
+    }),
+
+    // Topographic Map: Best for outdoor activities. Shows contour lines, elevation, and trails.
+    "OpenTopoMap": L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+      maxZoom: 17, // Note: Limited zoom depth compared to street maps.
+      attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+    }),
+
+    // Esri World Imagery: High-resolution satellite photos. (Use the 'Labels' overlay to see road names).
+    "Satellite": L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+      maxZoom: 19,
       attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
     }),
-    Topography: L.tileLayer.wms('http://ows.mundialis.de/services/service?', {layers: 'TOPO-WMS'}),
-    // OpenFireMap: L.tileLayer('http://openfiremap.org/hytiles/{z}/{x}/{y}.png', {
-    //   maxZoom: 19,
-    //   attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors | Map style: &copy; <a href="http://www.openfiremap.org">OpenFireMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
-    // }),
-    // OpenWeatherMap_Clouds: L.tileLayer('http://{s}.tile.openweathermap.org/map/clouds/{z}/{x}/{y}.png?appid={apiKey}', {
-    //   maxZoom: 19,
-    //   attribution: 'Map data &copy; <a href="http://openweathermap.org">OpenWeatherMap</a>',
-    //   apiKey: '<insert your api key here>',
-    //   opacity: 0.5
-    // }),
-    // Places: L.tileLayer.wms('http://ows.mundialis.de/services/service?', {layers: 'OSM-Overlay-WMS'}),
-    Weather: L.tileLayer.wms('http://mesonet.agron.iastate.edu/cgi-bin/wms/nexrad/n0r.cgi', {layers: 'nexrad-n0r-900913',
-      format: 'image/png',
-      transparent: true,
-      // attribution: "<span>Weather data © 2012 IEM Nexrad</span>",
-      opacity: .25
+
+    // CartoDB Positron: A clean, light-colored map designed to make your markers stand out.
+    "Minimal (Light)": L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+      subdomains: 'abcd',
+      maxZoom: 20
     }),
+
+    // CartoDB Dark Matter: A dark-themed version for better visibility in markers or low light.
+    "Minimal (Dark)": L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+      subdomains: 'abcd',
+      maxZoom: 20
+    })
   };
 
-  // var Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-  //   attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
-  // });
-  // var OpenFireMap = L.tileLayer('http://openfiremap.org/hytiles/{z}/{x}/{y}.png', {
-  //   maxZoom: 19,
-  //   attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors | Map style: &copy; <a href="http://www.openfiremap.org">OpenFireMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
-  // });
-  // var OpenWeatherMap_Clouds = L.tileLayer('http://{s}.tile.openweathermap.org/map/clouds/{z}/{x}/{y}.png?appid={apiKey}', {
-  //   maxZoom: 19,
-  //   attribution: 'Map data &copy; <a href="http://openweathermap.org">OpenWeatherMap</a>',
-  //   apiKey: '<insert your api key here>',
-  //   opacity: 0.5
-  // });
+  const overlays = {
+    // Real-time NEXRAD precipitation radar (U.S. Only).
+    "Weather Radar": L.tileLayer.wms('http://mesonet.agron.iastate.edu/cgi-bin/wms/nexrad/n0r.cgi', {
+      layers: 'nexrad-n0r-900913',
+      format: 'image/png',
+      transparent: true,
+      attribution: "Weather data &copy; IEM Nexrad",
+      opacity: 0.3, // Visible over contrasty maps but still allows seeing map details.
+      maxZoom: 20
+    }),
 
-
+    // Essential for use with Satellite view; adds city names and major highways.
+    "Labels": L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}', {
+      attribution: 'Labels &copy; Esri',
+      opacity: 0.7,
+      maxZoom: 20
+    })
+  };
 
   // CUSTOMIZE
   // const world_borders_inside = L.geoJson.ajax("https://raw.githubusercontent.com/johan/world.geo.json/master/countries.geo.json", {
@@ -302,17 +313,12 @@ function initMap(locations) {
   // }).addTo(map);
 
   L.control.scale().addTo(map);
-  mapLink = '<a href="http://openstreetmap.org" target="_blank">OpenStreetMap</a>';
-  L.tileLayer(
-    'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: 'This map is personal and contains places where I have been with my personal impression. That’s all.',
-      attributionControl: false,
-      maxZoom: 20
-    }).addTo(map);
-  L.control.layers(basemaps).addTo(map);
-  // basemaps.Default.addTo(map);
-  // basemaps.Topography.addTo(map);
-  basemaps.Weather.addTo(map);
+  L.control.layers(basemaps, overlays).addTo(map);
+
+  // Set defaults
+  basemaps.Default.addTo(map);
+  overlays["Weather Radar"].addTo(map);
+
 
   // Uncomment this code if using clusters
   // let markers = L.markerClusterGroup({
