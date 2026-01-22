@@ -1,4 +1,33 @@
 DEBUG = false
+const urlParams = new URLSearchParams(window.location.search);
+const USE_CLUSTERS = urlParams.get('clusters') === '1' || urlParams.get('cluster') === '1'
+let markerClusterGroup
+
+/**
+ * Dynamically loads clustering assets and returns a promise that resolves when the script is ready.
+ */
+function loadClusterAssets() {
+  return new Promise((resolve, reject) => {
+    if (!USE_CLUSTERS) return resolve();
+    if (typeof L.markerClusterGroup === 'function') return resolve();
+
+    const clusterCss1 = document.createElement('link');
+    clusterCss1.rel = 'stylesheet';
+    clusterCss1.href = '/assets/vendors/leaflet.markercluster-1.1.0/MarkerCluster.Default.css';
+    document.head.appendChild(clusterCss1);
+
+    const clusterCss2 = document.createElement('link');
+    clusterCss2.rel = 'stylesheet';
+    clusterCss2.href = '/assets/vendors/leaflet.markercluster-1.1.0/MarkerCluster.css';
+    document.head.appendChild(clusterCss2);
+
+    const clusterJs = document.createElement('script');
+    clusterJs.src = '/assets/vendors/leaflet.markercluster-1.1.0/leaflet.markercluster.js';
+    clusterJs.onload = resolve;
+    clusterJs.onerror = reject;
+    document.head.appendChild(clusterJs);
+  });
+}
 
 
 let hideLocation = false // If you want to hide some type of locations by default.
@@ -82,13 +111,14 @@ function addMarkers(count, locations, locationType) {
       let locationContent = '<div class="location-tooltip-content">' + locationName + locationNotes + locationUrl + visualCrossingWeather + locationWeather + '</div>'
 
       // Place markers on the map.
-      marker = new L.marker([location.latitude, location.longitude], {icon: svgIcon})
+      const marker = new L.marker([location.latitude, location.longitude], {icon: svgIcon})
         .bindPopup(locationContent, { offset: L.point(0,-1) })
-        // Comment this line if using clusters
-        .addTo(map);
 
-      // Uncomment this line if using clusters
-      // markers.addLayer(marker);
+      if (USE_CLUSTERS) {
+        markerClusterGroup.addLayer(marker);
+      } else {
+        marker.addTo(map);
+      }
     } // if
   } // for (individual places)
 
@@ -320,10 +350,9 @@ function initMap(locations) {
   overlays["Weather Radar"].addTo(map);
 
 
-  // Uncomment this code if using clusters
-  // let markers = L.markerClusterGroup({
-  //   // options
-  // });
+  if (USE_CLUSTERS && typeof L.markerClusterGroup === 'function') {
+    markerClusterGroup = L.markerClusterGroup();
+  }
 
   // console.log(locations.campspots.length)
   // if (typeof locations === 'object' && locations !== null) {
@@ -372,8 +401,12 @@ function initMap(locations) {
 
     markerHere = new L.marker([latitude, longitude], {icon: svgCurrent})
       .bindPopup(popupMessage, { offset: L.point(0,-14) })
-      // Comment this line if using clusters
-      .addTo(map);
+
+    if (USE_CLUSTERS) {
+      markerClusterGroup.addLayer(markerHere);
+    } else {
+      markerHere.addTo(map);
+    }
     map.locate({
       setView: true, // true means the map zooms to current location. Does not always work on desktop.
       maxZoom: 8
@@ -404,8 +437,9 @@ function initMap(locations) {
 
 
 
-  // Uncomment this line if using clusters
-  // map.addLayer(markers);
+  if (USE_CLUSTERS && markerClusterGroup) {
+    map.addLayer(markerClusterGroup);
+  }
 
 } // function initMap(locations)
 
