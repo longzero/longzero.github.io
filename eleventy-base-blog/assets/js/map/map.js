@@ -1,4 +1,4 @@
-const DEBUG = true
+const DEBUG = false
 const urlParams = new URLSearchParams(window.location.search);
 const USE_CLUSTERS = urlParams.get('clusters') === '1' || urlParams.get('cluster') === '1'
 let markerClusterGroup
