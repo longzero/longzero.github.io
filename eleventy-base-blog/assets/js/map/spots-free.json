@@ -1,568 +1,700 @@
 {
   "spots": [
     {
-      "markerPath": "/assets/images/map-icons/marker-icon-campspot.svg"
-    },
-    {
-      "id": "",
+      "id": "playa-publica-san-felipe",
       "latitude": 31.149877445953134,
       "longitude": -114.89591730935538,
       "name": "Playa pública San Felipe",
       "notes": "<p>Good signal. Good for day 1 or for last day.</p><p>Away and elevated from the beach. Big space for multiple people.</p><p>Careful about soft sand</p>",
-      "url": ["https://ioverlander.com/places/0369c689-6277-4df6-983b-f0433c03bbab","https://ioverlander.com/places/fc349426-91d2-4404-8948-c29c9ae156d7"],
+      "url": [
+        "https://ioverlander.com/places/0369c689-6277-4df6-983b-f0433c03bbab",
+        "https://ioverlander.com/places/fc349426-91d2-4404-8948-c29c9ae156d7"
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "playa-el-tule",
       "latitude": 22.959703975122423,
       "longitude": -109.80028920589686,
       "name": "Playa El Tule",
       "notes": "<p>Ok signal.</p><p>Good place for staying close to Cabo San Lucas and San Jose del Cabo.</p><p>Very similar to El Comitan outside La Paz in the sense of, big space, lots of rigs and lots of locals.</p><p>Trash cans and toilets.</p><p>Good view of the ocean. Likely awesome to see a full moon rise</p>",
-      "url": ["https://ioverlander.com/places/c0525564-3f47-4581-badb-c9f37c4ca02c","https://ioverlander.com/places/7768ce0f-70a8-4b2a-ae41-3208935e51e2"],
+      "url": [
+        "https://ioverlander.com/places/c0525564-3f47-4581-badb-c9f37c4ca02c",
+        "https://ioverlander.com/places/7768ce0f-70a8-4b2a-ae41-3208935e51e2"
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "cabo-pulmo",
       "latitude": 23.441296563443345,
       "longitude": -109.42793329476942,
       "name": "Cabo Pulmo",
       "notes": "<p>The spot where I stayed was 23.44477162349536, -109.42609937478926.</p><p>Very slow signal. Unsuitable for work. If coming from the south, take the long road, because the coastal road sucks.</p><p>The sun sets early behind the giant mountain.</p><p>Other than that, it's a great place with turquoise beach of pebbles. Big place, but very few with a view of the water because of the hill of rocks.</p><p>Full trash bins.<br>Gorgeous turquoise water. <br>Gorgeous mountains.</p><p>20251230: ioverlander shows two pins for this place and one of them is marked as closed. However, the other has comments of people who went in the few months.</p>",
-      "url": ["https://ioverlander.com/places/669c8d16-732c-4ab4-93eb-54e9548fb56a","https://ioverlander.com/places/a044e159-676f-4712-9a79-8c9ede68f855","https://brookebeyond.com/the-ultimate-baja-camping-guide","https://www.campendium.com/cabo-pulmo-beach"],
+      "url": [
+        "https://ioverlander.com/places/669c8d16-732c-4ab4-93eb-54e9548fb56a",
+        "https://ioverlander.com/places/a044e159-676f-4712-9a79-8c9ede68f855",
+        "https://brookebeyond.com/the-ultimate-baja-camping-guide",
+        "https://www.campendium.com/cabo-pulmo-beach"
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "el-cardon",
       "latitude": 23.11950019562403,
       "longitude": -109.52803840360146,
       "name": "El Cardón",
       "notes": "<p>No signal.</p><p>The northeast side is better because it is where sunset shines last.</p><p>Only 30 minutes to numerous groceries and big city.</p><p>Lots of locals on weekends (Sunday 20250316), all families with children.</p><p>People come and go, but it's still quiet. The ATVs are more annoying but they are not numerous.</p><p>Sometimes, there are whales left and right, far and near.</p><p>A sign at the entrance says beachfront for sale, so this place might disappear one day.</p>",
-      "url": ["https://ioverlander.com/places/615a86ba-6e88-4657-ba82-727c6b6e12ad"],
+      "url": [
+        "https://ioverlander.com/places/615a86ba-6e88-4657-ba82-727c6b6e12ad"
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "la-fortuna",
       "latitude": 23.145016559644905,
       "longitude": -109.50580833406008,
       "name": "La Fortuna",
       "notes": "<p>No signal. Mostly sandy.</p><p>Nice beach café. Surf spot. Restaurants around.</p><p>Parking on soft sand.</p><p>From brookebeyond.com:<br> As with almost all of the beaches in this undeveloped area, it's possible to park on or just in front of this sandy beach; no facilities or mobile reception, but there's an upscale sushi restaurant just above the beach where you can find food, toilets & WIFI; more importantly, there are heaps of humpback whales offshore and great beginner surfing</p>",
-      "url": ["https://ioverlander.com/places/efe65e33-2cfd-4637-bc1d-8e3314a3780b","https://brookebeyond.com/the-ultimate-baja-camping-guide"],
+      "url": [
+        "https://ioverlander.com/places/efe65e33-2cfd-4637-bc1d-8e3314a3780b",
+        "https://brookebeyond.com/the-ultimate-baja-camping-guide"
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "riviere-saguenay",
       "latitude": 48.458000646549884,
       "longitude": -71.17854492776651,
       "name": "Rivière Saguenay",
       "notes": "<p>Good place to be alone.</p><p>Get in slowly. Good signal.<br>Downloaded a movie at almost 20 Mbps.</p>",
-      "url": [""],
+      "url": [
+        ""
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "riviere-saguenay-5737",
       "latitude": 48.45767247833093,
       "longitude": -71.18344493372442,
       "name": "Rivière Saguenay",
       "notes": "<p>Good place to be alone.</p><p>Only room for one small vehicle otherwise it may be difficult to reverse out, because it's tight for a U-turn.</p><p>There's at least one other spot east and one other spot west of here.</p><p>20251004<br>Good signal. Alone, next to river.</p>",
-      "url": [""],
+      "url": [
+        ""
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "stationnement-parc-des-lions",
       "latitude": 45.222216312279464,
       "longitude": -72.5317846434533,
       "name": "Stationnement parc des lions",
       "notes": "<p>En VR pour pas cher</p><p>20251017<br>Big parking. Good signal.<br>One neighbour.</p>",
-      "url": [""],
+      "url": [
+        ""
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "plage-proche-de-victoriaville",
       "latitude": 46.23792032971102,
       "longitude": -72.05019088729243,
       "name": "Plage proche de Victoriaville",
       "notes": "<p>Nice place. Good signal.</p><p>20251014 1332<br>Nobody around.</p>",
-      "url": ["https://park4night.com/en/place/527163","https://ioverlander.com/places/5b73865b-1ffb-42a6-9396-3f1631e6d8cb"],
+      "url": [
+        "https://park4night.com/en/place/527163",
+        "https://ioverlander.com/places/5b73865b-1ffb-42a6-9396-3f1631e6d8cb"
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "nevada-telephone-cove",
       "latitude": 35.230621015211746,
       "longitude": -114.59394048344991,
       "name": "Nevada Telephone Cove",
       "notes": "<p>Very nice place!</p><p>No signal to the south.<br>Signal to the north, but inconsistent and slow. Must find the right spot to get anything good. Not suitable for work, especially not video calls.</p><p>62 17 networkQuality<br>29 0 Measurement Lab</p><p>7 days max. Toilets and trash container.</p><p>US park ranger patrol randomly, seems to be every few days.</p>",
-      "url": ["https://ioverlander.com/places/5aa9e398-8ce1-42d7-8df3-ee3210dfe492"],
+      "url": [
+        "https://ioverlander.com/places/5aa9e398-8ce1-42d7-8df3-ee3210dfe492"
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "black-kettle-campground",
       "latitude": 35.74998205451474,
       "longitude": -99.71876971300271,
       "name": "Black Kettle Campground",
       "notes": "<p>Very nice! Good signal. Toilets. 14 days.</p>",
-      "url": ["https://ioverlander.com/places/d3ef99b9-98e1-4d64-907a-40dd1b7e0650", "https://ioverlander.com/places/f9f15654-4248-496f-9693-9e50be26a8e6"],
+      "url": [
+        "https://ioverlander.com/places/d3ef99b9-98e1-4d64-907a-40dd1b7e0650",
+        "https://ioverlander.com/places/f9f15654-4248-496f-9693-9e50be26a8e6"
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "east-bay-chapel-rd",
       "latitude": 46.014028674567776,
       "longitude": -60.396894341363776,
       "name": "East Bay Chapel Rd",
       "notes": "<p>Awesome! Good signal. Water on two sides. Camp next to water with direct access. Would definitely come back!</p>",
-      "url": ["https://ioverlander.com/places/66ec85a4-ca9b-4be0-b300-552b4f42de2d"],
+      "url": [
+        "https://ioverlander.com/places/66ec85a4-ca9b-4be0-b300-552b4f42de2d"
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "mniku-plaque",
       "latitude": 45.70553848287012,
       "longitude": -60.77560227278723,
       "name": "Mniku Plaque",
       "notes": "<p>Pretty awesome big space. Has signal. Good views.</p>",
-      "url": ["https://park4night.com/en/place/585814","https://ioverlander.com/places/0ad982f6-47de-4563-89a2-f0208ea44359"],
+      "url": [
+        "https://park4night.com/en/place/585814",
+        "https://ioverlander.com/places/0ad982f6-47de-4563-89a2-f0208ea44359"
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "corner-brook-visitor-center",
       "latitude": 48.94283221768172,
       "longitude": -57.91799203186746,
       "name": "Corner Brook Visitor Center",
       "notes": "<p>Easy place to sleep, charge (power outlet on the side of the building) and get free water.</p>",
-      "url": [""],
+      "url": [
+        ""
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "boutte-du-cap-park-cape-st-george",
       "latitude": 48.46845119393267,
       "longitude": -59.26607766999508,
       "name": "Boutte du Cap Park - Cape St George",
       "notes": "<p>202506<br>Very windy location<br>On this day there are clouds and rain is coming. Signal is okay but I'm not sure for meetings.</p><p>Water and toilet at the round about at the entrance.</p><p>20250828<br>Much less people than in June. Only for other campers overnight. Less wind this time.</p><p>Very nice. Beautiful sunset. Beautiful moonlight. It's SO different when it doesn't rain and there is no wind.</p><p>Many spots at the bottom and many spots up the hill.</p><p>Good signal and had a video call in the afternoon, but at the end of the evening, it started sucking 1 0.</p><p>20250829<br>Good signal until the end of the afternoon then it started sucking again 1 0.</p>",
-      "url": ["https://ioverlander.com/places/099f48b9-a00c-43bd-9d9f-908f83ab19a1"],
+      "url": [
+        "https://ioverlander.com/places/099f48b9-a00c-43bd-9d9f-908f83ab19a1"
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "dungeon-provincial-park-unesco-geosite",
       "latitude": 48.67827028436028,
       "longitude": -53.09263391244944,
       "name": "Dungeon Provincial Park UNESCO Geosite",
       "notes": "<p>Excellent sunrise. Good signal.</p>",
-      "url": [""],
+      "url": [
+        ""
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "cape-ray",
       "latitude": 47.620109984198535,
       "longitude": -59.302401758939425,
       "name": "Cape Ray",
       "notes": "<p>Good signal and beautiful place 20 minutes away from the ferry. Some locals and some campers probably getting on or off the ferry.</p><p>Saw five foxes.</p>",
-      "url": [""],
+      "url": [
+        ""
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "dungeon-provincial-park-unesco-geosite-8625",
       "latitude": 48.67450353855486,
       "longitude": -53.083932910465876,
       "name": "Dungeon Provincial Park UNESCO Geosite",
       "notes": "<p>Excellent sunrise. Good signal. Not level.</p><p>Exposed to wind and to people, yet isolated.</p><p>Saw animals: birds, cows, horses, sheeps</p><p>People say 3 nights maximum but I didn't see that sign. I saw the word unsupervised and I stayed five nights.</p>",
-      "url": [""],
+      "url": [
+        ""
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "fleur-de-lys-harbour",
       "latitude": 50.11741315042727,
       "longitude": -56.123842549700996,
       "name": "Fleur de Lys Harbour",
       "notes": "<p>End of the road. Beautiful sunset.</p><p>This is the head of a trail and assigned said it was closed (some broken boardwalks), but I went anyway, and it was beautiful.</p><p>Samantha's Saltwater Joys Museum and Cafe is a very nice café. I asked for permission to charge my power station and had a good time.</p>",
-      "url": [""],
+      "url": [
+        ""
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "401-north-of-howley",
       "latitude": 49.24502849178007,
       "longitude": -57.06594508951723,
       "name": "401 north of Howley",
       "notes": "<p>Very good. Secluded (specific coordinates) despite being next to the road. Nice sunrise and moonrise full moon (20250713). Shaded depending on the time of the day. Nice walk on the beach.</p><p>If looks like there used to be more spots, but they are blocked. Maybe this place will no longer be available in the future.</p>",
-      "url": [""],
+      "url": [
+        ""
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "sea-breeze-park",
       "latitude": 49.6830979259488,
       "longitude": -54.80683205679022,
       "name": "Sea Breeze Park",
       "notes": "<p>Stayed multiple nights. Many spots on the way to this one. Has signal. Many campers. Front row to sunset. Beautiful hiking all over the place.</p><p>Nice walk to Crow's Nest Café.</p>",
-      "url": [""],
+      "url": [
+        ""
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "come-by-chance-gut",
       "latitude": 47.830269167683134,
       "longitude": -53.99502752949605,
       "name": "Come By Chance Gut",
       "notes": "<p>Entrance. After entering, I took the road all the way south.</p><p>No signal. Nice view of valley. Nice place. Huge in size and in views, but not many spots.</p>",
-      "url": [""],
+      "url": [
+        ""
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "gulch-beach",
       "latitude": 46.905191688103955,
       "longitude": -53.61263335766253,
       "name": "Gulch Beach",
       "notes": "<p>Not level. Signal is slow. Wonderful view. So few people. Stayed for 2 nights</p><p>Other campers stayed in the parking lot and I went up here. Nice sunset and sunrise.</p>",
-      "url": [""],
+      "url": [
+        ""
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "beach-south-of-argentia",
       "latitude": 47.276317371601756,
       "longitude": -54.00366677828089,
       "name": "Beach south of Argentia",
       "notes": "<p>Very nice place. Good signal, beautiful sunset. Nobody comes here. There are three spots.</p>",
-      "url": [""],
+      "url": [
+        ""
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "anderson-s-cove",
       "latitude": 47.577738170485965,
       "longitude": -53.5643279656196,
       "name": "Anderson's Cove",
       "notes": "<p>Nice place, nice view. Locals come and go, as well as campers. Dildo is a nice town.</p>",
-      "url": [""],
+      "url": [
+        ""
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "big-parking-lot-quidi-vidi-lake",
       "latitude": 47.583149836614524,
       "longitude": -52.69088007486581,
       "name": "Big parking lot, Quidi Vidi Lake",
       "notes": "<p>Easy spot for sleeping, especially if arriving late. Could also park here all day and walk around. Toilets up the hill.</p>",
-      "url": [""],
+      "url": [
+        ""
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "quidi-vidi-lake",
       "latitude": 47.57829999526881,
       "longitude": -52.69426000359389,
       "name": "Quidi Vidi Lake",
       "notes": "<p>Easy spot for sleeping, especially if arriving late.</p>",
-      "url": [""],
+      "url": [
+        ""
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "father-troys-trail",
       "latitude": 47.70097260676421,
       "longitude": -52.70216969571463,
       "name": "Father Troy’s Trail",
       "notes": "<p>Good signal. Beautiful view of the cove and sunset. Beautiful of sunrise if willing to hike on the steep side at sunrise.</p><p>Trash bins and toilets at Ocean View Park (2-minute walk visible from this spot)</p>",
-      "url": [""],
+      "url": [
+        ""
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "old-cape-st-francis",
       "latitude": 47.807469169058244,
       "longitude": -52.78624041659969,
       "name": "Old Cape St. Francis",
       "notes": "<p>Beautiful view. Nobody comes here. Secluded and close to St. John's. A 5-minute hike up the mountain gives an even better 360 view.</p>",
-      "url": [""],
+      "url": [
+        ""
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "horse-chops-road-english-harbour",
       "latitude": 48.365645992930105,
       "longitude": -53.26469383581992,
       "name": "Horse Chops Road - English Harbour",
       "notes": "<p>Great signal. Very very few people, likely because the road is a dead end, much like pass Cook's Harbour north of Newfoundland.</p>",
-      "url": ["https://ioverlander.com/places/0763f2da-a87e-4c7b-801f-429be6a72952"],
+      "url": [
+        "https://ioverlander.com/places/0763f2da-a87e-4c7b-801f-429be6a72952"
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "shoal-cove-beach",
       "latitude": 46.88433169116665,
       "longitude": -55.40236730869224,
       "name": "Shoal Cove Beach",
       "notes": "<p>Very beautiful view, but I didn't stay, because I arrived in the evening and it was full of people; locals and campers.</p>",
-      "url": ["https://ioverlander.com/places/3eb485a9-4da0-40b2-a19d-80b30bde7793"],
+      "url": [
+        "https://ioverlander.com/places/3eb485a9-4da0-40b2-a19d-80b30bde7793"
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "terrenceville",
       "latitude": 47.66617159905116,
       "longitude": -54.72302368249221,
       "name": "Terrenceville",
       "notes": "<p>Good signal. Three designated spots. I was there for a week and there were mostly local people jogging, walking their dogs or with ATVs. Other campers (only 3 during my week) only came to sleep for a night.</p><p>360 view. Sunrise over water, sunset over water.</p>",
-      "url": ["https://ioverlander.com/places/8929ed76-d0b7-4e47-b86f-ffa4234871ca"],
+      "url": [
+        "https://ioverlander.com/places/8929ed76-d0b7-4e47-b86f-ffa4234871ca"
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "pasadena-beach",
       "latitude": 49.02179006289782,
       "longitude": -57.60837465215055,
       "name": "Pasadena Beach",
       "notes": "<p>Very nice. Came here multiple times.</p><p>No people in June.</p><p>More people in July, but only during daytime, though sunset is late, so some people stay a while.</p>",
-      "url": ["https://ioverlander.com/places/13a96a64-4e62-4764-8133-ea3475ab5e7d"],
+      "url": [
+        "https://ioverlander.com/places/13a96a64-4e62-4764-8133-ea3475ab5e7d"
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "cape-norman",
       "latitude": 51.628792991979395,
       "longitude": -55.902967592169155,
       "name": "Cape Norman",
       "notes": "<p>The spot south west, 6 minutes away is more spacious, more secluded, better 360 view, better road quality.</p>",
-      "url": ["https://ioverlander.com/places/13a96a64-4e62-4764-8133-ea3475ab5e7d"],
+      "url": [
+        "https://ioverlander.com/places/13a96a64-4e62-4764-8133-ea3475ab5e7d"
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "nameless-cove",
       "latitude": 51.312148043322225,
       "longitude": -56.74186291880924,
       "name": "Nameless Cove",
       "notes": "<p>Good signal. Nice place. Beauitful sunset. Close to the village, but still away. Water in three directions.</p>",
-      "url": ["https://park4night.com/en/place/432712","https://ioverlander.com/places/1b777e38-521e-4fa1-b62f-f7afdc734da7"],
+      "url": [
+        "https://park4night.com/en/place/432712",
+        "https://ioverlander.com/places/1b777e38-521e-4fa1-b62f-f7afdc734da7"
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "lac-resimond",
       "latitude": 48.434323960892215,
       "longitude": -70.45550792241029,
       "name": "Lac Résimond",
       "notes": "<p>Great place. No signal. 4 spots under trees. Beach. Noise from the road.</p>",
-      "url": [""],
+      "url": [
+        ""
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "halte-de-valin",
       "latitude": 48.45995947655717,
       "longitude": -70.9883206011504,
       "name": "Halte de Valin",
       "notes": "<p>Rest stop with lots of cars, vans, RVs.<br>You can park on the grass.<br>Nice view.</p>",
-      "url": [""],
+      "url": [
+        ""
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "camping-municipal-st-charles-de-bourget",
       "latitude": 48.48972526741131,
       "longitude": -71.40434088893257,
       "name": "Camping Municipal st charles de Bourget",
       "notes": "<p>Free with hot showers.<br>7 nights max.<br>14 spots.<br>2 showers.<br>Power outlets outside the building and in the toilets</p>",
-      "url": [""],
+      "url": [
+        ""
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "point-aconi",
       "latitude": 46.33549845107891,
       "longitude": -60.29320012289313,
       "name": "Point Aconi",
       "notes": "<p>Very good spot for seeing the sunset. On the east side, there is a spot to see the sunrise.</p><p>This place is good for sleeping before/after going/arriving to/from Newfoundland.</p>",
-      "url": [""],
+      "url": [
+        ""
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "bayfield",
       "latitude": 45.64693050005694,
       "longitude": -61.76182573815927,
       "name": "Bayfield",
       "notes": "<p>Phenomenal place. Beautiful sunrise and sunset. Multiple spots for multiple people. Access to the beach.</p>",
-      "url": [""],
+      "url": [
+        ""
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "anse-caplan",
       "latitude": 50.2606575974603,
       "longitude": -64.8766654490296,
       "name": "Anse Caplan",
       "notes": "<p>Amazing. Best place in this entire coast.<br>No signal. 360 view. Plenty of space to walk around.</p>",
-      "url": [""],
+      "url": [
+        ""
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "parc-de-la-maison-de-la-faune",
       "latitude": 49.188225719139446,
       "longitude": -68.31507249337585,
       "name": "Parc de la maison de la faune",
       "notes": "<p>Nice place. Signal. Lots of people. Too known. Potable water at the information building before you get here.</p>",
-      "url": [""],
+      "url": [
+        ""
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "pointe-lebel",
       "latitude": 49.1569651153371,
       "longitude": -68.18642063877971,
       "name": "Pointe-Lebel",
       "notes": "<p>Very nice sunrise by the water.<br>Good signal.<br>Five vehicles including myself on 20240726.<br>Nobody else on 20240810.<br>Less than 30 minutes from Baie Comeau and yet, quiet and peaceful.</p><p>Saw auroras on one night, don't remember which night.</p>",
-      "url": ["https://ioverlander.com/places/282602-plage-chouinard"],
+      "url": [
+        "https://ioverlander.com/places/282602-plage-chouinard"
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "paid-camping-de-carleton-sur-mer",
       "latitude": 48.08939266623813,
       "longitude": -66.116938208202,
       "name": "PAID: Camping de Carleton-sur-Mer",
       "notes": "<p>One of the best and cheapest campgrounds in Quebec. Very nice because of the 360 view that includes a mountain and two bodies of water. The little town is also nice with a good café.</p>",
-      "url": ["https://maps.app.goo.gl/JcnH5eDK3p4i9iY77"],
+      "url": [
+        "https://maps.app.goo.gl/JcnH5eDK3p4i9iY77"
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "paid-kinsmen-prince-edward-campground-rv-park",
       "latitude": 48.96366595217781,
       "longitude": -57.89375389422975,
       "name": "PAID: Kinsmen Prince Edward Campground & RV Park",
       "notes": "<p>Cheap campground with hot shower, good Wi-Fi and good cell signal.</p><p>Spots without service are completely in the shade, so they are not a good option if you need solar power. I had a spot with electricity and water and it was in the open area which was very nice, even though people can be very close together.</p>",
-      "url": ["https://www.princeedwardrvpark.com/rates"],
+      "url": [
+        "https://www.princeedwardrvpark.com/rates"
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "tablelands-trailhead",
       "latitude": 49.47812624457829,
       "longitude": -57.97399246545509,
       "name": "Tablelands trailhead",
       "notes": "<p>20250627<br>Mostly no signal in the parking lot.<br>Windy, nobody here until daytime when it gets packed.</p>",
-      "url": [""],
+      "url": [
+        ""
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "raleigh",
       "latitude": 51.55875993224684,
       "longitude": -55.74400643048868,
       "name": "Raleigh",
       "notes": "<p>Internet 4 3<br>Pretty good even if it's on the side of the road because nobody really comes here.</p>",
-      "url": [""],
+      "url": [
+        ""
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "50-37401469010678--57-526837418433985",
       "latitude": 50.37401469010678,
       "longitude": -57.526837418433985,
       "name": "Spot",
       "notes": "<p>No signal.<br>The vegetation makes you go deeper in many parts, so this exact spot is better. Let the front face the gulf.</p>",
-      "url": [""],
+      "url": [
+        ""
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "close-to-st-anthony",
       "latitude": 51.34521293481218,
       "longitude": -55.59075456828781,
       "name": "Close to St. Anthony",
       "notes": "<p>low signal 5 3<br>Latency infinity<br>Gorgeous view of the harbour<br>Very windy 30-60km/h on 20250629</p>",
-      "url": ["https://ioverlander.com/places/44b35e10-59b7-492e-bbb6-0bcacea1f4f4"],
+      "url": [
+        "https://ioverlander.com/places/44b35e10-59b7-492e-bbb6-0bcacea1f4f4"
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "goose-cove",
       "latitude": 51.310709381033554,
       "longitude": -55.639451683655864,
       "name": "Goose Cove",
       "notes": "<p>Great view, but I didn't feel comfortable. It isn't very spacious on the way in and also there.</p>",
-      "url": ["https://ioverlander.com/places/230862"],
+      "url": [
+        "https://ioverlander.com/places/230862"
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "bay-view-rd",
       "latitude": 51.59165491406103,
       "longitude": -55.87558959509593,
       "name": "Bay View Rd",
       "notes": "<p>Nice place.</p>",
-      "url": ["https://ioverlander.com/places/7de38515-1b8d-45f9-8f42-897c7e053471"],
+      "url": [
+        "https://ioverlander.com/places/7de38515-1b8d-45f9-8f42-897c7e053471"
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "north",
       "latitude": 51.61105576673497,
       "longitude": -55.94722423740775,
       "name": "North",
       "notes": "<p>20250701<br>Saw multiple icebergs!! Nine at one point.<br>Signal ok for youtube. Wonderful place on a cliff in front of the Gulf of Saint Lawrence.</p></p><p>Entrance of this big area is south west of this marker.</p>",
-      "url": ["https://ioverlander.com/places/0f98f507-9bd3-4bf6-a46d-9f2f41685e31"],
+      "url": [
+        "https://ioverlander.com/places/0f98f507-9bd3-4bf6-a46d-9f2f41685e31"
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "observatoire",
       "latitude": 46.22395697985156,
       "longitude": -71.41696402571812,
       "name": "Observatoire",
       "notes": "<p>20250604<br>Good signal. Locals come for the beautiful sunset.</p>",
-      "url": [""],
+      "url": [
+        ""
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "halte-municipale-val-brillant",
       "latitude": 48.53960310618892,
       "longitude": -67.56132085361926,
       "name": "Halte municipale Val-Brillant",
       "notes": "<p>2024<br>A sign shows no trailers. Good signal. Slept one night.</p>",
-      "url": [""],
+      "url": [
+        ""
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "halte-ouest-de-marsoui",
       "latitude": 49.21318472052889,
       "longitude": -66.10518132886367,
       "name": "Halte ouest de Marsoui",
       "notes": "<p>20250606<br>Rest stop with good signal and peaceful at night. Beautiful sunset. I missed the sunrise, but probable beautiful too.</p>",
-      "url": ["https://park4night.com/en/place/192687","https://ioverlander.com/places/eb8111a5-2ab6-4f7b-9366-4835a56b7c7c"],
+      "url": [
+        "https://park4night.com/en/place/192687",
+        "https://ioverlander.com/places/eb8111a5-2ab6-4f7b-9366-4835a56b7c7c"
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "lake-charles",
       "latitude": 30.23419964348384,
       "longitude": -93.22105770174394,
       "name": "Lake Charles",
       "notes": "<p>Very nice place. Good signal and plenty of places to park along the lake. Be aware that it is public, so people will come and go. On 20250410, there wasn't many people in the afternoon.</p>",
-      "url": ["https://ioverlander.com/places/56807-veterans-memorial-park-lake-charles"],
+      "url": [
+        "https://ioverlander.com/places/56807-veterans-memorial-park-lake-charles"
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "parc-des-ponts-breaux",
       "latitude": 30.276061707145104,
       "longitude": -91.89964545684583,
       "name": "Parc des Ponts Breaux",
       "notes": "<p>Goose spit. No camping. Signal is slow. Latency is slow (mlab says infinity).</p><p>2025 0410<br>Empty. It's 18:08 and I can be in the the shade.</p>",
-      "url": [""],
+      "url": [
+        ""
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "lake-martin",
       "latitude": 30.222942147595003,
       "longitude": -91.90604429881277,
       "name": "Lake Martin",
       "notes": "<p>2025 0410<br>There's is signal, but nothing really gets through, so might as well say there's no signal.</p><p>It's a boat ramp and on this day, a lot of people are bringing their boats.</p>",
-      "url": ["https://ioverlander.com/places/48062-lake-martin"],
+      "url": [
+        "https://ioverlander.com/places/48062-lake-martin"
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "campo-turistico-1",
       "latitude": 31.038960963650368,
       "longitude": -114.8251162621945,
       "name": "Campo Turistico # 1",
       "notes": "<p>Paid. Good restaurant. Good sunrise. Easy access to San Felipe by any mode of transportation, including walking.</p>",
-      "url": ["https://maps.app.goo.gl/TSwkA8o11noxCp3S9"],
+      "url": [
+        "https://maps.app.goo.gl/TSwkA8o11noxCp3S9"
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "puertocitos",
       "latitude": 30.3497848615767,
       "longitude": -114.64051599851867,
       "name": "Puertocitos",
       "notes": "<p>Paid</p>",
-      "url": [""],
+      "url": [
+        ""
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "next-to-highway",
       "latitude": 30.031307398156567,
       "longitude": -114.57511057258436,
       "name": "Next to highway",
       "notes": "<p>No signal. Be careful of soft sand.<br>Good spot with direct access to beach, but visible from highway. Very nice view of the mountains. Very nice view of the beach. Nice waves. 20250122.</p>",
-      "url": [""],
+      "url": [
+        ""
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "guerrero-negro-campground",
       "latitude": 27.98355945982496,
       "longitude": -114.0145039477142,
       "name": "Guerrero Negro Campground",
       "notes": "<p>Nice paid camground with toilets and showers.</p><p>Beware that electric outlets don't all work.</p>",
-      "url": ["https://maps.app.goo.gl/K8SA2YuPGuNhyKj5A"],
+      "url": [
+        "https://maps.app.goo.gl/K8SA2YuPGuNhyKj5A"
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "cactus-forest",
       "latitude": 28.93098109338932,
       "longitude": -113.547742716576,
       "name": "Cactus forest",
@@ -571,7 +703,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "cactus-forest-5254",
       "latitude": 27.496027465439106,
       "longitude": -113.30902804878998,
       "name": "Cactus forest",
@@ -580,7 +712,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "east-of-san-bruno",
       "latitude": 27.160383251826584,
       "longitude": -112.1404502550755,
       "name": "East of San Bruno",
@@ -589,7 +721,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "playa-piedrita",
       "latitude": 26.761238259741194,
       "longitude": -111.87827211087216,
       "name": "Playa Piedrita",
@@ -598,7 +730,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "playa-la-escondida",
       "latitude": 26.745314664435387,
       "longitude": -111.8955727416578,
       "name": "Playa La Escondida",
@@ -607,7 +739,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "playa-los-cocos",
       "latitude": 26.7434265691092,
       "longitude": -111.9003523376219,
       "name": "Playa Los Cocos",
@@ -616,7 +748,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "playa-el-requeson",
       "latitude": 26.636487769362493,
       "longitude": -111.82916954310927,
       "name": "Playa el Requeson",
@@ -625,7 +757,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "south-of-bahia-concepcion",
       "latitude": 26.588126614720608,
       "longitude": -111.78787340143943,
       "name": "South of Bahia Concepcion",
@@ -634,7 +766,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "north-of-loreto",
       "latitude": 26.049583490854957,
       "longitude": -111.3291804885598,
       "name": "North of Loreto",
@@ -643,7 +775,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "el-comitan",
       "latitude": 24.128657512793726,
       "longitude": -110.41741576552133,
       "name": "El Comitán",
@@ -652,7 +784,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "playa-el-tecolote-or-playa-ronquillo",
       "latitude": 24.33957400602393,
       "longitude": -110.30504871477548,
       "name": "Playa El Tecolote (or Playa Ronquillo?)",
@@ -661,7 +793,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "north-of-la-ventana",
       "latitude": 24.128949282168872,
       "longitude": -109.99814768244582,
       "name": "North of La Ventana",
@@ -670,7 +802,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "north-of-la-ventana-1330",
       "latitude": 24.128193171397438,
       "longitude": -109.99812554680736,
       "name": "North of La Ventana",
@@ -679,7 +811,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "north-of-lake-havasu-city",
       "latitude": 34.71345386285161,
       "longitude": -114.4364348345622,
       "name": "North of Lake Havasu City",
@@ -688,7 +820,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "craggy-wash-blm-land-camping",
       "latitude": 34.59338773346728,
       "longitude": -114.36176392655878,
       "name": "Craggy Wash BLM Land Camping",
@@ -697,7 +829,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "lost-horse-tank-dispersed",
       "latitude": 32.837006886237944,
       "longitude": -112.31064360738385,
       "name": "Lost Horse Tank Dispersed",
@@ -706,7 +838,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "by-an-empty-beach-of-caraquet-parish",
       "latitude": 47.78439568256199,
       "longitude": -64.74831899171048,
       "name": "By an empty beach of Caraquet Parish",
@@ -715,7 +847,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "canyon-badlands",
       "latitude": 37.1117825025085,
       "longitude": -121.01644445999348,
       "name": "Canyon Badlands",
@@ -726,7 +858,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "canyon-badlands-9296",
       "latitude": 32.82827521512449,
       "longitude": -116.1657969921132,
       "name": "Canyon Badlands",
@@ -737,7 +869,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "salton-city",
       "latitude": 33.27912842722796,
       "longitude": -116.05922366085649,
       "name": "Salton City",
@@ -750,7 +882,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "salton-city-8281",
       "latitude": 33.27173591658883,
       "longitude": -116.01791904013729,
       "name": "Salton City",
@@ -759,7 +891,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "palm-canyon-rd",
       "latitude": 33.37720855478211,
       "longitude": -114.19204481152273,
       "name": "Palm Canyon Rd",
@@ -768,7 +900,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "palm-canyon-rd-6793",
       "latitude": 33.37723319869614,
       "longitude": -114.1926563981647,
       "name": "Palm Canyon Rd",
@@ -777,7 +909,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "palm-canyon-rd-0323",
       "latitude": 33.373486879068395,
       "longitude": -114.17620748560095,
       "name": "Palm Canyon Rd",
@@ -786,7 +918,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "palm-canyon-rd-4786",
       "latitude": 33.3754408,
       "longitude": -114.1824585,
       "name": "Palm Canyon Rd",
@@ -795,7 +927,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "tumco-historic-townsite",
       "latitude": 32.88221456919514,
       "longitude": -114.83595396941834,
       "name": "Tumco Historic Townsite",
@@ -804,7 +936,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "closer-to-obregon-beyond-american-girl-mine-rd",
       "latitude": 32.84936848632549,
       "longitude": -114.80702301835007,
       "name": "Closer to Obregon, beyond American Girl Mine Rd",
@@ -813,7 +945,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "american-girl-mine-rd",
       "latitude": 32.83534091307895,
       "longitude": -114.81631265887512,
       "name": "American Girl Mine Rd",
@@ -822,7 +954,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "american-girl-mine-rd-8040",
       "latitude": 32.84035045664595,
       "longitude": -114.8141007572436,
       "name": "American Girl Mine Rd",
@@ -831,7 +963,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "la-posa-south-ltva-just-south-of-quartzsite",
       "latitude": 33.60683001171496,
       "longitude": -114.1954725268111,
       "name": "La Posa South LTVA just south of Quartzsite",
@@ -840,7 +972,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "the-lit-cactus-la-posa-south-ltva-just-south-of-quartzsite",
       "latitude": 33.610014022475234,
       "longitude": -114.19958424144716,
       "name": "The Lit Cactus (La Posa South LTVA just south of Quartzsite)",
@@ -849,7 +981,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "sidewinder-rd-close-to-pilot-knob-ltva",
       "latitude": 32.78190340104057,
       "longitude": -114.75639124261143,
       "name": "Sidewinder Rd (close to Pilot Knob LTVA)",
@@ -858,7 +990,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "imperial-dam-ltva-day-use",
       "latitude": 32.90150811086217,
       "longitude": -114.51614508614017,
       "name": "Imperial Dam LTVA (day use)",
@@ -867,7 +999,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "imperial-dam-ltva",
       "latitude": 32.900429729251485,
       "longitude": -114.50867196930668,
       "name": "Imperial Dam LTVA",
@@ -876,7 +1008,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "smugglers-run-vekol-valley-rd",
       "latitude": 32.80944170646082,
       "longitude": -112.25435722478198,
       "name": "Smuggler’s Run - Vekol Valley Rd",
@@ -885,7 +1017,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "cedar-river",
       "latitude": 41.790637,
       "longitude": -91.316435,
       "name": "Cedar River",
@@ -894,7 +1026,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "missouri-river-in-oacoma",
       "latitude": 43.792968,
       "longitude": -99.391628,
       "name": "Missouri River in Oacoma",
@@ -903,7 +1035,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "missouri-river-in-oacoma-2875",
       "latitude": 43.792968,
       "longitude": -99.391628,
       "name": "Missouri River in Oacoma",
@@ -912,7 +1044,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "kinbasket-lake-north",
       "latitude": 52.744726,
       "longitude": -119.102457,
       "name": "Kinbasket Lake (north)",
@@ -921,16 +1053,16 @@
       "visible": 1
     },
     {
-      "id": "",
-      "latitude": 51.210880,
-      "longitude": -116.626500,
+      "id": "beaverfoot-forest-service-rd",
+      "latitude": 51.21088,
+      "longitude": -116.6265,
       "name": "Beaverfoot Forest Service Rd",
       "notes": "<p>Weird spot, but ok for one night. Bad hotspot signal 0.18/2.65, but manageable for browsing and light work. Meetings would be crap.</p>",
       "url": "",
       "visible": 1
     },
     {
-      "id": "",
+      "id": "naramata",
       "latitude": 49.594502,
       "longitude": -119.558501,
       "name": "Naramata",
@@ -939,7 +1071,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "pelican-on-yellowstone-river",
       "latitude": 45.757693,
       "longitude": -109.769818,
       "name": "Pelican on Yellowstone River",
@@ -948,24 +1080,24 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "loon-lake",
       "latitude": 49.891098,
-      "longitude": -120.540340,
+      "longitude": -120.54034,
       "name": "Loon Lake",
       "notes": "<p>Great view of the lake and sunrise. Good signal.</p><p>Possible to go down closer to the lake, but I didn't, because there were people already.</p>",
       "url": "https://ioverlander.com/places/139532-loon-lake-roadside",
       "visible": 1
     },
     {
-      "id": "",
-      "latitude": 34.997940,
-      "longitude": -105.784630,
+      "id": "34-99794--105-78463",
+      "latitude": 34.99794,
+      "longitude": -105.78463,
       "notes": "<p>Awesome deserted place. Great for working and chilling. Come from the west, because the road from the east can leave you stuck.</p>",
       "url": "",
       "visible": 1
     },
     {
-      "id": "",
+      "id": "47-92794410613289--124-51983159409438",
       "latitude": 47.92794410613289,
       "longitude": -124.51983159409438,
       "notes": "<p>Just for a night. Boring place.</p>",
@@ -973,7 +1105,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "45-421102--122-783765",
       "latitude": 45.421102,
       "longitude": -122.783765,
       "notes": "<p>Slept at this spot until appointment with mechanic across the street, Meineke.</p>",
@@ -981,15 +1113,15 @@
       "visible": 1
     },
     {
-      "id": "",
-      "latitude": 44.667320,
+      "id": "44-66732--111-307432",
+      "latitude": 44.66732,
       "longitude": -111.307432,
       "notes": "<p>Multiple spots. Signal 4.32/0.08<br>Bear country. <br>Forest with trees for hammock.</p>",
       "url": "",
       "visible": 1
     },
     {
-      "id": "",
+      "id": "44-318726--106-870719",
       "latitude": 44.318726,
       "longitude": -106.870719,
       "notes": "<p>Big large area with signal here. Signal in other spots can be unreliable.</p>",
@@ -997,21 +1129,21 @@
       "visible": 1
     },
     {
-      "id": "",
-      "latitude": 44.454300,
-      "longitude": -104.425000,
+      "id": "44-4543--104-425",
+      "latitude": 44.4543,
+      "longitude": -104.425,
       "notes": "<p>Decent signal<br>6 reviews 4.7. Multiple spots.</p>",
       "url": "https:/freeroam.app/campground/camp-crusade"
     },
     {
-      "id": "",
+      "id": "38-899371--120-368183",
       "latitude": 38.899371,
       "longitude": -120.368183,
       "notes": "<p>Good signal here. It was difficult to find a place with signal in the region.</p>",
       "url": ""
     },
     {
-      "id": "",
+      "id": "28",
       "latitude": 46.461826,
       "longitude": -86.930158,
       "name": "28",
@@ -1019,7 +1151,7 @@
       "url": ""
     },
     {
-      "id": "",
+      "id": "alabama-hills",
       "latitude": 36.609441,
       "longitude": -118.117439,
       "name": "Alabama Hills",
@@ -1027,15 +1159,15 @@
       "url": ""
     },
     {
-      "id": "",
-      "latitude": 50.429300,
-      "longitude": -127.371350,
+      "id": "alice-lake",
+      "latitude": 50.4293,
+      "longitude": -127.37135,
       "name": "Alice Lake",
       "notes": "<p>Absolutely wonderful place. Awesome location if there is room by the lake and if you have satellite internet.</p><p>Impossible to work with hotspot. Signal sucks crap.</p>",
       "url": ""
     },
     {
-      "id": "",
+      "id": "badlands",
       "latitude": 43.912036,
       "longitude": -102.229428,
       "name": "Badlands",
@@ -1043,7 +1175,7 @@
       "url": ""
     },
     {
-      "id": "",
+      "id": "badlands-3362",
       "latitude": 43.907429,
       "longitude": -102.228133,
       "name": "Badlands",
@@ -1051,7 +1183,7 @@
       "url": ""
     },
     {
-      "id": "",
+      "id": "badlands-5933",
       "latitude": 43.896094,
       "longitude": -102.230529,
       "name": "Badlands",
@@ -1059,7 +1191,7 @@
       "url": ""
     },
     {
-      "id": "",
+      "id": "badlands-3371",
       "latitude": 43.890074,
       "longitude": -102.226638,
       "name": "Badlands",
@@ -1067,7 +1199,7 @@
       "url": ""
     },
     {
-      "id": "",
+      "id": "black-creek-river",
       "latitude": 31.07138078306035,
       "longitude": -89.25458849440135,
       "name": "Black Creek river",
@@ -1075,7 +1207,7 @@
       "url": ""
     },
     {
-      "id": "",
+      "id": "bayou-segnette-state-park",
       "latitude": 29.890187788327218,
       "longitude": -90.162529358335,
       "name": "Bayou Segnette State Park",
@@ -1083,7 +1215,7 @@
       "url": "https://goo.gl/maps/AubtmXqaAcgzDioY9"
     },
     {
-      "id": "",
+      "id": "lake-terrace-dr-parking-lot",
       "latitude": 30.031768288575584,
       "longitude": -90.07610733352597,
       "name": "Lake Terrace Dr parking lot",
@@ -1091,7 +1223,7 @@
       "url": ""
     },
     {
-      "id": "",
+      "id": "lakeshore-dr-parking-lot",
       "latitude": 30.032041701784102,
       "longitude": -90.07289588039721,
       "name": "Lakeshore Dr parking lot",
@@ -1099,7 +1231,7 @@
       "url": ""
     },
     {
-      "id": "",
+      "id": "elysian-fields-ave-street-parking-entire-area",
       "latitude": 29.963910547552498,
       "longitude": -90.0566499424214,
       "name": "Elysian Fields Ave street parking (entire area)",
@@ -1107,7 +1239,7 @@
       "url": ""
     },
     {
-      "id": "",
+      "id": "rutherford-beach",
       "latitude": 29.758488922689917,
       "longitude": -93.1218559492653,
       "name": "Rutherford Beach",
@@ -1115,7 +1247,7 @@
       "url": "https://maps.app.goo.gl/tgWvcAh3iNrF5cEa8"
     },
     {
-      "id": "",
+      "id": "brazoria-county-beach-free-camping",
       "latitude": 28.98956306199064,
       "longitude": -95.23799928475015,
       "name": "Brazoria County Beach Free Camping",
@@ -1123,7 +1255,7 @@
       "url": "https://maps.app.goo.gl/ZSooW5cnjJcN7BRC7"
     },
     {
-      "id": "",
+      "id": "black-rock",
       "latitude": 36.978053,
       "longitude": -113.651836,
       "name": "Black Rock",
@@ -1131,7 +1263,7 @@
       "url": ""
     },
     {
-      "id": "",
+      "id": "blackwell-horsecamp",
       "latitude": 39.016858008347256,
       "longitude": -86.39141046300149,
       "name": "Blackwell Horsecamp",
@@ -1139,15 +1271,15 @@
       "url": "https://goo.gl/maps/tkoEochF6KyR2eB29"
     },
     {
-      "id": "",
-      "latitude": 40.785700,
-      "longitude": -113.953680,
+      "id": "bonneville-salt-flats",
+      "latitude": 40.7857,
+      "longitude": -113.95368,
       "name": "Bonneville Salt Flats",
       "notes": "<p>Good signal, but try the open area on the “corner” just a minute south first.</p><p>Isolated spot, beautiful view of the salt flats. Somewhat protected from the wind. A hike up to the mountains starts right there.</p><p>Good ATT cellular signal.<br>Little traffic on the gravel road</p><p>Due to being so close to the mountain, sunset is not visible here.</p>",
       "url": ""
     },
     {
-      "id": "BonnevilleSaltFlatsOpenSpace",
+      "id": "bonneville-salt-flats-9853",
       "latitude": 40.783334,
       "longitude": -113.949963,
       "name": "Bonneville Salt Flats",
@@ -1155,7 +1287,7 @@
       "url": ""
     },
     {
-      "id": "",
+      "id": "burtons-shore-beach",
       "ioverlander": "https://www.ioverlander.com/places/175627-burtons-shore-beach",
       "latitude": 37.650606311134226,
       "longitude": -75.65098243908567,
@@ -1164,15 +1296,15 @@
       "url": "https://goo.gl/maps/tWQT5Whayz1nhSsz5"
     },
     {
-      "id": "",
+      "id": "carson-city",
       "latitude": 39.125881,
-      "longitude": -119.785580,
+      "longitude": -119.78558,
       "name": "Carson City",
       "notes": "<p>Presence of gun shells and good hotspot signal. Nice overview of the city. Nice to stay for one night only.</p>",
       "url": ""
     },
     {
-      "id": "",
+      "id": "chincoteague-island-waterman-s-memorial",
       "ioverlander": "https://www.ioverlander.com/places/161593-curtis-merritt-harbor",
       "latitude": 37.90172753919761,
       "longitude": -75.40718700456394,
@@ -1181,7 +1313,7 @@
       "url": "https://goo.gl/maps/1sEGdfSpLnx7hNFQ7"
     },
     {
-      "id": "",
+      "id": "cracker-barrel-old-country-store",
       "latitude": 30.17747066688319,
       "longitude": -82.68651593748974,
       "name": "Cracker Barrel Old Country Store",
@@ -1189,7 +1321,7 @@
       "url": ""
     },
     {
-      "id": "",
+      "id": "deadwood-mt-roosevelt-rd-best-spot",
       "latitude": 44.387099,
       "longitude": -103.760813,
       "name": "Deadwood - Mt Roosevelt Rd (best spot)",
@@ -1197,16 +1329,16 @@
       "url": ""
     },
     {
-      "id": "",
-      "latitude": 44.388500,
-      "longitude": -103.758600,
+      "id": "deadwood-mt-roosevelt-rd",
+      "latitude": 44.3885,
+      "longitude": -103.7586,
       "name": "Deadwood - Mt Roosevelt Rd",
       "notes": "<p>Another good spot. This one offers privacy.</p>",
       "url": "",
       "visible": 0
     },
     {
-      "id": "",
+      "id": "dominguez-entrance",
       "latitude": 38.794118,
       "longitude": -108.261029,
       "name": "Dominguez - Entrance",
@@ -1214,7 +1346,7 @@
       "url": ""
     },
     {
-      "id": "",
+      "id": "dominguez-escalante",
       "latitude": 38.78457944577107,
       "longitude": -108.24699786459188,
       "name": "Dominguez - Escalante",
@@ -1222,7 +1354,7 @@
       "url": ""
     },
     {
-      "id": "",
+      "id": "dominguez",
       "latitude": 38.781169,
       "longitude": -108.293111,
       "name": "Dominguez",
@@ -1230,7 +1362,7 @@
       "url": "https://ioverlander.com/places/153584-escelante-road-scenic-overlook"
     },
     {
-      "id": "",
+      "id": "edenton",
       "ioverlander": "https://ioverlander.com/places/153584-escelante-road-scenic-overlook",
       "latitude": 36.05690207018572,
       "longitude": -76.60883129183644,
@@ -1238,15 +1370,15 @@
       "notes": "<p>Nice little town. There is a parking lot and street parking. Beautiful sunset.</p>"
     },
     {
-      "id": "",
+      "id": "fire-rd-310-in-the-grand-canyon",
       "latitude": 35.956719,
-      "longitude": -111.954500,
+      "longitude": -111.9545,
       "name": "Fire Rd 310, in the Grand Canyon",
       "notes": "<p>Great place. Good signal.</p><p>Maybe there is another way to get here, but I got in by entering the Grand Canyon.</p>",
       "url": ""
     },
     {
-      "id": "",
+      "id": "forest-525-rd-close-to-sedona",
       "latitude": 34.845805,
       "longitude": -111.913779,
       "name": "Forest 525 Rd, close to Sedona",
@@ -1254,7 +1386,7 @@
       "url": ""
     },
     {
-      "id": "",
+      "id": "freeport",
       "latitude": 43.8551881005051,
       "longitude": -70.10467841316408,
       "name": "Freeport",
@@ -1262,7 +1394,7 @@
       "url": ""
     },
     {
-      "id": "",
+      "id": "geopark-pavilion-tektonik-parking",
       "latitude": 48.520956330933174,
       "longitude": -64.21707390227618,
       "name": "Geopark - Pavilion Tektonik (parking)",
@@ -1270,7 +1402,7 @@
       "url": "https://goo.gl/maps/urBPv1xFcLuKg9dt7"
     },
     {
-      "id": "",
+      "id": "goodenough-creek-campground",
       "latitude": 42.65411984308022,
       "longitude": -112.27920949724893,
       "name": "Goodenough Creek Campground",
@@ -1278,7 +1410,7 @@
       "url": "https://goo.gl/maps/urBPv1xFcLuKg9dt7"
     },
     {
-      "id": "",
+      "id": "goose-spit-park",
       "latitude": 49.664361,
       "longitude": -124.902906,
       "name": "Goose Spit Park",
@@ -1286,15 +1418,15 @@
       "url": "https://goo.gl/maps/8WymXPhimgBytqpm7"
     },
     {
-      "id": "",
-      "latitude": 36.123050,
+      "id": "government-wash-campground",
+      "latitude": 36.12305,
       "longitude": -114.833183,
       "name": "Government Wash Campground",
       "notes": "<p>The pass America The Beautiful got me in... Or am I confusing it with another place.</p>",
       "url": "https://goo.gl/maps/rnif1zeE6Ajsgcuz7"
     },
     {
-      "id": "",
+      "id": "halte-des-piliers",
       "latitude": 47.180209138357434,
       "longitude": -70.30350304233876,
       "name": "Halte des piliers",
@@ -1303,7 +1435,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "hilltop-hot-springs",
       "latitude": 37.660505,
       "longitude": -118.801781,
       "name": "Hilltop Hot Springs",
@@ -1312,7 +1444,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "hilltop-hot-springs-9823",
       "latitude": 37.663194,
       "longitude": -118.800905,
       "name": "Hilltop Hot Springs",
@@ -1321,8 +1453,8 @@
       "visible": 1
     },
     {
-      "id": "",
-      "latitude": 36.781080,
+      "id": "independence",
+      "latitude": 36.78108,
       "longitude": -118.226733,
       "name": "Independence",
       "notes": "Great hotspot signal.",
@@ -1330,7 +1462,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "inspiration-point",
       "latitude": 44.519138,
       "longitude": -86.233023,
       "name": "Inspiration point",
@@ -1339,7 +1471,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "june-lake",
       "latitude": 37.802834,
       "longitude": -119.062947,
       "name": "June Lake",
@@ -1348,7 +1480,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "knapper-camp-blm",
       "latitude": 43.550986,
       "longitude": -120.002565,
       "name": "Knapper Camp BLM",
@@ -1356,7 +1488,7 @@
       "url": ""
     },
     {
-      "id": "",
+      "id": "lake-hawkins",
       "latitude": 32.619036,
       "longitude": -95.250408,
       "name": "Lake Hawkins",
@@ -1365,8 +1497,8 @@
       "visible": 1
     },
     {
-      "id": "",
-      "latitude": 47.247230,
+      "id": "liberty-washington",
+      "latitude": 47.24723,
       "longitude": -120.685407,
       "name": "Liberty, Washington",
       "notes": "<p>Big space. Lots of ATV, RV and trailers, but the space is so big it is easy to stay away from them.</p><p>Very weak signal. Less than 1/1 when I arrived Friday early evening, but later, it turned into 6/2 and it was 4/2 in the morning. It might have been a good place to stay for work, but I only stayed for one night.</p><p>This place is across from Liberty Campground where there is no signal.</p>",
@@ -1374,7 +1506,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "long-jim-loop-camping",
       "latitude": 35.97975565193648,
       "longitude": -112.12845456493443,
       "name": "Long Jim Loop Camping",
@@ -1382,7 +1514,7 @@
       "url": "https://goo.gl/maps/1K73BihqML5niyFU9"
     },
     {
-      "id": "",
+      "id": "miami",
       "latitude": 25.77391544199751,
       "longitude": -80.1325226806451,
       "name": "Miami",
@@ -1391,7 +1523,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "montreal",
       "latitude": 45.506381,
       "longitude": -73.588823,
       "name": "Montreal",
@@ -1400,16 +1532,16 @@
       "visible": 1
     },
     {
-      "id": "",
-      "latitude": 49.593760,
-      "longitude": -119.558530,
+      "id": "naramata-1942",
+      "latitude": 49.59376,
+      "longitude": -119.55853,
       "name": "Naramata",
       "notes": "<p>Good spot in the forest under trees. Some spots have views and some don't.</p><p>Signal is fine.</p><p>There are campers, hikers and mountain bike riders.</p><p>Bears could be around.</p>",
       "url": "",
       "visible": 0
     },
     {
-      "id": "",
+      "id": "nf-13",
       "latitude": 46.343349,
       "longitude": -86.614537,
       "name": "NF-13",
@@ -1417,22 +1549,22 @@
       "url": ""
     },
     {
-      "id": "",
-      "latitude": 32.617620,
-      "longitude": -80.781110,
+      "id": "old-sheldon-church-ruins",
+      "latitude": 32.61762,
+      "longitude": -80.78111,
       "name": "Old Sheldon Church Ruins",
       "notes": "<p>Parking for for the church in the middle of the forest. Very nice to sleep and work. Signal, not the best.</p>"
     },
     {
-      "id": "",
-      "latitude": 38.766600,
-      "longitude": -95.673990,
+      "id": "osage-state-fishing-lake",
+      "latitude": 38.7666,
+      "longitude": -95.67399,
       "name": "Osage State Fishing Lake",
       "notes": "Very nice but very bad hotspot. Everything takes forever to load.<br> Two toilets.",
       "url": ""
     },
     {
-      "id": "",
+      "id": "park-and-ride",
       "latitude": 48.443988,
       "longitude": -123.467163,
       "name": "Park and ride",
@@ -1441,14 +1573,14 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "parking-lot-seabrook-beach",
       "latitude": 42.88949258638976,
       "longitude": -70.81856803108542,
       "name": "Parking lot (Seabrook Beach)",
       "notes": "<p>Beautiful view and beautiful sunset. Stayed two nights.</p>"
     },
     {
-      "id": "",
+      "id": "penrose-commons-ohv",
       "latitude": 38.498394,
       "longitude": -105.026992,
       "name": "Penrose Commons OHV",
@@ -1456,7 +1588,7 @@
       "url": "https://ioverlander.com/places/201464-valley-view-circle"
     },
     {
-      "id": "",
+      "id": "penrose-commons-ohv-2504",
       "latitude": 38.493513,
       "longitude": -105.031435,
       "name": "Penrose Commons OHV",
@@ -1464,7 +1596,7 @@
       "url": ""
     },
     {
-      "id": "",
+      "id": "plage-de-la-riviere",
       "latitude": 48.1016820333814,
       "longitude": -65.68658419040229,
       "name": "Plage de la rivière",
@@ -1472,7 +1604,7 @@
       "url": ""
     },
     {
-      "id": "",
+      "id": "public-beach",
       "latitude": 46.438615,
       "longitude": -86.688168,
       "name": "Public Beach",
@@ -1480,16 +1612,16 @@
       "url": ""
     },
     {
-      "id": "",
-      "latitude": 35.768260,
-      "longitude": -115.266370,
+      "id": "ranch-road",
+      "latitude": 35.76826,
+      "longitude": -115.26637,
       "name": "Ranch Road",
       "notes": "Good spot in the desert with good signal.",
       "url": "",
       "visible": 1
     },
     {
-      "id": "",
+      "id": "rest-area-in-michigan",
       "latitude": 43.004961,
       "longitude": -83.219776,
       "name": "Rest area in Michigan",
@@ -1498,7 +1630,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "french-prairie-baldock-northbound-rest-area-south-of-portland-or",
       "latitude": 45.27066644675915,
       "longitude": -122.77414030428513,
       "name": "French Prairie (Baldock) Northbound Rest Area, south of Portland, OR",
@@ -1507,7 +1639,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "rest-area-rte-de-marcil",
       "latitude": 48.11275120883015,
       "longitude": -65.02513412611124,
       "name": "Rest area - Rte de Marcil",
@@ -1516,22 +1648,22 @@
       "visible": 1
     },
     {
-      "id": "",
-      "latitude": 36.957960,
+      "id": "rd-1005",
+      "latitude": 36.95796,
       "longitude": -113.803201,
       "name": "Rd 1005",
       "notes": "<p>T-mobile signal. No AT&T.</p><p>Nice place full of mountains around, but lots of poop.</p>",
       "url": ""
     },
     {
-      "id": "",
-      "latitude": 33.692420,
-      "longitude": -78.992860,
+      "id": "rosewood-landing-close-to-myrtle-beach",
+      "latitude": 33.69242,
+      "longitude": -78.99286,
       "name": "Rosewood Landing (close to Myrtle Beach)",
       "notes": "<p>Mostly quiet just to sleep. Some cars came.</p>"
     },
     {
-      "id": "",
+      "id": "royal-beach-colwood-vancouver-island",
       "latitude": 48.41015654018333,
       "longitude": -123.47987721180758,
       "name": "Royal Beach, Colwood, Vancouver Island",
@@ -1540,29 +1672,29 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "saco",
       "latitude": 43.49610369573876,
       "longitude": -70.44985955953562,
       "name": "Saco",
       "notes": "Blended in the parking lof of the train station for one night only."
     },
     {
-      "id": "",
+      "id": "sad-boulders",
       "latitude": 37.430657,
       "longitude": -118.423185,
       "name": "Sad Boulders",
       "notes": "Good signal, not many people."
     },
     {
-      "id": "",
-      "latitude": 36.302910,
+      "id": "saddle-mountain-overlook",
+      "latitude": 36.30291,
       "longitude": -111.994816,
       "name": "Saddle Mountain Overlook",
       "notes": "Good hotspot signal. Not many spots. Awesome view if you are lucky enough to get this spot.",
       "url": "https://goo.gl/maps/nRWK7U7c4kPSFwSx8"
     },
     {
-      "id": "",
+      "id": "shore-rd-moran",
       "latitude": 46.018628,
       "longitude": -85.042578,
       "name": "Shore Rd, Moran",
@@ -1570,7 +1702,7 @@
       "url": ""
     },
     {
-      "id": "",
+      "id": "south-inlet-delaware-seashore-state-park-paid-parking",
       "latitude": 38.604756,
       "longitude": -75.062346,
       "name": "South Inlet, Delaware Seashore State Park (paid parking)",
@@ -1578,14 +1710,14 @@
       "url": "https://goo.gl/maps/nguUTU8oGPxDyWdJ9"
     },
     {
-      "id": "",
+      "id": "south-lums-trailhead",
       "latitude": 39.544779986223205,
       "longitude": -75.71950415652097,
       "name": "South Lums Trailhead",
       "notes": "<p>Stayed for only one night. Ok signal to work. Toilets stink. There was one other camper, a VW.</p>"
     },
     {
-      "id": "",
+      "id": "stockton-state-forest",
       "latitude": 42.273822,
       "longitude": -79.375708,
       "name": "Stockton State Forest",
@@ -1593,7 +1725,7 @@
       "url": ""
     },
     {
-      "id": "",
+      "id": "dallas-road-victoria",
       "latitude": 48.405866,
       "longitude": -123.350425,
       "name": "Dallas Road, Victoria",
@@ -1602,7 +1734,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "water-canyon-recreation-area-winnemucca",
       "latitude": 40.924277,
       "longitude": -117.663603,
       "name": "Water Canyon Recreation Area - Winnemucca",
@@ -1611,7 +1743,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "water-canyon-recreation-area-winnemucca-3905",
       "latitude": 40.926582,
       "longitude": -117.666379,
       "name": "Water Canyon Recreation Area - Winnemucca",
@@ -1620,7 +1752,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "woodland-park",
       "latitude": 38.962377,
       "longitude": -105.001779,
       "name": "Woodland Park",
@@ -1629,7 +1761,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "woodland-park-9548",
       "latitude": 38.962638,
       "longitude": -105.002439,
       "name": "Woodland Park",
@@ -1638,9 +1770,9 @@
       "visible": 1
     },
     {
-      "id": "",
-      "latitude": 38.926680,
-      "longitude": -95.435330,
+      "id": "woodridge-primitive-park",
+      "latitude": 38.92668,
+      "longitude": -95.43533,
       "name": "Woodridge Primitive Park",
       "notes": "Very bad hotspot. Everything takes forever to load. Nice for camping but not really vanlife. Vehicles must park and can not go on grass. It's like a rest area but for camping.",
       "url": "https://goo.gl/maps/snbKaRrgp1dPWcSj7"
@@ -1648,10 +1780,7 @@
   ],
   "blm": [
     {
-      "markerPath": "/assets/images/map-icons/marker-icon-campspot.svg"
-    },
-    {
-      "id": "",
+      "id": "41-gold-nugget-road-dispersed",
       "latitude": 33.675482,
       "longitude": -114.078084,
       "name": "41-Gold Nugget Road Dispersed",
@@ -1660,7 +1789,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "43-harquahala-rd-dispersed-1",
       "latitude": 33.616417,
       "longitude": -113.619117,
       "name": "43-Harquahala Rd Dispersed 1",
@@ -1669,7 +1798,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "golden-shores",
       "latitude": 34.798863,
       "longitude": -114.469013,
       "name": "Golden Shores",
@@ -1678,7 +1807,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "saddle-mountain-dispersed-1",
       "latitude": 33.453221,
       "longitude": -113.023253,
       "name": "Saddle Mountain Dispersed 1",
@@ -1687,7 +1816,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "saddle-mountain-dispersed-2",
       "latitude": 33.451081,
       "longitude": -113.036827,
       "name": "Saddle Mountain Dispersed 2",
@@ -1696,7 +1825,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "saddle-mountain-dispersed-3",
       "latitude": 33.447899,
       "longitude": -113.046571,
       "name": "Saddle Mountain Dispersed 3",
@@ -1705,7 +1834,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "61-c1-ox-bow-road",
       "name": "61-C1 Ox Bow Road",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Stay limit: 14 days, Reservations not accepted, Elev: 266ft/81m, Nearest town: Ehrenberg.</p>",
       "latitude": 33.570475,
@@ -1714,7 +1843,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "62-c1-plomosa",
       "name": "62-C1 Plomosa",
       "notes": "<p>Dispersed sites, No water, No toilets, No tents/RVs: Free, Stay limit: 14 days, Elev: 833ft/254m, Tel: 928-317-3200, Nearest town: Quartzsite.</p>",
       "latitude": 33.7475,
@@ -1723,7 +1852,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "63-c1-ramsey-mine-road-dispersed",
       "name": "63. C1 | Ramsey Mine Road Dispersed",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Elev: 1365ft/416m, Nearest town: Brenda.</p>",
       "latitude": 33.674656,
@@ -1732,7 +1861,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "64-c1-road-runner",
       "name": "64. C1 Road Runner",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Stay limit: 14 days, Elev: 1058ft/322m, Tel: 928-317-3200, Nearest town: Quartzsite</p>",
       "latitude": 33.581503,
@@ -1741,7 +1870,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "70-vicksburg",
       "latitude": 33.749361,
       "longitude": -113.739943,
       "name": "70-Vicksburg",
@@ -1750,7 +1879,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "eagle-eye-road-dispersed",
       "latitude": 33.710029,
       "longitude": -113.307544,
       "name": "Eagle Eye Road Dispersed",
@@ -1759,7 +1888,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "80-c2-agua-fria-nm-dispersed-3",
       "latitude": 34.292331,
       "longitude": -112.113837,
       "name": "80-C2 Agua Fria NM Dispersed 3",
@@ -1768,7 +1897,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "91-c2-congress-ghost-town-rd-dispersed",
       "latitude": 34.18881,
       "longitude": -112.8502,
       "name": "91-C2 Congress-Ghost Town Rd Dispersed",
@@ -1777,7 +1906,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "81-c2-agua-fria-nm-dispersed-4",
       "latitude": 34.293533,
       "longitude": -112.115442,
       "name": "81-C2 Agua Fria NM Dispersed 4",
@@ -1786,7 +1915,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "82-c2-agua-fria-nm-dispersed-5",
       "latitude": 34.267744,
       "longitude": -112.107669,
       "name": "82-C2 Agua Fria NM Dispersed 5",
@@ -1795,7 +1924,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "83-c2-agua-fria-nm-dispersed-6",
       "latitude": 34.296345,
       "longitude": -112.142466,
       "name": "83-C2 Agua Fria NM Dispersed 6",
@@ -1804,7 +1933,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "93-c2-crown-king-road-dispersed-2",
       "latitude": 34.290172,
       "longitude": -112.141084,
       "name": "93-C2 | Crown King Road Dispersed 2",
@@ -1813,7 +1942,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "94-c2-crown-king-road-dispersed-3",
       "latitude": 34.287353,
       "longitude": -112.141197,
       "name": "94-C2 | Crown King Road Dispersed 3",
@@ -1822,7 +1951,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "34-265152--112-100378",
       "latitude": 34.265152,
       "longitude": -112.100378,
       "name": "",
@@ -1831,7 +1960,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "84-c2-agua-fria-nm-dispersed-7",
       "latitude": 34.266405,
       "longitude": -112.093089,
       "name": "84-C2 Agua Fria NM Dispersed 7",
@@ -1840,7 +1969,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "84-c2-agua-fria-nm-dispersed-8",
       "latitude": 34.264339,
       "longitude": -112.086536,
       "name": "84-C2 Agua Fria NM Dispersed 8",
@@ -1849,7 +1978,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "84-c2-agua-fria-nm-dispersed-9",
       "latitude": 34.266179,
       "longitude": -112.081576,
       "name": "84-C2 Agua Fria NM Dispersed 9",
@@ -1858,7 +1987,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "87-c2-blm-road-9331-dispersed",
       "latitude": 33.873629,
       "longitude": -113.371749,
       "name": "87-C2 BLM Road 9331 Dispersed",
@@ -1867,7 +1996,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "88-c2-boulders-ohv",
       "latitude": 33.843795,
       "longitude": -112.441924,
       "name": "88-C2 Boulders OHV",
@@ -1876,7 +2005,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "89-c2-box-wash",
       "latitude": 33.879202,
       "longitude": -112.822046,
       "name": "89-C2 Box Wash",
@@ -1885,7 +2014,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "95-c2-eagle-eye-road-dispersed",
       "latitude": 33.710029,
       "longitude": -113.307544,
       "name": "95-C2 Eagle Eye Road Dispersed",
@@ -1894,7 +2023,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "96-c2-east-stanton-road",
       "latitude": 34.162428,
       "longitude": -112.758372,
       "name": "96-C2 East Stanton Road",
@@ -1903,7 +2032,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "97-c2-fsr-259-dispersed-1",
       "latitude": 34.294961,
       "longitude": -112.139699,
       "name": "97-C2 FSR 259 Dispersed 1",
@@ -1912,7 +2041,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "98-c2-fsr-259-dispersed-2",
       "latitude": 34.298993,
       "longitude": -112.140034,
       "name": "98-C2 | FSR 259 Dispersed 2",
@@ -1921,7 +2050,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "99-c2-fsr-259-dispersed-3",
       "latitude": 34.300554,
       "longitude": -112.146756,
       "name": "99-C2 FSR 259 Dispersed 3",
@@ -1930,7 +2059,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "100-c2-fsr-259-dispersed-4",
       "latitude": 34.290138,
       "longitude": -112.175556,
       "name": "100 C2 FSR 259 Dispersed 4",
@@ -1939,7 +2068,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "101-c2-harquahala-mountains-eagle-eye-road",
       "latitude": 33.729497,
       "longitude": -113.296919,
       "name": "101-C2 Harquahala Mountains-Eagle Eye Road",
@@ -1948,7 +2077,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "102-c2-north-little-grand-canyon-rd-site-1",
       "latitude": 33.989558,
       "longitude": -112.174003,
       "name": "102-C2| North Little Grand Canyon Rd Site 1",
@@ -1957,7 +2086,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "103-c2-north-little-grand-canyon-rd-site-2",
       "latitude": 33.988202,
       "longitude": -112.170237,
       "name": "103-C2| North Little Grand Canyon Rd Site 2",
@@ -1966,7 +2095,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "104-c2-sophie-flats-dispersed",
       "name": "104 C2 Sophie Flats Dispersed",
       "notes": "<p>Dispersesl sites. No water, No toilets, Tent & KV camping Free, Mostly equestrian une, Suty limit: 14 days, Reservations not Nearest town Wickenburg</p>",
       "latitude": 34.00649,
@@ -1975,7 +2104,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "105-c2-south-of-north-ranch",
       "name": "105-C2 South of North Ranch",
       "notes": "<p>Duperseal sites. No water. No toileta, Tent & IIV camping Free. Bee: 27078/825m. Nearest town, Congress</p>",
       "latitude": 34.089406,
@@ -1984,7 +2113,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "106-c2-table-mesa-ohv-little-pan",
       "name": "106-C2 Table Mesa OHV Little Pan",
       "notes": "<p>Dispersed sites, No water, Vaalt/pit toilet. Tent & RV camping Frer. Skay limit 14 days. Open all year, Elev: 19328/589m, Tel KZS80-5500 Nearest town. Black Canyon City</p>",
       "latitude": 34.001123,
@@ -1993,7 +2122,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "107-c2-table-mesa-ohv-remote",
       "name": "107-C2 Table Mesa OHV Remote",
       "notes": "<p>Dispersed sites, No water, Vault/pit toilet, Tent & RV camping: Tree. Open all yeat, Reservations not accepted, Elev: 2055n/ 626m. Tel: 623-580-5500, Nearest town. Illack Canyon City. </p>",
       "latitude": 34.014698,
@@ -2002,7 +2131,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "108-c2-vulture-mine-road",
       "name": "108-C2 Vulture Mine Road",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & EV camping. Free, Bev: 25436/775m, Tel: 623-580-5500, Nearest town: Wickenburg</p>",
       "latitude": 33.88118,
@@ -2011,7 +2140,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "109-d1-fortuna-pond",
       "name": "109 D1 Fortuna Pond",
       "notes": "<p>Dispersed sites, No water, Vault/pit toilet, Tent & RV carnping: Fine, Stay limit: 14 days, Open all year. Elev, 1188/42m, Tel. 928 317-3200, Nearest town Yuma</p>",
       "latitude": 32.724183,
@@ -2020,7 +2149,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "111-d1-mittry-lake-wa",
       "name": "111-D1 Mittry Lake WA",
       "notes": "<p>Dispersed sites, No water. Vault/pit toilet, Tent & RV camping: Free, Elev: 1588/48m, Tel: 928-317-3200, Nearest town: Yuma</p>",
       "latitude": 32.817314,
@@ -2029,7 +2158,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "112-d1-s-cibola-lake-road-dispersed",
       "name": "112-D1 S Cibola Lake Road Dispersed",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping Frec The first 1000 is state trust land requiring a permit to ge in a ittle way to hit IBIM property, Open all year, Reservations not accepted, Elev: 2790/85m. Nearest town: Cibola</p>",
       "latitude": 33.362718,
@@ -2038,7 +2167,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "113-d1-yuma-vfw",
       "name": "113-D1 Yuma VFW",
       "notes": "<p>I utce 150. KV sites: 150, No water, No Total o toilets, Tent & RV camping Free, Near RR, Open all yeat, les 1718/32m 928- 117-3200, Nearest town: Yuma</p>",
       "latitude": 32.72845,
@@ -2047,7 +2176,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "114-d2-agua-caliente-road",
       "name": "114-D2 Agua Caliente Road",
       "notes": "<p>Dispersed sites. No water. No toilets. Tent & RV camping Free Elev 9860/301m. Nearest tower Gila Bend</p>",
       "latitude": 33.253995,
@@ -2056,7 +2185,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "115-d2-alley-road-dispersed",
       "name": "115-D2 Alley Road Dispersed",
       "notes": "<p>Dispersed sites Ne water. No toilets. Tent & RV camping Free, Reservations not accepted, Elev: 20956/639m. Nearest town. Ajo</p>",
       "latitude": 32.353639,
@@ -2065,7 +2194,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "116-d2-darby-wells-road-dispersed",
       "name": "116-D2 Darby Wells Road Dispersed",
       "notes": "<p>Dispersed sites. No water, No todeta, Tent & RV camping Free, Elev: 17888/545m, Nearest town: Ajo</p>",
       "latitude": 32.341354,
@@ -2074,7 +2203,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "117-d2-gunsight-wash-dispersed",
       "name": "117. D2 Gunsight Wash Dispersed",
       "notes": "<p>Diapersed sites, No water, No toileta, Tent, & RV camping Free, lev: 1801/549m. Tel. 623-580-5500, Nearest town. Why</p>",
       "latitude": 32.238056,
@@ -2083,7 +2212,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "118-d2-lost-horse-tank-dispersed",
       "name": "118-D2 Lost Horse Tank Dispersed",
       "notes": "<p>Dispersed sites, No water, Not No toilets, Teat & RV camping: Free. Reservations not acceptad, Elev: 1830i/558m, Nearest town Stanfield.</p>",
       "latitude": 32.841798,
@@ -2092,7 +2221,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "119-d2-margies-cove-west",
       "name": "119-D2 Margies Cove West",
       "notes": "<p>Total sites: 3, RV sites. 3. No water, Vault/pit toilet, Tent & RV camping Free. High clearance and/or 4x4 vehicle recommended Stay limit: 14 days. Reservations not accepted, Elev: 1111ft/339m Tel: 623-580-5500, Nearest town, Gila Bend.</p>",
       "latitude": 33.136212,
@@ -2101,7 +2230,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "120-d2-natural-gas-road-dispersed",
       "name": "120-D2 Natural Gas Road Dispersed",
       "notes": "<p>Dispersed utes. No water, No toilets. Tents: Fre unk/BVs Tree Elev: 9456/288m, Nearest town: Tonopah</p>",
       "latitude": 33.343076,
@@ -2110,7 +2239,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "122-02-saddle-mountain-dispersed-1",
       "name": "122-02 | Saddle Mountain Dispersed 1",
       "notes": "<p>Dispersed sites. No water. No toilets, Term & RV camping Free, Stay limit: 14 days, Reservations not accepted, Elev: 13438/409 Nearest town. Tanopah</p>",
       "latitude": 33.453221,
@@ -2119,7 +2248,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "123-02-saddle-mountain-dispersed-2",
       "name": "123-02 Saddle Mountain Dispersed 2",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV campung free Elev: 1433ft/437m, Nearest town: Tonopah.</p>",
       "latitude": 33.451081,
@@ -2128,7 +2257,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "124-d2-saddle-mountain-dispersed-3",
       "name": "124-D2 Saddle Mountain Dispersed 3",
       "notes": "<p>Dispersed sites, No water. No toilets, Tent & RV campong Free Fler: 13878/423m. Tel 623 580-5500, Nearest town: Tompal</p>",
       "latitude": 33.447899,
@@ -2137,7 +2266,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "125-d2-vekol-valley-dispersed",
       "name": "125-D2 Vekol Valley Dispersed",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Reservations not accepted, Elev: 1728ft/527m, Nearest town: Stanfield.</p>",
       "latitude": 32.845377,
@@ -2146,7 +2275,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "126-d2-west-dobb-road-dispersed",
       "name": "126-D2 West Dobb Road Dispersed",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Rough road, Max Length: 25ft, Reservations not accepted, Elev: 1038ft/316m, Nearest town: Tonopah.</p>",
       "latitude": 33.369389,
@@ -2155,7 +2284,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "127-d2-wild-woman",
       "name": "127-D2 Wild Woman",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Elev: 1764ft/538m, Nearest town: Ajo.</p>",
       "latitude": 32.241228,
@@ -2164,7 +2293,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "130-d3-brandenburg-dispersed",
       "name": "130. D3 | Brandenburg Dispersed",
       "notes": "<p>Dispersed sites, No water, Vault/pit toilet, Tent & RV camping: Free, Reservations not accepted, Elev: 2685ft/818m, Nearest town: Dudleyville. GPS: 32.871796, -110.598344</p>",
       "latitude": 32.871796,
@@ -2173,7 +2302,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "131-d3-cattle-tank-rd-dispersed",
       "name": "131 D3 | Cattle Tank Rd Dispersed",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Numerous sites along road for a mile west, Reservations not accepted, Elev: 2321ft/707m, Nearest town: Red Rock. GPS: 32.612258, -111.209855</p>",
       "latitude": 32.612258,
@@ -2182,7 +2311,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "132-d3-christmas",
       "name": "132. D3 Christmas",
       "notes": "<p>Dispersed sites, No water, Vault/pit toilet, Tent & RV camping: Free, Nothing larger than truck camper, Max Length: 18ft, Elev: 2084ft/635m, Tel: 520-258-7200, Nearest town: Winkelman. GPS: 33.059923, -110.721659</p>",
       "latitude": 33.059923,
@@ -2191,7 +2320,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "133-d3-cochran-rd-dispersed-1",
       "name": "133. D3 | Cochran Rd Dispersed 1",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Reservations not accepted, Elev: 2696ft/822m, Nearest town: Florence. GPS: 32.988603, -111.116335</p>",
       "latitude": 32.988603,
@@ -2200,7 +2329,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "134-d3-cochran-rd-dispersed-2",
       "name": "134. D3 | Cochran Rd Dispersed 2",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Several sites in this area, Reservations not accepted, Elev: 2670ft/ 814m, Nearest town: Florence, GPS: 32.993194, -111.123873</p>",
       "latitude": 32.993194,
@@ -2209,7 +2338,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "135-d3-cochran-rd-dispersed-3",
       "name": "135. D3 | Cochran Rd Dispersed 3",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Reservations not accepted, Elev: 2518ft/767m, Nearest town: Florence. GPS: 33.000032, -111.140402</p>",
       "latitude": 33.000032,
@@ -2218,7 +2347,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "136-d3-cochran-rd-dispersed-4",
       "name": "136-D3 | Cochran Rd Dispersed 4",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Reservations not accepted, Elev: 2437ft/743m, Nearest town: Florence. GPS: 33.008383,-111.153825</p>",
       "latitude": 33.008383,
@@ -2227,7 +2356,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "137-d3-cochran-rd-dispersed-5",
       "name": "137 D3 Cochran Rd Dispersed 5",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Reservations not accepted, Elev, 2390ft/728m, Nearest town: Florence, GPS: 33.013852,-111.157774</p>",
       "latitude": 33.013852,
@@ -2236,7 +2365,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "138-d3-cochran-rd-dispersed-6",
       "name": "138 D3 | Cochran Rd Dispersed 6",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free Reservations not accepted, Elev: 2376ft/724m, Nearest town: Florence. GPS: 33.015984, -111.157755</p>",
       "latitude": 33.015984,
@@ -2245,7 +2374,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "140-d3-homestead-climbing-area",
       "name": "140. D3 | Homestead Climbing Area",
       "notes": "<p>Dispersed sites, No water, No toilets, Tents only: Free, Hike-in, Reservations not accepted, Elev: 3614ft/1102m, Tel: 520-258- 7200, Nearest town: Winkelman. GPS: 33.173641, -110.781545</p>",
       "latitude": 33.173641,
@@ -2254,7 +2383,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "141-d3-ironwood-forest-nm-ironwood-campsite",
       "name": "141. D3 | Ironwood Forest NM - Ironwood Campsite",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Reservations not accepted, Elev: 2245ft/684m, Tel: 520-258-7200, Nearest town: Red Rock. GPS: 32.470794, -111.489706</p>",
       "latitude": 32.470794,
@@ -2263,7 +2392,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "142-d3-ironwood-forest-nm-silverbell-group-dispersed",
       "name": "142 D3 | Ironwood Forest NM Silverbell Group Dispersed",
       "notes": "<p>Dispersed sites, No water, No toilets, Group site: Free, Reservations not accepted, Elev: 2194ft/669m, Nearest town: Red Rock GPS: 32.473635, -111.497934</p>",
       "latitude": 32.473635,
@@ -2272,7 +2401,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "143-d3-north-pump-station-road",
       "name": "143. D3 North Pump Station Road",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Elev: 2004ft/611m, Nearest town: Tucson, GPS: 32.436919, -111.371525</p>",
       "latitude": 32.436919,
@@ -2281,7 +2410,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "144-d3-pipeline-rd-dispersed-1",
       "name": "144. D3 | Pipeline Rd Dispersed 1",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Reservations not accepted, Elev: 2121ft/646m, Nearest town: Tucson. GPS: 32.376925, -111.389849</p>",
       "latitude": 32.376925,
@@ -2290,7 +2419,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "145-d3-redfield-canyon",
       "name": "145. D3 | Redfield Canyon",
       "notes": "<p>Dispersed sites, No toilets, Tent & RV camping: Free, Open all year, Elev: 3320ft/1012m, Tel: 928-348-4400, Nearest town: Safford. GPS: 32.431614, -110.388668</p>",
       "latitude": 32.431614,
@@ -2299,7 +2428,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "146-d3-snyder-hill-dispersed",
       "name": "146 D3 Snyder Hill Dispersed",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Stay limit: 14 days, Open all year, Elev: 2493ft/760m, Nearest town: Tucson. GPS: 32.158031, -111.115385</p>",
       "latitude": 32.158031,
@@ -2308,7 +2437,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "147-d3-the-shores",
       "name": "147. D3 The Shores",
       "notes": "<p>Dispersed sites, No water, Vault/pit toilet, Tent & RV camping: Free, Nothing larger than truck camper, Max Length: 18ft, Elev: 2059ft/628m, Tel: 520-258-7200, Nearest town: Winkelman. GPS: 33.021768, -110.738938</p>",
       "latitude": 33.021768,
@@ -2317,7 +2446,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "148-d3-turkey-creek-dispersed",
       "name": "148 D3 Turkey Creek Dispersed",
       "notes": "<p>Dispersed sites, No water, No toilets, Tents only: Free, Reservations not accepted, Elev: 3178ft/969m, Nearest town: Winkelman. GPS: 32.882803, -110.436956</p>",
       "latitude": 32.882803,
@@ -2326,7 +2455,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "149-d4-hackel-road-dispersed",
       "name": "149. D4 Hackel Road Dispersed",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Reservations not accepted, Elev: 3178ft/969m, Nearest town: Safford. GPS: 32.778655, -109.572236</p>",
       "latitude": 32.778655,
@@ -2335,7 +2464,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "150-d4-hackle-road-dispersed-1",
       "name": "150 D4 | Hackle Road Dispersed 1",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Wide-open space, Elev: 3134ft/955m, Tel: 928-348-4400, Nearest town: Safford. GPS: 32.793455,-109.592564</p>",
       "latitude": 32.793455,
@@ -2344,7 +2473,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "151-d4-hackle-road-dispersed-2",
       "name": "151 D4 | Hackle Road Dispersed 2",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Reservations not accepted, Elev: 3085ft/940m, Tel: 928-348-4400, Nearest town: Safford. GPS: 32.784066, -109.601164</p>",
       "latitude": 32.784066,
@@ -2353,7 +2482,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "153-d4-indian-bread-rocks",
       "name": "153 D4 Indian Bread Rocks",
       "notes": "<p>Total sites: 5, RV sites: 5, No water, Vault/pit toilet, Tent & RV camping: Free, Camp in undeveloped areas, Max Length: 25ft, Reservations not accepted, Elev: 4167ft/1270m, Tel: 928-348- 4400, Nearest town: Bowie. GPS: 32.238443,-109.499676</p>",
       "latitude": 32.238443,
@@ -2362,7 +2491,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "154-d4-muleshoe-ranch",
       "name": "154. D4 Muleshoe Ranch",
       "notes": "<p>Dispersed sites, No water, No toilets, Tents only: Free, 4x4, Elev: 4101ft/1250m, Tel: 928-348-4400, Nearest town: Willcox, GPS: 32.337855,-110.238692</p>",
       "latitude": 32.337855,
@@ -2371,7 +2500,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "156-d4-red-knolls-amphitheater",
       "name": "156. D4 Red Knolls Amphitheater",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Elev: 2797ft/853m, Nearest town: Eden. GPS: 32.961665, -109.939325</p>",
       "latitude": 32.961665,
@@ -2380,7 +2509,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "158-d4-round-mountain-rockhound-area",
       "name": "158. D4 | Round Mountain Rockhound Area",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Reservations not accepted, Elev: 4291ft/1308m, Nearest town: Duncan, GPS: 32.484493, -109.059244</p>",
       "latitude": 32.484493,
@@ -2389,7 +2518,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "159-e3-fsr-62-dispersed-1",
       "name": "159 E3 FSR 62 Dispersed 1",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Elev: 4038ft/1231m, Nearest town: Green Valley. GPS: 31.777026, -110.848312</p>",
       "latitude": 31.777026,
@@ -2398,7 +2527,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "162-e3-las-cienegas-nca-cieneguita-dispersed",
       "name": "162 E3 | Las Cienegas NCA - Cieneguita Dispersed",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Several spots along road, Reservations not accepted, Elev: 4607ft/ 1404m, Nearest town: Sonoita. GPS: 31.766666, -110.627132</p><p>Freeroam: 3.7 (3 reviews)</p>",
       "latitude": 31.766666,
@@ -2407,7 +2536,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "164-e3-las-cienegas-nca-oak-canyon-dispersed",
       "name": "164. E3 Las Cienegas NCA - Oak Canyon Dispersed",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Reservations not accepted, Elev: 4706ft/1434m, Nearest town: Sonoita. GPS: 31.800516, -110.655485</p>",
       "latitude": 31.800516,
@@ -2416,7 +2545,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "165-e3-las-cienegas-nca-road-canyon",
       "name": "165 E3 Las Cienegas NCA - Road Canyon",
       "notes": "<p>Total sites: 6, RV sites: 6, No water, No toilets, Tent & RV camping: Free, Open Jul-Mar, Reservations not accepted, Elev: 4578ft/1395m, Tel: 520-439-6400, Nearest town: Sonoita. GPS: 31.739234, -110.585718</p>",
       "latitude": 31.739234,
@@ -2425,7 +2554,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "166-e3-white-house-canyon-road-dispersed",
       "name": "166 E3 | White House Canyon Road Dispersed",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Elev: 3774ft/1150m, Nearest town: Green Valley. GPS: 31.787596, -110.871729</p>",
       "latitude": 31.787596,
@@ -2435,7 +2564,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "167-e4-baker-canyon-wsa",
       "name": "167 E4 Baker Canyon WSA",
       "notes": "<p>Dispersed sites, Tents only: Free, Elev: 4380ft/1335m, Tel: 928- 348-4400, Nearest town: Stafford. GPS: 31.347292,-109.063497</p>",
       "latitude": 31.347292,
@@ -2444,21 +2573,8 @@
       "url": "",
       "visible": 1
     },
-
-
-
-
-
-
-
-
-
-
-
-
-
     {
-      "id": "",
+      "id": "165-g4-amboy-crater",
       "name": "165. G4 | Amboy Crater",
       "notes": "<p>Dispersed sites, No water, Vault/pit toilet, Tent & RV camping: Free, Near RR, Camp only in already disturbed areas, Stay limit: 14 days, Open all year, Elev: 655ft/200m, Tel: 760-326-7000, Nearest town: Amboy.</p>",
       "latitude": 34.557643,
@@ -2468,7 +2584,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "166-g4-bighorn-mountain-wilderness-barnes-rd",
       "name": "166 G4 | Bighorn Mountain Wilderness - Barnes Rd",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Reservations not accepted, Elev: 2684ft/818m, Tel: 760-252-6000, Nearest town: Landers.</p>",
       "latitude": 34.39371,
@@ -2478,7 +2594,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "167-g4-boone-road-dispersed",
       "name": "167 G4 Boone Road Dispersed",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Reservations not accepted, Elev: 2579ft/786m, Nearest town: Landers. </p>",
       "latitude": 34.410761,
@@ -2488,7 +2604,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "168-g4-box-canyon",
       "name": "168. G4 Box Canyon",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Rough access road, Beware of flash floods, Open all year, Max Length: 24ft, Reservations not accepted, Elev: 285ft/87m, Tel: 760- 833-7100, Nearest town: Mecca.</p>",
       "latitude": 33.587329,
@@ -2498,7 +2614,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "169-g4-johnson-valley-ohv",
       "name": "169. G4 | Johnson Valley OHV",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Stay limit: 14 days, Elev: 3278ft/999m, Tel: 760-252-6000, Nearest town: Barstow.</p>",
       "latitude": 34.561415,
@@ -2508,7 +2624,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "170-g4-joshua-tree-overflow",
       "name": "170 G4 Joshua Tree Overflow",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, 4x4 recommended, Must be 300' from roadways, Elev: 2362ft/ 720m, Nearest town: 29 Palms.</p>",
       "latitude": 34.172966,
@@ -2518,7 +2634,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "171-g4-joshua-tree-south",
       "name": "171. G4 Joshua Tree South",
       "notes": "<p>Dispersed sites, No water, No toilets, No tents/RVs: Free, Open all year, Elev: 1775ft/541m.</p>",
       "latitude": 33.673505,
@@ -2528,7 +2644,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "172-g4-juniper-flats-dispersed-1",
       "name": "172.G4 | Juniper Flats Dispersed 1",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, 2nd spot 200' NNE, Stay limit: 14 days, Reservations not accepted, Elev: 4292ft/1308m, Tel: 760-252-6000, Nearest town: Hesperia.</p>",
       "latitude": 34.382566,
@@ -2538,7 +2654,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "173-g4-juniper-flats-dispersed-10",
       "name": "173. G4 | Juniper Flats Dispersed 10",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Stay limit: 14 days, Reservations not accepted, Elev: 4422ft/1348m, Tel: 760-252-6000, Nearest town: Hesperia. </p>",
       "latitude": 34.386671,
@@ -2548,7 +2664,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "174-g4-juniper-flats-dispersed-11",
       "name": "174. G4 Juniper Flats Dispersed 11",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Stay limit: 14 days, Reservations not accepted, Elev: 3964ft/1208m, Tel: 760-252-6000, Nearest town: Hesperia</p>",
       "latitude": 34.394545,
@@ -2558,7 +2674,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "175-g4-juniper-flats-dispersed-12",
       "name": "175. G4 Juniper Flats Dispersed 12",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Stay limit: 14 days, Reservations not accepted, Elev: 4518f/1377m Stay 760-252-6000, Nearest town: Hesperia.</p>",
       "latitude": 34.374998,
@@ -2568,7 +2684,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "176-g4-juniper-flats-dispersed-13",
       "name": "176. G4 Juniper Flats Dispersed 13",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free Elev: 4282ft/1305m, Stay limit: 14 days, Reservations not accepted, Tel: 760-252-6000, Nearest town: Hesperia.</p>",
       "latitude": 34.375384,
@@ -2578,7 +2694,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "177-g4-juniper-flats-dispersed-14",
       "name": "177. G4 Juniper Flats Dispersed 14",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free Stay limit: 14 days, Reservations not accepted, Elev: 4487ft/1368m, Tel: 760-252-6000, Nearest town: Hesperia.</p>",
       "latitude": 34.359215,
@@ -2588,7 +2704,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "178-g4-juniper-flats-dispersed-15",
       "name": "178. G4 Juniper Flats Dispersed 15",
       "notes": "<p>Dispersed sites, No water, No toilets, Tents only: Free, Stay limit: 14 days, Reservations not accepted, Elev: 5756ft/1754m, Tel: 760- 252-6000, Nearest town: Hesperia.</p>",
       "latitude": 34.375625,
@@ -2598,7 +2714,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "179-g4-juniper-flats-dispersed-16",
       "name": "179. G4 Juniper Flats Dispersed 16",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & Stay limit: 14 days, Reservations not accepted, Elev: 5668ft/1728m, RV camping: Free, Tel: 760-252-6000, Nearest town: Hesperia.</p>",
       "latitude": 34.383018,
@@ -2608,7 +2724,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "180-g4-juniper-flats-dispersed-2",
       "name": "180. G4 Juniper Flats Dispersed 2",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Stay limit: 14 days, Reservations not accepted, Elev: 4470ft/1362m, Tel: 760-252-6000, Nearest town: Hesperia.</p>",
       "latitude": 34.373916,
@@ -2618,7 +2734,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "181-g4-juniper-flats-dispersed-3",
       "name": "181. G4 | Juniper Flats Dispersed 3",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Stay limit: 14 days, Reservations not accepted, Elev: 4543ft/1385m, Tel: 760-252-6000, Nearest town: Hesperia.</p>",
       "latitude": 34.370884,
@@ -2628,7 +2744,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "182-g4-juniper-flats-dispersed-4",
       "name": "182. G4 | Juniper Flats Dispersed 4",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free. Stay limit: 14 days, Reservations not accepted, Elev: 4889ft/1490m, Tel: 760-252-6000, Nearest town: Hesperia.</p>",
       "latitude": 34.401235,
@@ -2638,7 +2754,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "183-g4-juniper-flats-dispersed-5",
       "name": "183. G4 | Juniper Flats Dispersed 5",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Stay limit: 14 days, Reservations not accepted, Elev: 4650ft/1417m, Tel: 760-252-6000, Nearest town: Hesperia.</p>",
       "latitude": 34.368309,
@@ -2648,7 +2764,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "184-g4-juniper-flats-dispersed-6",
       "name": "184. G4 | Juniper Flats Dispersed 6",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Stay limit: 14 days, Reservations not accepted, Elev: 4445ft/1355m, 12 763,333 6000, Nearest town: Hesperia</p>",
       "latitude": 34.407637,
@@ -2658,7 +2774,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "185-g4-juniper-flats-dispersed-7",
       "name": "185. G4 | Juniper Flats Dispersed 7",
       "notes": "<p>Dispersed atves. No water. No toilets, Tent & IV camping: Free Stay limit: 14 days, Reservations not accepted, Blev: 49078/1496m, Tel: 760-252-6000, Nearest town: Hesperia</p>",
       "latitude": 34.373376,
@@ -2668,7 +2784,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "186-g4-juniper-flats-dispersed-8",
       "name": "186-G4 Juniper Flats Dispersed 8",
       "notes": "<p>Diapersed sites, No water. No toileta, Tent & RV camping: Free, Stay limit 14 days, Reservations not accepted, Elev: 45218/1378m, Tol 760-22 6000, Nearest town: Hesperia</p>",
       "latitude": 34.378441,
@@ -2678,7 +2794,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "187-g4-juniper-flats-dispersed-9",
       "name": "187 G4 Juniper Flats Dispersed 9",
       "notes": "<p>Dispersed sites, No water. No toilets, Tent & RV camping Free, Stay lumit: 14 days, Reservations not accepted, Elev: 4788/1334m, Tel: 760-252-60XX, Nearest town. Hesperia</p>",
       "latitude": 34.384453,
@@ -2688,7 +2804,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "188-g4-ludlow",
       "name": "188-G4 Ludlow",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping Free, High-clearance vehicle recommended, Open all year, Elev 1660ft/ 506m, Nearest town: Barstow</p>",
       "latitude": 34.732007,
@@ -2698,7 +2814,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "189-g4-ord-mountain-orv-route",
       "name": "189-G4 Ord Mountain ORV Route",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Reservations not accepted, Elev: 4126ft/1258m, Tel 760-252 8000, Nearest town: Barstow.</p>",
       "latitude": 34.653292,
@@ -2708,7 +2824,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "190-g4-painted-canyon-dispersed",
       "name": "190 G4 Painted Canyon Dispersed",
       "notes": "<p>Dispersed sites, No water. No toilets, Tent & RV camping Free Eless: 62710191m, Tel: 760-833-7100, Nearest town, Mecca</p>",
       "latitude": 33.619198,
@@ -2718,7 +2834,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "191-g4-rodman-mts-wilderness-dispersed",
       "name": "191-G4 Rodman Mts Wilderness Dispersed",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Elev: 4484ft/1367m, Tel: 760-252-6000, Nearest town: Daggett</p>",
       "latitude": 34.675803,
@@ -2728,7 +2844,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "192-g4-sawtooth-canyon",
       "name": "192 G4 Sawtooth Canyon",
       "notes": "<p>Total sites: 13, RV sites: 13, No water, Vault/pit toilet. Tent & RV 3607t/1099m. 9m. Tel: Elev camping. Free, Open 760-252 all year, 6000, Nearest town: Barstow.</p>",
       "latitude": 34.670249,
@@ -2738,7 +2854,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "193-g4-sawtooth-canyon-dispersed",
       "name": "193 G4 Sawtooth Canyon Dispersed",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping Free. Reservations not accepted, Elev: 36358/1108m, Tel 760-252-6000 Nearest town: Barstow.</p>",
       "latitude": 34.671541,
@@ -2748,7 +2864,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "194-g4-stoddard-valley-dispersed-1",
       "name": "194 G4 Stoddard Valley Dispersed 1",
       "notes": "<p>Dispersed sites, No water, Vault/pit toilet, Tent & RV camping Free, Reservations not accepted, Elev 28166/858m. Nearest town: Barstow.</p>",
       "latitude": 34.767306,
@@ -2758,7 +2874,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "195-g4-stoddard-valley-ohv",
       "name": "195 G4 Stoddard Valley OHV",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Stay limit: 14 days, Elev: 26156/797m, Tel: 760 252-6000, Nearest town Bantow.</p>",
       "latitude": 34.812727,
@@ -2768,7 +2884,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "196-65-blue-cloud-dispersed",
       "name": "196-65 Blue Cloud Dispersed",
       "notes": "<p>Dispersed sites. No water, No toilets, Tent & RV camping Free. Stay limit: 14 days, Reservations not accepted, Elev: 6536/200m Tel: 760-136-7000 Nearest oven: Earp </p>",
       "latitude": 34.168539,
@@ -2778,7 +2894,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "197-g5-blythe-vidal",
       "name": "197-G5 Blythe Vidal",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping Free. Reservations not accepted, Elev 409ft/125m. Tel 760-326-7000 Nearest town: Blythe</p>",
       "latitude": 33.929058,
@@ -2788,7 +2904,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "201-g5-earp-2-dispersed",
       "name": "201 G5 Earp 2 Dispersed",
       "notes": "<p>Dispersed sites, No waler, No toilets, Tent & RV camping Free. Elev: 7518/229m. Nearest town. Earp.</p>",
       "latitude": 34.177372,
@@ -2798,7 +2914,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "202-g5-earp-3-dispersed",
       "name": "202 G5 Earp 3 Dispersed",
       "notes": "<p>Dispersed sites, No water. No toilets, Tent & KV camping Free, Elev: 820ft/250m, Nearest town: Earp</p>",
       "latitude": 34.187875,
@@ -2808,7 +2924,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "203-g5-hwy-62-dispersed",
       "name": "203 G5 Hwy 62 Dispersed",
       "notes": "<p>Dispersed sites, No water, No toilets, No tenta/RVe Free, Stay limit 14 days, Reservations not accepted, Elev. 9520/290m, Nearest towrt Parker (AZ).</p>",
       "latitude": 34.203375,
@@ -2818,7 +2934,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "205-g5-mojave-preserve-kelbaker-rd",
       "name": "205 G5 Mojave Preserve - Kelbaker Rd",
       "notes": "<p>1080m </p>",
       "latitude": 34.745683,
@@ -2828,7 +2944,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "206-g5-snaggletooth-dispersed",
       "name": "206 G5 Snaggletooth Dispersed",
       "notes": "<p>Dispersed sites. No water, No toilets. No tents/RVs Free, Stay limit: 14 days, Reservations not accepted, Elev: 593m Tel: 760-326-7000, Nearest town: Needles</p>",
       "latitude": 34.592812,
@@ -2838,7 +2954,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "207-g5-summit-dispersed",
       "name": "207. G5 | Summit Dispersed",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Beside RR, Elev: 1663ft/507m, Nearest town: Desert Center.</p>",
       "latitude": 33.603716,
@@ -2848,7 +2964,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "208-g5-summit-road-dispersed-1",
       "name": "208. G5 Summit Road Dispersed 1",
       "notes": "<p>Dispersed sites, No water, No toilets, Tents only: Free, 4x4 needed, Reservations not accepted, Elev: 1465ft/447m, Tel: 760-833-7100, Nearest town: Indo</p>",
       "latitude": 33.562608,
@@ -2858,7 +2974,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "209-g5-turtle-mt-wilderness-brown-s-camp",
       "name": "209. G5 Turtle Mt Wilderness - Brown's Camp",
       "notes": "<p>Dispersed sites, No water, Vault/pit toilet, Tent & RV camping: Free, 4x4 recommended, Elev: 1831ft/558m, Tel: 760-326-7000, Nearest town: Needles</p>",
       "latitude": 34.435744,
@@ -2868,7 +2984,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "210-g5-turtle-mt-wilderness-lisa-dawn-camp",
       "name": "210 G5 Turtle Mt Wilderness - Lisa Dawn Camp",
       "notes": "<p>Dispersed sites, No water, Vault/pit toilet, Tent & RV camping: Free, 4x4 recommended, Elev: 1922ft/586m, Tel: 760-326-7000, Nearest town: Needles.</p>",
       "latitude": 34.427155,
@@ -2878,7 +2994,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "211-g5-turtle-mtn-road-dispersed",
       "name": "211 G5 Turtle Mtn Road Dispersed",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Various spots along road, Elev: 1567ft/478m, Tel: 760-326-7000, Nearest town: Needles.</p>",
       "latitude": 34.469165,
@@ -2888,7 +3004,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "213-h4-anza-borego-desert",
       "name": "213 H4 Anza Borego Desert",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Elev: 408ft/124m, Nearest town: Salton City.</p>",
       "latitude": 33.278953,
@@ -2898,7 +3014,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "214-h4-anza-dispersed",
       "name": "214 H4 Anza Dispersed",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Open all year, Reservations not accepted, Elev: 423ft/129m, Nearest town: Ocotillo.</p>",
       "latitude": 32.717064,
@@ -2908,7 +3024,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "216-h4-coyote-dispersed",
       "name": "216. H4 | Coyote Dispersed",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Open all year, Reservations not accepted, Elev: 498ft/152m, Nearest town: Ocotillo.</p>",
       "latitude": 32.657673,
@@ -2918,7 +3034,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "217-h4-dunaway-dispersed",
       "name": "217. H4 | Dunaway Dispersed",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Open all year, Reservations not accepted, Elev: 6ft/2m, Nearest town: Seeley</p>",
       "latitude": 32.766288,
@@ -2928,7 +3044,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "218-h4-jacumba-mountains-wilderness",
       "name": "218. H4 | Jacumba Mountains Wilderness",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, 760-337-4400, Nearest</p>",
       "latitude": 32.679676,
@@ -2938,7 +3054,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "220-h4-ocotillo-dispersed",
       "name": "220. H4 | Ocotillo Dispersed",
       "notes": "<p>Dispersed sites, No toilets, Tent & RV camping: Fee unk, Elev 128ft/39m, Nearest town: Ocotillo Wells.</p>",
       "latitude": 33.071292,
@@ -2948,7 +3064,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "221-h4-overlook-dispersed",
       "name": "221. H4 | Overlook Dispersed",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free Open all year, Reservations not accepted, Elev: 260ft/79m, Nearest town: Seeley.</p>",
       "latitude": 32.748681,
@@ -2958,7 +3074,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "222-h4-plaster-city-east-ohv",
       "name": "222 H4 Plaster City East OHV",
       "notes": "<p>Dispersed sites, No toilets, Tent & RV camping: Free, Elev 62ft/19m, Tel: 760-337-4400, Nearest town: Plaster City.</p>",
       "latitude": 32.815475,
@@ -2968,7 +3084,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "223-h4-plaster-city-west-ohv",
       "name": "223. H4 | Plaster City West OHV",
       "notes": "<p>Dispersed sites, No toilets, Tent & RV camping: Free, Elev: 272ft/83m, Tel: 760-337-4400, Nearest town: Plaster City.</p>",
       "latitude": 32.764608,
@@ -2978,7 +3094,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "224-h4-shellbeds-dispersed",
       "name": "224. H4 | Shellbeds Dispersed",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Open all year, Reservations not accepted, Elev: 155ft/47m, Nearest town: Seeley.</p>",
       "latitude": 32.745254,
@@ -2988,7 +3104,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "225-h4-sunrise-butte-dispersed",
       "name": "225. H4 | Sunrise Butte Dispersed",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Open all year, Reservations not accepted, Elev: 372ft/113m, Nearest town: Ocotillo.</p>",
       "latitude": 32.658442,
@@ -2998,7 +3114,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "226-h4-superstition-mt-ohv",
       "name": "226. H4 | Superstition Mt OHV",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Elev: 42ft/13m, Tel: 760-337-4400, Nearest town: El Centro.</p>",
       "latitude": 32.888895,
@@ -3008,7 +3124,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "228-h4-valley-of-the-moon-elliot-mine-area",
       "name": "228. H4 | Valley of the Moon - Elliot Mine Area",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Elev: 3852ft/1174m, Nearest town: Jacumba Hot Springs.</p>",
       "latitude": 32.625232,
@@ -3018,7 +3134,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "230-h5-bradshaw-trail-dispersed-1",
       "name": "230-H5 | Bradshaw Trail Dispersed 1",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Reservations not accepted, Elev: 21371/651m, Nearest town: Center.</p>",
       "latitude": 33.525997,
@@ -3028,7 +3144,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "231-h5-bradshaw-trail-dispersed-2",
       "name": "231 H5 Bradshaw Trail Dispersed 2",
       "notes": "<p>Dispersed sites, No water, No toilets. Tent & RV camping: Free, Reservatiom not accepted, Elev: 2255ft/687m, Nearest town: Desert Center.</p>",
       "latitude": 33.515023,
@@ -3038,7 +3154,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "232-hs-bradshaw-trail-dispersed-3",
       "name": "232-HS Bradshaw Trail Dispersed 3",
       "notes": "<p>Dispersed sites, No water. No toilets, Tent & RV camping: Free, Beside RL, Reservations not accepted, Elev: 23801/725m. Nearest town: Desert Center.</p>",
       "latitude": 33.502239,
@@ -3048,7 +3164,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "233-hs-bradshaw-trail-dispersed-4",
       "name": "233-HS Bradshaw Trail Dispersed 4",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping. Free, Reservations not accepted, Elev: 2481ft/756m, Nearest towns Desert Center.</p>",
       "latitude": 33.494082,
@@ -3058,7 +3174,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "234-h5-bradshaw-trail-dispersed-5",
       "name": "234 H5 Bradshaw Trail Dispersed 5",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping Frec, Reservations not accepted, Elev: 2326ft/709m, Nearest town Desert Center.</p>",
       "latitude": 33.471765,
@@ -3068,7 +3184,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "235-hs-bradshaw-trail-dispersed-6",
       "name": "235-HS Bradshaw Trail Dispersed 6",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & KV camping Free, Reservations not accepted, Elev: 1971f1/601m, Nearest town Desert Center.</p>",
       "latitude": 33.437309,
@@ -3078,7 +3194,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "236-h5-fergusen-lake",
       "name": "236 H5 Fergusen Lake",
       "notes": "<p>Dispersed sites, No watet, No toilets. Tent & RV camping: Free 4x4 high-clearance recomitiended, Elev: 177t/54m, Tel: 928-317- 3200, Nearest town: Yuma, AZ.</p>",
       "latitude": 32.969803,
@@ -3088,7 +3204,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "237-h5-glamis-dispersed",
       "name": "237-H5 Glamis Dispersed",
       "notes": "<p>Dispersed sites, No water, No toilets, No tents/RVs: Free, Elev: 450ft/137m, Nearest town: Glamis.</p>",
       "latitude": 33.014407,
@@ -3098,7 +3214,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "272-h5-indian-pass-wildemess",
       "name": "272-H5 Indian Pass Wildemess",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent & RV camping: Free, Reservations not accepted, Elev: 8548/260m, Tel: 760-337-4400, Nearest town: Yuma, AZ.</p>",
       "latitude": 33.025588,
@@ -3108,7 +3224,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "275-hs-ogilby-road",
       "name": "275-HS Ogilby Road",
       "notes": "<p>Dispersed sites, No water. No toilets, Tent & RV camping Free, Near RR, Reservations not accepted, Elev: 371/113m, Nearest wn: Yuma, AZ.</p>",
       "latitude": 32.818195,
@@ -3118,7 +3234,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "277-hs-picacho-peak-wilderness",
       "name": "277 HS Picacho Peak Wilderness",
       "notes": "<p>Dispersed sites, No water, No todets, Tents only: Free, Hike-in, Ers: 9190/290m, Tel: 760-337-44000, Nearest town: Winterhaven.</p>",
       "latitude": 32.977475,
@@ -3128,7 +3244,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "279-hs-powerline",
       "name": "279-HS Powerline",
       "notes": "<p>Dispersed sites, No water, No toilets, Tent Be RV camping: Free, May limit: 14 days, Reservations not accepted, Elev: 426ft/130m, Nearest town Yuma (AZ)</p>",
       "latitude": 32.838637,
@@ -3138,7 +3254,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "280-h5-senator-wash-north-shore",
       "name": "280-H5 Senator Wash North Shore",
       "notes": "<p>Damp station at South Mesa, Reservations not accepted. Elev 27584m, Tel: 928-317-3200, Nearest town Yuma (AZ).</p>",
       "latitude": 32.907754,
@@ -3148,7 +3264,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "282-hs-superstition-mt-dispersed",
       "name": "282 HS Superstition Mt Dispersed",
       "notes": "<p>Dispersed sites, No water, Vault/pin toilet, Tent & RV camping Free, Huge area, Reservations not acorpted, Elev: 46f8/14m, Nearest town. Imperial</p>",
       "latitude": 32.899489,
@@ -3158,7 +3274,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "284-hs-wiley-well-district-geode-beds",
       "name": "284-HS | Wiley Well District Geode Beds",
       "notes": "<p>Dispersed sites, No watet, No toileta, Tents only: Free, Road can be very rough. Reservations not accepted, Elev, 904ft/276m, Nearest town: Blythe</p>",
       "latitude": 33.383857,
@@ -3167,21 +3283,8 @@
       "url": "",
       "visible": 1
     },
-
-
-
-
-
-
-
-
-
-
-
-
-
     {
-      "id": "",
+      "id": "45-d1-gila-lower-box-canyon-nichol-s-canyon",
       "name": "45. D1 | Gila Lower Box Canyon - Nichol's Canyon",
       "notes": "Dispersed sites, No water, No toilets, Tent & RV camping: Free, 4x4 high-clearance vehicle required, Stay limit: 14 days, Open all year, Reservations not accepted, Elev: 4200ft/1280m, Tel: 505-525- 4300, Nearest town: Lordsburg. GPS: 32.632224, -108.826635",
       "latitude": 32.632224,
@@ -3191,7 +3294,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "47-d2-baylor-canyon",
       "name": "47. D2 | Baylor Canyon",
       "notes": "Dispersed sites, No water, No toilets, Tent & RV camping: Free, Elev: 5183ft/1580m, Nearest town: Las Cruces. GPS: 32.346346, -106.609177",
       "latitude": 32.346346,
@@ -3201,7 +3304,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "48-d2-broad-canyon",
       "name": "48. D2 | Broad Canyon",
       "notes": "Dispersed sites, No water, No toilets, Tents only: Free, Trailers not recommended, lev, 40038/1221m, Norest town: Las Cinis GPS: 32.534222, 106.989956",
       "latitude": 32.534222,
@@ -3211,7 +3314,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "49-d2-martin-ranch-road-dispersed",
       "name": "49-D2 Martin Ranch Road Dispersed",
       "notes": "Dispersed sites. No toilets. No tents/RVs: Free Elev 47771 1456m, Neamt town, Truth or Consequences GPS 33.284633,-107.24445",
       "latitude": 33.284633,
@@ -3221,7 +3324,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "50-d2-monticello-paint-rd-dispersed-1",
       "name": "50-D2 Monticello Paint Rd Dispersed 1",
       "notes": "Dispersed sites, No water, No uostas, Test & BV compung Free, Reservations not accepted, Elev 4886/1477m, Notrest town Truth or Consequences, GPS: 33.326638,-107.248224",
       "latitude": 33.326638,
@@ -3231,7 +3334,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "51-d2-old-ladder-ranch-road",
       "name": "51-D2 Old Ladder Ranch Road",
       "notes": "Dispersed sites. No water, No toilets, Tent & RV camping Frec Reservations n accepted Ekv 42278/1288m, Newest town Williamssburg GPS: 33.100689,-107.285217",
       "latitude": 33.100689,
@@ -3241,7 +3344,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "52-02-sierra-vista-th",
       "name": "52-02 Sierra Vista TH",
       "notes": "Dispersed sites, No water, No toilets, Tent & RV camping. Prec. Say limit 14 days, Reservations not accepted, Elev 48420/1476m. Nearest town Las Cruces GPS 32.318912,-106.632042",
       "latitude": 32.318912,
@@ -3251,7 +3354,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "57-d4-alkali-lake-ohv",
       "name": "57. D4 Alkali Lake OHV",
       "notes": "Dispersed sites, No water, No toilets. Tent & RV camping Free, Open all year, Elev: 3281it/1000m, Nearest town: Carlibad GPS: 32.498919,-104.211436",
       "latitude": 32.498919,
@@ -3261,7 +3364,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "58-d4-hackberry-lake-ohv",
       "name": "58 D4 Hackberry Lake OHV",
       "notes": "Dispersed sites. No water, No toilets. Tent & RV camping. Free, Open all year, Reservations not accepted, Elev: 3196ft/974m. Tet 575-234-5972, Nearest town: Carlsbad, GPS 32.570251,-103.968716",
       "latitude": 32.570251,
@@ -3271,7 +3374,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "59-d4-haystack-mt-ohv-area",
       "name": "59. D4 Haystack Mt OHV Area",
       "notes": "Dispersed sites, No water, Vaadt/pst toilet, Tent & MV ca Stay limit: 14 days. Open all your servations not accep Ther: 4048/12340, Tel: 375-627-0272. Nearest tower Ros GPS 33.637816,-104.226917",
       "latitude": 33.637816,
@@ -3281,7 +3384,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "61-e1-granite-gap",
       "name": "61-E1 Granite Gap ",
       "notes": "Dispersed sites, No water, No toilets. Tents only: Free. 424 needed Blev 4496/1370m, Nearest town: Landsburg, GPS 32.095282,-108.970462",
       "latitude": 32.095282,
@@ -3291,7 +3394,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "62-e2-gap-tank-dispersed",
       "name": "62-E2 Gap Tank Dispersed",
       "notes": "Dispersed sites, No watet. No toilets. Tents only. Free, Reservations not accepted, Elev 43528/1326m, Neartst GPS: 31.897145, -107.061257 tows Santa Temsa",
       "latitude": 31.897145,
@@ -3301,7 +3404,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "63-e4-chosa",
       "name": "63-E4 Chosa",
       "notes": "Dispersed sites. No water. No toilets, Tent & RV camping Free, Room for 25 RVA, Stay limit: 14 days, Reservations not accepted, Elev: 37448/1141m, Nearest town: Whites City GPS 32.088528,-104.432161",
       "latitude": 32.088528,
@@ -3311,7 +3414,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "64-e4-parks-ranch-dispersed",
       "name": "64-E4 Parks Ranch Dispersed",
       "notes": "Dispersed sites, No water. No toilets, Tent & RV camping. Free Reservations not accepted, Elev: 35670/1087m. Tel 075-234 5927, Nearest town. Whites City GPS: 32.110525,-104.406711",
       "latitude": 32.110525,
@@ -3321,7 +3424,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "65-e4-pecos-river-corridor-rec-area",
       "name": "65-E4 Pecos River Corridor Rec Area",
       "notes": "Dispersed sites. No water, No toilets, Tents only: Free. Open all ycar, Elev: 2874h/876m, Tel. 575 254-5972, Nearest town: Loving GPS: 32.065404,-104.010155",
       "latitude": 32.065404,
@@ -3331,7 +3434,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "66-e4-sunset-reef",
       "name": "66 E4 Sunset Reef",
       "notes": "Total sites: 11, RV sites 5. No water, Vault/pit toilet. Tent & RV camping Frer, Stay limit. 5 days, Reservations not acceptel. Elev 36029/1098m, Tel 575-234-9927, Nearest town: Whites City GPS: 32.119464,-104.424408",
       "latitude": 32.119464,
@@ -3340,15 +3443,10 @@
       "url": "",
       "visible": 1
     }
-
-
-
-
-
   ],
   "potential-spots": [
     {
-      "id": "",
+      "id": "long-cove-rd-close-to-medway-head-lighthouse",
       "latitude": 44.102122490741394,
       "longitude": -64.54062935162992,
       "name": "Long Cove Rd close to Medway Head Lighthouse",
@@ -3357,7 +3455,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "little-bonne-bay-pond",
       "latitude": 49.38911931243631,
       "longitude": -57.71255001790811,
       "name": "Little Bonne Bay Pond",
@@ -3366,7 +3464,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "goose-cove-4516",
       "latitude": 51.31492867843634,
       "longitude": -55.64772422758539,
       "name": "Goose Cove",
@@ -3375,7 +3473,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "eglise-sainte-felicite",
       "latitude": 48.901940667402116,
       "longitude": -67.33824735562311,
       "name": "Église Sainte-Félicité",
@@ -3384,25 +3482,31 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "nichols-park",
       "latitude": 35.40832527315106,
       "longitude": -95.98096178499169,
       "name": "Nichols Park",
       "notes": "<p>Gates open 5-22. Good signal. 5 spots.</p>",
-      "url": ["https://ioverlander.com/places/281187-nichols-park", "https://ioverlander.com/places/75018-nichols-park"],
+      "url": [
+        "https://ioverlander.com/places/281187-nichols-park",
+        "https://ioverlander.com/places/75018-nichols-park"
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "louisburg-middle-creek-lake",
       "latitude": 38.509873,
       "longitude": -94.674381,
       "name": "Louisburg Middle Creek Lake",
       "notes": "<p>Signal 3 bars, 10 spots. People come to fish. Overall nice.</p>",
-      "url": ["https://ioverlander.com/places/153032-louisburg-middle-creek-lake","https://ksoutdoors.com/KDWP-Info/Locations/State-Fishing-Lakes/Northeast-Region/Louisburg-Middle-Creek"],
+      "url": [
+        "https://ioverlander.com/places/153032-louisburg-middle-creek-lake",
+        "https://ksoutdoors.com/KDWP-Info/Locations/State-Fishing-Lakes/Northeast-Region/Louisburg-Middle-Creek"
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "lost-horse-tank-dispersed-9151",
       "latitude": 32.84369399108049,
       "longitude": -112.32057581023882,
       "name": "Lost Horse Tank Dispersed",
@@ -3411,25 +3515,31 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "nuitee-vr-havre-st-pierre",
       "latitude": 50.24513986713833,
       "longitude": -63.60264724852187,
       "name": "NUITÉE VR HAVRE ST-PIERRE",
       "notes": "<p><strong>Emplacement disponible seulement quand le terrain de camping est complet</strong></p><p>Aréna Denis-Perron - Côté Sud près de la rue de la Digue, terrain gazonné, pas de point d'eau, sans de table de pique-nique, sans poubelle.</p><p>10 espaces<br>Où se stationner: Perpendiculaire à la rue de la Digue. FEUX bois ou propane interdits.<br>Mi-juillet à la mi-août<br>7/7 jours, 24/24<br>Max 48 heures<br>Gratuit</p>",
-      "url": ["https://www.google.com/maps/@50.2448695,-63.605103,759m/data=!3m1!1e3!4m2!6m1!1s1hzk8VpdKfaJkOSHWfMJldSKCG37tj-c?entry=ttu","http://www.tourismehsp.com"],
+      "url": [
+        "https://www.google.com/maps/@50.2448695,-63.605103,759m/data=!3m1!1e3!4m2!6m1!1s1hzk8VpdKfaJkOSHWfMJldSKCG37tj-c?entry=ttu",
+        "http://www.tourismehsp.com"
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "nuitee-vr-longue-pointe-de-mingan",
       "latitude": 50.27022437387556,
       "longitude": -64.14464852530347,
       "name": "NUITÉE VR LONGUE-POINTE-DE-MINGAN",
       "notes": "<p>STATIONNEMENT INTERDIT SUR LA PLAGE.</p><p>À partir de la route 138, veuillez prendre la route de l’Aéroport et suivre les indications.</p><p>10 espaces<br>Dans l'espace de stationnement, <strong>stationnement sur la plage est interdit.</strong><br>25 juin au 1er septembre<br>7/7 jours, 24h/24h<br>Durée maximale du séjour: 72 heures<br>Gratuit</p>",
-      "url": ["https://www.google.com/maps/@50.2719089,-64.1503586,2878m/data=!3m1!1e3!4m2!6m1!1s1hzk8VpdKfaJkOSHWfMJldSKCG37tj-c?entry=ttu", "http://www.longuepointedemingan.ca/a-decouvrir/"],
+      "url": [
+        "https://www.google.com/maps/@50.2719089,-64.1503586,2878m/data=!3m1!1e3!4m2!6m1!1s1hzk8VpdKfaJkOSHWfMJldSKCG37tj-c?entry=ttu",
+        "http://www.longuepointedemingan.ca/a-decouvrir/"
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "nuitee-vr-riviere-au-tonnerre-villages-relais",
       "latitude": 50.27435067594056,
       "longitude": -64.7617886875593,
       "name": "NUITÉE VR RIVIÈRE-AU-TONNERRE - VILLAGES-RELAIS",
@@ -3438,7 +3548,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "nuitee-vr-riviere-au-tonnerre-villages-relais-3452",
       "latitude": 50.27584683455032,
       "longitude": -64.77501728359493,
       "name": "NUITÉE VR RIVIÈRE-AU-TONNERRE - VILLAGES-RELAIS",
@@ -3447,7 +3557,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "nuitee-vr-eglise-saint-hippolyte-villages-relais",
       "latitude": 50.27502186900731,
       "longitude": -64.77604244573075,
       "name": "NUITÉE VR Église Saint-Hippolyte (Villages-Relais)",
@@ -3456,43 +3566,55 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "nuitee-vr-centre-d-interpretation-de-l-histoire-de-port-cartier",
       "latitude": 50.02485173539012,
       "longitude": -66.86191761998963,
       "name": "NUITÉE VR Centre d'interprétation de l'histoire de Port-Cartier",
       "notes": "<p>Centre d'interprétation de l'histoire de Port-Cartier<br>45, boulevard du Portage-des-Mousses</p><p>Stationnement - lieu touristique. Le plus grand centre d'interprétation de l'histoire de la Côte-Nord.</p><p>4 espaces<br>Moins de 30 pieds<br>Où se stationner: À l'intérieur des espaces de stationnement.<br>Juin à Septembre, 7/7 jours<br>Heure d'arrivée: avant 16H00<br>Heure de départ: avant 16H00<br>Durée maximale du séjour: 48 heures</p><p><strong>Tarif: Contribution volontaire à remettre à l'accueil du Centre d'interprétation de l'histoire.</strong></p>",
-      "url": ["https://www.google.com/maps/@50.0246643,-66.8621221,202m/data=!3m1!1e3!4m2!6m1!1s1hzk8VpdKfaJkOSHWfMJldSKCG37tj-c?entry=ttu","https://www.facebook.com/tourismeportcartier"],
+      "url": [
+        "https://www.google.com/maps/@50.0246643,-66.8621221,202m/data=!3m1!1e3!4m2!6m1!1s1hzk8VpdKfaJkOSHWfMJldSKCG37tj-c?entry=ttu",
+        "https://www.facebook.com/tourismeportcartier"
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "nuitee-vr-parc-du-barrage-des-pionniers",
       "latitude": 50.0257757813304,
       "longitude": -66.87370676944072,
       "name": "NUITÉE VR Parc du Barrage des Pionniers",
       "notes": "<p>Parc du Barrage des Pionniers, Rue du Barrage</p><p>Asphalte, poubelles, tables à pique-nique. Cul-de-sac, intime, belle vue. Dormir au son d'une majestueuse chute à proximité.</p><p>2 places<br>24 pieds et moins<br>Juin à Septembre, 7/7 jours, 24h/24h<br>Durée maximale du séjour: 48 heures<br>Gratuit</p>",
-      "url": ["https://www.google.com/maps/@50.025671,-66.8742564,197m/data=!3m1!1e3!4m2!6m1!1s1hzk8VpdKfaJkOSHWfMJldSKCG37tj-c?entry=ttu","https://www.facebook.com/tourismeportcartier"],
+      "url": [
+        "https://www.google.com/maps/@50.025671,-66.8742564,197m/data=!3m1!1e3!4m2!6m1!1s1hzk8VpdKfaJkOSHWfMJldSKCG37tj-c?entry=ttu",
+        "https://www.facebook.com/tourismeportcartier"
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "nuitee-vr-eglise-quartier-saint-georges",
       "latitude": 49.2397208642277,
       "longitude": -68.14396464904769,
       "name": "NUITÉE VR Église – Quartier Saint-Georges",
       "notes": "<p>RESPECTEZ LES ESPACES IDENTIFIÉS<br>Église – Quartier Saint-Georges (Le jardin des glaciers)</p><p>Stationnement sur gravier. Le stationnement de l’église Saint-Georges, construite en 1955 vous offre une magnifique vue sur le fleuve Saint-Laurent et une belle tranquillité. Située à proximité du lac Leven, une promenade s’impose dans les rues et les sentiers avoisinants. Pour les amateurs de pêche, sachez que le lac Leven est ensemencé et un quai flottant est accessible pour tous. Vous avez accès à un dépanneur tout près et vous êtes à seulement 5 minutes de place La Salle où vous découvrirez notamment la fontaine d’eau de la Place de la Biosphère, la Manufacture de savon Borale, le Manoir du Café, la Galerie d’art Claude Bonneau, la terrasse du Grand Hôtel ainsi que la Microbrasserie St-Pancrace.</p><p>30 espaces<br><strong>Se stationner sur les espaces identifiés<br>Mai à Octobre, 7/7 jours, 24h/24h<br>Durée maximale du séjour: 24hrs<br>Gratuit</p>",
-      "url": ["https://www.google.com/maps/@49.239557,-68.1445094,194m/data=!3m1!1e3!4m2!6m1!1s1hzk8VpdKfaJkOSHWfMJldSKCG37tj-c?entry=ttu","https://www.tourismebaiecomeau.com/"],
+      "url": [
+        "https://www.google.com/maps/@49.239557,-68.1445094,194m/data=!3m1!1e3!4m2!6m1!1s1hzk8VpdKfaJkOSHWfMJldSKCG37tj-c?entry=ttu",
+        "https://www.tourismebaiecomeau.com/"
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "nuitee-vr-parc-pierre-brochu",
       "latitude": 48.566022843129,
       "longitude": -67.66325141213224,
       "name": "NUITÉE VR Parc Pierre-Brochu",
       "notes": "<p>Parc Pierre-Brochu 127, route 132 Est</p><p>Stationnement en gravier à proximité de tous les commerces (épicerie, restaurant, station-service), tables, poubelles sur place et accès au Lac Matapédia à proximité.</p><p>3 espaces<br>40 pieds maximum<br>Mai à octobre, 7/7 jours, 24h/24h<br>Durée maximale du séjour: 24 heures<br>Gratuit</p>",
-      "url": ["https://www.google.com/maps/@48.566094,-67.664267,410m/data=!3m1!1e3!4m2!6m1!1s1hzk8VpdKfaJkOSHWfMJldSKCG37tj-c?entry=ttu","https://municipalitesayabec.com/tourisme/attraits.html"],
+      "url": [
+        "https://www.google.com/maps/@48.566094,-67.664267,410m/data=!3m1!1e3!4m2!6m1!1s1hzk8VpdKfaJkOSHWfMJldSKCG37tj-c?entry=ttu",
+        "https://municipalitesayabec.com/tourisme/attraits.html"
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "nuitee-vr-amqui-village-relais",
       "latitude": 48.46255920385007,
       "longitude": -67.43344035456819,
       "name": "NUITÉE VR Amqui Village Relais",
@@ -3501,25 +3623,31 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "nuitee-vr-les-galeries-du-vieux-port",
       "latitude": 48.85360847789322,
       "longitude": -67.53500466887978,
       "name": "NUITÉE VR Les Galeries du Vieux-Port",
       "notes": "<p>Les Galeries du Vieux-Port 750 Av. du Phare O</p><p>Centre commercial, respectez les règles affichées sur place. À votre disposition dans le Centre commercial, des boutiques, bar, restaurant, pharmacie, SAQ, marché d'alimentation, etc Située au cœur de la ville, à proximité du Fleuve et à quelques pas de la Rivière Matane, vous aurez plein de choses à découvrir à distance de marche.</p><p>Où se stationner: À l'arrière du Centre commercial, le long de la bordure, côté fleuve. Respectez l'affichage de l'espace dédié aux VR. Stationnement en parallèle seulement - aucun stationnement en transversale autorisé.</p><p>Accessibilités: mai à octobre, 7/7 jours, 24h/24h<br>Durée maximale du séjour: 24 heures<br>Gratuit</p>",
-      "url": ["https://www.google.com/maps/@48.8534321,-67.5355243,159m/data=!3m1!1e3!4m2!6m1!1s1hzk8VpdKfaJkOSHWfMJldSKCG37tj-c?entry=ttu","https://www.galeriesduvieuxport.com/"],
+      "url": [
+        "https://www.google.com/maps/@48.8534321,-67.5355243,159m/data=!3m1!1e3!4m2!6m1!1s1hzk8VpdKfaJkOSHWfMJldSKCG37tj-c?entry=ttu",
+        "https://www.galeriesduvieuxport.com/"
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "nuitee-vr-musee-louis-langlois",
       "latitude": 49.67906010669912,
       "longitude": -67.16759215782865,
       "name": "Nuitée VR Musée Louis-Langlois",
       "notes": "<p>Musée Louis-Langlois<br>rue Mgr-Labrie, secteur Pointe-aux-Anglais</p><p>Stationnement de gravier, poubelles, tables de pique-nique et toilette chimique. Accès direct à la plage et au terrain aménagé du musée.  Station de jeux aménagée pour les enfants.</p><p>2 places<br>Moins de 30 pieds<br>Juin à Août, 7/7 jours<br>Arrivée: Avant 16H00<br>Départ: Avant 16H00<br>Durée maximale: 48 heures<br>Gratuit</p>",
-      "url": ["https://www.google.com/maps/@49.6790467,-67.1677628,21z/data=!4m2!6m1!1s1hzk8VpdKfaJkOSHWfMJldSKCG37tj-c?entry=ttu","https://www.facebook.com/tourismeportcartier"],
+      "url": [
+        "https://www.google.com/maps/@49.6790467,-67.1677628,21z/data=!4m2!6m1!1s1hzk8VpdKfaJkOSHWfMJldSKCG37tj-c?entry=ttu",
+        "https://www.facebook.com/tourismeportcartier"
+      ],
       "visible": 1
     },
     {
-      "id": "",
+      "id": "panoche-hills-blm",
       "latitude": 36.7125022931846,
       "longitude": -120.86257706084278,
       "name": "Panoche Hills (BLM)",
@@ -3528,7 +3656,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "blm-road-big-horn-peak-view",
       "latitude": 33.56055,
       "longitude": -113.15994,
       "name": "BLM road - Big Horn Peak view",
@@ -3537,7 +3665,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "southern-tip-of-anza-borrego-state-park",
       "latitude": 32.70744,
       "longitude": -116.12636,
       "name": "Southern tip of Anza Borrego state park",
@@ -3546,7 +3674,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "rood-creek-campground",
       "latitude": 32.0255,
       "longitude": -85.0355,
       "name": "Rood Creek Campground",
@@ -3555,7 +3683,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "muggins-mountain",
       "latitude": 32.73056442010625,
       "longitude": -114.27122676682815,
       "name": "Muggins Mountain",
@@ -3564,7 +3692,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "king-rd-kofa",
       "latitude": 33.258484024287604,
       "longitude": -114.23155702343175,
       "name": "King Rd. Kofa",
@@ -3574,7 +3702,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "meade-city-park",
       "latitude": 37.28399769856089,
       "longitude": -100.32699135675843,
       "name": "Meade City Park",
@@ -3584,7 +3712,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "falcon-county-park",
       "latitude": 26.56723,
       "longitude": -99.12831,
       "name": "Falcon County Park",
@@ -3594,7 +3722,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "san-jon-city-park",
       "latitude": 35.107,
       "longitude": -103.332,
       "name": "San Jon City Park",
@@ -3604,7 +3732,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "american-springs-dispersed-camping",
       "latitude": 35.8339,
       "longitude": -106.374,
       "name": "American Springs Dispersed camping",
@@ -3614,7 +3742,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "natchez-trace-meriwether-lewis-campground-nps",
       "latitude": 35.50549,
       "longitude": -87.45655,
       "name": "Natchez Trace - Meriwether Lewis Campground NPS",
@@ -3624,7 +3752,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "brush-creek-park",
       "latitude": 34.9013,
       "longitude": -87.9973,
       "name": "Brush Creek Park",
@@ -3634,7 +3762,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "clear-creek-campground",
       "latitude": 34.42849,
       "longitude": -89.70818,
       "name": "Clear Creek Campground",
@@ -3643,7 +3771,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "between-quartzsite-and-blythe",
       "latitude": 33.57994828883997,
       "longitude": -114.4769768084264,
       "name": "Between Quartzsite and Blythe",
@@ -3652,7 +3780,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "between-quartzsite-and-blythe-3809",
       "latitude": 33.58126970876474,
       "longitude": -114.47463722792351,
       "name": "Between Quartzsite and Blythe",
@@ -3661,7 +3789,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "blm-colorado-mine",
       "latitude": 32.917,
       "longitude": -114.837,
       "name": "BLM Colorado Mine",
@@ -3670,7 +3798,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "natchez-trace-jeff-busby-campground",
       "latitude": 33.41703,
       "longitude": -89.26929,
       "name": "Natchez Trace - Jeff Busby Campground",
@@ -3679,7 +3807,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "indian-bread-rocks",
       "latitude": 32.2434,
       "longitude": -109.5075,
       "name": "Indian Bread Rocks",
@@ -3690,10 +3818,7 @@
   ],
   "places": [
     {
-      "markerPath": "/assets/images/map-icons/marker-icon-place.svg"
-    },
-    {
-      "id": "",
+      "id": "puffin-viewing-site",
       "latitude": 48.6294076522593,
       "longitude": -53.019056694444224,
       "name": "Puffin Viewing Site",
@@ -3702,7 +3827,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "bakery-56",
       "latitude": 48.16438970863733,
       "longitude": -53.97511014339445,
       "name": "Bakery '56",
@@ -3711,7 +3836,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "sugar-dice",
       "latitude": 48.94179452867941,
       "longitude": -57.96811411433202,
       "name": "Sugar & Dice",
@@ -3720,7 +3845,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "manoir-du-cafe",
       "latitude": 49.22115353559337,
       "longitude": -68.15138415174049,
       "name": "Manoir du cafe",
@@ -3729,7 +3854,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "rebel-coffeehouse",
       "latitude": 51.36686977825619,
       "longitude": -55.593197709654476,
       "name": "Rebel Coffeehouse",
@@ -3738,7 +3863,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "siete-filos-cafe",
       "latitude": 28.97122108995546,
       "longitude": -113.54731241370754,
       "name": "Siete Filos café",
@@ -3747,7 +3872,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "nomadico",
       "latitude": 26.733136995682127,
       "longitude": -111.90721183101721,
       "name": "Nomadico",
@@ -3756,7 +3881,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "the-baja-station-cafe",
       "latitude": 23.145297649664766,
       "longitude": -109.5063638993818,
       "name": "The Baja Station Cafe",
@@ -3765,7 +3890,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "green-dot",
       "latitude": 23.686580642719694,
       "longitude": -109.69760609749379,
       "name": "Green Dot",
@@ -3774,7 +3899,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "belle-joli-winery-tasting-room-deadwood",
       "latitude": 44.379184654273196,
       "longitude": -103.72785122491864,
       "name": "Belle Joli Winery Tasting Room, Deadwood",
@@ -3783,7 +3908,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "belle-joli-winery-tasting-room-deadwood-0304",
       "latitude": 44.379184654273196,
       "longitude": -103.72785122491864,
       "name": "Belle Joli Winery Tasting Room, Deadwood",
@@ -3792,7 +3917,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "belle-joli-winery-sparkling-house",
       "latitude": 44.38026025869933,
       "longitude": -103.50579604810643,
       "name": "Belle Joli Winery Sparkling House",
@@ -3801,7 +3926,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "iowa-80-the-world-s-largest-truckstop",
       "latitude": 41.61796586250844,
       "longitude": -90.78153193271363,
       "name": "Iowa 80 - The World's Largest Truckstop",
@@ -3809,7 +3934,7 @@
       "url": "https://goo.gl/maps/RBLPtAfb7wR5R1FF7"
     },
     {
-      "id": "",
+      "id": "la-belle-patate",
       "latitude": 48.43003393563589,
       "longitude": -123.41316848394611,
       "name": "La Belle Patate",
@@ -3817,7 +3942,7 @@
       "url": "https://goo.gl/maps/FUWpwJDA6NLfZKQN9"
     },
     {
-      "id": "",
+      "id": "mackinaw-trail-winery-brewery-manistique-on-the-harbor",
       "latitude": 45.952903981987895,
       "longitude": -86.24748905881941,
       "name": "Mackinaw Trail Winery & Brewery Manistique On the Harbor",
@@ -3825,7 +3950,7 @@
       "url": "https://goo.gl/maps/5WxyzQmuVCgj1KdN9"
     },
     {
-      "id": "",
+      "id": "mackinaw-trail-winery-brewery-petoskey",
       "latitude": 45.32804282553804,
       "longitude": -84.96165487037263,
       "name": "Mackinaw Trail Winery & Brewery - Petoskey",
@@ -3833,7 +3958,7 @@
       "url": "https://goo.gl/maps/UsSG1RABYZMC2C2MA"
     },
     {
-      "id": "",
+      "id": "meineke-car-care-center-auto-repair-shop",
       "latitude": 45.42096426311984,
       "longitude": -122.78616482227358,
       "name": "Meineke Car Care Center (auto repair shop)",
@@ -3841,7 +3966,7 @@
       "url": "https://goo.gl/maps/CDxYk37Bsd8tF97y9"
     },
     {
-      "id": "",
+      "id": "meineke-car-care-center-auto-repair-shop-5188",
       "latitude": 33.4806882968483,
       "longitude": -111.90923509022603,
       "name": "Meineke Car Care Center (auto repair shop)",
@@ -3849,7 +3974,7 @@
       "url": "https://maps.app.goo.gl/gZCw9tAS2aEfZXws8"
     },
     {
-      "id": "",
+      "id": "memorial-park-portland-oregon",
       "latitude": 45.29625200852623,
       "longitude": -122.75959995872043,
       "name": "Memorial Park, Portland, Oregon",
@@ -3857,7 +3982,7 @@
       "url": "https://goo.gl/maps/MXnnyaJKr2J1CCwU8"
     },
     {
-      "id": "",
+      "id": "ragga-surf-cafe",
       "latitude": 29.667458621904665,
       "longitude": -81.21238388149942,
       "name": "Ragga Surf Cafe",
@@ -3865,7 +3990,7 @@
       "url": "https://goo.gl/maps/P3PehTd3qskhDBDTA"
     },
     {
-      "id": "",
+      "id": "the-big-apple",
       "latitude": 44.02151774586276,
       "longitude": -77.90631536016166,
       "name": "The Big Apple",
@@ -3873,7 +3998,7 @@
       "url": "https://goo.gl/maps/3eGuFpZv3foyWMeP6"
     },
     {
-      "id": "",
+      "id": "wall-drug-store",
       "latitude": 43.992910523931855,
       "longitude": -102.24155297927129,
       "name": "Wall Drug Store",
@@ -3883,10 +4008,7 @@
   ],
   "shower": [
     {
-      "markerPath": "/assets/images/map-icons/marker-icon-water.svg"
-    },
-    {
-      "id": "",
+      "id": "terra-nova-national-park",
       "latitude": 48.57946063996816,
       "longitude": -53.947642823612945,
       "name": "Terra Nova National Park",
@@ -3894,7 +4016,7 @@
       "url": ""
     },
     {
-      "id": "",
+      "id": "swimming-pool",
       "latitude": 48.95837169462386,
       "longitude": -54.61144418180863,
       "name": "Swimming pool",
@@ -3902,7 +4024,7 @@
       "url": ""
     },
     {
-      "id": "",
+      "id": "mount-pearl-swimming-pool",
       "latitude": 47.506393141868465,
       "longitude": -52.816854832215256,
       "name": "Mount Pearl swimming pool",
@@ -3910,7 +4032,7 @@
       "url": ""
     },
     {
-      "id": "",
+      "id": "swimming-pool-7147",
       "latitude": 51.37355711683252,
       "longitude": -55.59775248584261,
       "name": "Swimming pool",
@@ -3918,7 +4040,7 @@
       "url": "https://maps.app.goo.gl/o9ETGjrwcpeEs3KH9"
     },
     {
-      "id": "",
+      "id": "bruce-ii-sports-centre",
       "latitude": 47.583035131346925,
       "longitude": -59.16435148866669,
       "name": "Bruce II Sports Centre",
@@ -3926,7 +4048,7 @@
       "url": "https://maps.app.goo.gl/o9ETGjrwcpeEs3KH9"
     },
     {
-      "id": "",
+      "id": "auberge-de-jeunesse-du-manoir-des-sapins",
       "latitude": 48.901008433220646,
       "longitude": -67.34059285349534,
       "name": "Auberge de Jeunesse du Manoir des Sapins",
@@ -3934,7 +4056,7 @@
       "url": "https://maps.app.goo.gl/147hSEW2cXBC9Br28"
     },
     {
-      "id": "",
+      "id": "planet-fitness",
       "latitude": 33.922231192477966,
       "longitude": -116.95047881480679,
       "name": "Planet Fitness",
@@ -3942,7 +4064,7 @@
       "url": "https://maps.app.goo.gl/hMuKWubRmzCZT48PA"
     },
     {
-      "id": "",
+      "id": "loves",
       "latitude": 33.65733632184922,
       "longitude": -114.24131985649126,
       "name": "Love’s",
@@ -3950,7 +4072,7 @@
       "url": "https://maps.app.goo.gl/5uG2EjhbEhcQv4Me7"
     },
     {
-      "id": "",
+      "id": "loves-yuma",
       "latitude": 32.68651354785565,
       "longitude": -114.58251943006417,
       "name": "Love’s, Yuma",
@@ -3958,7 +4080,7 @@
       "url": "https://maps.app.goo.gl/5nbqFmf24igApX3r9"
     },
     {
-      "id": "",
+      "id": "bayou-segnette-state-park-4169",
       "latitude": 29.888941225644263,
       "longitude": -90.16270333817101,
       "name": "Bayou Segnette State Park",
@@ -3966,7 +4088,7 @@
       "url": "https://goo.gl/maps/AubtmXqaAcgzDioY9"
     },
     {
-      "id": "",
+      "id": "deadwood-recreation-center",
       "latitude": 44.374119557090474,
       "longitude": -103.72816275957365,
       "name": "Deadwood Recreation Center",
@@ -3974,7 +4096,7 @@
       "url": "https://maps.app.goo.gl/Rkj5pB6qNPfTLR7b6"
     },
     {
-      "id": "",
+      "id": "iowa-80-the-world-s-largest-truckstop-0717",
       "latitude": 41.61802694682628,
       "longitude": -90.78147461096971,
       "name": "Iowa 80 The World's Largest Truckstop",
@@ -3982,7 +4104,7 @@
       "url": "https://maps.app.goo.gl/8si5iRAZ6TQrwUJJ7"
     },
     {
-      "id": "",
+      "id": "loves-travel-stop",
       "latitude": 29.196294021361876,
       "longitude": -95.45683433424969,
       "name": "Love’s Travel Stop",
@@ -3990,7 +4112,7 @@
       "url": ""
     },
     {
-      "id": "",
+      "id": "penticton-community-centre",
       "latitude": 49.49545961022404,
       "longitude": -119.60481103227978,
       "name": "Penticton Community Centre",
@@ -3998,7 +4120,7 @@
       "url": "https://maps.app.goo.gl/vWFiY1zGsmx7T8qJ9"
     },
     {
-      "id": "",
+      "id": "south-inlet-delaware-seashore-state-park-paid-parking-1200",
       "latitude": 38.605785935494026,
       "longitude": -75.0614868230857,
       "name": "South Inlet, Delaware Seashore State Park (paid parking)",
@@ -4008,10 +4130,7 @@
   ],
   "starbucks": [
     {
-      "markerPath": "/assets/images/map-icons/marker-icon-place.svg"
-    },
-    {
-      "id": "",
+      "id": "indio-close-to-walmart",
       "latitude": 33.74230322526479,
       "longitude": -116.2333818134775,
       "name": "Indio, close to Walmart",
@@ -4022,7 +4141,7 @@
       "visible": 1
     },
     {
-      "id": "",
+      "id": "starbucks-yuma-central",
       "latitude": 32.69890174058646,
       "longitude": -114.62427851161473,
       "name": "Starbucks, Yuma (central)",
@@ -4030,7 +4149,7 @@
       "url": ""
     },
     {
-      "id": "",
+      "id": "starbucks-yuma-east-edge",
       "latitude": 32.67191152032451,
       "longitude": -114.44196390716624,
       "name": "Starbucks, Yuma (east edge)",
@@ -4038,7 +4157,7 @@
       "url": ""
     },
     {
-      "id": "",
+      "id": "starbucks-tigard",
       "latitude": 45.421671123441506,
       "longitude": -122.78380270478779,
       "name": "Starbucks, Tigard",
@@ -4046,7 +4165,7 @@
       "url": ""
     },
     {
-      "id": "",
+      "id": "starbucks-colorado-springs",
       "latitude": 38.85755951306051,
       "longitude": -104.72200835960561,
       "name": "Starbucks, Colorado Springs",
@@ -4054,7 +4173,7 @@
       "url": ""
     },
     {
-      "id": "",
+      "id": "starbucks-deadwood",
       "latitude": 44.380005069583014,
       "longitude": -103.72480832330362,
       "name": "Starbucks, Deadwood",
@@ -4062,7 +4181,7 @@
       "url": ""
     },
     {
-      "id": "",
+      "id": "starbucks-woodland-park",
       "latitude": 38.973268454455706,
       "longitude": -105.03998309979006,
       "name": "Starbucks, Woodland Park",
@@ -4072,7 +4191,7 @@
   ],
   "towers": [
     {
-      "id": "",
+      "id": "tower",
       "latitude": 32.763472,
       "longitude": -114.838167,
       "name": "Tower",
@@ -4080,7 +4199,7 @@
       "url": "https://hub.arcgis.com/datasets/fedmaps::cellular-towers-in-the-united-states/explore?location=32.761271%2C-114.835436%2C16.41"
     },
     {
-      "id": "",
+      "id": "tower-4946",
       "latitude": 32.75,
       "longitude": -114.75,
       "name": "Tower",
@@ -4088,7 +4207,7 @@
       "url": "https://www.towermaps.com/the-map.html"
     },
     {
-      "id": "",
+      "id": "tower-2234",
       "latitude": 32.81,
       "longitude": -114.89,
       "name": "Tower",
@@ -4096,7 +4215,7 @@
       "url": "https://www.towermaps.com/the-map.html"
     },
     {
-      "id": "",
+      "id": "tower-8780",
       "latitude": 32.86,
       "longitude": -114.44,
       "name": "Tower",
@@ -4104,7 +4223,7 @@
       "url": "https://www.towermaps.com/the-map.html"
     },
     {
-      "id": "",
+      "id": "tower-5688",
       "latitude": 32.87,
       "longitude": -114.42,
       "name": "Tower",
@@ -4112,7 +4231,7 @@
       "url": "https://www.towermaps.com/the-map.html"
     },
     {
-      "id": "",
+      "id": "tower-0262",
       "latitude": 32.96,
       "longitude": -114.43,
       "name": "Tower",
@@ -4120,7 +4239,7 @@
       "url": "https://www.towermaps.com/the-map.html"
     },
     {
-      "id": "",
+      "id": "tower-6556",
       "latitude": 33.24,
       "longitude": -114.26,
       "name": "Tower",
@@ -4128,7 +4247,7 @@
       "url": "https://www.towermaps.com/the-map.html"
     },
     {
-      "id": "",
+      "id": "tower-2366",
       "latitude": 33.48,
       "longitude": -114.09,
       "name": "Tower",
@@ -4136,7 +4255,7 @@
       "url": "https://www.towermaps.com/the-map.html"
     },
     {
-      "id": "",
+      "id": "tower-4016",
       "latitude": 33.67,
       "longitude": -114.18,
       "name": "Tower",
@@ -4144,7 +4263,7 @@
       "url": "https://www.towermaps.com/the-map.html"
     },
     {
-      "id": "",
+      "id": "tower-1682",
       "latitude": 33.66,
       "longitude": -114.26,
       "name": "Tower",
@@ -4152,7 +4271,7 @@
       "url": "https://www.towermaps.com/the-map.html"
     },
     {
-      "id": "",
+      "id": "tower-8851",
       "latitude": 33.7,
       "longitude": -114.22,
       "name": "Tower",
@@ -4160,15 +4279,15 @@
       "url": "https://www.towermaps.com/the-map.html"
     },
     {
-      "id": "",
-      "latitude": 33.055750,
+      "id": "tower-5927",
+      "latitude": 33.05575,
       "longitude": -114.829639,
       "name": "Tower",
       "notes": "<a href='https://www.towermaps.com/the-map.html' target='_blank'>Tower Maps</a>",
       "url": "https://hub.arcgis.com/datasets/fedmaps::cellular-towers-in-the-united-states/explore?location=32.994963%2C-114.827268%2C12.22"
     },
     {
-      "id": "",
+      "id": "tower-2606",
       "latitude": 32.710389,
       "longitude": -115.063778,
       "name": "Tower",
@@ -4176,15 +4295,15 @@
       "url": "https://hub.arcgis.com/datasets/fedmaps::cellular-towers-in-the-united-states/explore?location=32.737812%2C-115.016346%2C12.14"
     },
     {
-      "id": "",
-      "latitude": 33.570000,
+      "id": "tower-quartzsite",
+      "latitude": 33.57,
       "longitude": -114.349722,
       "name": "Tower: Quartzsite",
       "notes": "<a href='https://www.towermaps.com/the-map.html' target='_blank'>Tower Maps</a>",
       "url": "https://hub.arcgis.com/datasets/fedmaps::cellular-towers-in-the-united-states/explore?location=33.585473%2C-114.292029%2C12.14"
     },
     {
-      "id": "",
+      "id": "tower-quartzsite-0676",
       "latitude": 33.667528,
       "longitude": -114.059667,
       "name": "Tower: Quartzsite",
@@ -4194,10 +4313,7 @@
   ],
   "water": [
     {
-      "markerPath": "/assets/images/map-icons/marker-icon-water.svg"
-    },
-    {
-      "id": "",
+      "id": "corner-brook-visitor-information",
       "latitude": 48.94322472805758,
       "longitude": -57.91812942254106,
       "name": "Corner Brook Visitor Information",
@@ -4205,7 +4321,7 @@
       "url": "https://ioverlander.com/places/ab629057-7c9c-4176-843a-70f82c4acf08"
     },
     {
-      "id": "",
+      "id": "esther-mary-water-well",
       "latitude": 47.66274937282457,
       "longitude": -54.71868607945368,
       "name": "Esther Mary Water Well",
@@ -4213,7 +4329,7 @@
       "url": ""
     },
     {
-      "id": "",
+      "id": "foodland-port-aux-basques",
       "latitude": 47.58742792666738,
       "longitude": -59.16507768099867,
       "name": "Foodland - Port-aux-Basques",
@@ -4221,7 +4337,7 @@
       "url": "https://maps.app.goo.gl/fVitNaceB6tStJus7"
     },
     {
-      "id": "",
+      "id": "bayou-segnette-state-park-1137",
       "latitude": 29.890059007865474,
       "longitude": -90.16248635177435,
       "name": "Bayou Segnette State Park",
@@ -4229,15 +4345,15 @@
       "url": "https://goo.gl/maps/AubtmXqaAcgzDioY9"
     },
     {
-      "id": "",
-      "latitude": 38.873800,
-      "longitude": -104.812580,
+      "id": "free-water-at-gas-station",
+      "latitude": 38.8738,
+      "longitude": -104.81258,
       "name": "Free water at gas station",
       "notes": "One spigot where regular cars go and one where RVs and trucks go.",
       "url": ""
     },
     {
-      "id": "",
+      "id": "walmart-neighborhood-market",
       "latitude": 32.71196196717875,
       "longitude": -114.65092978379938,
       "name": "Walmart Neighborhood Market",
@@ -4245,7 +4361,7 @@
       "url": "https://maps.app.goo.gl/25kE7sQs55YfUvVm9"
     },
     {
-      "id": "",
+      "id": "walmart",
       "latitude": 38.970774706961805,
       "longitude": -105.03867848866761,
       "name": "Walmart",
