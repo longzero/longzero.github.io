@@ -5,6 +5,15 @@
     },
     {
       "id": "",
+      "latitude": 31.149877445953134,
+      "longitude": -114.89591730935538,
+      "name": "Playa pública San Felipe",
+      "notes": "<p>Good signal. Good for day 1 or for last day.</p><p>Away and elevated from the beach. Big space for multiple people.</p><p>Careful about soft sand</p>",
+      "url": ["https://ioverlander.com/places/0369c689-6277-4df6-983b-f0433c03bbab","https://ioverlander.com/places/fc349426-91d2-4404-8948-c29c9ae156d7"],
+      "visible": 1
+    },
+    {
+      "id": "",
       "latitude": 22.959703975122423,
       "longitude": -109.80028920589686,
       "name": "Playa El Tule",
@@ -584,7 +593,7 @@
       "latitude": 26.761238259741194,
       "longitude": -111.87827211087216,
       "name": "Playa Piedrita",
-      "notes": "<p>Paid 200 pesos. No signal. One toilet that flushes using the water in the bin in front of it. Beautiful sunrise. Less people and more quiet than playa Santispac.</p><p>2025-02: Half full.<br>2026-01: Full.</p>",
+      "notes": "<p>Entrance is the same as Playa Santispac and must say that this is where you want to go, because you don't pay to the same person.</p><p>Paid 200 pesos. No signal. One toilet that flushes using the water in the bin in front of it. Beautiful sunrise. Less people and more quiet than playa Santispac.</p><p>2025-02: Half full.<br>2026-01: Full.</p>",
       "url": [],
       "visible": 1
     },
