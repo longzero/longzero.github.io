@@ -67,6 +67,7 @@ const SPOT_CONFIG = {
 };
 
 const CATEGORY_LAYERS = {};
+const ALL_MARKERS = {}; // For deep linking
 let markerHere;
 
 /**
@@ -193,6 +194,21 @@ function addMarkers(count, locations, locationType, svgIcon, locationTypeHuman) 
       if (CATEGORY_LAYERS[locationType]) {
         CATEGORY_LAYERS[locationType].addLayer(marker);
       }
+
+      // Store marker for deep linking
+      if (location.id) {
+        ALL_MARKERS[location.id] = {
+          marker: marker,
+          category: locationType
+        };
+
+        // Update URL on click
+        marker.on('click', function() {
+          const newUrl = new URL(window.location);
+          newUrl.searchParams.set('id', location.id);
+          window.history.pushState({}, '', newUrl);
+        });
+      }
     } // if
   } // for (individual places)
   return count;
@@ -268,6 +284,16 @@ function toggleLegendAndMarkers() {
       DEBUG && console.log(`Legend Toggle: ${category} clicked.`);
       this.classList.toggle('hide');
 
+      // If we are hiding a category, remove the ID from the URL if it belongs to this category
+      if (this.classList.contains('hide')) {
+        const currentId = new URLSearchParams(window.location.search).get('id');
+        if (currentId && ALL_MARKERS[currentId] && ALL_MARKERS[currentId].category === category) {
+          const newUrl = new URL(window.location);
+          newUrl.searchParams.delete('id');
+          window.history.pushState({}, '', newUrl);
+        }
+      }
+
       if (category === 'current-location') {
         if (markerHere) {
           const action = map.hasLayer(markerHere) ? "Removing" : "Adding";
@@ -290,6 +316,43 @@ function toggleLegendAndMarkers() {
       }
     });
   });
+}
+
+/**
+ * Handles deep linking based on the ?id= parameter in the URL.
+ */
+function handleDeepLink() {
+  const targetId = urlParams.get('id');
+  if (!targetId || !ALL_MARKERS[targetId]) return;
+
+  const data = ALL_MARKERS[targetId];
+  const marker = data.marker;
+  const category = data.category;
+
+  DEBUG && console.log(`handleDeepLink: Deep link found for ID: ${targetId}`);
+
+  // 1. Ensure category is visible
+  const layer = CATEGORY_LAYERS[category];
+  if (!map.hasLayer(layer)) {
+    DEBUG && console.log(`handleDeepLink: Enabling hidden category "${category}" for deep link.`);
+    map.addLayer(layer);
+
+    // Also update legend UI
+    const legendItem = document.querySelector(`.js-map-legend-item.${category}`);
+    if (legendItem) legendItem.classList.remove('hide');
+  }
+
+  // 2. Fly to marker
+  map.flyTo(marker.getLatLng(), 15);
+
+  // 3. Open popup (handle clusters if enabled)
+  if (USE_CLUSTERS && typeof layer.zoomToShowLayer === 'function') {
+    layer.zoomToShowLayer(marker, () => {
+      marker.openPopup();
+    });
+  } else {
+    marker.openPopup();
+  }
 }
 
 function initMap(locations) {
@@ -377,6 +440,9 @@ function initMap(locations) {
   document.querySelector('#map-legend-items').innerHTML = legendHtml
   toggleLegendAndMarkers()
   // END LEGEND AND MARKERS
+
+  // Process deep links after markers are initialized
+  handleDeepLink();
 
 
 
