@@ -45,10 +45,13 @@ eleventyNavigation:
     let file = "/assets/js/map/spots-free.json"
 
     const startMap = () => {
-      loadJSON(file, function(text){
-        data = JSON.parse(text);
-        initMap(data)
-      });
+      fetchJSON(file)
+        .then(data => {
+          initMap(data);
+        })
+        .catch(err => {
+          DEBUG && console.error("Error initializing map:", err);
+        });
     }
 
     // Use the Promise-based loader instead of setInterval

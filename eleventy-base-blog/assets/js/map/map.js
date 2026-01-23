@@ -439,16 +439,22 @@ function initMap(locations) {
 } // function initMap(locations)
 
 
-// https://stackoverflow.com/a/34579496/2716287
-function loadJSON(file, callback) {
-  var rawFile = new XMLHttpRequest();
-  rawFile.overrideMimeType("application/json");
-  rawFile.open("GET", file, true);
-  rawFile.onreadystatechange = function() {
-    if (rawFile.readyState === 4 && rawFile.status == "200") {
-      callback(rawFile.responseText);
-    }
-  }
-  rawFile.send(null);
+/**
+ * Fetches JSON data from a file and returns a promise.
+ */
+function fetchJSON(file) {
+  DEBUG && console.log(`fetchJSON: Fetching ${file}...`);
+  return fetch(file)
+    .then(response => {
+      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+      return response.json();
+    })
+    .then(data => {
+      DEBUG && console.log(`fetchJSON: Successfully loaded ${file}`);
+      return data;
+    })
+    .catch(error => {
+      DEBUG && console.error(`fetchJSON: Error loading ${file}:`, error);
+      throw error;
+    });
 }
-// END https://stackoverflow.com/a/34579496/2716287
