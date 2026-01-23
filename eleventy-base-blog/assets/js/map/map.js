@@ -66,6 +66,9 @@ const SPOT_CONFIG = {
   }
 };
 
+const CATEGORY_LAYERS = {};
+let markerHere;
+
 /**
  * Dynamically loads clustering assets and returns a promise that resolves when the script is ready.
  */
@@ -171,10 +174,9 @@ function addMarkers(count, locations, locationType, svgIcon, locationTypeHuman) 
       const marker = new L.marker([location.latitude, location.longitude], {icon: svgIcon})
         .bindPopup(locationContent, { offset: L.point(0,-1) })
 
-      if (USE_CLUSTERS) {
-        markerClusterGroup.addLayer(marker);
-      } else {
-        marker.addTo(map);
+      // Add marker to its category layer
+      if (CATEGORY_LAYERS[locationType]) {
+        CATEGORY_LAYERS[locationType].addLayer(marker);
       }
     } // if
   } // for (individual places)
@@ -191,7 +193,7 @@ function getIcon(markerClasses, markerPath, markerSize, markerAnchor) {
 
 function parseLocations(locations) {
   for (let locationType in locations) {
-    const config = SPOT_CONFIG[locationType] || SPOT_CONFIG.default;
+    const config = SPOT_CONFIG[locationType] || SPOT_CONFIG.default || { label: 'Default', icon: '/assets/images/map-icons/marker-icon-campspot.svg', size: [12, 12], anchor: [6, 11] };
     const locationTypeHuman = config.label;
     const legendMarker = config.icon;
     let legendClass = "map-legend-item js-map-legend-item " + locationType;
@@ -201,15 +203,24 @@ function parseLocations(locations) {
       markerClasses += " marker-icon--fade";
     }
 
-    if (config.hideByDefault) {
-      legendClass += " hide";
-      markerClasses += " hide";
+    // Initialize the layer group for this category
+    if (USE_CLUSTERS && typeof L.markerClusterGroup === 'function') {
+      CATEGORY_LAYERS[locationType] = L.markerClusterGroup();
+    } else {
+      CATEGORY_LAYERS[locationType] = L.layerGroup();
     }
 
     const svgIcon = getIcon(markerClasses, legendMarker, config.size, config.anchor);
 
     let count = 0; // For counting locations by type.
     addMarkers(count, locations, locationType, svgIcon, locationTypeHuman);
+
+    // If not hidden by default, add the layer to the map
+    if (!config.hideByDefault) {
+      map.addLayer(CATEGORY_LAYERS[locationType]);
+    } else {
+      legendClass += " hide";
+    }
 
     legendHtml += `<li class="${legendClass}">
       <div class="map-legend-symbol"><img src="${legendMarker}" alt=""></div>
@@ -232,16 +243,27 @@ function toggleLegendAndMarkers() {
     item.addEventListener('click', function() {
       this.classList.toggle('hide');
 
-      // Get the specific category from class list (excluding base classes)
       const category = Array.from(this.classList).find(cls =>
         cls !== 'map-legend-item' &&
         cls !== 'js-map-legend-item' &&
         cls !== 'hide'
       );
 
-      if (category) {
-        const markers = document.querySelectorAll(`.js-marker-icon.${category}`);
-        markers.forEach(marker => marker.classList.toggle('hide'));
+      if (category === 'current-location') {
+        if (markerHere) {
+          if (map.hasLayer(markerHere)) map.removeLayer(markerHere);
+          else map.addLayer(markerHere);
+        }
+        return;
+      }
+
+      const layer = CATEGORY_LAYERS[category];
+      if (layer) {
+        if (map.hasLayer(layer)) {
+          map.removeLayer(layer);
+        } else {
+          map.addLayer(layer);
+        }
       }
     });
   });
@@ -327,29 +349,10 @@ function initMap(locations) {
   basemaps.Default.addTo(map);
   overlays["Weather Radar"].addTo(map);
 
-
-  if (USE_CLUSTERS && typeof L.markerClusterGroup === 'function') {
-    markerClusterGroup = L.markerClusterGroup();
-  }
-
-  // console.log(locations.campspots.length)
-  // if (typeof locations === 'object' && locations !== null) {
-  //   console.log("It's an object")
-  // }
-
-
-
   // LEGEND AND MARKERS
-
-  // Beginning legend item HTML.
-  legendHtml += ''
-
   parseLocations(locations)
-
   document.querySelector('#map-legend-items').innerHTML = legendHtml
-
   toggleLegendAndMarkers()
-
   // END LEGEND AND MARKERS
 
 
@@ -379,12 +382,7 @@ function initMap(locations) {
 
     markerHere = new L.marker([latitude, longitude], {icon: svgCurrent})
       .bindPopup(popupMessage, { offset: L.point(0,-14) })
-
-    if (USE_CLUSTERS) {
-      markerClusterGroup.addLayer(markerHere);
-    } else {
-      markerHere.addTo(map);
-    }
+      .addTo(map);
     map.locate({
       setView: true, // true means the map zooms to current location. Does not always work on desktop.
       maxZoom: 8
@@ -415,9 +413,6 @@ function initMap(locations) {
 
 
 
-  if (USE_CLUSTERS && markerClusterGroup) {
-    map.addLayer(markerClusterGroup);
-  }
 
 } // function initMap(locations)
 
