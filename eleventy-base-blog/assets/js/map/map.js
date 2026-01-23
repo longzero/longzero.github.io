@@ -1,7 +1,70 @@
-DEBUG = false
+const DEBUG = false
 const urlParams = new URLSearchParams(window.location.search);
 const USE_CLUSTERS = urlParams.get('clusters') === '1' || urlParams.get('cluster') === '1'
 let markerClusterGroup
+
+const SPOT_CONFIG = {
+  "blm": {
+    label: 'Some BLM spots',
+    icon: '/assets/images/map-icons/marker-icon-blm.svg',
+    size: [12, 12],
+    anchor: [6, 11],
+    hideByDefault: true,
+    fade: true
+  },
+  "places": {
+    label: 'Random place',
+    icon: '/assets/images/map-icons/marker-icon-place.svg',
+    size: [12, 12],
+    anchor: [6, 11]
+  },
+  "potential-spots": {
+    label: 'Potential spots',
+    icon: '/assets/images/map-icons/marker-icon-potential.svg',
+    size: [12, 12],
+    anchor: [6, 11],
+    hideByDefault: true,
+    fade: true
+  },
+  "spots": {
+    label: 'Chilling, sleeping and/or working spot',
+    icon: '/assets/images/map-icons/marker-icon-campspot.svg',
+    size: [12, 12],
+    anchor: [6, 11]
+  },
+  "starbucks": {
+    label: 'Starbucks',
+    icon: '/assets/images/map-icons/marker-icon-place.svg',
+    size: [12, 12],
+    anchor: [6, 11],
+    hideByDefault: true
+  },
+  "shower": {
+    label: 'Shower spot',
+    icon: '/assets/images/map-icons/marker-icon-water.svg',
+    size: [12, 16],
+    anchor: [6, 15]
+  },
+  "towers": {
+    label: 'Towers',
+    icon: '/assets/images/map-icons/marker-icon-tower.svg',
+    size: [12, 12],
+    anchor: [6, 11],
+    hideByDefault: true
+  },
+  "water": {
+    label: 'Water for cleaning or drinking',
+    icon: '/assets/images/map-icons/marker-icon-water.svg',
+    size: [12, 16],
+    anchor: [6, 15]
+  },
+  "default": {
+    label: 'Default',
+    icon: '/assets/images/map-icons/marker-icon-campspot.svg',
+    size: [12, 12],
+    anchor: [6, 11]
+  }
+};
 
 /**
  * Dynamically loads clustering assets and returns a promise that resolves when the script is ready.
@@ -30,17 +93,11 @@ function loadClusterAssets() {
 }
 
 
-let hideLocation = false // If you want to hide some type of locations by default.
-const hideLocationBaseClasses = ' hide ' // CSS class if some type of locations are hidden by default.
-let legendClass = 'map-legend-item js-map-legend-item ' // Remember the space at the end.
-const legendBaseClasses = legendClass
 let legendHtml = '' // Create each item of legend, in HTML
-let legendMarker = ''
-let locationTypeHuman = '' // Used for labelling the legend, so instead of just “Water”, it will be “Place to get water”
 
 const markerPathCurrent = '/assets/images/map-icons/marker-icon-current.svg'
 const svgBaseClasses = "marker-icon js-marker-icon " // Remember to put a space at the end.
-let svgCurrent = getIcon(svgBaseClasses + "current-location", markerPathCurrent, [18,24], [9,23])
+const svgCurrent = getIcon(svgBaseClasses + "current-location", markerPathCurrent, [18,24], [9,23])
 
 
 let map = L.map('map', {
@@ -63,7 +120,7 @@ let map = L.map('map', {
 
 
 
-function addMarkers(count, locations, locationType) {
+function addMarkers(count, locations, locationType, svgIcon, locationTypeHuman) {
   // LOOP THROUGH LOCATIONS AND ADD THEM TO THE MAP.
   for (let locationItem in locations[locationType]) {
     // DEBUG && console.log(locationType)
@@ -138,135 +195,57 @@ function getIcon(markerClasses, markerPath, markerSize, markerAnchor) {
 
 function parseLocations(locations) {
   for (let locationType in locations) {
-    // Change marker icon depending on type of location.
-    // Set the marker path for the legend item icon.
-    switch(locationType) {
-      case "blm":
-        hideLocation = true
-        legendMarker = '/assets/images/map-icons/marker-icon-blm.svg'
-        locationTypeHuman = 'Some BLM spots'
-        svgIcon = getIcon(svgBaseClasses + locationType + ' marker-icon--fade', legendMarker, [12,12], [6,11])
-        setMarker(locationType) // After the icon because if location is hidden by default, this function will modify the icon.
-        break
-      case "places":
-        // hideLocation = true
-        legendMarker = '/assets/images/map-icons/marker-icon-place.svg'
-        locationTypeHuman = 'Random place'
-        svgIcon = getIcon(svgBaseClasses + locationType, legendMarker, [12,12], [6,11])
-        setMarker(locationType) // After the icon because if location is hidden by default, this function will modify the icon.
-        break
-      case "potential-spots":
-        hideLocation = true
-        legendMarker = '/assets/images/map-icons/marker-icon-potential.svg'
-        locationTypeHuman = 'Potential spots'
-        svgIcon = getIcon(svgBaseClasses + locationType + ' marker-icon--fade', legendMarker, [12,12], [6,11])
-        setMarker(locationType) // After the icon because if location is hidden by default, this function will modify the icon.
-        break
-      case "spots":
-        // hideLocation = true
-        legendMarker = '/assets/images/map-icons/marker-icon-campspot.svg'
-        locationTypeHuman = 'Chilling, sleeping and/or working spot'
-        svgIcon = getIcon(svgBaseClasses + locationType, legendMarker, [12,12], [6,11])
-        setMarker(locationType) // After the icon because if location is hidden by default, this function will modify the icon.
-        break
-      case "starbucks":
-        hideLocation = true
-        legendMarker = '/assets/images/map-icons/marker-icon-place.svg'
-        locationTypeHuman = 'Starbucks'
-        svgIcon = getIcon(svgBaseClasses + locationType, legendMarker, [12,12], [6,11])
-        setMarker(locationType) // After the icon because if location is hidden by default, this function will modify the icon.
-        break
-      case "shower":
-        // hideLocation = true
-        legendMarker = '/assets/images/map-icons/marker-icon-water.svg'
-        locationTypeHuman = 'Shower spot'
-        svgIcon = getIcon(svgBaseClasses + locationType, legendMarker, [12,16], [6,15])
-        setMarker(locationType) // After the icon because if location is hidden by default, this function will modify the icon.
-        break
-      case "towers":
-        hideLocation = true
-        legendMarker = '/assets/images/map-icons/marker-icon-tower.svg'
-        locationTypeHuman = 'Towers'
-        svgIcon = getIcon(svgBaseClasses + locationType, legendMarker, [12,12], [6,11])
-        setMarker(locationType) // After the icon because if location is hidden by default, this function will modify the icon.
-        break
-      case "water":
-        // hideLocation = true
-        legendMarker = '/assets/images/map-icons/marker-icon-water.svg'
-        locationTypeHuman = 'Water for cleaning or drinking'
-        svgIcon = getIcon(svgBaseClasses + locationType, legendMarker, [12,16], [6,15])
-        setMarker(locationType) // After the icon because if location is hidden by default, this function will modify the icon.
-        break
-      default:
-        legendMarker = '/assets/images/map-icons/marker-icon-campspot.svg'
-        locationTypeHuman = 'Default'
-        svgIcon = getIcon(svgBaseClasses + locationType, legendMarker, [12,12], [6,11])
-        setMarker(locationType) // After the icon because if location is hidden by default, this function will modify the icon.
-    } // switch
+    const config = SPOT_CONFIG[locationType] || SPOT_CONFIG.default;
+    const locationTypeHuman = config.label;
+    const legendMarker = config.icon;
+    let legendClass = "map-legend-item js-map-legend-item " + locationType;
+    let markerClasses = svgBaseClasses + locationType;
 
+    if (config.fade) {
+      markerClasses += " marker-icon--fade";
+    }
 
-    legendHtml += '<li class="'+ legendClass +'"><div class="map-legend-symbol"><img src="' + legendMarker
+    if (config.hideByDefault) {
+      legendClass += " hide";
+      markerClasses += " hide";
+    }
 
-    let count = 0 // For counting locations by type.
-    addMarkers(count, locations, locationType)
-  } // for (first level in json)
+    const svgIcon = getIcon(markerClasses, legendMarker, config.size, config.anchor);
 
-  // Use the class hide to hide by default (use that string to search elsewhere it is used)
-  legendHtml += '<li class="'+ legendClass +' current-location hide">'
-  + '<div class="map-legend-symbol"><img src="' + markerPathCurrent + '" alt=""></div>'
-  + '<div class="map-legend-label">Current location<br>(double-check accuracy)</div></li>'
-}
+    legendHtml += `<li class="${legendClass}"><div class="map-legend-symbol"><img src="${legendMarker}" alt=""></div>`;
 
-
-
-function setMarker(locationType) {
-  legendClass = legendBaseClasses + locationType
-  if (hideLocation) {
-    legendClass += hideLocationBaseClasses
-    svgIcon.options.className += hideLocationBaseClasses
-    hideLocation = false // Reset for other markers.
+    let count = 0; // For counting locations by type.
+    addMarkers(count, locations, locationType, svgIcon, locationTypeHuman);
   }
+
+  // Use the class hide to hide by default
+  legendHtml += `<li class="map-legend-item js-map-legend-item current-location hide">
+    <div class="map-legend-symbol"><img src="${markerPathCurrent}" alt=""></div>
+    <div class="map-legend-label">Current location<br>(double-check accuracy)</div></li>`;
 }
+
+
+
 
 function toggleLegendAndMarkers() {
-  // TOGGLE LEGEND AND MARKERS
   const legendToggle = document.querySelectorAll('.js-map-legend-item')
-  for (let i = 0; i < legendToggle.length; i++) {
-    legendToggle[i].addEventListener('click', function() {
-      this.classList.toggle('hide')
-      let markers
-      if (this.classList.contains('current-location')) {
-        markers = document.querySelectorAll('.js-marker-icon.current-location')
+  legendToggle.forEach(item => {
+    item.addEventListener('click', function() {
+      this.classList.toggle('hide');
+
+      // Get the specific category from class list (excluding base classes)
+      const category = Array.from(this.classList).find(cls =>
+        cls !== 'map-legend-item' &&
+        cls !== 'js-map-legend-item' &&
+        cls !== 'hide'
+      );
+
+      if (category) {
+        const markers = document.querySelectorAll(`.js-marker-icon.${category}`);
+        markers.forEach(marker => marker.classList.toggle('hide'));
       }
-      else if (this.classList.contains('spots')) {
-        markers = document.querySelectorAll('.js-marker-icon.spots')
-      }
-      else if (this.classList.contains('blm')) {
-        markers = document.querySelectorAll('.js-marker-icon.blm')
-      }
-      else if (this.classList.contains('places')) {
-        markers = document.querySelectorAll('.js-marker-icon.places')
-      }
-      else if (this.classList.contains('potential-spots')) {
-        markers = document.querySelectorAll('.js-marker-icon.potential-spots')
-      }
-      else if (this.classList.contains('shower')) {
-        markers = document.querySelectorAll('.js-marker-icon.shower')
-      }
-      else if (this.classList.contains('starbucks')) {
-        markers = document.querySelectorAll('.js-marker-icon.starbucks')
-      }
-      else if (this.classList.contains('towers')) {
-        markers = document.querySelectorAll('.js-marker-icon.towers')
-      }
-      else if (this.classList.contains('water')) {
-        markers = document.querySelectorAll('.js-marker-icon.water')
-      }
-      for (let j = 0; j < markers.length; j++) {
-        markers[j].classList.toggle('hide')
-      }
-    })
-  }
+    });
+  });
 }
 
 function initMap(locations) {
