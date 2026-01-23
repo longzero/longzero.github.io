@@ -178,10 +178,6 @@ function addMarkers(count, locations, locationType, svgIcon, locationTypeHuman) 
       }
     } // if
   } // for (individual places)
-
-  // End legend item with the label.
-  // legendHtml += '" alt=""></div><div class="map-legend-label">'+ locationTypeHuman +' ('+ locations[locationType].length +')</div></li>'
-  legendHtml += '" alt=""></div><div class="map-legend-label '+ locations[locationType].length +'">'+ locationTypeHuman +' ('+ count +')</div></li>'
 }
 
 function getIcon(markerClasses, markerPath, markerSize, markerAnchor) {
@@ -212,10 +208,13 @@ function parseLocations(locations) {
 
     const svgIcon = getIcon(markerClasses, legendMarker, config.size, config.anchor);
 
-    legendHtml += `<li class="${legendClass}"><div class="map-legend-symbol"><img src="${legendMarker}" alt=""></div>`;
-
     let count = 0; // For counting locations by type.
     addMarkers(count, locations, locationType, svgIcon, locationTypeHuman);
+
+    legendHtml += `<li class="${legendClass}">
+      <div class="map-legend-symbol"><img src="${legendMarker}" alt=""></div>
+      <div class="map-legend-label ${locations[locationType].length}">${locationTypeHuman} (${locations[locationType].length})</div>
+    </li>`;
   }
 
   // Use the class hide to hide by default
