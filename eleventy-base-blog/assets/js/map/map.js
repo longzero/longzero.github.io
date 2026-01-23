@@ -1,4 +1,4 @@
-const DEBUG = false
+const DEBUG = true
 const urlParams = new URLSearchParams(window.location.search);
 const USE_CLUSTERS = urlParams.get('clusters') === '1' || urlParams.get('cluster') === '1'
 let markerClusterGroup
@@ -73,10 +73,18 @@ let markerHere;
  * Dynamically loads clustering assets and returns a promise that resolves when the script is ready.
  */
 function loadClusterAssets() {
+  DEBUG && console.log("loadClusterAssets: Starting...");
   return new Promise((resolve, reject) => {
-    if (!USE_CLUSTERS) return resolve();
-    if (typeof L.markerClusterGroup === 'function') return resolve();
+    if (!USE_CLUSTERS) {
+      DEBUG && console.log("loadClusterAssets: Clusters disabled via URL.");
+      return resolve();
+    }
+    if (typeof L.markerClusterGroup === 'function') {
+      DEBUG && console.log("loadClusterAssets: Assets already loaded.");
+      return resolve();
+    }
 
+    DEBUG && console.log("loadClusterAssets: Dynamically loading CSS/JS...");
     const clusterCss1 = document.createElement('link');
     clusterCss1.rel = 'stylesheet';
     clusterCss1.href = '/assets/vendors/leaflet.markercluster-1.1.0/MarkerCluster.Default.css';
@@ -89,8 +97,14 @@ function loadClusterAssets() {
 
     const clusterJs = document.createElement('script');
     clusterJs.src = '/assets/vendors/leaflet.markercluster-1.1.0/leaflet.markercluster.js';
-    clusterJs.onload = resolve;
-    clusterJs.onerror = reject;
+    clusterJs.onload = () => {
+      DEBUG && console.log("loadClusterAssets: Script loaded successfully.");
+      resolve();
+    };
+    clusterJs.onerror = (err) => {
+      DEBUG && console.error("loadClusterAssets: Error loading script.", err);
+      reject(err);
+    };
     document.head.appendChild(clusterJs);
   });
 }
@@ -124,6 +138,7 @@ let map = L.map('map', {
 
 
 function addMarkers(count, locations, locationType, svgIcon, locationTypeHuman) {
+  DEBUG && console.log(`addMarkers: Adding ${locations[locationType].length} spots for category: ${locationType}`);
   // LOOP THROUGH LOCATIONS AND ADD THEM TO THE MAP.
   for (let locationItem in locations[locationType]) {
     // DEBUG && console.log(locationType)
@@ -192,6 +207,7 @@ function getIcon(markerClasses, markerPath, markerSize, markerAnchor) {
 }
 
 function parseLocations(locations) {
+  DEBUG && console.log("parseLocations: Starting parsing of all categories...");
   for (let locationType in locations) {
     const config = SPOT_CONFIG[locationType] || SPOT_CONFIG.default || { label: 'Default', icon: '/assets/images/map-icons/marker-icon-campspot.svg', size: [12, 12], anchor: [6, 11] };
     const locationTypeHuman = config.label;
@@ -238,19 +254,23 @@ function parseLocations(locations) {
 
 
 function toggleLegendAndMarkers() {
+  DEBUG && console.log("toggleLegendAndMarkers: Setting up click listeners...");
   const legendToggle = document.querySelectorAll('.js-map-legend-item')
   legendToggle.forEach(item => {
     item.addEventListener('click', function() {
-      this.classList.toggle('hide');
-
       const category = Array.from(this.classList).find(cls =>
         cls !== 'map-legend-item' &&
         cls !== 'js-map-legend-item' &&
         cls !== 'hide'
       );
 
+      DEBUG && console.log(`Legend Toggle: ${category} clicked.`);
+      this.classList.toggle('hide');
+
       if (category === 'current-location') {
         if (markerHere) {
+          const action = map.hasLayer(markerHere) ? "Removing" : "Adding";
+          DEBUG && console.log(`${action} current-location marker.`);
           if (map.hasLayer(markerHere)) map.removeLayer(markerHere);
           else map.addLayer(markerHere);
         }
@@ -259,6 +279,8 @@ function toggleLegendAndMarkers() {
 
       const layer = CATEGORY_LAYERS[category];
       if (layer) {
+        const action = map.hasLayer(layer) ? "Removing" : "Adding";
+        DEBUG && console.log(`${action} layer for category: ${category}`);
         if (map.hasLayer(layer)) {
           map.removeLayer(layer);
         } else {
