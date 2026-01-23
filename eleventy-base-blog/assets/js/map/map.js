@@ -343,7 +343,7 @@ function handleDeepLink() {
   }
 
   // 2. Fly to marker
-  map.flyTo(marker.getLatLng(), 15);
+  map.flyTo(marker.getLatLng(), 10);
 
   // 3. Open popup (handle clusters if enabled)
   if (USE_CLUSTERS && typeof layer.zoomToShowLayer === 'function') {
