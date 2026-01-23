@@ -4,6 +4,17 @@ input {height: auto;}
 .leaflet-control-attribution {font-size: 1em; transform: scale(.7); transform-origin: right bottom; transition: .3s; max-width: 320px; width: 100%;}
 .leaflet-control-attribution:hover {transform: scale(1);}
 
+ /* Fix for Safari "jiggery" animations by forcing hardware acceleration */
+ .leaflet-tile-container,
+ .leaflet-marker-icon,
+ .leaflet-marker-shadow,
+ .leaflet-pane > svg path {
+   -webkit-transform: translate3d(0, 0, 0);
+   transform: translate3d(0, 0, 0);
+   -webkit-backface-visibility: hidden;
+   backface-visibility: hidden;
+ }
+
 .leaflet-popup-content {margin: 0; padding: 1em 1em;}
 .leaflet-popup-content p {margin: 0 0 1em;}
 .leaflet-popup-content p:last-child {margin: 0;}
@@ -43,7 +54,7 @@ input {height: auto;}
 .map-legend:hover ul {display: block; opacity: 1; pointer-events: auto;}
 .map-wrapper, .template-post {height: calc(100vh - var(--header-height));}
 .map-wrapper {width: 100%;}
-.marker-icon {transition: .3s;}
+.marker-icon {transition: filter .3s, opacity .3s;}
 .marker-icon:hover {filter: grayscale(00%); opacity: 1}
 .marker-icon--fade {opacity: 1;}
 .marker-icon.hide {display: none;}

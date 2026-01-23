@@ -124,8 +124,12 @@ let map = L.map('map', {
   // https://github.com/mutsuyuki/Leaflet.SmoothWheelZoom
   scrollWheelZoom: false, // disable original zoom function
   smoothWheelZoom: true,  // enable smooth zoom
-  smoothSensitivity: 8,   // zoom speed. default is 1
+  smoothSensitivity: 3,   // Lower sensitivity is much smoother on Safari/Trackpads
   // END https://github.com/mutsuyuki/Leaflet.SmoothWheelZoom
+  zoomAnimationThreshold: 100,
+  fadeAnimation: true,
+  markerZoomAnimation: true,
+  bounceAtZoomLimits: false,   // Prevents the "jerk" when reaching max/min zoom
 }).fitBounds([
   [54.14584949174648, -128.75881463815347],
   [17.055714221336178, -59.9846634648619]
@@ -343,7 +347,10 @@ function handleDeepLink() {
   }
 
   // 2. Fly to marker
-  map.flyTo(marker.getLatLng(), 10);
+  map.flyTo(marker.getLatLng(), 10, {
+    duration: 2,        // 2 seconds is the "sweet spot" for Safari
+    easeLinearity: 0.25 // Standard easing feel
+  });
 
   // 3. Open popup (handle clusters if enabled)
   if (USE_CLUSTERS && typeof layer.zoomToShowLayer === 'function') {
