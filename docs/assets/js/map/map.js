@@ -212,6 +212,16 @@ function addMarkers(count, locations, locationType, svgIcon, locationTypeHuman) 
           newUrl.searchParams.set('id', location.id);
           window.history.pushState({}, '', newUrl);
         });
+
+        // Clear URL when popup is closed
+        marker.on('popupclose', function() {
+          const currentUrl = new URL(window.location);
+          // Only clear if the ID in the URL matches this marker (to avoid race conditions)
+          if (currentUrl.searchParams.get('id') === location.id) {
+            currentUrl.searchParams.delete('id');
+            window.history.pushState({}, '', currentUrl);
+          }
+        });
       }
     } // if
   } // for (individual places)

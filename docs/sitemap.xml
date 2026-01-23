@@ -482,11 +482,6 @@
   </url>
   
   <url>
-    <loc>https://longzero.com/map/</loc>
-    <lastmod>2024-10-27</lastmod>
-  </url>
-  
-  <url>
     <loc>https://longzero.com/maps/</loc>
     <lastmod>2024-10-27</lastmod>
   </url>
@@ -1004,5 +999,10 @@
   <url>
     <loc>https://longzero.com/data-plan/</loc>
     <lastmod>2026-01-01</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://longzero.com/map/</loc>
+    <lastmod>2026-01-23</lastmod>
   </url>
 </urlset>
