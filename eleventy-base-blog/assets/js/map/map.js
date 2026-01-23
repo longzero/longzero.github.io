@@ -195,6 +195,7 @@ function addMarkers(count, locations, locationType, svgIcon, locationTypeHuman) 
       }
     } // if
   } // for (individual places)
+  return count;
 }
 
 function getIcon(markerClasses, markerPath, markerSize, markerAnchor) {
@@ -229,7 +230,7 @@ function parseLocations(locations) {
     const svgIcon = getIcon(markerClasses, legendMarker, config.size, config.anchor);
 
     let count = 0; // For counting locations by type.
-    addMarkers(count, locations, locationType, svgIcon, locationTypeHuman);
+    count = addMarkers(count, locations, locationType, svgIcon, locationTypeHuman);
 
     // If not hidden by default, add the layer to the map
     if (!config.hideByDefault) {
@@ -240,7 +241,7 @@ function parseLocations(locations) {
 
     legendHtml += `<li class="${legendClass}">
       <div class="map-legend-symbol"><img src="${legendMarker}" alt=""></div>
-      <div class="map-legend-label ${locations[locationType].length}">${locationTypeHuman} (${locations[locationType].length})</div>
+      <div class="map-legend-label ${count}">${locationTypeHuman} (${count})</div>
     </li>`;
   }
 
