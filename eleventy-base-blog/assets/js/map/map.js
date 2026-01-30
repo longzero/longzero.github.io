@@ -124,7 +124,7 @@ let map = L.map('map', {
   // https://github.com/mutsuyuki/Leaflet.SmoothWheelZoom
   scrollWheelZoom: false, // disable original zoom function
   smoothWheelZoom: true,  // enable smooth zoom
-  smoothSensitivity: 3,   // Lower sensitivity is much smoother on Safari/Trackpads
+  smoothSensitivity: /^((?!chrome|android).)*safari/i.test(navigator.userAgent) ? 1 : 5,   // Lower sensitivity is much smoother on Safari
   // END https://github.com/mutsuyuki/Leaflet.SmoothWheelZoom
   zoomAnimationThreshold: 100,
   fadeAnimation: true,
