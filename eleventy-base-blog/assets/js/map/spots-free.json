@@ -1,6 +1,24 @@
 {
   "spots": [
     {
+      "id": "bahia-concepcion-entrada-better-than-km-76",
+      "latitude": 26.529171989403874,
+      "longitude": -111.72401923031497,
+      "name": "Better entrada than km 76",
+      "notes": "<p>Entrada is better than km 76. </p>",
+      "url": [],
+      "visible": 1
+    },
+    {
+      "id": "bahia-concepcion-entrada-better-than-km-76",
+      "latitude": 26.529171989403874,
+      "longitude": -111.72401923031497,
+      "name": "Better entrada than km 76",
+      "notes": "<p>Entrada is better than km 76. </p>",
+      "url": [],
+      "visible": 1
+    },
+    {
       "id": "playa-publica-san-felipe",
       "latitude": 31.149877445953134,
       "longitude": -114.89591730935538,
@@ -762,7 +780,7 @@
       "longitude": -111.78787340143943,
       "name": "South of Bahia Concepcion",
       "notes": "<p>No signal, many dolphins pass by every few days. Unseen from the road and from other campers in the area, though they make walk by during their walk.</p><p>Rocks are nice for not getting sand inside.</p>",
-      "url": [],
+      "url": ["https://ioverlander.com/places/382642ee-d705-44f6-ae5c-31722f76ed26","https://ioverlander.com/places/d12faaa5-9c34-40ef-b5cc-6dfb547ee315","https://ioverlander.com/places/4444d869-3f02-4b34-94f9-d8f3f4e677bb"],
       "visible": 1
     },
     {

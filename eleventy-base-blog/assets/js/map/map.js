@@ -181,6 +181,7 @@ function addMarkers(count, locations, locationType, svgIcon, locationTypeHuman) 
           locationUrl = '<a class="location-tooltip-action" target="_blank" href="' + location.url + '">' + location.url + '</a>'
         }
       }
+      locationUrl = '<a class="location-tooltip-action" href="' + googleMapsUrl + '" target="_blank">Open in Google Maps</a>' + locationUrl
       if (location.weather !== undefined && location.weather !== "") locationWeather = '<a class="location-tooltip-action" target="_blank" href="https://www.accuweather.com/en/search-locations?query=' + location.weather + '">Accuweather</a>'
       else locationWeather = '<a class="location-tooltip-action" target="_blank" href="https://www.accuweather.com/en/search-locations?query=' + location.latitude + '%2C' + location.longitude + '">Accuweather</a>'
 
@@ -201,6 +202,10 @@ function addMarkers(count, locations, locationType, svgIcon, locationTypeHuman) 
 
       // Store marker for deep linking
       if (location.id) {
+        if (DEBUG && ALL_MARKERS[location.id]) {
+          console.error(`addMarkers: Duplicate ID detected! ID: "${location.id}", Name: "${location.name || 'Unnamed'}", Coordinates: ${location.latitude},${location.longitude}`);
+        }
+
         ALL_MARKERS[location.id] = {
           marker: marker,
           category: locationType
@@ -222,6 +227,8 @@ function addMarkers(count, locations, locationType, svgIcon, locationTypeHuman) 
             window.history.pushState({}, '', currentUrl);
           }
         });
+      } else {
+        DEBUG && console.error(`addMarkers: Spot missing ID! Category: "${locationType}", Name: "${location.name || 'Unnamed'}", Coordinates: ${location.latitude},${location.longitude}`);
       }
     } // if
   } // for (individual places)
