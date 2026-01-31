@@ -285,9 +285,10 @@
 
   <!-- small controls: edit mantra/quote or refresh background -->
   <div class="controls" aria-hidden="false">
+    <span id="failCount" class="btn" style="display: none; cursor: default; opacity: 0.1; font-size: 11px;">0 failed</span>
     <button id="clockBtn" class="btn" title="Toggle between analog and digital clock">Toggle Clock</button>
-    <!-- <button id="editBtn" class="btn" title="Edit mantra & quote">Edit</button> -->
-    <!-- <button id="refreshBtn" class="btn" title="Force new background image">Refresh BG</button> -->
+    
+    <button id="refreshBtn" class="btn" title="Force new background image">Refresh BG</button>
   </div>
 </main>
 
@@ -296,62 +297,124 @@
     // ---------- content configuration ----------
     const dailyContent = {
       mantras: [
-      "Breathe. Focus. Start.",
-      "Do one thing that moves the day forward.",
-      "Keep it simple. Keep it steady.",
-      "Progress over perfection.",
-      "Finish what you started.",
-      "Small steps, consistent action.",
-      "Choose clarity over chaos.",
-      "Present moment, precious moment.",
-      "Every day is a fresh canvas.",
-      "Flow like water, stand like mountain.",
-      "Mindful steps create the path.",
-      "Patience breeds possibility.",
-      "Simple actions, profound impact.",
-      "Aim for excellence, not perfection.",
-      "Trust the journey within."
+        "Breathe. Focus. Start.",
+        "Do one thing that moves the day forward.",
+        "Keep it simple. Keep it steady.",
+        "Progress over perfection.",
+        "Finish what you started.",
+        "Small steps, consistent action.",
+        "Choose clarity over chaos.",
+        "Present moment, precious moment.",
+        "Every day is a fresh canvas.",
+        "Flow like water, stand like mountain.",
+        "Mindful steps create the path.",
+        "Patience breeds possibility.",
+        "Simple actions, profound impact.",
+        "Aim for excellence, not perfection.",
+        "Trust the journey within.",
+        "Umuntu ngumuntu ngabantu (I am because we are).",
+        "Ichigo Ichie (Treasure every moment).",
+        "Sabai Sabai (Stay relaxed, stay calm).",
+        "Kia Kaha (Stay strong, stay brave).",
+        "Vasudhaiva Kutumbakam (The world is one family).",
+        "Allin Kawsay (Living in harmony).",
+        "Haraka haraka haina baraka (Patience is a blessing).",
+        "Om Mani Padme Hum (Compassion and wisdom).",
+        "Walk like a lion, talk like a whisper.",
+        "Ăn quả nhớ kẻ trồng cây (Gratitude for those before us).",
+        "Karmatha (Focus on the work, not the fruit).",
+        "Metta (Loving-kindness to all).",
+        "Flow like the Ganges, stay still like the Himalaya.",
+        "All that you are is the result of what you have thought.",
+        "Pura Vida (The pure life).",
+        "Hakuna Matata (No worries).",
+        "Jai Ho (Let victory be yours).",
+        "Namaste (The divine in me honors the divine in you).",
+        "Sawubona (I see you, and you are significant).",
+        "Sanuk (Seek pleasure in everything you do).",
+        "Wabi Sabi (Find perfection in the imperfect).",
+        "Ase (The power to make what we say happen).",
+        "Hozho (Walking in beauty and balance).",
+        "Inshallah (Moving forward with grace).",
+        "Amani (Peace within, peace without).",
+        "Satori (Evolve through sudden clarity)."
       ],
 
       quotes: [
-        {q: "The secret of getting ahead is getting started.", a:"Mark Twain"},
-        {q: "Small deeds done are better than great deeds planned.", a:"Peter Marshall"},
-        {q: "Start where you are. Use what you have. Do what you can.", a:"Arthur Ashe"},
-        {q: "You don’t have to be great to start, but you have to start to be great.", a:"Zig Ziglar"},
-        {q: "Do the hard jobs first. The easy jobs will take care of themselves.", a:"Dale Carnegie"},
-        {q: "Little by little, a little becomes a lot.", a:"Tanzanian proverb"},
-        {q: "Action is the foundational key to all success.", a:"Pablo Picasso"},
-        {q: "Motivation is what gets you started. Habit is what keeps you going.", a:"Jim Ryun"},
-        {q: "It always seems impossible until it's done.", a:"Nelson Mandela"},
-        {q: "The best time to plant a tree was 20 years ago. The second best time is now.", a:"Chinese proverb"},
-        {q: "Patience is bitter, but its fruit is sweet.", a:"Persian proverb"},
-        {q: "Fall seven times, stand up eight.", a:"Japanese proverb"},
-        {q: "The world is not in your books and maps, it's out there.", a:"J.R.R. Tolkien"},
-        {q: "No hay mal que por bien no venga. (There is no bad from which good does not come.)", a:"Latin American proverb"},
-        {q: "Life is not measured by the number of breaths we take, but by the moments that take our breath away.", a:"Maya Angelou"},
-        {q: "The wound is the place where the Light enters you.", a:"Rumi"},
-        {q: "Better to light a candle than to curse the darkness.", a:"Chinese proverb"},
-        {q: "El tiempo es oro. (Time is gold.)", a:"Spanish proverb"},
-        {q: "Even the longest night will end and the sun will rise.", a:"Victor Hugo"},
-        {q: "What we fear doing most is usually what we most need to do.", a:"Ralph Waldo Emerson"},
-        {q: "Well begun is half done.", a:"Aristotle"},
-        {q: "The journey of a thousand miles begins with one step.", a:"Lao Tzu"},
-        {q: "Do not go where the path may lead, go instead where there is no path and leave a trail.", a:"Ralph Waldo Emerson"},
-        {q: "To live is the rarest thing in the world. Most people exist, that is all.", a:"Oscar Wilde"},
-        {q: "Idealistic as it may sound, altruism should be the driving force in business, not just competition and a desire for wealth.", a:"Dalai Lama"}
+        {q: "The secret of getting ahead is getting started.", a: "Mark Twain"},
+        {q: "Small deeds done are better than great deeds planned.", a: "Peter Marshall"},
+        {q: "Start where you are. Use what you have. Do what you can.", a: "Arthur Ashe"},
+        {q: "You don’t have to be great to start, but you have to start to be great.", a: "Zig Ziglar"},
+        {q: "Do the hard jobs first. The easy jobs will take care of themselves.", a: "Dale Carnegie"},
+        {q: "Motivation is what gets you started. Habit is what keeps you going.", a: "Jim Ryun"},
+        {q: "It always seems impossible until it's done.", a: "Nelson Mandela"},
+        {q: "The best time to plant a tree was 20 years ago. The second best time is now.", a: "Chinese proverb"},
+        {q: "Patience is bitter, but its fruit is sweet.", a: "Persian proverb"},
+        {q: "Fall seven times, stand up eight.", a: "Japanese proverb"},
+        {q: "The world is not in your books and maps, it's out there.", a: "J.R.R. Tolkien"},
+        {q: "No hay mal que por bien no venga. (There is no bad from which good does not come.)", a: "Latin American proverb"},
+        {q: "Life is not measured by the number of breaths we take, but by the moments that take our breath away.", a: "Maya Angelou"},
+        {q: "The wound is the place where the Light enters you.", a: "Rumi"},
+        {q: "Better to light a candle than to curse the darkness.", a: "Chinese proverb"},
+        {q: "El tiempo es oro. (Time is gold.)", a: "Spanish proverb"},
+        {q: "Even the longest night will end and the sun will rise.", a: "Victor Hugo"},
+        {q: "What we fear doing most is usually what we most need to do.", a: "Ralph Waldo Emerson"},
+        {q: "Well begun is half done.", a: "Aristotle"},
+        {q: "The journey of a thousand miles begins with one step.", a: "Lao Tzu"},
+        {q: "Do not go where the path may lead, go instead where there is no path and leave a trail.", a: "Ralph Waldo Emerson"},
+        {q: "To live is the rarest thing in the world. Most people exist, that is all.", a: "Oscar Wilde"},
+        {q: "Idealistic as it may sound, altruism should be the driving force in business, not just competition and a desire for wealth.", a: "Dalai Lama"},
+        {q: "Happiness is not something ready made. It comes from your own actions.", a: "Dalai Lama"},
+        {q: "No matter how long the night, the day will surely come.", a: "African proverb"},
+        {q: "If you want to go far, go together.", a: "African proverb"},
+        {q: "One who asks does not lose their way.", a: "Akan proverb"},
+        {q: "The sun does not forget a village just because it is small.", a: "African proverb"},
+        {q: "A tree with strong roots laughs at storms.", a: "Malay proverb"},
+        {q: "He who returns from a journey is not the same as he who left.", a: "Chinese proverb"},
+        {q: "The bamboo that bends is stronger than the oak that resists.", a: "Japanese proverb"},
+        {q: "When you stand with your back to the sun, you see only your shadow.", a: "Kahlil Gibran"},
+        {q: "You cannot prevent the birds of sadness from flying over your head, but you can prevent them from building nests in your hair.", a: "Chinese proverb"},
+        {q: "Where there is love, there is no darkness.", a: "Burundi proverb"},
+        {q: "A brave man dies once, a coward a thousand times.", a: "Somali proverb"},
+        {q: "The best bridge is a hand that is stretched out.", a: "Arabic proverb"},
+        {q: "Your heart is the size of an ocean. Go find yourself in its hidden depths.", a: "Rumi"},
+        {q: "A stumble may prevent a fall.", a: "Yoruba proverb"},
+        {q: "The moon moves slowly, but it crosses the town.", a: "Ashanti proverb"},
+        {q: "Hope is like a road in the country; there was never a road, but when many people walk on it, the road comes into existence.", a: "Lu Xun"},
+        {q: "Yesterday is but today's memory, and tomorrow is today's dream.", a: "Kahlil Gibran"}
       ],
 
-      // Each background can be from any source as long as it's a full URL
       backgrounds: [
-        // Unsplash collection
-        'https://images.unsplash.com/photo-1497436072909-60f360e1d4b1',  // Norway mountains
-        'https://images.unsplash.com/photo-1506744038136-46273834b3fb',  // Yosemite
-        'https://images.unsplash.com/photo-1433086966358-54859d0ed716',  // Forest waterfall
-        'https://images.unsplash.com/photo-1469474968028-56623f02e42e',  // Misty mountains
-        'https://images.unsplash.com/photo-1501785888041-af3ef285b470',  // Calm lake sunrise
-        'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05',  // Foggy mountains
-        'https://images.unsplash.com/photo-1441974231531-c6227db76b6e',  // Sunlit forest
-        'https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f',  // Cherry blossoms
+        'https://images.unsplash.com/photo-1497436072909-60f360e1d4b1', // Norway mountains
+        'https://images.unsplash.com/photo-1506744038136-46273834b3fb', // Yosemite
+        'https://images.unsplash.com/photo-1433086966358-54859d0ed716', // Forest waterfall
+        'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b', // Misty mountains (Updated)
+        'https://images.unsplash.com/photo-1501785888041-af3ef285b470', // Calm lake sunrise
+        'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05', // Foggy mountains
+        'https://images.unsplash.com/photo-1441974231531-c6227db76b6e', // Sunlit forest
+        'https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f', // Cherry blossoms
+        'https://images.unsplash.com/photo-1508804185872-d7badad00f7d', // Great Wall of China
+        'https://images.unsplash.com/photo-1548115184-bc6544d06a58', // Petra, Jordan
+        'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e', // Serengeti, Tanzania
+        'https://images.unsplash.com/photo-1528127269322-539801943592', // Ha Long Bay, Vietnam (Updated)
+        'https://images.unsplash.com/photo-1510414842594-a61c69b5ae57', // Iguazu Falls, Argentina/Brazil
+        'https://images.unsplash.com/photo-1526392060635-9d6019884377', // Machu Picchu, Peru
+        'https://images.unsplash.com/photo-1490730141103-6cac27aaab94', // Mount Fuji, Japan
+        'https://images.unsplash.com/photo-1518548419970-58e3b4079ab2', // Bali, Indonesia
+        'https://images.unsplash.com/photo-1544376798-89aa6b82c6cd', // Angkor Wat, Cambodia
+        'https://images.unsplash.com/photo-1503177119275-0aa32b3a9368', // Pyramids of Giza, Egypt
+        'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e', // Kyoto, Japan
+        'https://images.unsplash.com/photo-1506461883276-594a12b11cf3', // Cappadocia, Turkey
+        'https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5', // Rio de Janeiro, Brazil
+        'https://images.unsplash.com/photo-1512343879784-a960bf40e7f2', // Varanasi, India
+        'https://images.unsplash.com/photo-1476108621677-3c620901b5e7', // Torres del Paine, Chile
+        'https://images.unsplash.com/photo-1543097692-fa13c6cd8595', // Zhangjiajie, China
+        'https://images.unsplash.com/photo-1512632578888-169bbbc64f33', // Abu Dhabi Mosque
+        'https://images.pexels.com/photos/3225517/pexels-photo-3225517.jpeg', // Lush green forest valley
+        'https://images.pexels.com/photos/3408744/pexels-photo-3408744.jpeg', // Snowy mountain peak
+        'https://images.pexels.com/photos/15286/pexels-photo.jpg',           // Misty woodland path
+        'https://images.pexels.com/photos/3244513/pexels-photo-3244513.jpeg', // Aurora Borealis over water
+        'https://images.pexels.com/photos/1624496/pexels-photo-1624496.jpeg'  // Serene mountain lake reflection
       ]
     };
 
@@ -469,11 +532,23 @@
       mantraEl: document.getElementById('mantra'),
       quoteEl: document.getElementById('quote'),
       attribEl: document.getElementById('attrib'),
+      failEl: document.getElementById('failCount'),
       dateSeed: utils.getDateSeed(),
 
       init: function() {
         this.initClock();
-        this.setDailyContent();
+
+        // Use saved seed if it exists and is for today, otherwise default to date seed
+        const savedSeed = localStorage.getItem('backgroundSeed');
+        const savedSeedDate = localStorage.getItem('backgroundSeedDate');
+        const today = utils.getDateSeed();
+
+        if (savedSeed && savedSeedDate === today) {
+          this.setDailyContent(savedSeed);
+        } else {
+          this.setDailyContent();
+        }
+
         this.initControls();
       },
 
@@ -545,7 +620,7 @@
         setInterval(updateAll, 1000);
       },
 
-      setDailyContent: function(forceSeed) {
+      setDailyContent: async function(forceSeed) {
         const seed = forceSeed || this.dateSeed;
 
         // Set mantra and quote
@@ -556,16 +631,61 @@
         this.quoteEl.textContent = `"${quote.q}"`;
         this.attribEl.textContent = `— ${quote.a}`;
 
-        // Set background
+        // Set background with 404 check and looping
         const w = window.innerWidth;
         const h = Math.max(window.innerHeight, 720);
-        const baseUrl = utils.pickFromArray(dailyContent.backgrounds, seed);
-        const url = `${baseUrl}?auto=format&fit=crop&w=${Math.round(w)}&h=${Math.round(h)}`;
+        const startIndex = utils.seedToNumber(seed) % dailyContent.backgrounds.length;
 
-        const img = new Image();
-        img.onload = () => document.body.style.backgroundImage = `url('${url}')`;
-        img.onerror = () => document.body.style.background = "linear-gradient(180deg,#2c3e50,#4b6cb7)";
-        img.src = url;
+        let workingUrl = null;
+        let failCount = 0;
+
+        // Helper to check if an image is valid
+        const checkImage = (url) => {
+          return new Promise(resolve => {
+            const img = new Image();
+            img.onload = () => resolve(true);
+            img.onerror = () => {
+              console.warn("Background failed to load:", url);
+              resolve(false);
+            };
+            img.src = url;
+          });
+        };
+
+        for (let i = 0; i < dailyContent.backgrounds.length; i++) {
+          const currentIndex = (startIndex + i) % dailyContent.backgrounds.length;
+          const baseUrl = dailyContent.backgrounds[currentIndex];
+
+          // Only apply Unsplash-specific formatting if it's an Unsplash URL
+          let testUrl = baseUrl;
+          if (baseUrl.includes('images.unsplash.com')) {
+            const separator = baseUrl.includes('?') ? '&' : '?';
+            testUrl = `${baseUrl}${separator}auto=format&fit=crop&w=${Math.round(w)}&h=${Math.round(h)}`;
+          }
+
+          if (await checkImage(testUrl)) {
+            workingUrl = testUrl;
+            break;
+          } else {
+            failCount++;
+          }
+        }
+
+        // Update failure UI
+        if (this.failEl) {
+          if (failCount > 0) {
+            this.failEl.textContent = `${failCount} failed`;
+            this.failEl.style.display = 'inline-block';
+          } else {
+            this.failEl.style.display = 'none';
+          }
+        }
+
+        if (workingUrl) {
+          document.body.style.backgroundImage = `url('${workingUrl}')`;
+        } else {
+          document.body.style.background = "linear-gradient(180deg,#2c3e50,#4b6cb7)";
+        }
 
         // Update page title
         document.title = `Time: ${this.timeEl.textContent} — ${mantra}`;
@@ -573,25 +693,35 @@
 
       initControls: function() {
         // Refresh background
-        document.getElementById('refreshBtn').addEventListener('click', () => {
-          this.setDailyContent(Date.now().toString());
-        });
+        const refreshBtn = document.getElementById('refreshBtn');
+        if (refreshBtn) {
+          refreshBtn.addEventListener('click', () => {
+            const newSeed = Date.now().toString();
+            const today = utils.getDateSeed();
+            localStorage.setItem('backgroundSeed', newSeed);
+            localStorage.setItem('backgroundSeedDate', today);
+            this.setDailyContent(newSeed);
+          });
+        }
 
         // Edit content
-        document.getElementById('editBtn').addEventListener('click', () => {
-          const curMantra = this.mantraEl.textContent;
-          const curQuote = this.quoteEl.textContent.replace(/^"|"$/g,'');
-          const curAttrib = this.attribEl.textContent.replace(/^—\s*/,'');
+        const editBtn = document.getElementById('editBtn');
+        if (editBtn) {
+          editBtn.addEventListener('click', () => {
+            const curMantra = this.mantraEl.textContent;
+            const curQuote = this.quoteEl.textContent.replace(/^"|"$/g,'');
+            const curAttrib = this.attribEl.textContent.replace(/^—\s*/,'');
 
-          const newMantra = prompt("Edit mantra (short, single line):", curMantra);
-          if(newMantra) this.mantraEl.textContent = newMantra.slice(0,200);
+            const newMantra = prompt("Edit mantra (short, single line):", curMantra);
+            if(newMantra) this.mantraEl.textContent = newMantra.slice(0,200);
 
-          const newQuote = prompt("Edit quote (text):", curQuote);
-          if(newQuote) this.quoteEl.textContent = `"${newQuote.slice(0,240)}"`;
+            const newQuote = prompt("Edit quote (text):", curQuote);
+            if(newQuote) this.quoteEl.textContent = `"${newQuote.slice(0,240)}"`;
 
-          const newAttrib = prompt("Quote author / attribution:", curAttrib);
-          if(newAttrib) this.attribEl.textContent = `— ${newAttrib.slice(0,80)}`;
-        });
+            const newAttrib = prompt("Quote author / attribution:", curAttrib);
+            if(newAttrib) this.attribEl.textContent = `— ${newAttrib.slice(0,80)}`;
+          });
+        }
 
         // Update title periodically
         setInterval(() => {
