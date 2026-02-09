@@ -1,4 +1,4 @@
-const DEBUG = true
+const DEBUG = false
 const urlParams = new URLSearchParams(window.location.search);
 const USE_CLUSTERS = urlParams.get('clusters') === '1' || urlParams.get('cluster') === '1'
 let markerClusterGroup
@@ -140,72 +140,6 @@ let map = L.map('map', {
 //   maxZoom: 8
 // })
 
-/**
- * UI Templates (Encapsulation)
- */
-
-/**
- * Generates HTML content for a spot's popup.
- * @param {Object} location - The location data object.
- * @returns {string} HTML string for the popup content.
- */
-function createPopupContent(location) {
-  DEBUG && console.log("createPopupContent: Starting...");
-  const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${location.latitude}%2C${location.longitude}`;
-
-  // Name (Defaults to coordinates if missing)
-  const displayName = location.name || `${location.latitude}, ${location.longitude}`;
-  const nameHtml = `<a class="location-tooltip-name" href="${googleMapsUrl}" target="_blank">${displayName}</a>`;
-
-  // Notes
-  const notesHtml = (location.notes && location.notes !== "")
-    ? `<div class="location-tooltip-notes">${location.notes}</div>`
-    : '';
-
-  // Actions Layer
-  let actionsHtml = `<a class="location-tooltip-action" href="${googleMapsUrl}" target="_blank">Open in Google Maps</a>`;
-
-  // Additional URLs
-  if (location.url && location.url !== "") {
-    const urls = Array.isArray(location.url) ? location.url : [location.url];
-    urls.forEach(url => {
-      actionsHtml += ` <a class="location-tooltip-action" target="_blank" href="${url}">${url}</a>`;
-    });
-  }
-
-  // Weather
-  const weatherQuery = location.weather || `${location.latitude}%2C${location.longitude}`;
-  const accuWeatherHtml = `<a class="location-tooltip-action" target="_blank" href="https://www.accuweather.com/en/search-locations?query=${weatherQuery}">Accuweather</a>`;
-  const visualCrossingHtml = `<a class="location-tooltip-action" target="_blank" href="https://www.visualcrossing.com/weather-forecast/${location.latitude}%2C${location.longitude}">Visual crossing weather forecast</a>`;
-
-  return `
-    <div class="location-tooltip-content">
-      ${nameHtml}
-      ${notesHtml}
-      ${actionsHtml}
-      ${visualCrossingHtml}
-      ${accuWeatherHtml}
-    </div>`;
-}
-
-/**
- * Generates HTML for a legend item.
- * @param {string} category - The category key (e.g., 'blm').
- * @param {Object} config - The configuration from SPOT_CONFIG.
- * @param {number} count - The number of visible spots in this category.
- * @returns {string} HTML string for the legend list item.
- */
-function createLegendItemHtml(category, config, count) {
-  let legendClass = `map-legend-item js-map-legend-item ${category}`;
-  if (config.hideByDefault) legendClass += " hide";
-
-  return `
-    <li class="${legendClass}">
-      <div class="map-legend-symbol"><img src="${config.icon}" alt=""></div>
-      <div class="map-legend-label ${count}">${config.label} (${count})</div>
-    </li>`;
-}
-
 
 
 function addMarkers(count, locations, locationType, svgIcon, locationTypeHuman) {
@@ -222,8 +156,40 @@ function addMarkers(count, locations, locationType, svgIcon, locationTypeHuman) 
 
       count++
 
-      // Build the content of tooltips using the template function.
-      const locationContent = createPopupContent(location);
+      let locationName = "",
+          locationNotes = "",
+          locationUrl = "",
+          locationWeather = ""
+
+      // Create URL to Google Maps from coordinates.
+      let googleMapsUrl = "https://www.google.com/maps/search/?api=1&query=" + location.latitude + "%2C" + location.longitude
+
+      // If there is no name, create it from coordinates.
+      if (location.name == undefined) locationName = location.latitude + ", " + location.longitude
+      else locationName = location.name
+      locationName = '<a class="location-tooltip-name" href="' + googleMapsUrl + '" target="_blank">' + locationName + '</a>'
+
+      // Check other content
+      if (location.notes !== undefined && location.notes !== "") locationNotes = '<div class="location-tooltip-notes">' + location.notes + '</div>'
+      if (location.url !== undefined && location.url !== "") {
+        if (Array.isArray(location.url)) {
+          for (let i = 0; i < location.url.length; i++) {
+            if (locationUrl !== "") locationUrl += ' ';
+            locationUrl += '<a class="location-tooltip-action" target="_blank" href="' + location.url[i] + '">' + location.url[i] + '</a>'
+          }
+        } else {
+          locationUrl = '<a class="location-tooltip-action" target="_blank" href="' + location.url + '">' + location.url + '</a>'
+        }
+      }
+      locationUrl = '<a class="location-tooltip-action" href="' + googleMapsUrl + '" target="_blank">Open in Google Maps</a>' + locationUrl
+      if (location.weather !== undefined && location.weather !== "") locationWeather = '<a class="location-tooltip-action" target="_blank" href="https://www.accuweather.com/en/search-locations?query=' + location.weather + '">Accuweather</a>'
+      else locationWeather = '<a class="location-tooltip-action" target="_blank" href="https://www.accuweather.com/en/search-locations?query=' + location.latitude + '%2C' + location.longitude + '">Accuweather</a>'
+
+      visualCrossingWeather = '<a class="location-tooltip-action" target="_blank" href="https://www.visualcrossing.com/weather-forecast/' + location.latitude + '%2C' + location.longitude + '">Visual crossing weather forecast</a>'
+
+
+      // Build the content of tooltips.
+      let locationContent = '<div class="location-tooltip-content">' + locationName + locationNotes + locationUrl + visualCrossingWeather + locationWeather + '</div>'
 
       // Place markers on the map.
       const marker = new L.marker([location.latitude, location.longitude], {icon: svgIcon})
@@ -306,9 +272,14 @@ function parseLocations(locations) {
     // If not hidden by default, add the layer to the map
     if (!config.hideByDefault) {
       map.addLayer(CATEGORY_LAYERS[locationType]);
+    } else {
+      legendClass += " hide";
     }
 
-    legendHtml += createLegendItemHtml(locationType, config, count);
+    legendHtml += `<li class="${legendClass}">
+      <div class="map-legend-symbol"><img src="${legendMarker}" alt=""></div>
+      <div class="map-legend-label ${count}">${locationTypeHuman} (${count})</div>
+    </li>`;
   }
 
   // Use the class hide to hide by default
