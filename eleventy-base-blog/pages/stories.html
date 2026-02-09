@@ -41,17 +41,16 @@ eleventyNavigation:
       .controls {
           backdrop-filter: blur(10px);
           background: rgba(20, 20, 20, 0.8);
-          border: 1px solid rgba(255, 255, 255, 0.1);
+          /* border: 1px solid rgba(255, 255, 255, 0.1); */
           border-radius: 30px;
-          bottom: 20px;
-          box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+          top: 5px;
+          /* box-shadow: 0 4px 20px rgba(0,0,0,0.5); */
           display: flex;
-          gap: 10px;
-          left: 50%;
+          /* gap: 10px; */
+          left: 5px;
           opacity: .5;
-          padding: 10px 20px;
+          padding: 5px;
           position: fixed;
-          transform: translateX(-50%);
           transition: opacity .2s;
           z-index: 1000;
       }
@@ -62,9 +61,9 @@ eleventyNavigation:
           border-radius: 20px;
           color: rgba(255, 255, 255, 0.6);
           cursor: pointer;
-          font-size: 14px;
+          font-size: 12px;
           font-weight: 500;
-          padding: 8px 12px;
+          padding: 5px;
           transition: color 0.2s, background 0.2s;
       }
 
@@ -95,6 +94,7 @@ eleventyNavigation:
           content-visibility: auto;
           display: flex;
           justify-content: center;
+          position: relative; /* For caption overlay */
       }
 
       .story-item img {
@@ -105,18 +105,44 @@ eleventyNavigation:
           width: 100%;
       }
 
+      .story-caption {
+          bottom: 15px;
+          color: rgba(255, 255, 255, 0.5);
+          font-size: 12px;
+          left: 15px;
+          /* pointer-events: none; */
+          position: absolute;
+          text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+          z-index: 10;
+      }
+
       /* Mode: Grid */
       .gallery--grid {
           display: grid;
           gap: var(--gap);
-          height: auto;
           grid-template-columns: repeat(auto-fill, minmax(var(--grid-min), 1fr));
+          height: auto;
           padding: var(--gap);
       }
 
       .gallery--grid .story-item {
-          aspect-ratio: 9 / 16;
+          aspect-ratio: auto; /* Let content define height */
+          flex-direction: column;
           height: auto;
+      }
+
+      .gallery--grid .story-item img {
+          height: auto;
+          width: 100%;
+      }
+
+      .gallery--grid .story-caption {
+          bottom: auto;
+          left: auto;
+          margin-top: 8px;
+          position: static;
+          text-align: center;
+          width: 100%;
       }
 
       /* Mode: Vertical */
@@ -177,8 +203,9 @@ eleventyNavigation:
       /* Slider Navigation Arrows */
       .slider-nav {
           display: none;
+          height: 100%;
           justify-content: space-between;
-          padding: 0 20px;
+          padding: 0 5px;
           pointer-events: none;
           position: fixed;
           top: 50%;
@@ -192,25 +219,29 @@ eleventyNavigation:
       }
 
       .nav-btn {
+          --size: 20px;
           align-items: center;
-          backdrop-filter: blur(5px);
+          /* backdrop-filter: blur(5px); */
           background: rgba(255, 255, 255, 0.1);
           border: none;
-          border-radius: 50%;
-          color: white;
+          /* border-radius: 50%; */
+          color: #fff;
           cursor: pointer;
           display: flex;
-          font-size: 24px;
-          height: 50px;
+          font-size: 14px;
+          /* height: var(--size); */
+          height: 100%;
           justify-content: center;
+          opacity: 0;
           pointer-events: auto;
           transition: transform 0.2s, background 0.2s;
-          width: 50px;
+          /* width: var(--size); */
+          width: 50%;
       }
 
       .nav-btn:hover {
-          background: rgba(255, 255, 255, 0.2);
-          transform: scale(1.1);
+          /* background: rgba(255, 255, 255, 0.2); */
+          /* transform: scale(1.1); */
       }
 
       /* Hide specific elements based on mode */
@@ -308,10 +339,12 @@ eleventyNavigation:
                 // Build Gallery Items
                 gallery.innerHTML = imagePaths.map(path => {
                     const fullSrc = `${BASE_URL}/${path}`;
+                    const filename = path.split('/').pop();
                     return `
-                        <div class="story-item">
+                        <figure class="story-item">
                             <img src="${fullSrc}" loading="lazy" decoding="async" alt="Story">
-                        </div>
+                            <figcaption class="story-caption">${filename}</figcaption>
+                        </figure>
                     `;
                 }).join('');
 
@@ -371,9 +404,15 @@ eleventyNavigation:
             const mode = document.body.className.replace('mode-', '');
             const url = new URL(window.location);
             url.searchParams.set('mode', mode);
-            url.searchParams.set('photo', currentPhotoIndex + 1);
 
-            localStorage.setItem('stories_last_photo', currentPhotoIndex + 1);
+            // Get current filename
+            const currentImg = items[currentPhotoIndex]?.querySelector('img');
+            if (currentImg) {
+                const filename = currentImg.src.split('/').pop();
+                url.searchParams.set('story', filename);
+                localStorage.setItem('stories_last_story', filename);
+            }
+
             window.history.replaceState({}, '', url);
         }
 
@@ -383,26 +422,23 @@ eleventyNavigation:
             const savedMode = localStorage.getItem('stories_mode') || 'slider';
             const mode = params.get('mode') || savedMode;
 
-            let startPhoto = 1;
-            const savedPhoto = localStorage.getItem('stories_last_photo');
-            const urlPhoto = params.get('photo');
+            const savedStory = localStorage.getItem('stories_last_story');
+            const urlStory = params.get('story');
+            const targetStory = urlStory || savedStory || START_IMAGE;
 
-            if (urlPhoto) {
-                startPhoto = parseInt(urlPhoto);
-            } else if (savedPhoto) {
-                startPhoto = parseInt(savedPhoto);
-            } else if (START_IMAGE) {
+            let startIndex = 0;
+            if (targetStory) {
                 const index = Array.from(items).findIndex(item => {
                     const img = item.querySelector('img');
-                    return img && img.src.includes(START_IMAGE);
+                    return img && img.src.includes(targetStory);
                 });
-                if (index !== -1) startPhoto = index + 1;
+                if (index !== -1) startIndex = index;
             }
 
             setMode(mode, false);
 
             setTimeout(() => {
-                scrollToPhoto(startPhoto - 1);
+                scrollToPhoto(startIndex);
                 syncURL();
             }, 100);
         }
