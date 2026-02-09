@@ -1,0 +1,452 @@
+---
+layout: null
+description: Stories
+permalink: /stories/
+title: Stories
+eleventyNavigation:
+  key: Stories
+  order: 3
+---
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Stories</title>
+
+    <style>
+      :root {
+          --accent-color: #333;
+          --bg-color: #000;
+          --gap: 20px;
+          --grid-min: 200px;
+          --text-color: #fff;
+      }
+
+      * {
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+      }
+
+      body {
+          background-color: var(--bg-color);
+          color: var(--text-color);
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+          overflow-x: hidden;
+      }
+
+      /* Mode Switcher UI */
+      .controls {
+          backdrop-filter: blur(10px);
+          background: rgba(20, 20, 20, 0.8);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-radius: 30px;
+          bottom: 20px;
+          box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+          display: flex;
+          gap: 10px;
+          left: 50%;
+          opacity: .5;
+          padding: 10px 20px;
+          position: fixed;
+          transform: translateX(-50%);
+          transition: opacity .2s;
+          z-index: 1000;
+      }
+
+      .controls button {
+          background: transparent;
+          border: none;
+          border-radius: 20px;
+          color: rgba(255, 255, 255, 0.6);
+          cursor: pointer;
+          font-size: 14px;
+          font-weight: 500;
+          padding: 8px 12px;
+          transition: color 0.2s, background 0.2s;
+      }
+
+      .controls button.active {
+          background: rgba(255, 255, 255, 0.1);
+          color: #fff;
+      }
+
+      .controls button:hover {
+          color: #fff;
+      }
+
+      .controls:hover {
+          opacity: 1;
+      }
+
+      /* Gallery Base */
+      .gallery {
+          display: block;
+          height: 100vh;
+          width: 100%;
+      }
+
+      .story-item {
+          align-items: center;
+          background: #000;
+          contain-intrinsic-size: 1080px 1920px;
+          content-visibility: auto;
+          display: flex;
+          justify-content: center;
+      }
+
+      .story-item img {
+          aspect-ratio: 9 / 16;
+          display: block;
+          height: 100%;
+          object-fit: contain;
+          width: 100%;
+      }
+
+      /* Mode: Grid */
+      .gallery--grid {
+          display: grid;
+          gap: var(--gap);
+          height: auto;
+          grid-template-columns: repeat(auto-fill, minmax(var(--grid-min), 1fr));
+          padding: var(--gap);
+      }
+
+      .gallery--grid .story-item {
+          aspect-ratio: 9 / 16;
+          height: auto;
+      }
+
+      /* Mode: Vertical */
+      .gallery--vertical {
+          display: block;
+          height: auto;
+      }
+
+      .gallery--vertical .story-item {
+          height: 100vh;
+          width: 100%;
+      }
+
+      /* Mode: Horizontal */
+      .gallery--horizontal {
+          display: flex;
+          flex-direction: row;
+          height: 100vh;
+          overflow-x: auto;
+          overflow-y: hidden;
+          scroll-behavior: auto;
+          width: 100vw;
+      }
+
+      .gallery--horizontal .story-item {
+          flex: 0 0 auto;
+          height: 100vh;
+          width: auto;
+      }
+
+      .gallery--horizontal .story-item img {
+          height: 100vh;
+          width: auto;
+      }
+
+      /* Mode: Slider */
+      .gallery--slider {
+          display: flex;
+          height: 100vh;
+          overflow-x: auto;
+          overflow-y: hidden;
+          scroll-behavior: auto;
+          scroll-snap-type: x mandatory;
+          scrollbar-width: none;
+          width: 100vw;
+      }
+
+      .gallery--slider::-webkit-scrollbar {
+          display: none;
+      }
+
+      .gallery--slider .story-item {
+          flex: 0 0 100vw;
+          height: 100vh;
+          scroll-snap-align: center;
+      }
+
+      /* Slider Navigation Arrows */
+      .slider-nav {
+          display: none;
+          justify-content: space-between;
+          padding: 0 20px;
+          pointer-events: none;
+          position: fixed;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 100%;
+          z-index: 900;
+      }
+
+      .gallery--slider + .slider-nav {
+          display: flex;
+      }
+
+      .nav-btn {
+          align-items: center;
+          backdrop-filter: blur(5px);
+          background: rgba(255, 255, 255, 0.1);
+          border: none;
+          border-radius: 50%;
+          color: white;
+          cursor: pointer;
+          display: flex;
+          font-size: 24px;
+          height: 50px;
+          justify-content: center;
+          pointer-events: auto;
+          transition: transform 0.2s, background 0.2s;
+          width: 50px;
+      }
+
+      .nav-btn:hover {
+          background: rgba(255, 255, 255, 0.2);
+          transform: scale(1.1);
+      }
+
+      /* Hide specific elements based on mode */
+      body:not(.mode-slider) .slider-nav {
+          display: none;
+      }
+
+      /* Custom Dark Scrollbars */
+      ::-webkit-scrollbar {
+          height: 8px;
+          width: 8px;
+      }
+
+      ::-webkit-scrollbar-track {
+          background: #000;
+      }
+
+      ::-webkit-scrollbar-thumb {
+          background: #222;
+          border-radius: 4px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+          background: #333;
+      }
+
+      /* Firefox support */
+      * {
+          scrollbar-color: #222 #000;
+          scrollbar-width: thin;
+      }
+
+    </style>
+</head>
+<body class="mode-slider">
+
+    <div id="gallery" class="gallery gallery--grid">
+        <!-- Content loaded dynamically via JS -->
+        <div class="loading-state" style="display: flex; height: 100vh; align-items: center; justify-content: center; color: #555;">
+            Loading stories...
+        </div>
+    </div>
+
+    <!-- Navigation Overlay for Slider -->
+    <div class="slider-nav">
+        <button class="nav-btn" onclick="moveSlider(-1)">&#10094;</button>
+        <button class="nav-btn" onclick="moveSlider(1)">&#10095;</button>
+    </div>
+
+    <div class="controls">
+        <button onclick="setMode('grid')" id="btn-grid">Grid</button>
+        <button onclick="setMode('vertical')" id="btn-vertical">Vertical</button>
+        <button onclick="setMode('horizontal')" id="btn-horizontal">Horizontal</button>
+        <button onclick="setMode('slider')" id="btn-slider" class="active">Slider</button>
+    </div>
+
+    <script>
+        /**
+         * CONFIGURATION
+         * Update these values to match your image server.
+         */
+        // const BASE_URL = 'http://playground.local/stories';
+        const BASE_URL = 'https://longdesigns.com/stories';
+        const API_URL = `${BASE_URL}/list.php`;   // Path to the PHP script
+        const API_KEY = 'st_8a2b_9f41de3c6e'; // Must match the secret in list.php
+
+        // Settings
+        const START_IMAGE = null; // Filename to prioritize on first load
+
+        // State
+        let gallery = document.getElementById('gallery');
+        let items = [];
+        let buttons = document.querySelectorAll('.controls button');
+        let currentPhotoIndex = 0;
+
+        /**
+         * DYNAMIC LOADING
+         */
+        async function loadGallery() {
+            try {
+                const response = await fetch(API_URL, {
+                    headers: { 'X-API-KEY': API_KEY }
+                });
+
+                if (!response.ok) throw new Error('Failed to load gallery inventory');
+
+                const data = await response.json();
+                const imagePaths = data.images || [];
+
+                if (imagePaths.length === 0) {
+                    gallery.innerHTML = '<div style="padding: 40px; text-align: center; color: #555;">No images found.</div>';
+                    return;
+                }
+
+                // Build Gallery Items
+                gallery.innerHTML = imagePaths.map(path => {
+                    const fullSrc = `${BASE_URL}/${path}`;
+                    return `
+                        <div class="story-item">
+                            <img src="${fullSrc}" loading="lazy" decoding="async" alt="Story">
+                        </div>
+                    `;
+                }).join('');
+
+                // Refresh DOM references
+                items = document.querySelectorAll('.story-item');
+
+                // Continue with initialization
+                init();
+
+            } catch (err) {
+                console.error('Gallery error:', err);
+                gallery.innerHTML = '<div style="padding: 40px; text-align: center; color: #e74c3c;">Error loading gallery. Check CORS and API key.</div>';
+            }
+        }
+
+        /**
+         * CORE LOGIC
+         */
+        function setMode(mode, updateURL = true) {
+            document.body.className = `mode-${mode}`;
+            gallery.className = `gallery gallery--${mode}`;
+
+            buttons.forEach(btn => btn.classList.remove('active'));
+            const activeBtn = document.getElementById(`btn-${mode}`);
+            if (activeBtn) activeBtn.classList.add('active');
+
+            requestAnimationFrame(() => {
+                scrollToPhoto(currentPhotoIndex);
+            });
+
+            localStorage.setItem('stories_mode', mode);
+            if (updateURL) syncURL();
+        }
+
+        function scrollToPhoto(index) {
+            if (!items.length || index < 0 || index >= items.length) return;
+            currentPhotoIndex = index;
+            const item = items[index];
+
+            if (document.body.classList.contains('mode-slider') || document.body.classList.contains('mode-horizontal')) {
+                gallery.scrollTo({ left: item.offsetLeft, behavior: 'auto' });
+            } else {
+                item.scrollIntoView({ behavior: 'auto' });
+            }
+        }
+
+        function moveSlider(dir) {
+            const newIndex = Math.max(0, Math.min(items.length - 1, currentPhotoIndex + dir));
+            if (newIndex !== currentPhotoIndex) {
+                currentPhotoIndex = newIndex;
+                scrollToPhoto(currentPhotoIndex);
+                syncURL();
+            }
+        }
+
+        function syncURL() {
+            const mode = document.body.className.replace('mode-', '');
+            const url = new URL(window.location);
+            url.searchParams.set('mode', mode);
+            url.searchParams.set('photo', currentPhotoIndex + 1);
+
+            localStorage.setItem('stories_last_photo', currentPhotoIndex + 1);
+            window.history.replaceState({}, '', url);
+        }
+
+        function init() {
+            const params = new URLSearchParams(window.location.search);
+
+            const savedMode = localStorage.getItem('stories_mode') || 'slider';
+            const mode = params.get('mode') || savedMode;
+
+            let startPhoto = 1;
+            const savedPhoto = localStorage.getItem('stories_last_photo');
+            const urlPhoto = params.get('photo');
+
+            if (urlPhoto) {
+                startPhoto = parseInt(urlPhoto);
+            } else if (savedPhoto) {
+                startPhoto = parseInt(savedPhoto);
+            } else if (START_IMAGE) {
+                const index = Array.from(items).findIndex(item => {
+                    const img = item.querySelector('img');
+                    return img && img.src.includes(START_IMAGE);
+                });
+                if (index !== -1) startPhoto = index + 1;
+            }
+
+            setMode(mode, false);
+
+            setTimeout(() => {
+                scrollToPhoto(startPhoto - 1);
+                syncURL();
+            }, 100);
+        }
+
+        // Debounced Scroll Tracker
+        let scrollTimeout;
+        gallery.addEventListener('scroll', () => {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                if (!items.length) return;
+
+                const center = gallery.scrollLeft + (gallery.clientWidth / 2);
+                let closestIndex = 0;
+                let minDistance = Infinity;
+
+                items.forEach((item, index) => {
+                    const distance = Math.abs((item.offsetLeft + item.clientWidth / 2) - center);
+                    if (distance < minDistance) {
+                        minDistance = distance;
+                        closestIndex = index;
+                    }
+                });
+
+                if (closestIndex !== currentPhotoIndex) {
+                    currentPhotoIndex = closestIndex;
+                    syncURL();
+                }
+            }, 100);
+        });
+
+        // Keyboard Support
+        window.addEventListener('keydown', (e) => {
+            if (document.body.classList.contains('mode-slider')) {
+                if (e.key === 'ArrowLeft') moveSlider(-1);
+                if (e.key === 'ArrowRight') moveSlider(1);
+            }
+            if (document.body.classList.contains('mode-horizontal')) {
+                if (e.key === 'ArrowLeft') gallery.scrollBy({ left: -window.innerWidth / 2, behavior: 'auto' });
+                if (e.key === 'ArrowRight') gallery.scrollBy({ left: window.innerWidth / 2, behavior: 'auto' });
+            }
+        });
+
+        // Start loading sequence
+        loadGallery();
+    </script>
+</body>
+</html>
