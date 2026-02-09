@@ -188,6 +188,7 @@ permalink: /time-tracker/
     let notificationTimer = null;
     let currentSession = null;
     let trackingData = [];
+    let dataTableInstance = null; // Global variable to hold Simple-DataTables instance
 
     // DOM Elements
     const activeTrackingEl = document.getElementById('activeTracking');
@@ -656,68 +657,6 @@ function importFromCsv(file) {
         return bMoment.valueOf() - aMoment.valueOf(); // Compare as milliseconds
       });
 
-      summaryContent.addEventListener('click', (event) => {   // Event listener for "Continue" button
-
-        // const continueButton = event.target.classList.contains('continue-tracking');
-        const continueButton = event.target.closest('.continue-tracking');
-
-        if (continueButton) {
-          const originalIndex = continueButton.getAttribute('data-original-index');
-          const entry = trackingData[parseInt(originalIndex, 10)]; // Access trackingData
-
-
-          if (entry) {// Prefill the form
-              document.getElementById('description').value = entry.description;
-              document.getElementById('project').value = entry.project;
-              document.getElementById('client').value = entry.client;
-              // document.getElementById('tags').value = entry.tags;
-              document.getElementById('billable').value = entry.billable;
-
-              startTrackingForm.style.display = 'block';
-            }
-            else {
-              showAlert("Error: Could not find tracking entry.", "error");
-            }
-        }
-      });
-
-      // Handle inline editing persistence
-      summaryContent.addEventListener('blur', (event) => {
-        const target = event.target;
-        const field = target.getAttribute('data-field');
-        if (field) {
-          const tr = target.closest('tr');
-          const index = parseInt(tr.getAttribute('data-index'), 10);
-
-          if (!isNaN(index) && trackingData[index]) {
-            const newValue = target.textContent.trim();
-            if (trackingData[index][field] !== newValue) {
-              let valueToSave = newValue;
-              if (field === 'duration') {
-                const seconds = secondsFromDuration(newValue);
-                valueToSave = formatTimeFromSeconds(seconds);
-                target.textContent = valueToSave; // Normalize in UI
-              }
-
-              trackingData[index][field] = valueToSave;
-              localStorage.setItem(CONFIG.STORAGE_KEY, JSON.stringify(trackingData));
-              showAlert(`Updated ${field}`, 'success');
-
-              if (field === 'duration' || field === 'startDate') {
-                updateTotals();
-              }
-            }
-          }
-        }
-      }, true); // Use capture to catch blur on contenteditable elements
-
-      summaryContent.addEventListener('keydown', (event) => {
-        if (event.key === 'Enter' && event.target.hasAttribute('contenteditable')) {
-          event.preventDefault();
-          event.target.blur();
-        }
-      });
-
       // Generate summary HTML
       let html = '';
 
@@ -803,7 +742,10 @@ function importFromCsv(file) {
 
       // Initialize Simple-DataTables
       if (document.getElementById('summary-table')) {
-        const dataTable = new simpleDatatables.DataTable("#summary-table", {
+        if (dataTableInstance) {
+          dataTableInstance.destroy();
+        }
+        dataTableInstance = new simpleDatatables.DataTable("#summary-table", {
           perPage: 90,         // Number of rows per page (must be in perPageSelect to reflect in <select>)
           perPageSelect: [10, 30, 50, 90], // Options for rows per page
           paging: true,      // Enable pagination (true by default)
@@ -849,7 +791,57 @@ function importFromCsv(file) {
       populateTimezoneSelector();
       updateUIWithTimezone();
 
-      // Set up event listeners
+      // Set up event listeners (Added once)
+      summaryContent.addEventListener('click', (event) => {
+        const continueButton = event.target.closest('.continue-tracking');
+        if (continueButton) {
+          const originalIndex = continueButton.getAttribute('data-original-index');
+          const entry = trackingData[parseInt(originalIndex, 10)];
+          if (entry) {
+            document.getElementById('description').value = entry.description;
+            document.getElementById('project').value = entry.project;
+            document.getElementById('client').value = entry.client;
+            document.getElementById('billable').value = entry.billable;
+            startTrackingForm.style.display = 'block';
+          } else {
+            showAlert("Error: Could not find tracking entry.", "error");
+          }
+        }
+      });
+
+      summaryContent.addEventListener('blur', (event) => {
+        const target = event.target;
+        const field = target.getAttribute('data-field');
+        if (field) {
+          const tr = target.closest('tr');
+          const index = parseInt(tr.getAttribute('data-index'), 10);
+          if (!isNaN(index) && trackingData[index]) {
+            const newValue = target.textContent.trim();
+            if (trackingData[index][field] !== newValue) {
+              let valueToSave = newValue;
+              if (field === 'duration') {
+                const seconds = secondsFromDuration(newValue);
+                valueToSave = formatTimeFromSeconds(seconds);
+                target.textContent = valueToSave;
+              }
+              trackingData[index][field] = valueToSave;
+              localStorage.setItem(CONFIG.STORAGE_KEY, JSON.stringify(trackingData));
+              showAlert(`Updated ${field}`, 'success');
+              if (field === 'duration' || field === 'startDate') {
+                updateTotals();
+              }
+            }
+          }
+        }
+      }, true);
+
+      summaryContent.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' && event.target.hasAttribute('contenteditable')) {
+          event.preventDefault();
+          event.target.blur();
+        }
+      });
+
       startTrackingBtn.addEventListener('click', () => {
         startTrackingForm.style.display = 'block';
 
