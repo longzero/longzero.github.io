@@ -173,8 +173,8 @@ export default function (eleventyConfig) {
       input: ".",
       includes: "_includes", // Relative to input
       data: "_data",
-      output: "_site" // For vercel: uncomment this line and commit this so vercel can build the website.
-      // output: "../docs" // For github pages: this generates the docs folder locally and you can push it so the website also works with github pages.
+      // output: "_site" // For vercel: uncomment this line and commit this so vercel can build the website.
+      output: "../docs" // For github pages: this generates the docs folder locally and you can push it so the website also works with github pages.
     }
   };
 };
