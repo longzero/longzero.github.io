@@ -695,16 +695,16 @@ function importFromCsv(file) {
 
           htmlRows += `
             <tr data-index="${originalIndex}">
-              <td class="column-date" contenteditable="true" data-field="startDate">${formatDateTimeWithTimezone(entry.startDate, 'YYYY-MM-DD')}</td>
-              <td class="column-time" contenteditable="true" data-field="startTime">${formatDateTimeWithTimezone(entry.startDate + ' ' + entry.startTime, 'HH:mm:ss')}</td>
-              <td class="column-project" contenteditable="true" data-field="project">${entry.project || ''}</td>
+              <td class="column-date" contenteditable="true" data-field="startDate" data-index="${originalIndex}">${formatDateTimeWithTimezone(entry.startDate, 'YYYY-MM-DD')}</td>
+              <td class="column-time" contenteditable="true" data-field="startTime" data-index="${originalIndex}">${formatDateTimeWithTimezone(entry.startDate + ' ' + entry.startTime, 'HH:mm:ss')}</td>
+              <td class="column-project" contenteditable="true" data-field="project" data-index="${originalIndex}">${entry.project || ''}</td>
               <td class="column-description">
-                <div contenteditable="true" data-field="description">${entry.description || ''}</div>
+                <div contenteditable="true" data-field="description" data-index="${originalIndex}">${entry.description || ''}</div>
                 <a class="continue-tracking" data-original-index="${originalIndex}">Continue</a>
               </td>
-              <td class="column-duration" contenteditable="true" data-field="duration">${entry.duration}</td>
-              <td class="column-tags" contenteditable="true" data-field="tags">${entry.tags || ''}</td>
-              <td class="column-client" contenteditable="true" data-field="client">${entry.client || ''}</td>
+              <td class="column-duration" contenteditable="true" data-field="duration" data-index="${originalIndex}">${entry.duration}</td>
+              <td class="column-tags" contenteditable="true" data-field="tags" data-index="${originalIndex}">${entry.tags || ''}</td>
+              <td class="column-client" contenteditable="true" data-field="client" data-index="${originalIndex}">${entry.client || ''}</td>
             </tr>
           `;
 
@@ -813,8 +813,7 @@ function importFromCsv(file) {
         const target = event.target;
         const field = target.getAttribute('data-field');
         if (field) {
-          const tr = target.closest('tr');
-          const index = parseInt(tr.getAttribute('data-index'), 10);
+          const index = parseInt(target.getAttribute('data-index'), 10);
           if (!isNaN(index) && trackingData[index]) {
             const newValue = target.textContent.trim();
             if (trackingData[index][field] !== newValue) {
@@ -912,13 +911,27 @@ function importFromCsv(file) {
       }
     });
 
+    // Sync data across tabs
+    window.addEventListener('storage', (event) => {
+      if (event.key === CONFIG.STORAGE_KEY) {
+        const newData = JSON.parse(event.newValue || '[]');
+        if (JSON.stringify(newData) !== JSON.stringify(trackingData)) {
+          trackingData = newData;
+          displaySummary(document.querySelector('.tab.active').getAttribute('data-period'));
+        }
+      }
+      if (event.key === CONFIG.CURRENT_SESSION_KEY) {
+        currentSession = event.newValue ? JSON.parse(event.newValue) : null;
+        updateTrackingStatus();
+      }
+    });
+
     // Handle page unload to save current data
     window.addEventListener('beforeunload', () => {
       if (currentSession) {
         localStorage.setItem(CONFIG.CURRENT_SESSION_KEY, JSON.stringify(currentSession));
       }
-
-      localStorage.setItem(CONFIG.STORAGE_KEY, JSON.stringify(trackingData));
+      // No longer saving trackingData here to prevent overwriting from multiple tabs
     });
 
 
