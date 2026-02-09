@@ -120,9 +120,15 @@ eleventyNavigation:
       .gallery--grid {
           display: grid;
           gap: var(--gap);
-          grid-template-columns: repeat(auto-fill, minmax(var(--grid-min), 1fr));
+          grid-template-columns: repeat(3, 1fr);
           height: auto;
           padding: var(--gap);
+      }
+
+      @media (min-width: 680px) {
+          .gallery--grid {
+              grid-template-columns: repeat(auto-fill, minmax(var(--grid-min), 1fr));
+          }
       }
 
       .gallery--grid .story-item {
@@ -148,11 +154,14 @@ eleventyNavigation:
       /* Mode: Vertical */
       .gallery--vertical {
           display: block;
-          height: auto;
+          height: 100vh;
+          overflow-y: auto;
+          scroll-snap-type: y mandatory;
       }
 
       .gallery--vertical .story-item {
           height: 100vh;
+          scroll-snap-align: center;
           width: 100%;
       }
 
@@ -164,12 +173,14 @@ eleventyNavigation:
           overflow-x: auto;
           overflow-y: hidden;
           scroll-behavior: auto;
+          scroll-snap-type: x mandatory;
           width: 100vw;
       }
 
       .gallery--horizontal .story-item {
           flex: 0 0 auto;
           height: 100vh;
+          scroll-snap-align: start;
           width: auto;
       }
 
@@ -450,12 +461,20 @@ eleventyNavigation:
             scrollTimeout = setTimeout(() => {
                 if (!items.length) return;
 
-                const center = gallery.scrollLeft + (gallery.clientWidth / 2);
+                const isVertical = document.body.classList.contains('mode-vertical');
+                const scrollPos = isVertical ? gallery.scrollTop : gallery.scrollLeft;
+                const clientDim = isVertical ? gallery.clientHeight : gallery.clientWidth;
+                const center = scrollPos + (clientDim / 2);
+
                 let closestIndex = 0;
                 let minDistance = Infinity;
 
                 items.forEach((item, index) => {
-                    const distance = Math.abs((item.offsetLeft + item.clientWidth / 2) - center);
+                    const itemPos = isVertical ? item.offsetTop : item.offsetLeft;
+                    const itemDim = isVertical ? item.clientHeight : item.clientWidth;
+                    const itemCenter = itemPos + (itemDim / 2);
+
+                    const distance = Math.abs(itemCenter - center);
                     if (distance < minDistance) {
                         minDistance = distance;
                         closestIndex = index;
