@@ -977,11 +977,6 @@
   </url>
   
   <url>
-    <loc>https://longzero.com/frame/</loc>
-    <lastmod>2025-02-13</lastmod>
-  </url>
-  
-  <url>
     <loc>https://longzero.com/links/</loc>
     <lastmod>2025-02-13</lastmod>
   </url>
@@ -989,6 +984,11 @@
   <url>
     <loc>https://longzero.com/time-tracker/</loc>
     <lastmod>2025-04-07</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://longzero.com/time-tracker-2/</loc>
+    <lastmod>2025-05-13</lastmod>
   </url>
   
   <url>
@@ -1008,6 +1008,6 @@
   
   <url>
     <loc>https://longzero.com/stories/</loc>
-    <lastmod>2026-01-30</lastmod>
+    <lastmod>2026-02-09</lastmod>
   </url>
 </urlset>
