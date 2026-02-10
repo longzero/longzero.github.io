@@ -413,13 +413,13 @@ permalink: /time-tracker/
       }
 
       // const headers = Object.keys(trackingData[0]).join(',');
-      const headers = ["Description", "Project", "Duration", "Start date", "Tags"].join(',');
+      const headers = ["Description", "Project", "Duration", "Start date", "Start time", "Tags", "Client"].join(',');
       const csvRows = [
         headers,
         ...trackingData.map(entry =>
-          ["description", "project", "duration", "startDate", "tags"].map(key => {
+          ["description", "project", "duration", "startDate", "startTime", "tags", "client"].map(key => {
           // Object.values(entry).map(value => {
-            let value = entry[key];
+            let value = entry[key] || '';
             if (typeof value === 'string') {
               return `"${value.replace(/"/g, '""')}"`; // Quote and escape double quotes
             }
@@ -471,7 +471,11 @@ function importFromCsv(file) {
       "project": ["project"],
       "duration": ["duration"],
       "start date": ["startDate", "start date"],
-      "tags": ["tags"]
+      "start time": ["startTime", "start time"],
+      "date": ["startDate"],
+      "time": ["startTime"],
+      "tags": ["tags"],
+      "client": ["client"]
     };
 
     const mappedData = newData.map(row => {
