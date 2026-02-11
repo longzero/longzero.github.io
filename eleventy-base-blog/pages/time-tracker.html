@@ -54,25 +54,35 @@ permalink: /time-tracker/
 
       <div class="show-alert" id="alertContainer"></div>
 
+      {#
+        autocomplete="off"
+        To prevent the browser's own autocomplete from interfering with the
+        datalist suggestions which are based on user's previous entries.
+      #}
+
       <div class="tracking-form" id="startTrackingForm" style="display: none;">
         <div class="form-group">
           <label for="description">Task Description:</label>
-          <input type="text" id="description" placeholder="What are you working on?">
+          <input type="text" id="description" list="description-suggestions" placeholder="What are you working on?" autocomplete="off">
+          <datalist id="description-suggestions"></datalist>
         </div>
 
         <div class="form-group">
           <label for="project">Project:</label>
-          <input type="text" id="project" placeholder="Project name">
+          <input type="text" id="project" list="project-suggestions" placeholder="Project name" autocomplete="off">
+          <datalist id="project-suggestions"></datalist>
         </div>
 
         <div class="form-group">
           <label for="client">Client:</label>
-          <input type="text" id="client" value="Globalia">
+          <input type="text" id="client" list="client-suggestions" value="Globalia" autocomplete="off">
+          <datalist id="client-suggestions"></datalist>
         </div>
 
         <div class="form-group">
           <label for="tags">Tags (comma separated):</label>
-          <input type="text" id="tags" placeholder="e.g. coding, meeting, research">
+          <input type="text" id="tags" list="tag-suggestions" placeholder="e.g. coding, meeting, research" autocomplete="off">
+          <datalist id="tag-suggestions"></datalist>
         </div>
 
         <div class="form-group">
@@ -184,6 +194,149 @@ permalink: /time-tracker/
     const exportCsvBtn = document.getElementById('exportCsv');
     const importCsvBtn = document.getElementById('importCsv');
     const csvFileEl = document.getElementById('csvFile');
+
+    // Autocomplete cache
+    let autocompleteCache = {
+      descriptions: [],
+      projects: [],
+      clients: [],
+      tags: [],
+      lastUpdated: null
+    };
+
+    // Autocomplete Helper Functions
+    function extractFieldValues(field) {
+      const valueMap = new Map();
+
+      trackingData.forEach((entry, index) => {
+        const value = entry[field];
+        if (value && value.trim()) {
+          if (!valueMap.has(value)) {
+            valueMap.set(value, {
+              value: value,
+              count: 0,
+              lastUsed: index,
+              relatedData: []
+            });
+          }
+          const item = valueMap.get(value);
+          item.count++;
+          item.lastUsed = Math.max(item.lastUsed, index);
+
+          // Store related field data for smart auto-fill
+          if (field === 'description') {
+            item.relatedData.push({
+              project: entry.project,
+              client: entry.client,
+              tags: entry.tags
+            });
+          }
+        }
+      });
+
+      return Array.from(valueMap.values());
+    }
+
+    function sortSuggestions(suggestions) {
+      return suggestions.sort((a, b) => {
+        // Weight: 70% frequency, 30% recency
+        const scoreA = (a.count * 0.7) + (a.lastUsed * 0.3);
+        const scoreB = (b.count * 0.7) + (b.lastUsed * 0.3);
+        return scoreB - scoreA;
+      });
+    }
+
+    function extractTags() {
+      const tagMap = new Map();
+
+      trackingData.forEach(entry => {
+        if (entry.tags) {
+          entry.tags.split(',').forEach(tag => {
+            const trimmed = tag.trim();
+            if (trimmed) {
+              tagMap.set(trimmed, (tagMap.get(trimmed) || 0) + 1);
+            }
+          });
+        }
+      });
+
+      // Sort by frequency
+      return Array.from(tagMap.entries())
+        .sort((a, b) => b[1] - a[1])
+        .map(([tag]) => tag);
+    }
+
+    function getRelatedFields(description) {
+      const entry = trackingData
+        .slice()
+        .reverse()
+        .find(e => e.description === description);
+
+      if (entry) {
+        return {
+          project: entry.project || '',
+          client: entry.client || CONFIG.DEFAULT_CLIENT,
+          tags: entry.tags || ''
+        };
+      }
+      return null;
+    }
+
+    function updateAutocompleteCache() {
+      autocompleteCache = {
+        descriptions: sortSuggestions(extractFieldValues('description')),
+        projects: sortSuggestions(extractFieldValues('project')),
+        clients: sortSuggestions(extractFieldValues('client')),
+        tags: extractTags(),
+        lastUpdated: Date.now()
+      };
+    }
+
+    function populateDatalist(datalistId, values) {
+      const datalist = document.getElementById(datalistId);
+      if (!datalist) return;
+
+      datalist.innerHTML = '';
+
+      values.forEach(item => {
+        const option = document.createElement('option');
+        option.value = typeof item === 'string' ? item : item.value;
+        datalist.appendChild(option);
+      });
+    }
+
+    function updateAllDatalists() {
+      populateDatalist('description-suggestions', autocompleteCache.descriptions);
+      populateDatalist('project-suggestions', autocompleteCache.projects);
+      populateDatalist('client-suggestions', autocompleteCache.clients);
+      populateDatalist('tag-suggestions', autocompleteCache.tags);
+    }
+
+    function setupSmartAutofill() {
+      const descriptionInput = document.getElementById('description');
+      const projectInput = document.getElementById('project');
+      const clientInput = document.getElementById('client');
+      const tagsInput = document.getElementById('tags');
+
+      descriptionInput.addEventListener('change', (e) => {
+        const selectedDescription = e.target.value;
+        const relatedFields = getRelatedFields(selectedDescription);
+
+        if (relatedFields) {
+          // Only auto-fill if fields are empty or have default values
+          if (!projectInput.value || projectInput.value.trim() === '') {
+            projectInput.value = relatedFields.project;
+          }
+          if (!clientInput.value || clientInput.value === CONFIG.DEFAULT_CLIENT) {
+            clientInput.value = relatedFields.client;
+          }
+          if (!tagsInput.value || tagsInput.value.trim() === '') {
+            tagsInput.value = relatedFields.tags;
+          }
+        }
+      });
+    }
+
 
     // State management
     let notificationTimer = null;
@@ -518,6 +671,11 @@ function importFromCsv(file) {
 
     trackingData = mappedData;
     localStorage.setItem(CONFIG.STORAGE_KEY, JSON.stringify(trackingData));
+
+    // Update autocomplete suggestions with imported data
+    updateAutocompleteCache();
+    updateAllDatalists();
+
     showAlert("Data imported successfully!", "success");
     displaySummary(document.querySelector('.tab.active').getAttribute('data-period'));
   };
@@ -613,6 +771,11 @@ function importFromCsv(file) {
 
       // showAlert(`Tracking ended. Duration: ${currentSession.duration}`);
       showAlert(`Tracking ended. Duration: ${duration}`); // Use the calculated duration
+
+      // Update autocomplete suggestions with new data
+      updateAutocompleteCache();
+      updateAllDatalists();
+
       displaySummary(document.querySelector('.tab.active').getAttribute('data-period'));
     }
 
@@ -803,6 +966,11 @@ function importFromCsv(file) {
       populateTimezoneSelector();
       updateUIWithTimezone();
 
+      // Initialize autocomplete
+      updateAutocompleteCache();
+      updateAllDatalists();
+      setupSmartAutofill();
+
       // Set up event listeners (Added once)
       summaryContent.addEventListener('click', (event) => {
         const continueButton = event.target.closest('.continue-tracking');
@@ -838,6 +1006,13 @@ function importFromCsv(file) {
               trackingData[index][field] = valueToSave;
               localStorage.setItem(CONFIG.STORAGE_KEY, JSON.stringify(trackingData));
               showAlert(`Updated ${field}`, 'success');
+
+              // Update autocomplete suggestions if an autocomplete field was changed
+              if (['description', 'project', 'client', 'tags'].includes(field)) {
+                updateAutocompleteCache();
+                updateAllDatalists();
+              }
+
               if (field === 'duration' || field === 'startDate') {
                 updateTotals();
               }
@@ -929,6 +1104,11 @@ function importFromCsv(file) {
         const newData = JSON.parse(event.newValue || '[]');
         if (JSON.stringify(newData) !== JSON.stringify(trackingData)) {
           trackingData = newData;
+
+          // Update autocomplete suggestions when data is updated from another tab
+          updateAutocompleteCache();
+          updateAllDatalists();
+
           displaySummary(document.querySelector('.tab.active').getAttribute('data-period'));
         }
       }
