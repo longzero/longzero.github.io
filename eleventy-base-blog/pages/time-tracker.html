@@ -96,6 +96,7 @@ permalink: /time-tracker/
         <div class="tab" data-period="last-week">Last Week</div>
         <div class="tab" data-period="month">This Month</div>
         <div class="tab" data-period="year">This Year</div>
+        <div class="tab" data-period="all">All</div>
       </div>
 
       <div id="summaryContent"></div>
@@ -273,7 +274,8 @@ permalink: /time-tracker/
       'week': "This Week",
       'last-week': "Last Week",
       'month': "This Month",
-      'year': "This Year"
+      'year': "This Year",
+      'all': "All"
     };
 
     function updateTotals() {
@@ -316,6 +318,9 @@ permalink: /time-tracker/
           break;
         case 'year':
           filteredData = trackingData.filter(entry => moment.tz(entry.startDate, userTimezone).format('YYYY') === currentYear);
+          break;
+        case 'all':
+          filteredData = trackingData;
           break;
         default:
           filteredData = trackingData;
@@ -650,6 +655,9 @@ function importFromCsv(file) {
           break;
         case 'year':
           filteredData = trackingData.filter(entry => moment.tz(entry.startDate, userTimezone).format('YYYY') === currentYear);
+          break;
+        case 'all':
+          filteredData = trackingData;
           break;
         default:
           filteredData = trackingData;
