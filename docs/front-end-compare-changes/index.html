@@ -1,0 +1,239 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Eleventy v3.0.0">
+
+  <title>Visual QA Dashboard</title>
+  <meta name="description" content="My name is Long Nguyen. I am a Front-End Web Developer obsessed with UX. I am experienced in building simple, clean and user-friendly websites for clients across the globe. Reach me on Instagram or Twitter or by email long@longzero.com.">
+
+  <link rel="apple-touch-icon" href="/assets/images/favicon.png">
+  <link rel="icon" href="/assets/images/favicon.png">
+  <link rel="preload" crossorigin="anonymous" as="font" href="/assets/fonts/oxygen-v10-latin-regular.woff2">
+  <link rel="preload" crossorigin="anonymous" as="font" href="/assets/fonts/oxygen-v10-latin-700.woff2">
+
+  <script>
+    // Tracking code for longzero.com
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=true;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-25351410-3', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+  
+  
+  
+    
+  
+
+  <meta property="og:site_name" content="Longzero ~ Long Nguyen">
+  <meta property="og:description" content="">
+  <meta property="og:image" content="https://longzero.com/assets/images/og-map.jpg">
+  <meta property="og:title" content="Visual QA Dashboard">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://longzero.com/front-end-compare-changes/">
+
+  <meta name="theme-color" content="#336699">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  <meta prefix="og: http://ogp.me/ns#" property="og:article:author" content="Longzero">
+
+  
+
+  
+  
+  
+  
+  
+</head>
+
+
+  <body class="template-blank">
+    
+
+    <main>
+
+      
+<style>
+  :root {
+    --bg: #0a0a0c;
+    --panel: rgba(255, 255, 255, 0.03);
+    --accent: #8b5cf6;
+    --text: #e2e8f0;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 2rem;
+  }
+
+  .header {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 1rem;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    gap: 2rem;
+  }
+
+  .card {
+    background: var(--panel);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 12px;
+    padding: 1.5rem;
+    backdrop-filter: blur(10px);
+  }
+
+  .card h3 {
+    margin-top: 0;
+    font-weight: 500;
+    color: var(--accent);
+    text-transform: capitalize;
+  }
+
+  .compare-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: #000;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .img-base, .img-current {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  /* "Difference" overlay technique */
+  .mode-diff .img-current {
+    mix-blend-mode: difference;
+    filter: invert(1);
+  }
+
+  .mode-overlay .img-current {
+    opacity: 0.5;
+  }
+
+  .mode-side .compare-container {
+    display: flex;
+  }
+  .mode-side .img-base, .mode-side .img-current {
+    position: relative;
+    width: 50%;
+  }
+
+  .controls {
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  button {
+    background: rgba(255,255,255,0.1);
+    border: none;
+    color: #fff;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.75rem;
+    transition: all 0.2s;
+  }
+
+  button.active {
+    background: var(--accent);
+  }
+
+  .empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 4rem;
+    color: #666;
+    border: 2px dashed rgba(255,255,255,0.05);
+    border-radius: 12px;
+  }
+</style>
+
+<div class="header">
+  <h1>Visual QA Dashboard</h1>
+  <p>Run <code>npm run qa-capture</code> to update screenshots.</p>
+</div>
+
+<div class="grid" id="qa-grid">
+  <div class="empty-state">
+    <p>No screenshots found in <code>/screenshots/</code></p>
+    <p>Capture screenshots to begin comparison.</p>
+  </div>
+</div>
+
+<script>
+  // Since we are in a static site, we can't easily list files.
+  // We'll use a small trick: the user can paste their config tasks here
+  // or we can try to guess common ones.
+  // For now, I'll provide a way to 'Load' tasks.
+
+  const tasks = ['home']; // Default example
+  const envs = ['local', 'prod'];
+
+  function renderTasks() {
+    const grid = document.getElementById('qa-grid');
+    if (tasks.length > 0) grid.innerHTML = '';
+
+    tasks.forEach(task => {
+      const card = document.createElement('div');
+      card.className = 'card mode-diff';
+      card.id = `task-${task}`;
+      card.innerHTML = `
+        <h3>${task}</h3>
+        <div class="compare-container">
+          <img src="/screenshots/prod/${task}.png" class="img-base" alt="Baseline">
+          <img src="/screenshots/local/${task}.png" class="img-current" alt="Current">
+        </div>
+        <div class="controls">
+          <button class="active" onclick="setMode('${task}', 'diff', this)">Difference</button>
+          <button onclick="setMode('${task}', 'overlay', this)">Overlay</button>
+          <button onclick="setMode('${task}', 'side', this)">Side-by-Side</button>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+  }
+
+  function setMode(task, mode, btn) {
+    const card = document.getElementById(`task-${task}`);
+    card.className = `card mode-${mode}`;
+
+    card.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+
+  // Auto-render
+  renderTasks();
+</script>
+
+
+    </main>
+
+    <script>
+      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+
+    
+
+  </body>
+</html>
