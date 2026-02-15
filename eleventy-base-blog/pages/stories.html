@@ -320,7 +320,7 @@ eleventyNavigation:
         const API_KEY = 'st_8a2b_9f41de3c6e'; // Must match the secret in list.php
 
         // Settings
-        const START_IMAGE = "IMG_20260207_175147_037.webp"; // Filename to prioritize on first load or null
+        const START_IMAGE = "IMG_20260214_063742_742.jpg"; // Filename to prioritize on first load or null
 
         // State
         let gallery = document.getElementById('gallery');
@@ -351,9 +351,16 @@ eleventyNavigation:
                 gallery.innerHTML = imagePaths.map(path => {
                     const fullSrc = `${BASE_URL}/${path}`;
                     const filename = path.split('/').pop();
+                    // const url = new URL(window.location); // This takes the URL including parameters if they exist.
+                    const url = new URL(window.location.pathname, window.location.origin); // This takes the URL without parameters.
+                    url.searchParams.set('mode', 'slider');
+                    url.searchParams.set('story', filename);
+                    const link = url.toString();
                     return `
                         <figure class="story-item">
-                            <img src="${fullSrc}" loading="lazy" decoding="async" alt="Story">
+                            <a href="${link}">
+                              <img src="${fullSrc}" loading="lazy" decoding="async" alt="Story">
+                            </a>
                             <figcaption class="story-caption">${filename}</figcaption>
                         </figure>
                     `;
