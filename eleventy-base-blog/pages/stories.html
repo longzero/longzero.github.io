@@ -97,12 +97,31 @@ eleventyNavigation:
           position: relative; /* For caption overlay */
       }
 
-      .story-item img {
+      .story-item a {
+          display: block;
+          height: 100%;
+          width: 100%;
+      }
+
+      /* Disable the linking feature in all modes EXCEPT grid */
+      /* This allows video controls and interaction to work in Slider/Vertical/Horizontal modes */
+      body:not(.mode-grid) .story-item a {
+          pointer-events: none;
+      }
+
+      /* Ensure the media itself still receives clicks for controls/interaction */
+      body:not(.mode-grid) .story-item a > * {
+          pointer-events: auto;
+      }
+
+      .story-item img,
+      .story-item video {
           aspect-ratio: 9 / 16;
           display: block;
           height: 100%;
+          margin: 0 auto;
           object-fit: contain;
-          width: 100%;
+          /* width: 100%; */
       }
 
       .story-caption {
@@ -137,7 +156,12 @@ eleventyNavigation:
           height: auto;
       }
 
-      .gallery--grid .story-item img {
+      .gallery--grid .story-item a {
+          height: auto;
+      }
+
+      .gallery--grid .story-item img,
+      .gallery--grid .story-item video {
           height: auto;
           width: 100%;
       }
@@ -184,7 +208,8 @@ eleventyNavigation:
           width: auto;
       }
 
-      .gallery--horizontal .story-item img {
+      .gallery--horizontal .story-item img,
+      .gallery--horizontal .story-item video {
           height: 100vh;
           width: auto;
       }
@@ -235,19 +260,16 @@ eleventyNavigation:
           /* backdrop-filter: blur(5px); */
           background: rgba(255, 255, 255, 0.1);
           border: none;
-          /* border-radius: 50%; */
           color: #fff;
           cursor: pointer;
           display: flex;
           font-size: 14px;
-          /* height: var(--size); */
           height: 100%;
           justify-content: center;
           opacity: 0;
           pointer-events: auto;
           transition: transform 0.2s, background 0.2s;
-          /* width: var(--size); */
-          width: 50%;
+          width: 20%;
       }
 
       .nav-btn:hover {
@@ -351,15 +373,24 @@ eleventyNavigation:
                 gallery.innerHTML = imagePaths.map(path => {
                     const fullSrc = `${BASE_URL}/${path}`;
                     const filename = path.split('/').pop();
-                    // const url = new URL(window.location); // This takes the URL including parameters if they exist.
-                    const url = new URL(window.location.pathname, window.location.origin); // This takes the URL without parameters.
+                    const isVideo = /\.(mp4|mov|m4v|webm)$/i.test(path);
+
+                    const url = new URL(window.location.pathname, window.location.origin);
                     url.searchParams.set('mode', 'slider');
                     url.searchParams.set('story', filename);
                     const link = url.toString();
+
+                    let mediaHtml = '';
+                    if (isVideo) {
+                        mediaHtml = `<video src="${fullSrc}" muted controls loop playsinline poster=""></video>`;
+                    } else {
+                        mediaHtml = `<img src="${fullSrc}" loading="lazy" decoding="async" alt="Story">`;
+                    }
+
                     return `
                         <figure class="story-item">
                             <a href="${link}">
-                              <img src="${fullSrc}" loading="lazy" decoding="async" alt="Story">
+                                ${mediaHtml}
                             </a>
                             <figcaption class="story-caption">${filename}</figcaption>
                         </figure>
@@ -402,11 +433,21 @@ eleventyNavigation:
             currentPhotoIndex = index;
             const item = items[index];
 
+            // To ensure a perfectly instant jump (no browser snapping animation),
+            // we temporarily disable snap-type, jump, and then re-enable it.
+            const originalSnap = gallery.style.scrollSnapType;
+            gallery.style.scrollSnapType = 'none';
+
             if (document.body.classList.contains('mode-slider') || document.body.classList.contains('mode-horizontal')) {
                 gallery.scrollTo({ left: item.offsetLeft, behavior: 'auto' });
             } else {
                 item.scrollIntoView({ behavior: 'auto' });
             }
+
+            // Restore snapping for touch/swipe gestures
+            requestAnimationFrame(() => {
+                gallery.style.scrollSnapType = originalSnap;
+            });
         }
 
         function moveSlider(dir) {
@@ -423,12 +464,20 @@ eleventyNavigation:
             const url = new URL(window.location);
             url.searchParams.set('mode', mode);
 
-            // Get current filename
-            const currentImg = items[currentPhotoIndex]?.querySelector('img');
-            if (currentImg) {
-                const filename = currentImg.src.split('/').pop();
+            // Get current filename and handle video play state
+            const currentItem = items[currentPhotoIndex];
+            const currentMedia = currentItem?.querySelector('img, video');
+
+            if (currentMedia) {
+                const filename = currentMedia.src.split('/').pop();
                 url.searchParams.set('story', filename);
                 localStorage.setItem('stories_last_story', filename);
+
+                // Handle video auto-play on focus
+                document.querySelectorAll('.story-item video').forEach(v => v.pause());
+                if (currentMedia.tagName === 'VIDEO') {
+                    currentMedia.play().catch(e => console.log("Video autoplay blocked", e));
+                }
             }
 
             window.history.replaceState({}, '', url);
@@ -447,8 +496,8 @@ eleventyNavigation:
             let startIndex = 0;
             if (targetStory) {
                 const index = Array.from(items).findIndex(item => {
-                    const img = item.querySelector('img');
-                    return img && img.src.includes(targetStory);
+                    const media = item.querySelector('img, video');
+                    return media && media.src.includes(targetStory);
                 });
                 if (index !== -1) startIndex = index;
             }
