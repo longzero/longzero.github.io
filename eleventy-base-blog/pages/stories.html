@@ -382,7 +382,9 @@ eleventyNavigation:
 
                     let mediaHtml = '';
                     if (isVideo) {
-                        mediaHtml = `<video src="${fullSrc}" muted controls loop playsinline poster=""></video>`;
+                        // Use data-src instead of src to prevent immediate loading
+                        // preload="metadata" only grabs the first frame for the thumbnail
+                        mediaHtml = `<video data-src="${fullSrc}" muted controls loop playsinline preload="metadata"></video>`;
                     } else {
                         mediaHtml = `<img src="${fullSrc}" loading="lazy" decoding="async" alt="Story">`;
                     }
@@ -469,15 +471,30 @@ eleventyNavigation:
             const currentMedia = currentItem?.querySelector('img, video');
 
             if (currentMedia) {
-                const filename = currentMedia.src.split('/').pop();
+                // Determine source (handles both immediate src and lazy data-src)
+                const source = currentMedia.src || currentMedia.getAttribute('data-src') || '';
+                const filename = source.split('/').pop();
                 url.searchParams.set('story', filename);
                 localStorage.setItem('stories_last_story', filename);
 
-                // Handle video auto-play on focus
-                document.querySelectorAll('.story-item video').forEach(v => v.pause());
-                if (currentMedia.tagName === 'VIDEO') {
-                    currentMedia.play().catch(e => console.log("Video autoplay blocked", e));
-                }
+                // Handle Video "Hydration" (Lazy Loading) and Autoplay
+                document.querySelectorAll('.story-item video').forEach((v, idx) => {
+                    // Stop any video that isn't the current one
+                    if (idx !== currentPhotoIndex) {
+                        v.pause();
+                        return;
+                    }
+
+                    // If this is the current video and it hasn't loaded its source yet
+                    if (!v.src && v.getAttribute('data-src')) {
+                        v.src = v.getAttribute('data-src');
+                        v.load(); // Trigger the load now that we have a src
+                    }
+
+                    if (v.tagName === 'VIDEO') {
+                        v.play().catch(e => console.log("Video autoplay blocked", e));
+                    }
+                });
             }
 
             window.history.replaceState({}, '', url);
