@@ -15,6 +15,14 @@ input {height: auto;}
    backface-visibility: hidden;
  }
 
+.leaflet-marker-icon,
+.leaflet-tile-container {
+    will-change: transform, opacity;
+}
+.leaflet-container img.leaflet-tile {
+   image-rendering: -webkit-optimize-contrast;   /* Prevents the Safari sharpen-jump */
+}
+
 .leaflet-popup-content {margin: 0; padding: 1em 1em;}
 .leaflet-popup-content p {margin: 0 0 1em;}
 .leaflet-popup-content p:last-child {margin: 0;}
