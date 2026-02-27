@@ -815,16 +815,16 @@
       "latitude": 24.128949282168872,
       "longitude": -109.99814768244582,
       "name": "North of La Ventana",
-      "notes": "<p>Strangely, cell signal only between sunrise and sunset.</p><p>Multiple spots for multiple rigs.</p>",
+      "notes": "<p>2025: Strangely, cell signal only between sunrise and sunset.<br>Multiple spots for multiple rigs.</p>",
       "url": [],
       "visible": 1
     },
     {
-      "id": "north-of-la-ventana-1330",
+      "id": "north-of-la-ventana-and-el-sargento",
       "latitude": 24.128193171397438,
       "longitude": -109.99812554680736,
-      "name": "North of La Ventana",
-      "notes": "<p>Moved after a few vehicles showed up at the other spot.</p><p>20250309<br>Signal<br>64 4 with networkQuality<br>83 4 with mlab</p>",
+      "name": "North of La Ventana and El Sargento",
+      "notes": "<p>One of the most private area in this area of the peninsula, less than 90 minutes from La Paz.</p><p>2025-2026<br>Signal<br>64 4 with networkQuality<br>83 4 with mlab</p>",
       "url": [],
       "visible": 1
     },
