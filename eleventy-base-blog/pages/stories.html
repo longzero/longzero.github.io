@@ -20,7 +20,7 @@ eleventyNavigation:
           --accent-color: #333;
           --bg-color: #000;
           --gap: 20px;
-          --grid-min: 200px;
+          --grid-min: 130px;
           --text-color: #fff;
       }
 
@@ -98,27 +98,27 @@ eleventyNavigation:
       }
 
       .story-item-media {
-          display: block;
+          align-items: center;
+          display: flex;
           height: 100%;
+          justify-content: center;
           width: 100%;
       }
 
-      .story-item-media {
-          aspect-ratio: 9 / 16;
-          display: block;
-          height: 100%;
-          margin: 0 auto;
-          object-fit: contain;
-          position: relative;
-      }
-
-      .mode-grid .story-item a,
       .story-item-media img,
       .story-item-media video {
-        aspect-ratio: 9 / 16;
-        display: block;
-        height: 100%;
-        margin: 0 auto;
+          display: block;
+          max-height: 100%;
+          max-width: 100%;
+          object-fit: contain; /* Contain for full-screen modes */
+      }
+
+      .mode-grid .story-item-media img,
+      .mode-grid .story-item-media video {
+          aspect-ratio: 9 / 16;
+          height: auto;
+          object-fit: cover; /* Cover for grid view */
+          width: 100%;
       }
 
       .mode-grid .story-item a {
@@ -154,7 +154,8 @@ eleventyNavigation:
       .gallery--grid {
           display: grid;
           gap: var(--gap);
-          grid-template-columns: repeat(3, 1fr);
+          /* grid-template-columns: repeat(3, 1fr); */
+          grid-template-columns: repeat(auto-fill, minmax(var(--grid-min), 1fr));
           height: 100vh;
           overflow-y: auto;
           padding: var(--gap);
@@ -162,7 +163,7 @@ eleventyNavigation:
 
       @media (min-width: 680px) {
           .gallery--grid {
-              grid-template-columns: repeat(auto-fill, minmax(var(--grid-min), 1fr));
+              /* grid-template-columns: repeat(auto-fill, minmax(var(--grid-min), 1fr)); */
           }
       }
 
@@ -191,10 +192,6 @@ eleventyNavigation:
       .gallery--grid .story-item {
           aspect-ratio: auto; /* Let content define height */
           flex-direction: column;
-          height: auto;
-      }
-
-      .gallery--grid .story-item a {
           height: auto;
       }
 
@@ -242,6 +239,7 @@ eleventyNavigation:
       .gallery--horizontal .story-item {
           flex: 0 0 auto;
           height: 100vh;
+          max-width: 100vw; /* Never wider than the screen */
           scroll-snap-align: start;
           width: auto;
       }
@@ -249,6 +247,7 @@ eleventyNavigation:
       .gallery--horizontal .story-item img,
       .gallery--horizontal .story-item video {
           height: 100vh;
+          max-width: 100vw; /* Never wider than the screen */
           width: auto;
       }
 
@@ -347,6 +346,7 @@ eleventyNavigation:
 
       /* Google Photos Style Timeline Scrubber */
       .timeline-sidebar {
+          --timeline-center: 20px; /* Adjust this to move the entire scrubber */
           bottom: 20px;
           opacity: 0;
           pointer-events: none;
@@ -367,9 +367,8 @@ eleventyNavigation:
           background: rgba(255, 255, 255, 0.1);
           border-radius: 2px;
           height: 100%;
-          left: 50%;
           position: absolute;
-          transform: translateX(-50%);
+          right: calc(var(--timeline-center) - 1px);
           width: 2px;
       }
 
@@ -380,9 +379,9 @@ eleventyNavigation:
           display: flex;
           height: 20px;
           justify-content: center;
-          left: 50%;
           position: absolute;
-          transform: translate(-50%, -50%);
+          right: var(--timeline-center);
+          transform: translate(50%, -50%);
           width: 4px;
       }
 
@@ -394,7 +393,7 @@ eleventyNavigation:
           font-weight: 600;
           padding: 4px 8px;
           position: absolute;
-          right: 25px;
+          right: 12px; /* Relative to handle's 4px width/center */
           top: 50%;
           transform: translateY(-50%);
           white-space: nowrap;
@@ -403,9 +402,9 @@ eleventyNavigation:
       .timeline-tick {
           color: rgba(255, 255, 255, 0.5);
           font-size: 10px;
-          left: 50%;
           position: absolute;
-          transform: translate(-50%, -50%);
+          right: var(--timeline-center);
+          transform: translate(50%, -50%);
           white-space: nowrap;
       }
 
@@ -426,10 +425,10 @@ eleventyNavigation:
       .timeline-preview {
           display: none;
           height: 2px;
-          left: 50%;
           pointer-events: none;
           position: absolute;
-          transform: translate(-50%, -50%);
+          right: var(--timeline-center);
+          transform: translate(50%, -50%);
           width: 10px;
           z-index: 1001;
       }
@@ -444,7 +443,7 @@ eleventyNavigation:
           position: absolute;
           right: 0;
           top: 50%;
-          width: 20px;
+          width: 15px;
       }
 
       .timeline-preview-text {
@@ -457,7 +456,7 @@ eleventyNavigation:
           padding: 4px 8px;
           pointer-events: auto; /* Make the tooltip clickable */
           position: absolute;
-          right: 30px;
+          right: 20px;
           top: 50%;
           transform: translateY(-50%);
           white-space: nowrap;
