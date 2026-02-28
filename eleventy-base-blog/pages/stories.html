@@ -477,24 +477,18 @@ eleventyNavigation:
                 url.searchParams.set('story', filename);
                 localStorage.setItem('stories_last_story', filename);
 
-                // Handle Video "Hydration" (Lazy Loading) and Autoplay
-                document.querySelectorAll('.story-item video').forEach((v, idx) => {
-                    // Stop any video that isn't the current one
-                    if (idx !== currentPhotoIndex) {
-                        v.pause();
-                        return;
-                    }
+                // 1. Pause all videos first
+                document.querySelectorAll('.story-item video').forEach(v => v.pause());
 
+                // 2. Hydrate and Play ONLY the current media if it's a video
+                if (currentMedia.tagName === 'VIDEO') {
                     // If this is the current video and it hasn't loaded its source yet
-                    if (!v.src && v.getAttribute('data-src')) {
-                        v.src = v.getAttribute('data-src');
-                        v.load(); // Trigger the load now that we have a src
+                    if (!currentMedia.src && currentMedia.getAttribute('data-src')) {
+                        currentMedia.src = currentMedia.getAttribute('data-src');
+                        currentMedia.load(); // Trigger the load now that we have a src
                     }
-
-                    if (v.tagName === 'VIDEO') {
-                        v.play().catch(e => console.log("Video autoplay blocked", e));
-                    }
-                });
+                    currentMedia.play().catch(e => console.log("Video autoplay blocked", e));
+                }
             }
 
             window.history.replaceState({}, '', url);
