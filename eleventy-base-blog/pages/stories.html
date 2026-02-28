@@ -571,6 +571,9 @@ eleventyNavigation:
 
         // Keyboard Support
         window.addEventListener('keydown', (e) => {
+            // Respect system shortcuts (don't interfere if Cmd, Ctrl, Shift, or Alt are pressed)
+            if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+
             if (document.body.classList.contains('mode-slider')) {
                 if (e.key === 'ArrowLeft') moveSlider(-1);
                 if (e.key === 'ArrowRight') moveSlider(1);
@@ -578,6 +581,10 @@ eleventyNavigation:
             if (document.body.classList.contains('mode-horizontal')) {
                 if (e.key === 'ArrowLeft') gallery.scrollBy({ left: -window.innerWidth / 2, behavior: 'auto' });
                 if (e.key === 'ArrowRight') gallery.scrollBy({ left: window.innerWidth / 2, behavior: 'auto' });
+            }
+            if (document.body.classList.contains('mode-vertical')) {
+                if (e.key === 'ArrowUp') gallery.scrollBy({ top: -window.innerHeight / 2, behavior: 'auto' });
+                if (e.key === 'ArrowDown') gallery.scrollBy({ top: window.innerHeight / 2, behavior: 'auto' });
             }
         });
 
