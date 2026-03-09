@@ -61,10 +61,28 @@
       "latitude": 23.11950019562403,
       "longitude": -109.52803840360146,
       "name": "El Cardón",
-      "notes": "<p>No signal.</p><p>The northeast side is better because it is where sunset shines last.</p><p>Only 30 minutes to numerous groceries and big city.</p><p>Lots of locals on weekends (Sunday 20250316), all families with children.</p><p>People come and go, but it's still quiet. The ATVs are more annoying but they are not numerous.</p><p>Sometimes, there are whales left and right, far and near.</p><p>A sign at the entrance says beachfront for sale, so this place might disappear one day.</p>",
+      "notes": "<p><strong>20260308</strong>: The amount of sand has become too much to take a chance with my 2014 Toyota Sienna 2WD.</p><p><strong>Winter 2025</strong>:</p><p>No signal.<br>The northeast side is better because it is where sunset shines last.</p><p>Only 30 minutes to numerous groceries and big city.</p><p>Lots of locals on weekends (Sunday 20250316), all families with children.</p><p>People come and go, but it's still quiet. The ATVs are more annoying but they are not numerous.</p><p>Sometimes, there are whales left and right, far and near.</p><p>A sign at the entrance says beachfront for sale, so this place might disappear one day.</p>",
       "url": [
         "https://ioverlander.com/places/615a86ba-6e88-4657-ba82-727c6b6e12ad"
       ],
+      "visible": 1
+    },
+    {
+      "id": "north-of-el-cardon",
+      "latitude": 23.122769666405993,
+      "longitude": -109.52562187906739,
+      "name": "North of el Cardón",
+      "notes": "<p><strong>20260308</strong>: Lots of people, lots of sand. Check again.</p>",
+      "url": [],
+      "visible": 1
+    },
+    {
+      "id": "playa-santa-agueda",
+      "latitude": 23.139953183235534,
+      "longitude": -109.5108504192783,
+      "name": "Playa Santa Agueda",
+      "notes": "<p><strong>20260308</strong>: Lots of people, looks like a good option if you don't mind not camping on the beach.</p>",
+      "url": [],
       "visible": 1
     },
     {
@@ -72,10 +90,30 @@
       "latitude": 23.145016559644905,
       "longitude": -109.50580833406008,
       "name": "La Fortuna",
-      "notes": "<p>No signal. Mostly sandy.</p><p>Nice beach café. Surf spot. Restaurants around.</p><p>Parking on soft sand.</p><p>From brookebeyond.com:<br> As with almost all of the beaches in this undeveloped area, it's possible to park on or just in front of this sandy beach; no facilities or mobile reception, but there's an upscale sushi restaurant just above the beach where you can find food, toilets & WIFI; more importantly, there are heaps of humpback whales offshore and great beginner surfing</p>",
+      "notes": "<p><strong>20260308</strong>:<br> Lots of people.</p><p><strong>Winter 2025</strong>:</p><p>No signal. Mostly sandy.</p><p>Nice beach café. Surf spot. Restaurants around.</p><p>Parking on soft sand.</p><p>From brookebeyond.com:<br> As with almost all of the beaches in this undeveloped area, it's possible to park on or just in front of this sandy beach; no facilities or mobile reception, but there's an upscale sushi restaurant just above the beach where you can find food, toilets & WIFI; more importantly, there are heaps of humpback whales offshore and great beginner surfing</p>",
       "url": [
         "https://ioverlander.com/places/efe65e33-2cfd-4637-bc1d-8e3314a3780b",
         "https://brookebeyond.com/the-ultimate-baja-camping-guide"
+      ],
+      "visible": 1
+    },
+    {
+      "id": "south-of-playa-el-rinconcito",
+      "latitude": 23.16270487241729,
+      "longitude": -109.4891692649336,
+      "name": "South of playa el rinconcito",
+      "notes": "<p><strong>20260308</strong>:<br> Looks like a good spot. There's sand but it seems manageable.</p>",
+      "url": [],
+      "visible": 1
+    },
+    {
+      "id": "9-palmas",
+      "latitude": 23.175434400253803,
+      "longitude": -109.4780800309819,
+      "name": "9 Palmas",
+      "notes": "<p><strong>20260308</strong>:<br>Friends are here. Driveable for a good enough portion. One of few that is easy access. Has trash cans.</p>",
+      "url": [
+        "https://ioverlander.com/places/5091c5dd-4df5-489b-a2ee-a39de4a70097"
       ],
       "visible": 1
     },
