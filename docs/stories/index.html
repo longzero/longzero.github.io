@@ -11,7 +11,7 @@
           --accent-color: #333;
           --bg-color: #000;
           --gap: 20px;
-          --grid-min: 200px;
+          --grid-min: 130px;
           --text-color: #fff;
       }
 
@@ -88,66 +88,101 @@
           position: relative; /* For caption overlay */
       }
 
-      .story-item a {
-          display: block;
+      .story-item-media {
+          align-items: center;
+          display: flex;
           height: 100%;
+          justify-content: center;
           width: 100%;
       }
 
-      /* Disable the linking feature in all modes EXCEPT grid */
-      /* This allows video controls and interaction to work in Slider/Vertical/Horizontal modes */
-      body:not(.mode-grid) .story-item a {
-          pointer-events: none;
-      }
-
-      /* Ensure the media itself still receives clicks for controls/interaction */
-      body:not(.mode-grid) .story-item a > * {
-          pointer-events: auto;
-      }
-
-      .story-item img,
-      .story-item video {
-          aspect-ratio: 9 / 16;
+      .story-item-media img,
+      .story-item-media video {
           display: block;
-          height: 100%;
-          margin: 0 auto;
-          object-fit: contain;
-          /* width: 100%; */
+          max-height: 100%;
+          max-width: 100%;
+          object-fit: contain; /* Contain for full-screen modes */
+      }
+
+      .mode-grid .story-item-media img,
+      .mode-grid .story-item-media video {
+          aspect-ratio: 9 / 16;
+          height: auto;
+          object-fit: cover; /* Cover for grid view */
+          width: 100%;
+      }
+
+      .mode-grid .story-item a {
+        color: #fff;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        padding-bottom: 10px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        text-decoration: none;
+        width: 100%;
+        height: 100%;
       }
 
       .story-caption {
           bottom: 15px;
           color: rgba(255, 255, 255, 0.5);
-          font-size: 12px;
+          font-size: 10px;
           left: 15px;
-          /* pointer-events: none; */
           position: absolute;
           text-shadow: 0 1px 2px rgba(0,0,0,0.8);
           z-index: 10;
+      }
+
+      .story-caption a {
+          color: inherit;
+          text-decoration: none;
       }
 
       /* Mode: Grid */
       .gallery--grid {
           display: grid;
           gap: var(--gap);
-          grid-template-columns: repeat(3, 1fr);
-          height: auto;
+          /* grid-template-columns: repeat(3, 1fr); */
+          grid-template-columns: repeat(auto-fill, minmax(var(--grid-min), 1fr));
+          height: 100vh;
+          overflow-y: auto;
           padding: var(--gap);
       }
 
       @media (min-width: 680px) {
           .gallery--grid {
-              grid-template-columns: repeat(auto-fill, minmax(var(--grid-min), 1fr));
+              /* grid-template-columns: repeat(auto-fill, minmax(var(--grid-min), 1fr)); */
           }
+      }
+
+      /* Video Indicator Badge for Grid */
+      .video-indicator {
+          align-items: center;
+          background: rgba(0, 0, 0, 0.4);
+          backdrop-filter: blur(4px);
+          border-radius: 50%;
+          color: white;
+          display: none;
+          height: 30px;
+          justify-content: center;
+          pointer-events: none;
+          position: absolute;
+          right: 10px;
+          top: 10px;
+          width: 30px;
+          z-index: 5;
+      }
+
+      .mode-grid .is-video .video-indicator {
+          display: flex;
       }
 
       .gallery--grid .story-item {
           aspect-ratio: auto; /* Let content define height */
           flex-direction: column;
-          height: auto;
-      }
-
-      .gallery--grid .story-item a {
           height: auto;
       }
 
@@ -195,6 +230,7 @@
       .gallery--horizontal .story-item {
           flex: 0 0 auto;
           height: 100vh;
+          max-width: 100vw; /* Never wider than the screen */
           scroll-snap-align: start;
           width: auto;
       }
@@ -202,6 +238,7 @@
       .gallery--horizontal .story-item img,
       .gallery--horizontal .story-item video {
           height: 100vh;
+          max-width: 100vw; /* Never wider than the screen */
           width: auto;
       }
 
@@ -298,6 +335,124 @@
           scrollbar-width: thin;
       }
 
+      /* Google Photos Style Timeline Scrubber */
+      .timeline-sidebar {
+          --timeline-center: 20px; /* Adjust this to move the entire scrubber */
+          bottom: 20px;
+          opacity: 0;
+          pointer-events: none;
+          position: fixed;
+          right: 0;
+          top: 60px;
+          transition: opacity 0.3s;
+          width: 150px; /* Increase width to cover tooltips */
+          z-index: 1000;
+      }
+
+      .timeline-sidebar.visible {
+          opacity: 1;
+          pointer-events: auto;
+      }
+
+      .timeline-track {
+          background: rgba(255, 255, 255, 0.1);
+          border-radius: 2px;
+          height: 100%;
+          position: absolute;
+          right: calc(var(--timeline-center) - 1px);
+          width: 2px;
+      }
+
+      .timeline-handle {
+          align-items: center;
+          background: var(--text-color);
+          border-radius: 10px;
+          display: flex;
+          height: 20px;
+          justify-content: center;
+          position: absolute;
+          right: var(--timeline-center);
+          transform: translate(50%, -50%);
+          width: 4px;
+      }
+
+      .timeline-tooltip {
+          background: rgba(255, 255, 255, 0.9);
+          border-radius: 4px;
+          color: #000;
+          font-size: 11px;
+          font-weight: 600;
+          padding: 4px 8px;
+          position: absolute;
+          right: 12px; /* Relative to handle's 4px width/center */
+          top: 50%;
+          transform: translateY(-50%);
+          white-space: nowrap;
+      }
+
+      .timeline-tick {
+          color: rgba(255, 255, 255, 0.5);
+          font-size: 10px;
+          position: absolute;
+          right: var(--timeline-center);
+          transform: translate(50%, -50%);
+          white-space: nowrap;
+      }
+
+      .timeline-tick.year {
+          color: #fff;
+          font-weight: bold;
+          padding-right: 40px;
+      }
+
+      .timeline-tick.dot {
+          background: rgba(255, 255, 255, 0.3);
+          border-radius: 50%;
+          height: 4px;
+          width: 4px;
+      }
+
+      /* Preview Tooltip (Follows Cursor) */
+      .timeline-preview {
+          display: none;
+          height: 2px;
+          pointer-events: none;
+          position: absolute;
+          right: var(--timeline-center);
+          transform: translate(50%, -50%);
+          width: 10px;
+          z-index: 1001;
+      }
+
+      .timeline-sidebar:hover .timeline-preview {
+          display: block;
+      }
+
+      .timeline-preview-line {
+          background: rgba(255, 255, 255, 0.5);
+          height: 1px;
+          position: absolute;
+          right: 0;
+          top: 50%;
+          width: 15px;
+      }
+
+      .timeline-preview-text {
+          background: rgba(0, 0, 0, 0.8);
+          border: 1px solid rgba(255, 255, 255, 0.3);
+          border-radius: 4px;
+          color: #fff;
+          cursor: pointer;
+          font-size: 11px;
+          padding: 4px 8px;
+          pointer-events: auto; /* Make the tooltip clickable */
+          position: absolute;
+          right: 20px;
+          top: 50%;
+          transform: translateY(-50%);
+          white-space: nowrap;
+      }
+
     </style>
 </head>
 <body class="mode-slider">
@@ -320,6 +475,21 @@
         <button onclick="setMode('vertical')" id="btn-vertical">Vertical</button>
         <button onclick="setMode('horizontal')" id="btn-horizontal">Horizontal</button>
         <button onclick="setMode('slider')" id="btn-slider" class="active">Slider</button>
+    </div>
+
+    <!-- Timeline Scrubber UI -->
+    <div id="timeline" class="timeline-sidebar">
+        <div class="timeline-track"></div>
+        <div id="timeline-marks"></div>
+        <!-- The Current Position Handle -->
+        <div id="timeline-handle" class="timeline-handle">
+            <div id="timeline-tooltip" class="timeline-tooltip">Feb 2026</div>
+        </div>
+        <!-- The Hover Preview (Fixed to Cursor) -->
+        <div id="timeline-preview" class="timeline-preview">
+            <div class="timeline-preview-line"></div>
+            <div id="timeline-preview-text" class="timeline-preview-text">YYYY-MM-DD</div>
+        </div>
     </div>
 
     <script>
@@ -372,24 +542,78 @@
                     const link = url.toString();
 
                     let mediaHtml = '';
+                    let videoClass = isVideo ? 'is-video' : '';
                     if (isVideo) {
-                        mediaHtml = `<video src="${fullSrc}" muted controls loop playsinline poster=""></video>`;
+                        mediaHtml = `<video data-src="${fullSrc}" muted controls loop playsinline preload="metadata"></video>
+                                     <div class="video-indicator">▶</div>`;
                     } else {
                         mediaHtml = `<img src="${fullSrc}" loading="lazy" decoding="async" alt="Story">`;
                     }
 
                     return `
-                        <figure class="story-item">
-                            <a href="${link}">
-                                ${mediaHtml}
-                            </a>
-                            <figcaption class="story-caption">${filename}</figcaption>
+                        <figure class="story-item ${videoClass}">
+                            <div class="story-item-media">${mediaHtml}</div>
+                            <figcaption class="story-caption"><a href="${link}">${filename}</a></figcaption>
                         </figure>
                     `;
                 }).join('');
 
                 // Refresh DOM references
                 items = document.querySelectorAll('.story-item');
+
+                // Generate Timeline Marks
+                generateTimeline(imagePaths);
+
+                // Initialize Dynamic Priority Lazy Video Thumbnails (Max 2 at once)
+                let videoQueue = [];
+                let activeLoads = 0;
+                const MAX_CONCURRENT_LOADS = 2;
+
+                const processVideoQueue = () => {
+                    if (activeLoads >= MAX_CONCURRENT_LOADS || videoQueue.length === 0) return;
+
+                    // LIFO: Take the LAST item added to the queue (most recently visible)
+                    const video = videoQueue.pop();
+                    activeLoads++;
+
+                    const onMetadataLoaded = () => {
+                        video.removeEventListener('loadedmetadata', onMetadataLoaded);
+                        video.removeEventListener('error', onMetadataLoaded);
+                        activeLoads--;
+                        processVideoQueue();
+                    };
+
+                    video.addEventListener('loadedmetadata', onMetadataLoaded);
+                    video.addEventListener('error', onMetadataLoaded);
+
+                    if (!video.src && video.getAttribute('data-src')) {
+                        video.src = video.getAttribute('data-src');
+                        video.load();
+                    } else {
+                        onMetadataLoaded();
+                    }
+                };
+
+                const videoObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        const video = entry.target;
+                        if (entry.isIntersecting) {
+                            // Only add if it's not already in the queue and hasn't loaded yet
+                            if (!video.src && !videoQueue.includes(video)) {
+                                videoQueue.push(video);
+                                processVideoQueue();
+                            }
+                        } else {
+                            // If it leaves the view before it started loading, remove it from queue
+                            const index = videoQueue.indexOf(video);
+                            if (index !== -1) {
+                                videoQueue.splice(index, 1);
+                            }
+                        }
+                    });
+                }, { rootMargin: '300px' });
+
+                document.querySelectorAll('.story-item video').forEach(v => videoObserver.observe(v));
 
                 // Continue with initialization
                 init();
@@ -460,13 +684,22 @@
             const currentMedia = currentItem?.querySelector('img, video');
 
             if (currentMedia) {
-                const filename = currentMedia.src.split('/').pop();
+                // Determine source (handles both immediate src and lazy data-src)
+                const source = currentMedia.src || currentMedia.getAttribute('data-src') || '';
+                const filename = source.split('/').pop();
                 url.searchParams.set('story', filename);
                 localStorage.setItem('stories_last_story', filename);
 
-                // Handle video auto-play on focus
+                // 1. Pause all videos first
                 document.querySelectorAll('.story-item video').forEach(v => v.pause());
+
+                // 2. Hydrate and Play ONLY the current media if it's a video
                 if (currentMedia.tagName === 'VIDEO') {
+                    // If this is the current video and it hasn't loaded its source yet
+                    if (!currentMedia.src && currentMedia.getAttribute('data-src')) {
+                        currentMedia.src = currentMedia.getAttribute('data-src');
+                        currentMedia.load(); // Trigger the load now that we have a src
+                    }
                     currentMedia.play().catch(e => console.log("Video autoplay blocked", e));
                 }
             }
@@ -488,7 +721,8 @@
             if (targetStory) {
                 const index = Array.from(items).findIndex(item => {
                     const media = item.querySelector('img, video');
-                    return media && media.src.includes(targetStory);
+                    const source = media ? (media.src || media.getAttribute('data-src') || '') : '';
+                    return media && source.includes(targetStory);
                 });
                 if (index !== -1) startIndex = index;
             }
@@ -508,17 +742,18 @@
             scrollTimeout = setTimeout(() => {
                 if (!items.length) return;
 
-                const isVertical = document.body.classList.contains('mode-vertical');
-                const scrollPos = isVertical ? gallery.scrollTop : gallery.scrollLeft;
-                const clientDim = isVertical ? gallery.clientHeight : gallery.clientWidth;
+                const isVerticalControl = document.body.classList.contains('mode-vertical') ||
+                                          document.body.classList.contains('mode-grid');
+                const scrollPos = isVerticalControl ? gallery.scrollTop : gallery.scrollLeft;
+                const clientDim = isVerticalControl ? gallery.clientHeight : gallery.clientWidth;
                 const center = scrollPos + (clientDim / 2);
 
                 let closestIndex = 0;
                 let minDistance = Infinity;
 
                 items.forEach((item, index) => {
-                    const itemPos = isVertical ? item.offsetTop : item.offsetLeft;
-                    const itemDim = isVertical ? item.clientHeight : item.clientWidth;
+                    const itemPos = isVerticalControl ? item.offsetTop : item.offsetLeft;
+                    const itemDim = isVerticalControl ? item.clientHeight : item.clientWidth;
                     const itemCenter = itemPos + (itemDim / 2);
 
                     const distance = Math.abs(itemCenter - center);
@@ -531,12 +766,19 @@
                 if (closestIndex !== currentPhotoIndex) {
                     currentPhotoIndex = closestIndex;
                     syncURL();
+                    updateTimelineUI();
+                } else if (isVertical) {
+                    // Update timeline position even if index hasn't changed (for precision)
+                    updateTimelineUI();
                 }
             }, 100);
         });
 
         // Keyboard Support
         window.addEventListener('keydown', (e) => {
+            // Respect system shortcuts (don't interfere if Cmd, Ctrl, Shift, or Alt are pressed)
+            if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+
             if (document.body.classList.contains('mode-slider')) {
                 if (e.key === 'ArrowLeft') moveSlider(-1);
                 if (e.key === 'ArrowRight') moveSlider(1);
@@ -545,7 +787,199 @@
                 if (e.key === 'ArrowLeft') gallery.scrollBy({ left: -window.innerWidth / 2, behavior: 'auto' });
                 if (e.key === 'ArrowRight') gallery.scrollBy({ left: window.innerWidth / 2, behavior: 'auto' });
             }
+            if (document.body.classList.contains('mode-vertical')) {
+                if (e.key === 'ArrowUp') gallery.scrollBy({ top: -window.innerHeight / 2, behavior: 'auto' });
+                if (e.key === 'ArrowDown') gallery.scrollBy({ top: window.innerHeight / 2, behavior: 'auto' });
+            }
         });
+
+        /**
+         * TIMELINE SCRUBBER LOGIC
+         */
+        function generateTimeline(paths) {
+            const marksContainer = document.getElementById('timeline-marks');
+            marksContainer.innerHTML = '';
+
+            const dates = paths.map(p => {
+                const match = p.match(/(\d{4})(\d{2})(\d{2})/);
+                return match ? {
+                    year: match[1],
+                    month: match[2],
+                    label: new Date(match[1], match[2]-1).toLocaleString('default', { month: 'short' }) + ' ' + match[1]
+                } : null;
+            }).filter(d => d);
+
+            if (dates.length < 2) return;
+
+            // Group by Year/Month to place Ticks
+            const years = [...new Set(dates.map(d => d.year))].sort().reverse();
+            years.forEach((year, idx) => {
+                const pos = (idx / (years.length || 1)) * 100;
+                const el = document.createElement('div');
+                el.className = 'timeline-tick year';
+                el.style.top = `${pos}%`;
+                el.textContent = year;
+
+                // Jump to Year on click
+                el.style.pointerEvents = 'auto'; // Re-enable for the label
+                el.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const targetIdx = Array.from(items).findIndex(item => {
+                        const media = item.querySelector('img, video');
+                        const source = media ? (media.src || media.getAttribute('data-src') || '') : '';
+                        return source.includes(`_${year}`);
+                    });
+                    if (targetIdx !== -1) {
+                        scrollToPhoto(targetIdx);
+                        syncURL();
+                    }
+                });
+
+                marksContainer.appendChild(el);
+            });
+        }
+
+        let timelineTimeout;
+        let isScrubbing = false;
+        let isTimelineHovered = false;
+
+        function updateTimelineUI() {
+            const timeline = document.getElementById('timeline');
+            const handle = document.getElementById('timeline-handle');
+            const tooltip = document.getElementById('timeline-tooltip');
+
+            if (!items.length) return;
+
+            // Only show in vertical modes
+            const isVerticalMode = document.body.classList.contains('mode-grid') ||
+                                 document.body.classList.contains('mode-vertical');
+
+            if (!isVerticalMode) {
+                timeline.classList.remove('visible');
+                return;
+            }
+
+            // Show timeline
+            timeline.classList.add('visible');
+
+            // Only set hide timeout if not being interacted with
+            clearTimeout(timelineTimeout);
+            if (!isTimelineHovered && !isScrubbing) {
+                timelineTimeout = setTimeout(() => timeline.classList.remove('visible'), 2000);
+            }
+
+            // Calculate Position
+            const scrollPercent = gallery.scrollTop / (gallery.scrollHeight - gallery.clientHeight);
+            handle.style.top = `${scrollPercent * 100}%`;
+
+            // Update Tooltip based on current visible item
+            const currentItem = items[currentPhotoIndex];
+            const media = currentItem?.querySelector('img, video');
+            const source = media ? (media.src || media.getAttribute('data-src') || '') : '';
+            const match = source.match(/(\d{4})(\d{2})(\d{2})/);
+            if (match) {
+                // Format: YYYY-MM-DD
+                tooltip.textContent = `${match[1]}-${match[2]}-${match[3]}`;
+            }
+        }
+
+        // Timeline Interaction Setup
+        document.getElementById('timeline').addEventListener('mouseenter', () => {
+            isTimelineHovered = true;
+            clearTimeout(timelineTimeout);
+        });
+
+        document.getElementById('timeline').addEventListener('mouseleave', () => {
+            isTimelineHovered = false;
+            updateTimelineUI(); // Re-triggers the hide timeout
+        });
+
+        // "Near-Right" Detection: Show timeline when cursor is near the right edge
+        window.addEventListener('mousemove', (e) => {
+            const isNearRight = (window.innerWidth - e.clientX) < 60;
+            if (isNearRight) {
+                updateTimelineUI();
+            }
+        });
+
+        // Hover Date Preview
+        document.getElementById('timeline').addEventListener('mousemove', (e) => {
+            const timeline = document.getElementById('timeline');
+            const preview = document.getElementById('timeline-preview');
+            const previewText = document.getElementById('timeline-preview-text');
+            const rect = timeline.querySelector('.timeline-track').getBoundingClientRect();
+
+            let percent = (e.clientY - rect.top) / rect.height;
+            percent = Math.max(0, Math.min(1, percent));
+
+            // Move preview visually to follow cursor
+            preview.style.top = `${percent * 100}%`;
+
+            // Calculate date at this "projected" position
+            const targetIdx = Math.floor(percent * (items.length - 1));
+            const targetItem = items[targetIdx];
+            const media = targetItem?.querySelector('img, video');
+            const source = media ? (media.src || media.getAttribute('data-src') || '') : '';
+            const match = source.match(/(\d{4})(\d{2})(\d{2})/);
+            if (match) {
+                previewText.textContent = `${match[1]}-${match[2]}-${match[3]}`;
+            }
+
+            // Sync main handle ONLY if scrubbing
+            if (isScrubbing) {
+                const handle = document.getElementById('timeline-handle');
+                handle.style.top = `${percent * 100}%`;
+
+                gallery.scrollTop = percent * (gallery.scrollHeight - gallery.clientHeight);
+                updateTimelineUI(); // Update the main tooltip live
+            }
+        });
+
+        // Scrubbing/Clicking logic
+        function handleTimelineAction(e) {
+            const timeline = document.getElementById('timeline');
+            const rect = timeline.querySelector('.timeline-track').getBoundingClientRect();
+            // Support both touch and mouse
+            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+
+            let percent = (clientY - rect.top) / rect.height;
+            percent = Math.max(0, Math.min(1, percent));
+
+            gallery.scrollTop = percent * (gallery.scrollHeight - gallery.clientHeight);
+            updateTimelineUI();
+        }
+
+        document.getElementById('timeline').addEventListener('mousedown', (e) => {
+            isScrubbing = true;
+            handleTimelineAction(e); // Jump immediately on click
+
+            const onMouseUp = () => {
+                isScrubbing = false;
+                window.removeEventListener('mouseup', onMouseUp);
+                updateTimelineUI();
+            };
+
+            window.addEventListener('mouseup', onMouseUp);
+        });
+
+        // Touch support for mobile scrubbing
+        document.getElementById('timeline').addEventListener('touchstart', (e) => {
+            isScrubbing = true;
+            handleTimelineAction(e);
+
+            const onTouchEnd = () => {
+                isScrubbing = false;
+                window.removeEventListener('touchend', onTouchEnd);
+                updateTimelineUI();
+            };
+
+            window.addEventListener('touchend', onTouchEnd);
+        }, { passive: false });
+
+        // Scroll Forwarding: Allow mouse wheel to scroll gallery while hovering timeline
+        document.getElementById('timeline').addEventListener('wheel', (e) => {
+            gallery.scrollTop += e.deltaY;
+        }, { passive: true });
 
         // Start loading sequence
         loadGallery();

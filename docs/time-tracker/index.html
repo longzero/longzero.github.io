@@ -731,6 +731,14 @@ function importFromCsv(file) {
         return;
       }
 
+      // Remove "added" tag if present
+      if (tags) {
+        tags = tags.split(',')
+          .map(tag => tag.trim())
+          .filter(tag => tag !== 'added' && tag !== '')
+          .join(', ');
+      }
+
       const now = new Date();
       const { date: startDate, time: startTime } = formatDateTime(now);
 

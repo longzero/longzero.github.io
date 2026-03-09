@@ -124,12 +124,19 @@ let map = L.map('map', {
   // https://github.com/mutsuyuki/Leaflet.SmoothWheelZoom
   scrollWheelZoom: false, // disable original zoom function
   smoothWheelZoom: true,  // enable smooth zoom
-  smoothSensitivity: /^((?!chrome|android).)*safari/i.test(navigator.userAgent) ? 1 : 5,   // Lower sensitivity is much smoother on Safari
+  smoothSensitivity: /^((?!chrome|android).)*safari/i.test(navigator.userAgent) ? 2 : 5,   // Lower sensitivity is much smoother on Safari
   // END https://github.com/mutsuyuki/Leaflet.SmoothWheelZoom
   zoomAnimationThreshold: 100,
-  fadeAnimation: true,
+  fadeAnimation: false,
   markerZoomAnimation: true,
   bounceAtZoomLimits: false,   // Prevents the "jerk" when reaching max/min zoom
+  updateWhenZooming: false,
+  updateWhenIdle: true,
+  preferCanvas: true,
+  tap: false, // Essential for Safari/iOS to prevent "click-delay" and drag lag
+  // zoomSnap: 0,           // Removes the "integer snapping" jitter
+  zoomDelta: 0.1,        // Smoother increments
+
 }).fitBounds([
   [54.14584949174648, -128.75881463815347],
   [17.055714221336178, -59.9846634648619]
