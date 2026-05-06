@@ -997,6 +997,11 @@
   </url>
   
   <url>
+    <loc>https://longzero.com/id3-editor/</loc>
+    <lastmod>2026-01-01</lastmod>
+  </url>
+  
+  <url>
     <loc>https://longzero.com/map/</loc>
     <lastmod>2026-01-30</lastmod>
   </url>
@@ -1004,5 +1009,10 @@
   <url>
     <loc>https://longzero.com/stories/</loc>
     <lastmod>2026-02-09</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://longzero.com/AGENTS/</loc>
+    <lastmod>2026-05-05</lastmod>
   </url>
 </urlset>

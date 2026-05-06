@@ -1,0 +1,586 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Eleventy v3.0.0">
+
+  <title>ID3 Editor</title>
+  <meta name="description" content="My name is Long Nguyen. I am a Front-End Web Developer obsessed with UX. I am experienced in building simple, clean and user-friendly websites for clients across the globe. Reach me on Instagram or Twitter or by email long@longzero.com.">
+
+  <link rel="apple-touch-icon" href="/assets/images/favicon.png">
+  <link rel="icon" href="/assets/images/favicon.png">
+  <link rel="preload" crossorigin="anonymous" as="font" href="/assets/fonts/oxygen-v10-latin-regular.woff2">
+  <link rel="preload" crossorigin="anonymous" as="font" href="/assets/fonts/oxygen-v10-latin-700.woff2">
+
+  <script>
+    // Tracking code for longzero.com
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=true;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-25351410-3', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+  
+  
+  
+    
+  
+
+  <meta property="og:site_name" content="Longzero ~ Long Nguyen">
+  <meta property="og:description" content="">
+  <meta property="og:image" content="https://longzero.com/assets/images/og-map.jpg">
+  <meta property="og:title" content="ID3 Editor">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://longzero.com/id3-editor/">
+
+  <meta name="theme-color" content="#336699">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  <meta prefix="og: http://ogp.me/ns#" property="og:article:author" content="Longzero">
+
+  
+
+  
+  
+  
+  
+  
+</head>
+
+
+  <body class="template-blank">
+    
+
+    <main>
+
+      
+<!-- Libraries -->
+<!-- jsmediatags for READING only -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsmediatags/3.9.5/jsmediatags.min.js"></script>
+
+<!-- browser-id3-writer for WRITING (Fixed Global Script) -->
+<script src="https://cdn.jsdelivr.net/npm/browser-id3-writer@4.0.0/dist/browser-id3-writer.min.js"></script>
+
+<!-- JSZip & FileSaver for ZIP download -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+
+<style>
+    :root {
+        --bg-color: #f4f4f9;
+        --card-bg: #ffffff;
+        --primary: #007bff;
+        --text: #333;
+        --border: #ddd;
+        --focus-ring: rgba(0, 123, 255, 0.25);
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text);
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    main {
+        /*display: block;*/
+        width: 100%;
+    }
+
+    .container {
+        /*max-width: 1200px;*/
+        width: 100%;
+        background: var(--card-bg);
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        padding: 20px;
+    }
+
+    h1 { text-align: center; margin-bottom: 20px; font-size: 1.5rem; }
+
+    /* Drop Zone */
+    .drop-zone {
+        border: 2px dashed var(--primary);
+        border-radius: 8px;
+        padding: 40px;
+        text-align: center;
+        cursor: pointer;
+        transition: background 0.2s;
+        margin-bottom: 20px;
+    }
+    .drop-zone:hover, .drop-zone.dragover { background-color: #eef6ff; }
+
+    input[type="file"] { display: none; }
+
+    .btn-select {
+        /*background-color: var(--primary);
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 4px;*/
+        cursor: pointer;
+        /*display: inline-block;
+        margin-top: 10px;*/
+    }
+
+    /* Controls */
+    .controls {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .btn-download-all {
+        background: #28a745;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+    .btn-download-all:hover { background: #218838; }
+
+    /* Table */
+    .table-container {
+        overflow-x: auto;
+    }
+
+    table {
+        border-collapse: collapse;
+        font-size: 0.9rem;
+        min-width: 100%;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid var(--border);
+    }
+
+    th {
+        background-color: #f8f9fa;
+        font-weight: 600;
+        position: sticky;
+        top: 0;
+    }
+
+    /* Input styling for inline editing */
+    input[type="text"], input[type="number"] {
+        padding: 6px;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        box-sizing: border-box;
+        background: transparent;
+        font-family: inherit;
+        font-size: inherit;
+        color: inherit;
+    }
+
+    input[type="text"]:hover, input[type="number"]:hover {
+        background: #f9f9f9;
+        border-color: #ccc;
+    }
+
+    input[type="text"]:focus, input[type="number"]:focus {
+        outline: none;
+        border-color: var(--primary);
+        background: #fff;
+        box-shadow: 0 0 0 3px var(--focus-ring);
+    }
+
+    [data-field="track"] {width: 50px;}
+    [data-field="year"] {width: 50px;}
+
+    /* Status */
+    .status-msg {
+        margin-top: 10px;
+        text-align: center;
+        font-size: 0.9rem;
+        color: #666;
+    }
+
+    /* Hidden span for measuring input width */
+    .hidden-span {
+        position: absolute;
+        visibility: hidden;
+        white-space: pre;
+        font-family: inherit;
+        font-size: inherit;
+        padding: 6px;
+        border: 1px solid transparent;
+        box-sizing: border-box;
+    }
+</style>
+
+<div class="container">
+    <h1>Local MP3 ID3 Editor</h1>
+
+    <div class="drop-zone" id="dropZone">
+        <p>Drop MP3s here or click to select</p>
+        <label class="btn-select">
+            Choose Files
+            <input type="file" id="fileInput" multiple accept=".mp3">
+        </label>
+    </div>
+
+    <div class="status-msg" id="statusMsg">No files loaded.</div>
+
+    <div class="controls" id="controls" style="display:none;">
+        <span id="fileCount">0 tracks</span>
+        <button class="btn-download-all" id="downloadAllBtn">Download All Modified</button>
+    </div>
+
+    <div class="table-container" id="tableContainer" style="display:none;">
+        <table id="id3Table">
+            <thead>
+                <tr>
+                    <th width="">Title</th>
+                    <th width="">Artist</th>
+                    <th width="">Album</th>
+                    <th width="50">Track</th>
+                    <th width="50">Year</th>
+                    <th width="">Genre</th>
+                    <th width="">Action</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                <!-- Rows generated by JS -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    // --- State Management ---
+    let tracks = [];
+    let isProcessing = false;
+
+    // --- DOM Elements ---
+    const dropZone = document.getElementById('dropZone');
+    const fileInput = document.getElementById('fileInput');
+    const statusMsg = document.getElementById('statusMsg');
+    const controls = document.getElementById('controls');
+    const tableContainer = document.getElementById('tableContainer');
+    const tableBody = document.getElementById('tableBody');
+    const fileCountSpan = document.getElementById('fileCount');
+
+    // --- Hidden span for measuring ---
+    const measureSpan = document.createElement('span');
+    measureSpan.className = 'hidden-span';
+    document.body.appendChild(measureSpan);
+
+    // --- Event Listeners ---
+    dropZone.addEventListener('click', () => fileInput.click());
+
+    dropZone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        dropZone.classList.add('dragover');
+    });
+
+    dropZone.addEventListener('dragleave', () => {
+        dropZone.classList.remove('dragover');
+    });
+
+    dropZone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        dropZone.classList.remove('dragover');
+        if(!isProcessing) handleFiles(e.dataTransfer.files);
+    });
+
+    fileInput.addEventListener('change', (e) => {
+        if(!isProcessing) handleFiles(e.target.files);
+        fileInput.value = '';
+    });
+
+    document.getElementById('downloadAllBtn').addEventListener('click', downloadAllZip);
+
+    // --- Core Logic ---
+
+    async function handleFiles(fileList) {
+        isProcessing = true;
+        const mp3Files = Array.from(fileList).filter(f => f.name.toLowerCase().endsWith('.mp3'));
+
+        if (mp3Files.length === 0) {
+            statusMsg.textContent = "No MP3 files found.";
+            isProcessing = false;
+            return;
+        }
+
+        statusMsg.textContent = `Reading ${mp3Files.length} files...`;
+        tableBody.innerHTML = '';
+        tracks = [];
+
+        try {
+            for (let i = 0; i < mp3Files.length; i++) {
+                const file = mp3Files[i];
+                const tags = await readTags(file);
+
+                const baseName = file.name.replace(/\.[^/.]+$/, "");
+
+                const currentTags = {
+                    ...tags,
+                    title: tags.title || baseName,
+                    artist: tags.artist || baseName,
+                    album: tags.album || baseName,
+                    track: tags.track || '',
+                    year: tags.year || '',
+                    genre: tags.genre || ''
+                };
+
+                tracks.push({
+                    file: file,
+                    originalTags: tags,
+                    currentTags: currentTags,
+                    filename: baseName
+                });
+            }
+
+            renderTable();
+            statusMsg.textContent = `${tracks.length} tracks loaded successfully.`;
+            controls.style.display = 'flex';
+            tableContainer.style.display = 'block';
+            fileCountSpan.textContent = `${tracks.length} tracks`;
+        } catch (err) {
+            console.error(err);
+            statusMsg.textContent = "Error processing files.";
+        } finally {
+            isProcessing = false;
+        }
+    }
+
+    function readTags(file) {
+        return new Promise((resolve) => {
+            jsmediatags.read(file, {
+                onSuccess: function(tag) {
+                    const tags = tag.tags;
+                    resolve({
+                        title: tags.title,
+                        artist: tags.artist,
+                        album: tags.album,
+                        track: tags.track ? tags.track.number : '',
+                        year: tags.year,
+                        genre: tags.genre
+                    });
+                },
+                onError: function(error) {
+                    console.warn(`Error reading ${file.name}:`, error);
+                    resolve({});
+                }
+            });
+        });
+    }
+
+    function renderTable() {
+        tableBody.innerHTML = '';
+
+        tracks.forEach((track, index) => {
+            const row = document.createElement('tr');
+
+            // 1. Title (Editable)
+            const titleCell = createInput(track, 'title');
+
+            // 2. Artist (Editable)
+            const artistCell = createInput(track, 'artist');
+
+            // 3. Album (Editable)
+            const albumCell = createInput(track, 'album');
+
+            // 4. Track Number (Editable)
+            const trackNumCell = createInput(track, 'track', 'number');
+
+            // 5. Year (Editable)
+            const yearCell = createInput(track, 'year', 'number');
+
+            // 6. Genre (Editable)
+            const genreCell = createInput(track, 'genre');
+
+            // 7. Action (Individual Download)
+            const actionCell = document.createElement('td');
+            const dlBtn = document.createElement('button');
+            dlBtn.className = 'btn-select';
+            // dlBtn.style.padding = '4px 8px';
+            // dlBtn.style.fontSize = '0.8rem';
+            // dlBtn.style.margin = '0 auto';
+            // dlBtn.style.display = 'block';
+            dlBtn.innerText = 'Download';
+            dlBtn.onclick = () => downloadSingle(index);
+
+            actionCell.appendChild(dlBtn);
+
+            row.appendChild(titleCell);
+            row.appendChild(artistCell);
+            row.appendChild(albumCell);
+            row.appendChild(trackNumCell);
+            row.appendChild(yearCell);
+            row.appendChild(genreCell);
+            row.appendChild(actionCell);
+
+            tableBody.appendChild(row);
+        });
+    }
+
+    function createInput(trackObj, field, type = 'text') {
+        const cell = document.createElement('td');
+        const input = document.createElement('input');
+        input.type = type;
+        input.value = trackObj.currentTags[field] || '';
+        input.dataset.index = trackObj.file.name;
+        input.dataset.field = field;
+
+        // Adjust width initially and on input
+        adjustWidth(input);
+        input.addEventListener('input', () => adjustWidth(input));
+
+        input.addEventListener('input', (e) => {
+            const idx = tracks.findIndex(t => t.file.name === e.target.dataset.index);
+            if (idx !== -1) {
+                tracks[idx].currentTags[e.target.dataset.field] = e.target.value;
+            }
+        });
+
+        cell.appendChild(input);
+        return cell;
+    }
+
+    function adjustWidth(input) {
+        measureSpan.textContent = input.value || ' ';
+        input.style.width = (measureSpan.offsetWidth + 0) + 'px'; // Add some buffer
+        input.style.minWidth = '50px'; // Minimum width
+    }
+
+    // --- Fixed Download Logic using browser-id3-writer ---
+
+    function downloadSingle(index) {
+        const track = tracks[index];
+
+        const tagsToWrite = {};
+        for (const [key, value] of Object.entries(track.currentTags)) {
+            if(value) tagsToWrite[key] = value;
+        }
+
+        try {
+            // Ensure ID3Writer is available
+            if (typeof ID3Writer === 'undefined') {
+                throw new Error("ID3Writer library failed to load.");
+            }
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const arrayBuffer = e.target.result;
+                const writer = new ID3Writer(arrayBuffer);
+
+            if(tagsToWrite.title) writer.setFrame('TIT2', [tagsToWrite.title]);
+            if(tagsToWrite.artist) writer.setFrame('TPE1', [tagsToWrite.artist]);
+            if(tagsToWrite.album) writer.setFrame('TALB', [tagsToWrite.album]);
+            if(tagsToWrite.track) writer.setFrame('TRCK', tagsToWrite.track);
+            if(tagsToWrite.year) writer.setFrame('TYER', tagsToWrite.year);
+            if(tagsToWrite.genre) writer.setFrame('TCON', [tagsToWrite.genre]);
+
+                writer.addTag();
+                const taggedBuffer = writer.getBlob();
+                const blob = new Blob([taggedBuffer], { type: 'audio/mpeg' });
+
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = track.file.name;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            };
+            reader.onerror = function() {
+                alert('Error reading file: ' + reader.error);
+            };
+            reader.readAsArrayBuffer(track.file);
+        } catch (e) {
+            alert('Error writing tags: ' + e.message);
+            console.error(e);
+        }
+    }
+
+    async function downloadAllZip() {
+        if (tracks.length === 0) return;
+        isProcessing = true;
+        statusMsg.textContent = "Zipping and writing tags...";
+
+        const zip = new JSZip();
+        const folder = zip.folder("edited_mp3s");
+
+        try {
+            for (let i = 0; i < tracks.length; i++) {
+                const track = tracks[i];
+
+                const tagsToWrite = {};
+                for (const [key, value] of Object.entries(track.currentTags)) {
+                    if(value) tagsToWrite[key] = value;
+                }
+
+                try {
+                    const arrayBuffer = await new Promise((resolve, reject) => {
+                        const reader = new FileReader();
+                        reader.onload = () => resolve(reader.result);
+                        reader.onerror = () => reject(reader.error);
+                        reader.readAsArrayBuffer(track.file);
+                    });
+
+                    const writer = new ID3Writer(arrayBuffer);
+
+                    if(tagsToWrite.title) writer.setFrame('TIT2', [tagsToWrite.title]);
+                    if(tagsToWrite.artist) writer.setFrame('TPE1', [tagsToWrite.artist]);
+                    if(tagsToWrite.album) writer.setFrame('TALB', [tagsToWrite.album]);
+                    if(tagsToWrite.track) writer.setFrame('TRCK', tagsToWrite.track);
+                    if(tagsToWrite.year) writer.setFrame('TYER', tagsToWrite.year);
+                    if(tagsToWrite.genre) writer.setFrame('TCON', [tagsToWrite.genre]);
+
+                    writer.addTag();
+                    const blob = writer.getBlob();
+                    folder.file(track.file.name, blob);
+                } catch (err) {
+                    console.error("Error writing", track.file.name, err);
+                    // Fallback: add original file if write fails
+                    folder.file(track.file.name, track.file);
+                }
+            }
+
+            const content = await zip.generateAsync({type:"blob"});
+            saveAs(content, "edited_mp3s.zip");
+            statusMsg.textContent = "Download started!";
+        } catch (e) {
+            console.error(e);
+            statusMsg.textContent = "Error creating ZIP.";
+        } finally {
+            isProcessing = false;
+        }
+    }
+
+</script>
+
+
+    </main>
+
+    <script>
+      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+
+    
+
+  </body>
+</html>
