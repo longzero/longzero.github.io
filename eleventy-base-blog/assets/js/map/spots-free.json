@@ -5,8 +5,8 @@
       "latitude": 30.0233228,
       "longitude": -114.5676707,
       "name": "Junco (cliff with abandoned houses)",
-      "notes": "<p>2026: Close to the road but still very nice</p>",
-      "url": [],
+      "notes": "<p>202605: Close to the road but still very nice</p>",
+      "url": ["https://ioverlander.com/places/34040383-209f-4605-962f-4749770bb115"],
       "visible": 1
     },
     {
@@ -15,7 +15,7 @@
       "longitude": -114.654845,
       "name": "Cocopah casino",
       "notes": "<p>10 USD per night<br>25 for three nights<br>50 for the week<br>Must go inside to let them know site number.<br>Noisy with planes and cars</p>",
-      "url": [],
+      "url": ["https://ioverlander.com/places/76ea6e88-c578-4d15-97f5-7ea80b5a8511"],
       "visible": 1
     },
     {
@@ -23,7 +23,7 @@
       "latitude": 32.4672366,
       "longitude": -114.802001,
       "name": "Parque Emiliano Zapata street parking",
-      "notes": "<p>Quiet, not many people passing by.</p>",
+      "notes": "<p>202605: Quiet, not many people passing by.</p>",
       "url": [],
       "visible": 1
     },
@@ -3901,6 +3901,15 @@
   ],
   "places": [
     {
+      "id": "verde-romero-restaurante",
+      "latitude": 32.469169,
+      "longitude": -114.7933207,
+      "name": "Verde Romero Restaurante",
+      "notes": "<p>20260523: had drinks. Small parking in the back and beautiful terrace</p>",
+      "url": "https://maps.app.goo.gl/N3GNnyWQKKhDEKNY7",
+      "visible": 1
+    },
+    {
       "id": "puffin-viewing-site",
       "latitude": 48.629408,
       "longitude": -53.019057,
@@ -4400,8 +4409,8 @@
       "latitude": 32.6065296,
       "longitude": -114.654765,
       "name": "Cocopah casino water",
-      "notes": "Free.",
-      "url": ""
+      "notes": "202605: Free.",
+      "url": "https://ioverlander.com/places/76ea6e88-c578-4d15-97f5-7ea80b5a8511"
     },
     {
       "id": "corner-brook-visitor-information",
