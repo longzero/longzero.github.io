@@ -1,6 +1,33 @@
 {
   "spots": [
     {
+      "id": "junco-cliff-with-abandoned-houses",
+      "latitude": 30.0233228,
+      "longitude": -114.5676707,
+      "name": "Junco (cliff with abandoned houses)",
+      "notes": "<p>2026: Close to the road but still very nice</p>",
+      "url": [],
+      "visible": 1
+    },
+    {
+      "id": "cocopah-casino",
+      "latitude": 32.606252,
+      "longitude": -114.654845,
+      "name": "Cocopah casino",
+      "notes": "<p>10 USD per night<br>25 for three nights<br>50 for the week<br>Must go inside to let them know site number.<br>Noisy with planes and cars</p>",
+      "url": [],
+      "visible": 1
+    },
+    {
+      "id": "parque-emiliano-zapata",
+      "latitude": 32.4672366,
+      "longitude": -114.802001,
+      "name": "Parque Emiliano Zapata street parking",
+      "notes": "<p>Quiet, not many people passing by.</p>",
+      "url": [],
+      "visible": 1
+    },
+    {
       "id": "bahia-concepcion-entrada-better-than-km-76",
       "latitude": 26.529172,
       "longitude": -111.724019,
@@ -732,7 +759,7 @@
       "latitude": 30.031307,
       "longitude": -114.575111,
       "name": "Next to highway",
-      "notes": "<p>No signal. Be careful of soft sand.<br>Good spot with direct access to beach, but visible from highway. Very nice view of the mountains. Very nice view of the beach. Nice waves. 20250122.</p>",
+      "notes": "<p>No signal. Be careful of soft sand.<br>Good spot with direct access to beach, but visible from highway. Very nice view of the mountains. Very nice view of the beach. Nice waves. 20250122.</p><p>2026: there seems to be people staying there permanently. Saw in January and in May.</p>",
       "url": [
         ""
       ],
@@ -4368,6 +4395,14 @@
     }
   ],
   "water": [
+    {
+      "id": "cocopah-casino-water",
+      "latitude": 32.6065296,
+      "longitude": -114.654765,
+      "name": "Cocopah casino water",
+      "notes": "Free.",
+      "url": ""
+    },
     {
       "id": "corner-brook-visitor-information",
       "latitude": 48.943225,
