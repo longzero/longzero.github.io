@@ -3529,6 +3529,33 @@
   ],
   "potential-spots": [
     {
+      "id": "forrest-rd-548",
+      "latitude": 36.08113,
+      "longitude": -115.55984,
+      "name": "Forrest Rd 548",
+      "notes": "<p>Has signal. 360 view. Powerline visible. Less than 8 km from the road.</p>",
+      "url": ["https://ioverlander.com/places/234BE89A-A512-43B4-B62C-51B7AC7F96FB"],
+      "visible": 1
+    },
+    {
+      "id": "forrest-trail-917",
+      "latitude": 36.07739,
+      "longitude": -115.56593,
+      "name": "Forrest Trail 917",
+      "notes": "<p>360 view. Less than 8 km from the road.</p>",
+      "url": ["https://ioverlander.com/places/645e9885-07da-4406-ba87-005f443271f8"],
+      "visible": 1
+    },
+    {
+      "id": "rainbow-spring-road",
+      "latitude": 36.031410,
+      "longitude": -115.554830,
+      "name": "Rainbow Spring Road",
+      "notes": "<p>Has signal. Just the beginning. Go as deep as you want/can</p>",
+      "url": ["https://ioverlander.com/places/159d8952-4aed-44a4-a745-57b7bffdbcc2"],
+      "visible": 1
+    },
+    {
       "id": "long-cove-rd-close-to-medway-head-lighthouse",
       "latitude": 44.102122,
       "longitude": -64.540629,
@@ -4404,6 +4431,14 @@
     }
   ],
   "water": [
+    {
+      "id": "furnace-creek-visitor-center",
+      "latitude": 36.46133,
+      "longitude": -116.86691,
+      "name": "Furnace Creek Visitor Center",
+      "notes": "Spigot is potable.",
+      "url": "https://ioverlander.com/places/7d3dfa78-15a2-47a0-959d-2f5c5da7de31"
+    },
     {
       "id": "cocopah-casino-water",
       "latitude": 32.6065296,

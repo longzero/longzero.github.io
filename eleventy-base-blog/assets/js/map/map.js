@@ -23,7 +23,7 @@ const SPOT_CONFIG = {
     icon: '/assets/images/map-icons/marker-icon-potential.svg',
     size: [12, 12],
     anchor: [6, 11],
-    hideByDefault: true,
+    hideByDefault: false,
     fade: true
   },
   "spots": {
