@@ -1,6 +1,24 @@
 {
   "spots": [
     {
+      "id": "forest-trail-548",
+      "latitude": 36.0814675,
+      "longitude": -115.5597446,
+      "name": "Forest trail 548",
+      "notes": "<p>20260604: Has signal. Internet 1 0.<br>Not a lot of space but easier to level.<br>Beautiful views.<br>Barely any bugs and humans.<br>After a hot day, after sunset, the air cools quickly which is awesome! Probably due to elevation over 1600 meters.</p><p>This one is nice and deep, becasue most spots closer to the highway or rather close to the road in.</p>",
+      "url": ["https://ioverlander.com/places/234BE89A-A512-43B4-B62C-51B7AC7F96FB"],
+      "visible": 1
+    },
+    {
+      "id": "forest-trail-917-lovell-canyon-rd",
+      "latitude": 36.076550,
+      "longitude": -115.565906,
+      "name": "Forest trail 917 - Lovell canyon rd",
+      "notes": "<p>202606: Saw a van up there and I was jealous. Must be such a great view.</p>",
+      "url": [""],
+      "visible": 1
+    },
+    {
       "id": "junco-cliff-with-abandoned-houses",
       "latitude": 30.0233228,
       "longitude": -114.5676707,
@@ -1234,6 +1252,14 @@
       "url": ""
     },
     {
+      "id": "alabama-hills-movie-road-38",
+      "latitude": 36.635420,
+      "longitude": -118.125620,
+      "name": "Alabama Hills Movie Rd 38",
+      "notes": "<p>Spot 38 on the map at the entrance that has toilets.</p><p>20260605: No signal<br>Elevated clear and close view of the mountains.</p><p>Beware: lots of places marked for day use only.</p>",
+      "url": ""
+    },
+    {
       "id": "alabama-hills",
       "latitude": 36.609441,
       "longitude": -118.117439,
@@ -1505,7 +1531,7 @@
       "latitude": 36.123050,
       "longitude": -114.833183,
       "name": "Government Wash Campground",
-      "notes": "<p>The pass America The Beautiful got me in... Or am I confusing it with another place.</p>",
+      "notes": "<p>2022: America The Beautiful pass got me in.</p>",
       "url": "https://goo.gl/maps/rnif1zeE6Ajsgcuz7"
     },
     {
@@ -3529,24 +3555,6 @@
   ],
   "potential-spots": [
     {
-      "id": "forrest-rd-548",
-      "latitude": 36.08113,
-      "longitude": -115.55984,
-      "name": "Forrest Rd 548",
-      "notes": "<p>Has signal. 360 view. Powerline visible. Less than 8 km from the road.</p>",
-      "url": ["https://ioverlander.com/places/234BE89A-A512-43B4-B62C-51B7AC7F96FB"],
-      "visible": 1
-    },
-    {
-      "id": "forrest-trail-917",
-      "latitude": 36.07739,
-      "longitude": -115.56593,
-      "name": "Forrest Trail 917",
-      "notes": "<p>360 view. Less than 8 km from the road.</p>",
-      "url": ["https://ioverlander.com/places/645e9885-07da-4406-ba87-005f443271f8"],
-      "visible": 1
-    },
-    {
       "id": "rainbow-spring-road",
       "latitude": 36.031410,
       "longitude": -115.554830,
@@ -4431,6 +4439,14 @@
     }
   ],
   "water": [
+    {
+      "id": "zoey-s-dog-park",
+      "latitude": 36.609401,
+      "longitude": -118.065414,
+      "name": "Zoey's Dog Park",
+      "notes": "For dogs. I used my jugs and bottles.",
+      "url": "https://ioverlander.com/places/23CC7C30-81BB-4666-A173-40067B0C0964"
+    },
     {
       "id": "furnace-creek-visitor-center",
       "latitude": 36.46133,

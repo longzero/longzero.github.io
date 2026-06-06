@@ -16,21 +16,23 @@ const SPOT_CONFIG = {
     label: 'Random place',
     icon: '/assets/images/map-icons/marker-icon-place.svg',
     size: [12, 12],
-    anchor: [6, 11]
+    anchor: [6, 11],
+    hideByDefault: true,
   },
   "potential-spots": {
     label: 'Potential spots',
     icon: '/assets/images/map-icons/marker-icon-potential.svg',
     size: [12, 12],
     anchor: [6, 11],
-    hideByDefault: false,
+    hideByDefault: true,
     fade: true
   },
   "spots": {
     label: 'Chilling, sleeping and/or working spot',
     icon: '/assets/images/map-icons/marker-icon-campspot.svg',
     size: [12, 12],
-    anchor: [6, 11]
+    anchor: [6, 11],
+    hideByDefault: false
   },
   "starbucks": {
     label: 'Starbucks',
@@ -43,7 +45,8 @@ const SPOT_CONFIG = {
     label: 'Shower spot',
     icon: '/assets/images/map-icons/marker-icon-water.svg',
     size: [12, 16],
-    anchor: [6, 15]
+    anchor: [6, 15],
+    hideByDefault: false
   },
   "towers": {
     label: 'Towers',
@@ -56,13 +59,15 @@ const SPOT_CONFIG = {
     label: 'Water for cleaning or drinking',
     icon: '/assets/images/map-icons/marker-icon-water.svg',
     size: [12, 16],
-    anchor: [6, 15]
+    anchor: [6, 15],
+    hideByDefault: false
   },
   "default": {
     label: 'Default',
     icon: '/assets/images/map-icons/marker-icon-campspot.svg',
     size: [12, 12],
-    anchor: [6, 11]
+    anchor: [6, 11],
+    hideByDefault: false
   }
 };
 
