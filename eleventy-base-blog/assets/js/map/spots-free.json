@@ -3555,6 +3555,69 @@
   ],
   "potential-spots": [
     {
+      "id": "san-josef-beach",
+      "latitude": 50.67438,
+      "longitude": -128.27655,
+      "name": "San Josef Beach",
+      "notes": "<p>It's tent camping, 2 km from parking to get to the beach. Don't know if sleeping in parking is allowed.</p><p>“Such a beautiful spot! Was voted 36th out of the 50 best beaches in the world by National Geographic. The logging road to the parking lot was in great shape - only took 1.5 hours to get there from Port Hardy. We walked 2.5 km to a campsite on the beach. So worth it! Absolutely stunning”</p>",
+      "url": ["https://ioverlander.com/places/39e1f2a5-de30-41ab-9f29-63eadc2f77e8"],
+      "visible": 1
+    },
+    {
+      "id": "naka-creek-recreational-site",
+      "latitude": 50.476947,
+      "longitude": -126.425884,
+      "name": "Naka Creek Recreational Site",
+      "notes": "<p>Not free? Cash only? 5 campsites.</p><p>People on iOverlander say it's free (dated) and also “We saw 7 orcas and 1 hump whale.”</p>",
+      "url": ["https://www.sitesandtrailsbc.ca/resource/REC6356","https://ioverlander.com/places/8505f736-9477-40a7-983b-1ed715a63d06"],
+      "visible": 1
+    },
+    {
+      "id": "elk-bay-recreation-site",
+      "latitude": 50.27445,
+      "longitude": -125.42704,
+      "name": "Elk Bay Recreation Site",
+      "notes": "<p>Not free? Cash only? 9 campsites.</p><p></p>",
+      "url": ["https://www.sitesandtrailsbc.ca/resource/REC5810","https://ioverlander.com/places/ae1b162f-e492-4c27-bc71-edd849dfcb8b","https://www.campendium.com/elk-bay"],
+      "visible": 1
+    },
+    {
+      "id": "georgie-lake-recreation-site",
+      "latitude": 50.74483,
+      "longitude": -127.61415,
+      "name": "Georgie Lake Recreation Site",
+      "notes": "<p>Not free? Cash only? 6 campsites.</p><p>Small and close to each other.</p>",
+      "url": ["https://www.sitesandtrailsbc.ca/resource/REC0150","https://ioverlander.com/places/69c895dc-a5a6-4182-b718-60709d078605"],
+      "visible": 1
+    },
+    {
+      "id": "gosling-bay-recreation-site",
+      "latitude": 50.0371315,
+      "longitude": -125.4987715,
+      "name": "Gosling Bay Recreation Site",
+      "notes": "<p>Not free? Cash only? 5 campsites.</p>",
+      "url": ["https://www.sitesandtrailsbc.ca/resource/REC0167"],
+      "visible": 1
+    },
+    {
+      "id": "oysyer-bay-rest-area",
+      "latitude": 49.89546,
+      "longitude": -125.14671,
+      "name": "Oysyer Bay Rest Area",
+      "notes": "<p>Has signal. Max 8 hours.</p>",
+      "url": ["https://ioverlander.com/places/675A3D84-1953-41B5-AF9A-DFCF38FA2E4F","https://ioverlander.com/explore"],
+      "visible": 1
+    },
+    {
+      "id": "mt-shasta-view",
+      "latitude": 41.24385,
+      "longitude": -122.3841,
+      "name": "Mt Shasta View",
+      "notes": "<p>Suggested by sassvan</p><p>Big area with lots of spots and potentially lots of people.</p>",
+      "url": ["https://ioverlander.com/places/c2c07472-307e-42a9-9cb0-9c41ce97dfa7","https://ioverlander.com/places/c0dafc84-60ce-4452-8185-ea06713444df"],
+      "visible": 1
+    },
+    {
       "id": "rainbow-spring-road",
       "latitude": 36.031410,
       "longitude": -115.554830,
