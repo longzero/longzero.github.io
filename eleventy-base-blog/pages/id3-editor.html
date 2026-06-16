@@ -12,11 +12,6 @@ title: ID3 Editor
 <!-- jsmediatags for READING only -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jsmediatags/3.9.5/jsmediatags.min.js"></script>
 
-<!-- browser-id3-writer for WRITING (Fixed Global Script) -->
-<!-- <script src="https://cdn.jsdelivr.net/npm/browser-id3-writer@4.0.0/dist/browser-id3-writer.min.js"></script> -->
-<script src="https://cdn.jsdelivr.net/npm/browser-id3-writer@4.4.0/dist/browser-id3-writer.min.js"></script>
-
-
 <!-- JSZip & FileSaver for ZIP download -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
@@ -415,56 +410,221 @@ title: ID3 Editor
         input.style.minWidth = '50px'; // Minimum width
     }
 
-    // --- Fixed Download Logic using browser-id3-writer ---
+    // --- File Type Detection ---
+    function detectFileType(buffer) {
+        // Real MP3: starts with ID3 tag or sync bytes ff fb / ff f3 / ff f2
+        if (buffer[0] === 0x49 && buffer[1] === 0x44 && buffer[2] === 0x33) return 'mp3';
+        if (buffer[0] === 0xFF && (buffer[1] & 0xE0) === 0xE0) return 'mp3';
+        // MP4/M4A: has ftyp box within first 12 bytes
+        if (buffer[4] === 0x66 && buffer[5] === 0x74 && buffer[6] === 0x79 && buffer[7] === 0x70) return 'm4a';
+        return 'unknown';
+    }
 
-    // function downloadSingle(index) {
-    //     const track = tracks[index];
+    // --- MP4 Atom Helpers ---
+    function readUint32BE(buf, offset) {
+        return ((buf[offset] << 24) | (buf[offset+1] << 16) | (buf[offset+2] << 8) | buf[offset+3]) >>> 0;
+    }
 
-    //     const tagsToWrite = {};
-    //     for (const [key, value] of Object.entries(track.currentTags)) {
-    //         if(value) tagsToWrite[key] = value;
-    //     }
+    function writeUint32BE(val) {
+        return [(val >>> 24) & 0xFF, (val >>> 16) & 0xFF, (val >>> 8) & 0xFF, val & 0xFF];
+    }
 
-    //     try {
-    //         // Ensure ID3Writer is available
-    //         if (typeof ID3Writer === 'undefined') {
-    //             throw new Error("ID3Writer library failed to load.");
-    //         }
+    function makeAtom(name, data) {
+        const nameBytes = name.split('').map(c => c.charCodeAt(0));
+        const size = 8 + data.length;
+        return new Uint8Array([...writeUint32BE(size), ...nameBytes, ...data]);
+    }
 
-    //         const reader = new FileReader();
-    //         reader.onload = function(e) {
-    //             const arrayBuffer = e.target.result;
-    //             const writer = new ID3Writer(arrayBuffer);
+    function encodeStringAtom(fourcc, str) {
+        // data atom: version(1) + flags(3) + locale(4) + utf8 string
+        const strBytes = new TextEncoder().encode(str);
+        const dataPayload = new Uint8Array([0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00, ...strBytes]);
+        const dataAtom = makeAtom('data', dataPayload);
+        return makeAtom(fourcc, dataAtom);
+    }
 
-    //         if(tagsToWrite.title) writer.setFrame('TIT2', [tagsToWrite.title]);
-    //         if(tagsToWrite.artist) writer.setFrame('TPE1', [tagsToWrite.artist]);
-    //         if(tagsToWrite.album) writer.setFrame('TALB', [tagsToWrite.album]);
-    //         if(tagsToWrite.track) writer.setFrame('TRCK', String(tagsToWrite.track));
-    //         if(tagsToWrite.year) writer.setFrame('TYER', Number(tagsToWrite.year));
-    //         if(tagsToWrite.genre) writer.setFrame('TCON', [tagsToWrite.genre]);
+    function encodeTrackAtom(trackNum) {
+        // trkn is binary: data atom with flags=0x00 and 8 bytes: 00 00, track, 00 00, 00 00, 00 00
+        const num = parseInt(trackNum) || 0;
+        const dataPayload = new Uint8Array([
+            0x00, 0x00, 0x00, 0x00, // version + flags (implicit)
+            0x00, 0x00, 0x00, 0x00, // locale
+            0x00, 0x00,
+            (num >> 8) & 0xFF, num & 0xFF,
+            0x00, 0x00, 0x00, 0x00
+        ]);
+        const dataAtom = makeAtom('data', dataPayload);
+        return makeAtom('trkn', dataAtom);
+    }
 
-    //             writer.addTag();
-    //             const taggedBuffer = writer.getBlob();
-    //             const blob = new Blob([taggedBuffer], { type: 'audio/mpeg' });
+    function buildIlst(tags) {
+        const parts = [];
+        if (tags.title)  parts.push(encodeStringAtom('\u00a9nam', tags.title));
+        if (tags.artist) parts.push(encodeStringAtom('\u00a9ART', tags.artist));
+        if (tags.album)  parts.push(encodeStringAtom('\u00a9alb', tags.album));
+        if (tags.year)   parts.push(encodeStringAtom('\u00a9day', String(tags.year)));
+        if (tags.genre)  parts.push(encodeStringAtom('\u00a9gen', tags.genre));
+        if (tags.track)  parts.push(encodeTrackAtom(tags.track));
 
-    //             const url = URL.createObjectURL(blob);
-    //             const a = document.createElement('a');
-    //             a.href = url;
-    //             a.download = track.file.name;
-    //             document.body.appendChild(a);
-    //             a.click();
-    //             document.body.removeChild(a);
-    //             URL.revokeObjectURL(url);
-    //         };
-    //         reader.onerror = function() {
-    //             alert('Error reading file: ' + reader.error);
-    //         };
-    //         reader.readAsArrayBuffer(track.file);
-    //     } catch (e) {
-    //         alert('Error writing tags: ' + e.message);
-    //         console.error(e);
-    //     }
-    // }
+        const total = parts.reduce((s, p) => s + p.length, 0);
+        const ilst = new Uint8Array(8 + total);
+        const nameBytes = 'ilst'.split('').map(c => c.charCodeAt(0));
+        ilst.set([...writeUint32BE(8 + total), ...nameBytes]);
+        let offset = 8;
+        for (const p of parts) { ilst.set(p, offset); offset += p.length; }
+        return ilst;
+    }
+
+    function tagM4A(buffer, tags) {
+        // Build ilst
+        const ilst = buildIlst(tags);
+
+        // hdlr atom for meta (required by spec)
+        const hdlrPayload = new Uint8Array([
+            0x00, 0x00, 0x00, 0x00, // version+flags
+            0x00, 0x00, 0x00, 0x00, // pre_defined
+            0x6d, 0x64, 0x69, 0x72, // handler_type: 'mdir'
+            0x61, 0x70, 0x70, 0x6c, // 'appl'
+            0x00, 0x00, 0x00, 0x00,
+            0x00, 0x00, 0x00, 0x00,
+            0x00                    // null string
+        ]);
+        const hdlr = makeAtom('hdlr', hdlrPayload);
+
+        // meta atom (version + flags + hdlr + ilst)
+        const metaPayload = new Uint8Array([0x00, 0x00, 0x00, 0x00, ...hdlr, ...ilst]);
+        const meta = makeAtom('meta', metaPayload);
+
+        // udta atom
+        const udta = makeAtom('udta', meta);
+
+        // Now find moov atom and inject udta, stripping any existing udta
+        let i = 0;
+        let moovStart = -1, moovEnd = -1;
+
+        while (i < buffer.length - 8) {
+            const boxSize = readUint32BE(buffer, i);
+            const boxName = String.fromCharCode(buffer[i+4], buffer[i+5], buffer[i+6], buffer[i+7]);
+            if (boxSize < 8) break;
+            if (boxName === 'moov') {
+                moovStart = i;
+                moovEnd = i + boxSize;
+                break;
+            }
+            i += boxSize;
+        }
+
+        if (moovStart === -1) throw new Error('No moov atom found');
+
+        // Strip existing udta from moov contents
+        const moovContents = [];
+        let j = moovStart + 8;
+        while (j < moovEnd - 8) {
+            const boxSize = readUint32BE(buffer, j);
+            const boxName = String.fromCharCode(buffer[j+4], buffer[j+5], buffer[j+6], buffer[j+7]);
+            if (boxSize < 8) break;
+            if (boxName !== 'udta') {
+                moovContents.push(buffer.slice(j, j + boxSize));
+            }
+            j += boxSize;
+        }
+
+        // Append new udta
+        moovContents.push(udta);
+        const moovBody = moovContents.reduce((s, c) => s + c.length, 0);
+        const newMoov = new Uint8Array(8 + moovBody);
+        newMoov.set([...writeUint32BE(8 + moovBody), 0x6d, 0x6f, 0x6f, 0x76]); // 'moov'
+        let off = 8;
+        for (const c of moovContents) { newMoov.set(c, off); off += c.length; }
+
+        // Reassemble: everything before moov + new moov + everything after moov
+        const before = buffer.slice(0, moovStart);
+        const after = buffer.slice(moovEnd);
+        const output = new Uint8Array(before.length + newMoov.length + after.length);
+        output.set(before, 0);
+        output.set(newMoov, before.length);
+        output.set(after, before.length + newMoov.length);
+        return output;
+    }
+
+    function buildID3Tag(tags) {
+        const frames = [];
+
+        function encodeFrame(id, value) {
+            const str = String(value);
+            // UTF-16LE with BOM: 1 byte encoding + 2 bytes BOM + 2 bytes per char + 2 bytes null terminator
+            const frameData = new Uint8Array(1 + 2 + str.length * 2 + 2);
+            let pos = 0;
+            frameData[pos++] = 0x01; // UTF-16 encoding
+            frameData[pos++] = 0xFF; // BOM
+            frameData[pos++] = 0xFE;
+            for (let i = 0; i < str.length; i++) {
+                const code = str.charCodeAt(i);
+                frameData[pos++] = code & 0xFF;
+                frameData[pos++] = (code >> 8) & 0xFF;
+            }
+            frameData[pos++] = 0x00; // null terminator
+            frameData[pos++] = 0x00;
+
+            const size = frameData.length;
+            const frame = new Uint8Array(10 + size);
+            frame[0] = id.charCodeAt(0);
+            frame[1] = id.charCodeAt(1);
+            frame[2] = id.charCodeAt(2);
+            frame[3] = id.charCodeAt(3);
+            frame[4] = (size >> 24) & 0xFF;
+            frame[5] = (size >> 16) & 0xFF;
+            frame[6] = (size >> 8) & 0xFF;
+            frame[7] = size & 0xFF;
+            frame[8] = 0x00; // flags
+            frame[9] = 0x00;
+            frame.set(frameData, 10);
+
+            frames.push(frame);
+        }
+
+        if (tags.title)  encodeFrame('TIT2', tags.title);
+        if (tags.artist) encodeFrame('TPE1', tags.artist);
+        if (tags.album)  encodeFrame('TALB', tags.album);
+        if (tags.track)  encodeFrame('TRCK', tags.track);
+        if (tags.year)   encodeFrame('TYER', tags.year);
+        if (tags.genre)  encodeFrame('TCON', tags.genre);
+
+        const totalFrameSize = frames.reduce((sum, f) => sum + f.length, 0);
+
+        const id3 = new Uint8Array(10 + totalFrameSize);
+        id3[0] = 0x49; id3[1] = 0x44; id3[2] = 0x33; // "ID3"
+        id3[3] = 0x03; id3[4] = 0x00;                 // version 2.3
+        id3[5] = 0x00;                                 // flags
+        // syncsafe integer size
+        id3[6] = (totalFrameSize >> 21) & 0x7F;
+        id3[7] = (totalFrameSize >> 14) & 0x7F;
+        id3[8] = (totalFrameSize >> 7)  & 0x7F;
+        id3[9] =  totalFrameSize        & 0x7F;
+
+        let offset = 10;
+        for (const frame of frames) {
+            id3.set(frame, offset);
+            offset += frame.length;
+        }
+
+        return id3;
+    }
+
+    function stripExistingID3(buffer) {
+        // Check for ID3 header: "ID3" at byte 0
+        if (buffer[0] === 0x49 && buffer[1] === 0x44 && buffer[2] === 0x33) {
+            // Syncsafe integer size at bytes 6-9
+            const size = ((buffer[6] & 0x7F) << 21) |
+                         ((buffer[7] & 0x7F) << 14) |
+                         ((buffer[8] & 0x7F) << 7)  |
+                          (buffer[9] & 0x7F);
+            const tagTotalSize = 10 + size;
+            // Return buffer starting after the existing tag
+            return buffer.slice(tagTotalSize);
+        }
+        return buffer; // No ID3 tag found, return as-is
+    }
 
     function downloadSingle(index) {
         const track = tracks[index];
@@ -475,43 +635,39 @@ title: ID3 Editor
         }
 
         try {
-            if (typeof ID3Writer === 'undefined') {
-                throw new Error("ID3Writer library failed to load.");
-            }
-
             const reader = new FileReader();
+
             reader.onload = function(e) {
-                const arrayBuffer = e.target.result;
-                console.log('ArrayBuffer size:', arrayBuffer.byteLength);
+                const originalBuffer = new Uint8Array(e.target.result);
+                const fileType = detectFileType(originalBuffer);
 
-                const writer = new ID3Writer(arrayBuffer);
-                console.log('Writer created:', writer);
+                let output, filename, mimeType;
 
-                // if (tagsToWrite.title)  writer.setFrame('TIT2', tagsToWrite.title);
-                // if (tagsToWrite.artist) writer.setFrame('TPE1', [tagsToWrite.artist]);
-                // if (tagsToWrite.album)  writer.setFrame('TALB', tagsToWrite.album);
-                if (tagsToWrite.track)  writer.setFrame('TRCK', String(tagsToWrite.track));
-                if (tagsToWrite.year)   writer.setFrame('TYER', Number(tagsToWrite.year));
-                if (tagsToWrite.genre)  writer.setFrame('TCON', [tagsToWrite.genre]);
-try { writer.setFrame('TIT2', tagsToWrite.title); console.log('TIT2 ok'); } catch(e) { console.error('TIT2 failed:', e); }
-try { writer.setFrame('TPE1', [tagsToWrite.artist]); console.log('TPE1 ok'); } catch(e) { console.error('TPE1 failed:', e); }
-try { writer.setFrame('TALB', tagsToWrite.album); console.log('TALB ok'); } catch(e) { console.error('TALB failed:', e); }
+                if (fileType === 'm4a') {
+                    output = tagM4A(originalBuffer, tagsToWrite);
+                    filename = track.file.name.replace(/\.mp3$/i, '.m4a');
+                    mimeType = 'audio/mp4';
+                } else {
+                    const stripped = stripExistingID3(originalBuffer);
+                    const id3Tag = buildID3Tag(tagsToWrite);
+                    output = new Uint8Array(id3Tag.length + stripped.length);
+                    output.set(id3Tag, 0);
+                    output.set(stripped, id3Tag.length);
+                    filename = track.file.name;
+                    mimeType = 'audio/mpeg';
+                }
 
-                console.log('frames after setFrame:', writer.frames);
-                writer.addTag();
-                const blob = writer.getBlob();
-                console.log('Blob size:', blob.size, 'Blob type:', blob.type);
-                console.log('tagsToWrite:', tagsToWrite);
-
+                const blob = new Blob([output], { type: mimeType });
                 const url = URL.createObjectURL(blob);
                 const a = document.createElement('a');
                 a.href = url;
-                a.download = track.file.name;
+                a.download = filename;
                 document.body.appendChild(a);
                 a.click();
                 document.body.removeChild(a);
                 URL.revokeObjectURL(url);
             };
+
             reader.onerror = function() {
                 alert('Error reading file: ' + reader.error);
             };
@@ -536,7 +692,7 @@ try { writer.setFrame('TALB', tagsToWrite.album); console.log('TALB ok'); } catc
 
                 const tagsToWrite = {};
                 for (const [key, value] of Object.entries(track.currentTags)) {
-                    if(value) tagsToWrite[key] = value;
+                    if (value) tagsToWrite[key] = value;
                 }
 
                 try {
@@ -547,26 +703,31 @@ try { writer.setFrame('TALB', tagsToWrite.album); console.log('TALB ok'); } catc
                         reader.readAsArrayBuffer(track.file);
                     });
 
-                    const writer = new ID3Writer(arrayBuffer);
+                    const originalBuffer = new Uint8Array(arrayBuffer);
+                    const fileType = detectFileType(originalBuffer);
+                    let output, filename;
 
-                    if(tagsToWrite.title) writer.setFrame('TIT2', [tagsToWrite.title]);
-                    if(tagsToWrite.artist) writer.setFrame('TPE1', [tagsToWrite.artist]);
-                    if(tagsToWrite.album) writer.setFrame('TALB', [tagsToWrite.album]);
-                    if(tagsToWrite.track) writer.setFrame('TRCK', String(tagsToWrite.track));
-                    if(tagsToWrite.year) writer.setFrame('TYER', Number(tagsToWrite.year));
-                    if(tagsToWrite.genre) writer.setFrame('TCON', [tagsToWrite.genre]);
+                    if (fileType === 'm4a') {
+                        output = tagM4A(originalBuffer, tagsToWrite);
+                        filename = track.file.name.replace(/\.mp3$/i, '.m4a');
+                    } else {
+                        const stripped = stripExistingID3(originalBuffer);
+                        const id3Tag = buildID3Tag(tagsToWrite);
+                        output = new Uint8Array(id3Tag.length + stripped.length);
+                        output.set(id3Tag, 0);
+                        output.set(stripped, id3Tag.length);
+                        filename = track.file.name;
+                    }
 
-                    writer.addTag();
-                    const blob = writer.getBlob();
-                    folder.file(track.file.name, blob);
+                    folder.file(filename, output);
+
                 } catch (err) {
                     console.error("Error writing", track.file.name, err);
-                    // Fallback: add original file if write fails
                     folder.file(track.file.name, track.file);
                 }
             }
 
-            const content = await zip.generateAsync({type:"blob"});
+            const content = await zip.generateAsync({ type: "blob" });
             saveAs(content, "edited_mp3s.zip");
             statusMsg.textContent = "Download started!";
         } catch (e) {
