@@ -16,21 +16,23 @@ const SPOT_CONFIG = {
     label: 'Random place',
     icon: '/assets/images/map-icons/marker-icon-place.svg',
     size: [12, 12],
-    anchor: [6, 11]
+    anchor: [6, 11],
+    hideByDefault: true,
   },
   "potential-spots": {
     label: 'Potential spots',
     icon: '/assets/images/map-icons/marker-icon-potential.svg',
     size: [12, 12],
     anchor: [6, 11],
-    hideByDefault: false,
+    hideByDefault: true,
     fade: true
   },
   "spots": {
     label: 'Chilling, sleeping and/or working spot',
     icon: '/assets/images/map-icons/marker-icon-campspot.svg',
     size: [12, 12],
-    anchor: [6, 11]
+    anchor: [6, 11],
+    hideByDefault: false
   },
   "starbucks": {
     label: 'Starbucks',
@@ -43,7 +45,8 @@ const SPOT_CONFIG = {
     label: 'Shower spot',
     icon: '/assets/images/map-icons/marker-icon-water.svg',
     size: [12, 16],
-    anchor: [6, 15]
+    anchor: [6, 15],
+    hideByDefault: false
   },
   "towers": {
     label: 'Towers',
@@ -56,13 +59,15 @@ const SPOT_CONFIG = {
     label: 'Water for cleaning or drinking',
     icon: '/assets/images/map-icons/marker-icon-water.svg',
     size: [12, 16],
-    anchor: [6, 15]
+    anchor: [6, 15],
+    hideByDefault: false
   },
   "default": {
     label: 'Default',
     icon: '/assets/images/map-icons/marker-icon-campspot.svg',
     size: [12, 12],
-    anchor: [6, 11]
+    anchor: [6, 11],
+    hideByDefault: false
   }
 };
 
@@ -115,14 +120,14 @@ let legendHtml = '' // Create each item of legend, in HTML
 
 const markerPathCurrent = '/assets/images/map-icons/marker-icon-current.svg'
 const svgBaseClasses = "marker-icon js-marker-icon " // Remember to put a space at the end.
-const svgCurrent = getIcon(svgBaseClasses + "current-location", markerPathCurrent, [18,24], [9,23])
+const svgCurrent = getIcon(svgBaseClasses + "current-location", markerPathCurrent, [18, 24], [9, 23])
 
 
 let map = L.map('map', {
   fullscreenControl: true, // https://github.com/Leaflet/Leaflet.fullscreen
   maxZoom: 20,
   // https://github.com/mutsuyuki/Leaflet.SmoothWheelZoom
-  scrollWheelZoom: false, // disable original zoom function
+  scrollWheelZoom: false, // disable original zoom function, improves Safari because it doesn't try to load every scroll level of the map.
   smoothWheelZoom: true,  // enable smooth zoom
   smoothSensitivity: /^((?!chrome|android).)*safari/i.test(navigator.userAgent) ? 2 : 5,   // Lower sensitivity is much smoother on Safari
   // END https://github.com/mutsuyuki/Leaflet.SmoothWheelZoom
@@ -134,8 +139,8 @@ let map = L.map('map', {
   updateWhenIdle: true,
   preferCanvas: true,
   tap: false, // Essential for Safari/iOS to prevent "click-delay" and drag lag
-  // zoomSnap: 0,           // Removes the "integer snapping" jitter
-  zoomDelta: 0.1,        // Smoother increments
+  zoomSnap: 0,           // Removes the "integer snapping" jitter
+  // zoomDelta: 0.2,        // Smoother increments // This makes Safari worse...
 
 }).fitBounds([
   [54.14584949174648, -128.75881463815347],
@@ -164,9 +169,9 @@ function addMarkers(count, locations, locationType, svgIcon, locationTypeHuman) 
       count++
 
       let locationName = "",
-          locationNotes = "",
-          locationUrl = "",
-          locationWeather = ""
+        locationNotes = "",
+        locationUrl = "",
+        locationWeather = ""
 
       // Create URL to Google Maps from coordinates.
       let googleMapsUrl = "https://www.google.com/maps/search/?api=1&query=" + location.latitude + "%2C" + location.longitude
@@ -199,8 +204,8 @@ function addMarkers(count, locations, locationType, svgIcon, locationTypeHuman) 
       let locationContent = '<div class="location-tooltip-content">' + locationName + locationNotes + locationUrl + visualCrossingWeather + locationWeather + '</div>'
 
       // Place markers on the map.
-      const marker = new L.marker([location.latitude, location.longitude], {icon: svgIcon})
-        .bindPopup(locationContent, { offset: L.point(0,-1) })
+      const marker = new L.marker([location.latitude, location.longitude], { icon: svgIcon })
+        .bindPopup(locationContent, { offset: L.point(0, -1) })
 
       // Add marker to its category layer
       if (CATEGORY_LAYERS[locationType]) {
@@ -219,14 +224,14 @@ function addMarkers(count, locations, locationType, svgIcon, locationTypeHuman) 
         };
 
         // Update URL on click
-        marker.on('click', function() {
+        marker.on('click', function () {
           const newUrl = new URL(window.location);
           newUrl.searchParams.set('id', location.id);
           window.history.pushState({}, '', newUrl);
         });
 
         // Clear URL when popup is closed
-        marker.on('popupclose', function() {
+        marker.on('popupclose', function () {
           const currentUrl = new URL(window.location);
           // Only clear if the ID in the URL matches this marker (to avoid race conditions)
           if (currentUrl.searchParams.get('id') === location.id) {
@@ -302,7 +307,7 @@ function toggleLegendAndMarkers() {
   DEBUG && console.log("toggleLegendAndMarkers: Setting up click listeners...");
   const legendToggle = document.querySelectorAll('.js-map-legend-item')
   legendToggle.forEach(item => {
-    item.addEventListener('click', function() {
+    item.addEventListener('click', function () {
       const category = Array.from(this.classList).find(cls =>
         cls !== 'map-legend-item' &&
         cls !== 'js-map-legend-item' &&
@@ -500,8 +505,8 @@ function initMap(locations) {
     let googleMapsUrl = "https://www.google.com/maps/search/?api=1&query=" + latitude + "%2C" + longitude
     let popupMessage = `<a href="${googleMapsUrl}" target="_blank">You are here.</a>`
 
-    markerHere = new L.marker([latitude, longitude], {icon: svgCurrent})
-      .bindPopup(popupMessage, { offset: L.point(0,-14) })
+    markerHere = new L.marker([latitude, longitude], { icon: svgCurrent })
+      .bindPopup(popupMessage, { offset: L.point(0, -14) })
       .addTo(map);
     map.locate({
       setView: true, // true means the map zooms to current location. Does not always work on desktop.
@@ -517,7 +522,7 @@ function initMap(locations) {
   }
 
   let located = false // true means the user already triggered location detection.
-  document.querySelector('.js-map-legend-item.current-location').addEventListener('click', function(){
+  document.querySelector('.js-map-legend-item.current-location').addEventListener('click', function () {
     DEBUG && console.log("Current location: clicked to request location.")
     if (located == false) {
       DEBUG && console.log(`Current location: ${located}`)
