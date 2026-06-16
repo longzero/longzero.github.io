@@ -13,7 +13,9 @@ title: ID3 Editor
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jsmediatags/3.9.5/jsmediatags.min.js"></script>
 
 <!-- browser-id3-writer for WRITING (Fixed Global Script) -->
-<script src="https://cdn.jsdelivr.net/npm/browser-id3-writer@4.0.0/dist/browser-id3-writer.min.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/browser-id3-writer@4.0.0/dist/browser-id3-writer.min.js"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/browser-id3-writer@4.4.0/dist/browser-id3-writer.min.js"></script>
+
 
 <!-- JSZip & FileSaver for ZIP download -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
@@ -415,16 +417,64 @@ title: ID3 Editor
 
     // --- Fixed Download Logic using browser-id3-writer ---
 
+    // function downloadSingle(index) {
+    //     const track = tracks[index];
+
+    //     const tagsToWrite = {};
+    //     for (const [key, value] of Object.entries(track.currentTags)) {
+    //         if(value) tagsToWrite[key] = value;
+    //     }
+
+    //     try {
+    //         // Ensure ID3Writer is available
+    //         if (typeof ID3Writer === 'undefined') {
+    //             throw new Error("ID3Writer library failed to load.");
+    //         }
+
+    //         const reader = new FileReader();
+    //         reader.onload = function(e) {
+    //             const arrayBuffer = e.target.result;
+    //             const writer = new ID3Writer(arrayBuffer);
+
+    //         if(tagsToWrite.title) writer.setFrame('TIT2', [tagsToWrite.title]);
+    //         if(tagsToWrite.artist) writer.setFrame('TPE1', [tagsToWrite.artist]);
+    //         if(tagsToWrite.album) writer.setFrame('TALB', [tagsToWrite.album]);
+    //         if(tagsToWrite.track) writer.setFrame('TRCK', String(tagsToWrite.track));
+    //         if(tagsToWrite.year) writer.setFrame('TYER', Number(tagsToWrite.year));
+    //         if(tagsToWrite.genre) writer.setFrame('TCON', [tagsToWrite.genre]);
+
+    //             writer.addTag();
+    //             const taggedBuffer = writer.getBlob();
+    //             const blob = new Blob([taggedBuffer], { type: 'audio/mpeg' });
+
+    //             const url = URL.createObjectURL(blob);
+    //             const a = document.createElement('a');
+    //             a.href = url;
+    //             a.download = track.file.name;
+    //             document.body.appendChild(a);
+    //             a.click();
+    //             document.body.removeChild(a);
+    //             URL.revokeObjectURL(url);
+    //         };
+    //         reader.onerror = function() {
+    //             alert('Error reading file: ' + reader.error);
+    //         };
+    //         reader.readAsArrayBuffer(track.file);
+    //     } catch (e) {
+    //         alert('Error writing tags: ' + e.message);
+    //         console.error(e);
+    //     }
+    // }
+
     function downloadSingle(index) {
         const track = tracks[index];
 
         const tagsToWrite = {};
         for (const [key, value] of Object.entries(track.currentTags)) {
-            if(value) tagsToWrite[key] = value;
+            if (value) tagsToWrite[key] = value;
         }
 
         try {
-            // Ensure ID3Writer is available
             if (typeof ID3Writer === 'undefined') {
                 throw new Error("ID3Writer library failed to load.");
             }
@@ -434,16 +484,15 @@ title: ID3 Editor
                 const arrayBuffer = e.target.result;
                 const writer = new ID3Writer(arrayBuffer);
 
-            if(tagsToWrite.title) writer.setFrame('TIT2', [tagsToWrite.title]);
-            if(tagsToWrite.artist) writer.setFrame('TPE1', [tagsToWrite.artist]);
-            if(tagsToWrite.album) writer.setFrame('TALB', [tagsToWrite.album]);
-            if(tagsToWrite.track) writer.setFrame('TRCK', tagsToWrite.track);
-            if(tagsToWrite.year) writer.setFrame('TYER', tagsToWrite.year);
-            if(tagsToWrite.genre) writer.setFrame('TCON', [tagsToWrite.genre]);
+                if (tagsToWrite.title)  writer.setFrame('TIT2', tagsToWrite.title);
+                if (tagsToWrite.artist) writer.setFrame('TPE1', [tagsToWrite.artist]);
+                if (tagsToWrite.album)  writer.setFrame('TALB', tagsToWrite.album);
+                if (tagsToWrite.track)  writer.setFrame('TRCK', String(tagsToWrite.track));
+                if (tagsToWrite.year)   writer.setFrame('TYER', Number(tagsToWrite.year));
+                if (tagsToWrite.genre)  writer.setFrame('TCON', [tagsToWrite.genre]);
 
                 writer.addTag();
-                const taggedBuffer = writer.getBlob();
-                const blob = new Blob([taggedBuffer], { type: 'audio/mpeg' });
+                const blob = writer.getBlob();
 
                 const url = URL.createObjectURL(blob);
                 const a = document.createElement('a');
@@ -494,8 +543,8 @@ title: ID3 Editor
                     if(tagsToWrite.title) writer.setFrame('TIT2', [tagsToWrite.title]);
                     if(tagsToWrite.artist) writer.setFrame('TPE1', [tagsToWrite.artist]);
                     if(tagsToWrite.album) writer.setFrame('TALB', [tagsToWrite.album]);
-                    if(tagsToWrite.track) writer.setFrame('TRCK', tagsToWrite.track);
-                    if(tagsToWrite.year) writer.setFrame('TYER', tagsToWrite.year);
+                    if(tagsToWrite.track) writer.setFrame('TRCK', String(tagsToWrite.track));
+                    if(tagsToWrite.year) writer.setFrame('TYER', Number(tagsToWrite.year));
                     if(tagsToWrite.genre) writer.setFrame('TCON', [tagsToWrite.genre]);
 
                     writer.addTag();
