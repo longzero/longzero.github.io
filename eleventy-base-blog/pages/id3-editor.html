@@ -8,6 +8,139 @@ title: ID3 Editor
 #   order: 3
 ---
 
+
+<!--
+================================================================================
+LOCAL MP3 ID3 EDITOR — NOTES & DOCUMENTATION BY AI (Claude Sonnet 4.6 Low)
+================================================================================
+
+OVERVIEW
+--------
+A single-file browser tool for editing ID3/MP4 metadata tags on local audio
+files. All processing is done client-side — no uploads, no server.
+
+LIBRARIES
+---------
+- jsmediatags 3.9.5   : Reading existing tags from MP3/M4A files
+- JSZip 3.10.1        : Bundling multiple files into a ZIP for batch download
+- FileSaver.js 2.0.5  : Triggering ZIP download in the browser
+
+NOTE: browser-id3-writer was removed after proving unreliable (silent failures,
+corrupted output rejected by strict parsers like Apple Music, Symfonium).
+Tags are now written manually via buildID3Tag() and tagM4A().
+
+--------------------------------------------------------------------------------
+FILE TYPE DETECTION
+--------------------------------------------------------------------------------
+Many files downloaded from YouTube and similar sources are M4A (AAC audio in
+an MP4 container) mislabeled with a .mp3 extension. detectFileType() inspects
+the first bytes of the file to determine the real format:
+
+  - 49 44 33         → ID3 header → real MP3
+  - FF Ex / FF Fx    → MPEG sync bytes → real MP3
+  - [size] 66 74 79 70 ("ftyp" at byte 4) → MP4/M4A container
+
+Files that are detected as M4A are tagged using MP4 atoms and saved with a
+.m4a extension. Files detected as real MP3 are tagged using ID3v2.3.
+
+--------------------------------------------------------------------------------
+MP3 TAGGING — buildID3Tag()
+--------------------------------------------------------------------------------
+Writes a spec-compliant ID3v2.3 tag manually as a Uint8Array, prepended to
+the stripped audio data.
+
+Structure:
+  [ID3 header: 10 bytes]
+    49 44 33        "ID3"
+    03 00           version 2.3, revision 0
+    00              flags
+    xx xx xx xx     syncsafe integer: total frame size
+
+  [Frames: variable]
+    Each frame:
+      4 bytes  frame ID (e.g. TIT2, TPE1)
+      4 bytes  size (big-endian, NOT syncsafe at frame level in v2.3)
+      2 bytes  flags (00 00)
+      1 byte   encoding (01 = UTF-16)
+      2 bytes  BOM (FF FE)
+      n bytes  UTF-16LE string
+      2 bytes  null terminator (00 00)
+
+Frames written: TIT2 (title), TPE1 (artist), TALB (album),
+                TRCK (track), TYER (year), TCON (genre)
+
+stripExistingID3() removes any pre-existing ID3 tag from the front of the
+buffer before prepending the new one, preventing double-tag corruption.
+
+NOTE: ID3v1 tail tags (last 128 bytes, starting with "TAG") are not stripped.
+Unlikely to cause issues in practice but technically leaves a stale tail tag.
+
+--------------------------------------------------------------------------------
+M4A TAGGING — tagM4A()
+--------------------------------------------------------------------------------
+Writes iTunes-compatible metadata atoms into the MP4 container without
+transcoding. Keeps original AAC audio untouched.
+
+Atom hierarchy written:
+  moov
+    udta  (any existing udta is stripped and replaced)
+      meta
+        hdlr  (handler type: mdir/appl — required by spec)
+        ilst
+          ©nam  title
+          ©ART  artist
+          ©alb  album
+          ©day  year
+          ©gen  genre
+          trkn  track number (binary atom, not string)
+
+String atoms use UTF-8 with data atom flags 0x00000001.
+trkn uses binary data atom flags 0x00000000 with a 16-byte payload.
+
+COMPATIBILITY
+  Works:  Finder Quick Look, Musicolet (Android), Symfonium (Android), VLC
+  Broken: Apple Music — requires strict atom ordering and possibly stco/mdat
+          offset recalculation when moov is moved. Not worth pursuing.
+
+--------------------------------------------------------------------------------
+KNOWN EDGE CASES / FUTURE CONSIDERATIONS
+--------------------------------------------------------------------------------
+FILE FORMAT
+  - 64-bit MP4 atoms: files >4GB use extended box sizes (size field = 1,
+    real size follows as 8 bytes). Current parser would misread these.
+    Unlikely for music files.
+
+  - MP4 ftyp variants: M4A files may identify as "M4A ", "mp42", or "isom"
+    rather than "dash". Detection relies on "ftyp" at byte 4, which is
+    robust across all of these.
+
+  - OGG / FLAC / WAV renamed as .mp3: not handled. Magic bytes are:
+      FLAC → 66 4C 61 43 ("fLaC")
+      OGG  → 4F 67 67 53 ("OggS")
+      WAV  → 52 49 46 46 ("RIFF")
+    Could be added to detectFileType() with a warning/skip.
+
+  - moov after mdat: some downloaders place the moov atom at the end of the
+    file. Most players handle this fine, but if issues arise, the fix is to
+    move moov before mdat ("faststart" optimization).
+
+ID3 SPECIFIC
+  - ID3v2.4 input: jsmediatags reads v2.4 fine, but output is always v2.3.
+    Broader compatibility, but technically a version downgrade.
+
+  - Characters outside the Basic Multilingual Plane (emoji, some CJK):
+    charCodeAt() breaks on surrogate pairs. Would need a proper UTF-16
+    conversion using TextEncoder for full Unicode support.
+
+UX
+  - Duplicate filenames: if two different files share the same name,
+    createInput()'s findIndex() lookup by filename will always match the
+    first one, silently editing the wrong track.
+
+================================================================================
+-->
+
+
 <!-- Libraries -->
 <!-- jsmediatags for READING only -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jsmediatags/3.9.5/jsmediatags.min.js"></script>
