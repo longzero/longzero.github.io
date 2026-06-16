@@ -482,7 +482,10 @@ title: ID3 Editor
             const reader = new FileReader();
             reader.onload = function(e) {
                 const arrayBuffer = e.target.result;
+                console.log('ArrayBuffer size:', arrayBuffer.byteLength);
+
                 const writer = new ID3Writer(arrayBuffer);
+                console.log('Writer created:', writer);
 
                 if (tagsToWrite.title)  writer.setFrame('TIT2', tagsToWrite.title);
                 if (tagsToWrite.artist) writer.setFrame('TPE1', [tagsToWrite.artist]);
@@ -493,6 +496,8 @@ title: ID3 Editor
 
                 writer.addTag();
                 const blob = writer.getBlob();
+                console.log('Blob size:', blob.size, 'Blob type:', blob.type);
+                console.log('tagsToWrite:', tagsToWrite);
 
                 const url = URL.createObjectURL(blob);
                 const a = document.createElement('a');
