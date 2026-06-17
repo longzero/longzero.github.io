@@ -1,6 +1,24 @@
 {
   "spots": [
     {
+      "id": "twin-lake-recreation-site",
+      "latitude": 50.175025,
+      "longitude": -125.518190,
+      "name": "Twin Lake Recreation Site",
+      "notes": "<p>Free. Campsites are very close together. No privacy.</p><p>Besides the human factor, it is gorgeous!</p><p>Go beyond where Google Maps leads to.</p>",
+      "url": ["https://www.sitesandtrailsbc.ca/resource/REC0185","https://ioverlander.com/places/50f59ff3-6b45-434f-bbcf-976da4a7571b","https://maps.app.goo.gl/bdjqbNrXp7HMz2dv6"],
+      "visible": 1
+    },
+    {
+      "id": "elk-bay-recreation-site",
+      "latitude": 50.27445,
+      "longitude": -125.42704,
+      "name": "Elk Bay Recreation Site",
+      "notes": "<p>Free. Campsites are very close together. No privacy.</p><p>Besides the human factor, it is gorgeous!</p><p>The road in is 13-15&nbsp;km of gravel.</p>",
+      "url": ["https://www.sitesandtrailsbc.ca/resource/REC5810","https://ioverlander.com/places/ae1b162f-e492-4c27-bc71-edd849dfcb8b","https://www.campendium.com/elk-bay"],
+      "visible": 1
+    },
+    {
       "id": "forest-trail-548",
       "latitude": 36.0814675,
       "longitude": -115.5597446,
@@ -3564,21 +3582,21 @@
       "visible": 1
     },
     {
+      "id": "Little-Bear-Bay-Recreation-Site",
+      "latitude": 50.33832, 
+      "longitude": -125.51762,
+      "name": "Little Bear Bay Recreation Site",
+      "notes": "<p></p>",
+      "url": ["https://www.sitesandtrailsbc.ca/resource/REC0187","https://ioverlander.com/places/9a1b474e-6dd8-4d75-9836-752ef171e109"],
+      "visible": 1
+    },
+    {
       "id": "naka-creek-recreational-site",
       "latitude": 50.476947,
       "longitude": -126.425884,
       "name": "Naka Creek Recreational Site",
       "notes": "<p>Not free? Cash only? 5 campsites.</p><p>People on iOverlander say it's free (dated) and also “We saw 7 orcas and 1 hump whale.”</p>",
       "url": ["https://www.sitesandtrailsbc.ca/resource/REC6356","https://ioverlander.com/places/8505f736-9477-40a7-983b-1ed715a63d06"],
-      "visible": 1
-    },
-    {
-      "id": "elk-bay-recreation-site",
-      "latitude": 50.27445,
-      "longitude": -125.42704,
-      "name": "Elk Bay Recreation Site",
-      "notes": "<p>Not free? Cash only? 9 campsites.</p><p></p>",
-      "url": ["https://www.sitesandtrailsbc.ca/resource/REC5810","https://ioverlander.com/places/ae1b162f-e492-4c27-bc71-edd849dfcb8b","https://www.campendium.com/elk-bay"],
       "visible": 1
     },
     {
