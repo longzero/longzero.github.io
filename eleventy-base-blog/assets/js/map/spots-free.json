@@ -3573,6 +3573,24 @@
   ],
   "potential-spots": [
     {
+      "id": "montague-creek-recreation-site",
+      "latitude": 50.3407899,
+      "longitude": -126.199411,
+      "name": "Montague Creek Recreation Site",
+      "notes": "<p>Free. Toilets. 2 campsites.</p>",
+      "url": ["https://www.sitesandtrailsbc.ca/resource/REC3237"],
+      "visible": 1
+    },
+    {
+      "id": "junction-pool-recreation-site",
+      "latitude": 50.438784,
+      "longitude": -126.247696,
+      "name": "Junction Pool Recreation Site",
+      "notes": "<p>Free. Toilets. 7 campsites.</p>",
+      "url": ["https://www.sitesandtrailsbc.ca/resource/REC3237"],
+      "visible": 1
+    },
+    {
       "id": "san-josef-beach",
       "latitude": 50.67438,
       "longitude": -128.27655,
@@ -3600,12 +3618,48 @@
       "visible": 1
     },
     {
+      "id": "arden-creek-recreation-site",
+      "latitude": 49.14152,
+      "longitude": -124.81285,
+      "name": "Arden Creek Recreation Site",
+      "notes": "<p>Toilets. 6 campsites.</p>",
+      "url": ["https://www.sitesandtrailsbc.ca/resource/REC0214","https://ioverlander.com/places/70c90f70-7563-43c1-9fc6-04b7d1771162"],
+      "visible": 1
+    },
+    {
+      "id": "georgie-lake-recreation-site",
+      "latitude": 50.33562,
+      "longitude": -127.90901,
+      "name": "Georgie Lake Recreation Site",
+      "notes": "<p>4x4 required. High clearance required.</p>",
+      "url": ["https://www.sitesandtrailsbc.ca/resource/REC106908","https://ioverlander.com/places/1c34d8ee-8a42-46f5-ba3b-6e1e3315d62c"],
+      "visible": 1
+    },
+    {
       "id": "georgie-lake-recreation-site",
       "latitude": 50.74483,
       "longitude": -127.61415,
       "name": "Georgie Lake Recreation Site",
-      "notes": "<p>Not free? Cash only? 6 campsites.</p><p>Small and close to each other.</p>",
+      "notes": "<p>Free. Toilets. 6 campsites.</p><p>Small and close to each other.</p>",
       "url": ["https://www.sitesandtrailsbc.ca/resource/REC0150","https://ioverlander.com/places/69c895dc-a5a6-4182-b718-60709d078605"],
+      "visible": 1
+    },
+    {
+      "id": "marble-river-provincial-park",
+      "latitude": 50.527360,
+      "longitude": -127.433616,
+      "name": "Marble River Provincial Park",
+      "notes": "<p>Toilets. 35 campsites.</p>",
+      "url": ["https://www.sitesandtrailsbc.ca/resource/REC0242","https://ioverlander.com/places/1db50bcd-a8e3-4b62-a428-3edcceb700a5"],
+      "visible": 1
+    },
+    {
+      "id": "gooding-cove",
+      "latitude": 50.401469,
+      "longitude": -127.947859,
+      "name": "Gooding Cove",
+      "notes": "<p>2 campsites. West coast. 2.5 hours from Port Alice. 4x4 and high clearance recommended. Careful.</p>",
+      "url": ["https://www.sitesandtrailsbc.ca/resource/REC3088","https://ioverlander.com/places/9b0134d8-64fa-4682-89af-8faf5831ce23"],
       "visible": 1
     },
     {
@@ -4215,6 +4269,14 @@
     }
   ],
   "shower": [
+    {
+      "id": "comox-community-centre",
+      "latitude": 49.6817149,
+      "longitude": -124.928884,
+      "name": "Comox Community Centre",
+      "notes": "<p>Cash preferred, because must create account with card.<br>5.25 or 7.25</p>",
+      "url": ["https://maps.app.goo.gl/uRJkiKgXewzMUBUP9"]
+    },
     {
       "id": "terra-nova-national-park",
       "latitude": 48.579461,
