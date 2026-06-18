@@ -481,6 +481,32 @@ function initMap(locations) {
   handleDeepLink();
 
 
+  map.on('contextmenu', function (e) {
+    // 1. Prevent the browser's default right-click menu from showing up
+    e.originalEvent.preventDefault();
+
+    // Get the coordinates from the event object
+    const latlng = e.latlng;
+
+    // Format the coordinates into a readable string
+    const coordinates = `${latlng.lat.toFixed(6)}, ${latlng.lng.toFixed(6)}`;
+
+    // Find the coordinate display element and update its content
+    const coordsDisplay = document.getElementById('coords-display');
+    if (coordsDisplay) {
+        coordsDisplay.innerHTML = `<strong></strong>${coordinates}`;
+
+        // // Optional: Make it flash or change color momentarily to confirm the action
+        // coordsDisplay.style.background = '#3498db';
+        // setTimeout(() => {
+        //     coordsDisplay.style.background = 'rgba(0, 0, 0, 0.7)';
+        // }, 150);
+
+    } else {
+        console.warn("Coordinates display element (#coords-display) not found.");
+    }
+  });
+
 
   // CURRENT LOCATION
   const options = {
@@ -535,9 +561,6 @@ function initMap(locations) {
     }
   })
   // END CURRENT LOCATION
-
-
-
 
 } // function initMap(locations)
 

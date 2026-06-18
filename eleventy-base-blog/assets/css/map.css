@@ -1,4 +1,7 @@
-body {--header-height: 40px;}
+body {
+  --header-height: 40px;
+  --radius: 4px;
+}
 input {height: auto;}
 .leaflet-container {font-size: 1rem;}
 .leaflet-control-attribution {font-size: 1em; transform: scale(.7); transform-origin: right bottom; transition: .3s; max-width: 320px; width: 100%;}
@@ -35,9 +38,15 @@ input {height: auto;}
 .location-tooltip-name:hover, .leaflet-container .location-tooltip-name:hover {color: var(--color-1);}
 .location-tooltip-name:only-child {margin-bottom: 0}
 
+.map-coordinates {
+  border-radius: var(--radius); font-size: 1rem;
+  position: absolute; bottom: 55px; left: 5px; z-index: 1111;
+}
+
 .map-legend {
   --symbol-size: 16px;
-  border: 2px solid rgba(0,0,0,0.2); border-radius: 4px;
+  border: 2px solid rgba(0,0,0,0.2);
+  border-radius: var(--radius);
   display: grid;
   font-size: .85rem; position: absolute;
   /*  top: calc(10px + var(--header-height));*/
