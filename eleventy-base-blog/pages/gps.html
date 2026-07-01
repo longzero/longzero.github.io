@@ -33,39 +33,86 @@ title: GPS mapper
     html, body, button, input, label, select, textarea {font-family: 'Oxygen', sans-serif;}
     html {font-size: 10px;}
     body {font-size: 1.6rem; margin: 0; background-color: #fff;}
-    button, input, label, select, textarea {font-size: 1.4rem;}
+    button, input, label, select, textarea {font-size: 1.4rem; max-width: 100%;}
+    input[type=file] {width: 100%;}
     select {appearance: none; background: #fff; border: 1px solid #e5e7eb; padding: 8px 12px; border-radius: 6px;}
 
-    #map { max-height: 80vh; height: 1000px; border-top: 1px solid #e5e7eb; border-bottom: 1px solid #e5e7eb; }
-
-    /* Layout Containers */
-    .map-configurations {
-        padding: 16px;
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        background: #fff;
+    .layout-columns {--gap: 1rem; display: flex; flex-wrap: wrap; gap: var(--gap); width: 100%;}
+    .layout-column {
+        --column-count: 1;
+        --gap-count: calc(var(--column-count) - 1);
+        --column-width: calc(100% / var(--column-count) - var(--gap) * var(--gap-count) / var(--column-count));
+        flex-shrink: 0;
+        max-width: var(--column-width);
+        width: var(--column-width) !important;
     }
+    .layout-column-count-2 {--column-count: 2;}
+    .layout-column-count-3 {--column-count: 3;}
+    .layout-column-count-4 {--column-count: 4;}
 
-    .config-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 12px;
-    }
-
-    /* Minimalist Card Style */
-    .config-card {
-        padding: 12px 16px;
+    /* Button System */
+    button {
+        padding: 10px 20px;
         border: 1px solid #e5e7eb;
-        border-radius: 8px;
-        background: #f9fafb;
+        border-radius: 6px;
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        background: #fff;
+        color: #374151;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        white-space: nowrap;
     }
+
+    button:hover {
+        background: #f3f4f6;
+        border-color: #d1d5db;
+    }
+
+    button.active-toggle {
+        background: #e5e7eb;
+        border-color: #9ca3af;
+        box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    .button--link {
+        background: none;
+        border: none;
+        color: #111827;
+        padding: 0;
+        min-width: 0;
+        text-decoration: underline;
+        font-size: 13px;
+    }
+    .button--link:hover { background: none; color: #4b5563; }
+
+    /* Primary Action Buttons */
+    .btn-primary,
+    #applyDateFilter,
+    #updateHeatmap,
+    #downloadOptimized {
+        background: #111827 !important;
+        border-color: #111827 !important;
+        color: #fff !important;
+    }
+
+    .btn-primary:hover,
+    #applyDateFilter:hover,
+    #updateHeatmap:hover,
+    #downloadOptimized:hover {
+        background: #1f2937 !important;
+    }
+
+    .card-actions-toolbar {display: flex; flex-wrap: nowrap; gap: 1rem; width: 100%;}
 
     .card-header {
         margin-bottom: 10px;
         display: flex;
         align-items: center;
-        gap: 8px;
+        gap: 1rem;
     }
 
     .card-header h2 {
@@ -77,12 +124,32 @@ title: GPS mapper
         color: #6b7280;
     }
 
+    .config-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1rem;
+    }
+
+    /* Minimalist Card Style */
+    .config-card {
+        padding: 12px 16px;
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        background: #f9fafb;
+    }
+
+    #controls input {width: 100%}
+    @media (min-width: 768px) {
+        #controls .layout-columns:nth-child(2) {flex-wrap: nowrap;}
+        #controls .layout-columns:nth-child(2) .layout-column {--column-count: 3;}
+    }
+
     /* Drop Zone Style */
     #dropZone {
         border: 2px dashed #e5e7eb;
         border-radius: 8px;
         padding: 16px;
-        text-align: center;
+        /*text-align: center;*/
         transition: all 0.2s ease;
         background: #fff;
         color: #4b5563;
@@ -98,20 +165,20 @@ title: GPS mapper
     .flex-row {
         display: flex;
         flex-wrap: wrap;
-        gap: 24px;
+        gap: 1rem;
         align-items: center;
     }
 
     .control-group {
         display: flex;
         flex-direction: column;
-        gap: 6px;
+        gap: 1rem;
     }
 
     .control-group--inline {
         flex-direction: row;
         align-items: center;
-        gap: 12px;
+        gap: 1rem;
     }
 
     .control-group label {
@@ -140,75 +207,7 @@ title: GPS mapper
         box-shadow: 0 0 0 2px rgba(17, 24, 39, 0.05);
     }
 
-    /* Button System */
-    button {
-        padding: 10px 20px;
-        border: 1px solid #e5e7eb;
-        border-radius: 6px;
-        font-size: 13px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.2s ease;
-        background: #fff;
-        color: #374151;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        white-space: nowrap;
-    }
-
-    button:hover {
-        background: #f3f4f6;
-        border-color: #d1d5db;
-    }
-
-    /* Primary Action Buttons */
-    .btn-primary,
-    #applyDateFilter,
-    #updateHeatmap,
-    #downloadOptimized {
-        background: #111827 !important;
-        border-color: #111827 !important;
-        color: #fff !important;
-    }
-
-    .btn-primary:hover,
-    #applyDateFilter:hover,
-    #updateHeatmap:hover,
-    #downloadOptimized:hover {
-        background: #1f2937 !important;
-    }
-
-    /* Active States for Toggles */
-    button.active-toggle {
-        background: #e5e7eb;
-        border-color: #9ca3af;
-        box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
-    }
-
-    .button--link {
-        background: none;
-        border: none;
-        color: #111827;
-        padding: 0;
-        min-width: 0;
-        text-decoration: underline;
-        font-size: 13px;
-    }
-    .button--link:hover { background: none; color: #4b5563; }
-
-    /* Status Messages */
-    .optimizer-status {
-        font-size: 13px;
-        color: #4b5563;
-        margin-top: 12px;
-        padding-top: 12px;
-        border-top: 1px dashed #e5e7eb;
-        display: none;
-    }
-    .optimizer-status.active { display: block; }
-
-
+    #measureControls {width: 100%;}
 
     /* Distance result styling */
     #distanceResult {
@@ -223,18 +222,43 @@ title: GPS mapper
     }
     #distanceResult:empty {display: none;}
 
+    #map { max-height: 80vh; height: 1000px; border-top: 1px solid #e5e7eb; border-bottom: 1px solid #e5e7eb; }
+
+    .map-configurations {
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 16px;
+    }
+
+    /* Status Messages */
+    .optimizer-status {
+        font-size: 13px;
+        color: #4b5563;
+        margin-top: 12px;
+        padding-top: 12px;
+        border-top: 1px dashed #e5e7eb;
+        display: none;
+    }
+    .optimizer-status.active { display: block; }
+
+
     /* Responsive Design */
     @media (max-width: 768px) {
         .map-configurations { padding: 12px; }
         .config-grid { grid-template-columns: 1fr; }
-        .flex-row { flex-direction: column; align-items: stretch; gap: 16px; }
+        /*.flex-row { flex-direction: column; align-items: stretch; gap: 16px; }*/
         button { width: 100%; }
         .config-card { padding: 12px; }
+    }
+    @media (min-width: 1024px) {
+        .map-configurations {flex-direction: row;}
     }
 
 
 
-    .optimizer-section {
+    .merge-csv-section, .optimizer-section {
         margin: 16px;
     }
 </style>
@@ -242,7 +266,7 @@ title: GPS mapper
 
 
 <div class="map-configurations">
-    <div class="config-grid">
+    <!-- <div class="config-grid"> -->
         <!-- Card 1: Data Source -->
         <div class="config-card">
             <div class="card-header"><h2>Data Selection</h2></div>
@@ -255,46 +279,46 @@ title: GPS mapper
         <!-- Card 2: Temporal Filters -->
         <div class="config-card">
             <div class="card-header"><h2>Time Range</h2></div>
-            <div class="flex-row" id="dateControls">
-                <div class="control-group">
+            <div class="layout-columns" id="dateControls">
+                <div class="control-group layout-column layout-column-count-2">
                     <label for="startDate">Start Date</label>
                     <input type="date" id="startDate">
                 </div>
-                <div class="control-group">
+                <div class="control-group layout-column layout-column-count-2">
                     <label for="endDate">End Date</label>
                     <input type="date" id="endDate">
                 </div>
-                <div class="flex-row">
+                <div class="card-actions-toolbar">
                     <button id="applyDateFilter" class="btn-primary">Apply Filter</button>
                     <button id="clearDateFilter">Clear Filter</button>
                 </div>
             </div>
         </div>
-    </div>
+    <!-- </div> -->
 
     <!-- Card 3: Display Settings -->
     <div class="config-card">
         <div class="card-header"><h2>Map Layers & Tools</h2></div>
         <div class="flex-row" id="controls">
-            <div class="flex-row">
-                <button id="togglePolyline">Polyline</button>
-                <button id="toggleMarkers">Markers</button>
-                <button id="toggleHeatmap">Heatmap</button>
+            <div class="layout-columns">
+                <button class="layout-column layout-column-count-3" id="togglePolyline">Polyline</button>
+                <button class="layout-column layout-column-count-3" id="toggleMarkers">Markers</button>
+                <button class="layout-column layout-column-count-3" id="toggleHeatmap">Heatmap</button>
             </div>
 
-            <div class="flex-row" style="border-left: 1px solid #e5e7eb; padding-left: 20px;">
-                <div class="control-group control-group--inline">
+            <div class="layout-columns">
+                <div class="control-group control-group--inline layout-column layout-column-count-2">
                     <label for="radius">Radius</label>
                     <input type="number" id="radius" value="7">
                 </div>
-                <div class="control-group control-group--inline">
+                <div class="control-group control-group--inline layout-column layout-column-count-2">
                     <label for="blur">Blur</label>
                     <input type="number" id="blur" value="13">
                 </div>
                 <button id="updateHeatmap" class="btn-primary">Update Heatmap</button>
             </div>
 
-            <div class="flex-row" id="measureControls" style="margin-left: auto;">
+            <div id="measureControls">
                 <button class="button--link" id="measureDistance">Measure Distance</button>
                 <button class="button--link" id="clearMeasurements">Clear Measurements</button>
             </div>
@@ -304,6 +328,23 @@ title: GPS mapper
 </div>
 <div class="map-box">
     <div id="map"></div>
+</div>
+
+<div class="config-card merge-csv-section">
+    <div class="card-header">
+        <h2>Merge CSV Files</h2>
+    </div>
+    <div id="mergeDropZone" style="border: 2px dashed #e5e7eb; border-radius: 8px; padding: 30px; text-align: center; transition: all 0.2s ease; background: #fff; color: #4b5563; font-size: 14px; margin-bottom: 12px;">
+        Drag and drop CSV files here or
+        <input type="file" id="mergeFileInput" accept=".csv" multiple style="display: block; margin: 10px auto;">
+        <span style="display: block; margin-top: 8px; font-size: 12px; color: #9ca3af;">Supported: .csv files</span>
+    </div>
+    <div id="mergeFileList" style="margin: 12px 0; max-height: 150px; overflow-y: auto;"></div>
+    <div class="card-actions-toolbar">
+        <button id="mergeFilesBtn" class="btn-primary" disabled>Merge CSV Files</button>
+        <button id="clearMergeFilesBtn">Clear All</button>
+    </div>
+    <div id="mergeStatus" style="margin-top: 12px; padding: 12px; background: #f3f4f6; border-radius: 6px; border: 1px solid #e5e7eb; display: none; font-size: 13px;"></div>
 </div>
 
 <div class="config-card optimizer-section">
@@ -872,7 +913,7 @@ title: GPS mapper
                 console.log('Marker created with popup:', marker.getPopup()); // Should not be null
                 markerClusterGroup.addLayer(marker);
             });
-            map.addLayer(markerClusterGroup);
+            //map.addLayer(markerClusterGroup);
 
             const heatPoints = gpsData.map(point => [point.lat, point.lon]);
             heatmapLayer = L.heatLayer(heatPoints, {
@@ -891,7 +932,7 @@ title: GPS mapper
 
             // Sync toggle button states (Polyline starts OFF, others ON)
             document.getElementById('togglePolyline').classList.remove('active-toggle');
-            document.getElementById('toggleMarkers').classList.add('active-toggle');
+            document.getElementById('toggleMarkers').classList.remove('active-toggle');
             document.getElementById('toggleHeatmap').classList.add('active-toggle');
 
 
@@ -1162,4 +1203,194 @@ title: GPS mapper
     });
 
     // For existing polylines (add to updateMap function)
+
+
+
+// ============ CSV MERGE FEATURE ============
+(function() {
+    const mergeDropZone = document.getElementById('mergeDropZone');
+    const mergeFileInput = document.getElementById('mergeFileInput');
+    const mergeFileList = document.getElementById('mergeFileList');
+    const mergeFilesBtn = document.getElementById('mergeFilesBtn');
+    const clearMergeFilesBtn = document.getElementById('clearMergeFilesBtn');
+    const mergeStatus = document.getElementById('mergeStatus');
+
+    let selectedFiles = [];
+
+    // Drag and drop handlers
+    ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+        mergeDropZone.addEventListener(eventName, preventDefaults, false);
+    });
+
+    ['dragenter', 'dragover'].forEach(eventName => {
+        mergeDropZone.addEventListener(eventName, () => {
+            mergeDropZone.style.borderColor = '#111827';
+            mergeDropZone.style.backgroundColor = '#f3f4f6';
+        }, false);
+    });
+
+    ['dragleave', 'drop'].forEach(eventName => {
+        mergeDropZone.addEventListener(eventName, () => {
+            mergeDropZone.style.borderColor = '#e5e7eb';
+            mergeDropZone.style.backgroundColor = '#fff';
+        }, false);
+    });
+
+    mergeDropZone.addEventListener('drop', (e) => {
+        const files = e.dataTransfer.files;
+        handleFiles(files);
+    }, false);
+
+    mergeFileInput.addEventListener('change', (e) => {
+        handleFiles(e.target.files);
+        // Reset input so same file can be selected again
+        e.target.value = '';
+    });
+
+    function handleFiles(files) {
+        const validFiles = Array.from(files).filter(file =>
+            file.name.endsWith('.csv') &&
+            !selectedFiles.some(f => f.name === file.name && f.size === file.size)
+        );
+
+        if (validFiles.length === 0) {
+            showMergeStatus('No new valid CSV files to add.', 'warning');
+            return;
+        }
+
+        selectedFiles = [...selectedFiles, ...validFiles];
+        updateMergeFileList();
+        mergeFilesBtn.disabled = false;
+        showMergeStatus(`${validFiles.length} CSV file(s) added.`, 'info');
+    }
+
+    function updateMergeFileList() {
+        if (selectedFiles.length === 0) {
+            mergeFileList.innerHTML = '';
+            mergeFilesBtn.disabled = true;
+            return;
+        }
+
+        mergeFileList.innerHTML = selectedFiles.map((file, index) => `
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 6px 10px; border-bottom: 1px solid #f3f4f6; font-size: 13px;">
+                <span>${file.name} (${(file.size / 1024).toFixed(1)} KB)</span>
+                <button class="remove-file-btn" data-index="${index}" style="background: none; border: none; color: #ef4444; cursor: pointer; padding: 0 8px; font-size: 18px;">×</button>
+            </div>
+        `).join('');
+
+        // Add click handlers to remove buttons
+        document.querySelectorAll('.remove-file-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const index = parseInt(this.dataset.index);
+                selectedFiles.splice(index, 1);
+                updateMergeFileList();
+                if (selectedFiles.length === 0) {
+                    mergeFilesBtn.disabled = true;
+                }
+                showMergeStatus('File removed.', 'info');
+            });
+        });
+    }
+
+    clearMergeFilesBtn.addEventListener('click', () => {
+        selectedFiles = [];
+        updateMergeFileList();
+        mergeFilesBtn.disabled = true;
+        mergeStatus.style.display = 'none';
+        mergeStatus.textContent = '';
+    });
+
+    mergeFilesBtn.addEventListener('click', () => {
+        if (selectedFiles.length < 2) {
+            showMergeStatus('Please select at least 2 CSV files to merge.', 'error');
+            return;
+        }
+
+        mergeFilesBtn.disabled = true;
+        showMergeStatus('Processing files...', 'info');
+
+        let allData = [];
+        let filesProcessed = 0;
+        let hasError = false;
+
+        selectedFiles.forEach((file, index) => {
+            Papa.parse(file, {
+                header: true,
+                skipEmptyLines: true,
+                complete: function(results) {
+                    filesProcessed++;
+                    if (results.data && results.data.length > 0) {
+                        // Add source filename as a column for traceability
+                        const dataWithSource = results.data.map(row => ({
+                            ...row,
+                            source_file: file.name
+                        }));
+                        allData = allData.concat(dataWithSource);
+                    }
+
+                    if (filesProcessed === selectedFiles.length) {
+                        if (allData.length === 0) {
+                            showMergeStatus('No valid data found in the files.', 'error');
+                            mergeFilesBtn.disabled = false;
+                            return;
+                        }
+
+                        // Create merged CSV
+                        const mergedCsv = Papa.unparse(allData);
+                        const blob = new Blob([mergedCsv], { type: 'text/csv;charset=utf-8;' });
+                        const url = URL.createObjectURL(blob);
+                        const link = document.createElement('a');
+                        const timestamp = new Date().toISOString().slice(0, 10);
+                        link.setAttribute('href', url);
+                        link.setAttribute('download', `merged_csv_${timestamp}.csv`);
+                        link.style.visibility = 'hidden';
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+                        URL.revokeObjectURL(url);
+
+                        const totalRows = allData.length;
+                        const totalSize = (blob.size / 1024 / 1024).toFixed(2);
+                        showMergeStatus(`✅ Merge complete! ${totalRows} total rows across ${selectedFiles.length} files. File size: ${totalSize} MB`, 'success');
+                        mergeFilesBtn.disabled = false;
+                    }
+                },
+                error: function(err) {
+                    console.error('Error parsing CSV:', err);
+                    hasError = true;
+                    filesProcessed++;
+                    if (filesProcessed === selectedFiles.length) {
+                        if (hasError) {
+                            showMergeStatus('Error processing one or more files. Please check console for details.', 'error');
+                        }
+                        mergeFilesBtn.disabled = false;
+                    }
+                }
+            });
+        });
+    });
+
+    function showMergeStatus(message, type = 'info') {
+        mergeStatus.style.display = 'block';
+        mergeStatus.textContent = message;
+
+        const colors = {
+            info: '#4b5563',
+            success: '#16a34a',
+            warning: '#f59e0b',
+            error: '#dc2626'
+        };
+        mergeStatus.style.color = colors[type] || '#4b5563';
+        mergeStatus.style.borderLeftColor = colors[type] || '#e5e7eb';
+        mergeStatus.style.borderLeftWidth = '4px';
+        mergeStatus.style.borderLeftStyle = 'solid';
+    }
+
+    function preventDefaults(e) {
+        e.preventDefault();
+        e.stopPropagation();
+    }
+
+})();
+
 </script>
