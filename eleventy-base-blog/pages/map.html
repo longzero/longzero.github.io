@@ -50,6 +50,9 @@ eleventyNavigation:
       if (SHOW_ONTARIO) {
         filesToFetch.push(fetchJSON("/assets/js/map/spots-ontario.json"))
       }
+      if (SHOW_QUEBEC) {
+        filesToFetch.push(fetchJSON("/assets/js/map/spots-quebec.json"))
+      }
 
       Promise.all(filesToFetch)
         .then(datasets => {

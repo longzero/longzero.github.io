@@ -2,6 +2,7 @@ const DEBUG = false
 const urlParams = new URLSearchParams(window.location.search);
 const USE_CLUSTERS = urlParams.get('clusters') === '1' || urlParams.get('cluster') === '1'
 const SHOW_ONTARIO = urlParams.get('map') === 'ontario'
+const SHOW_QUEBEC = urlParams.get('map') === 'quebec'
 let markerClusterGroup
 
 const SPOT_CONFIG = {
@@ -80,6 +81,29 @@ const SPOT_CONFIG = {
   },
   "ontario-wild": {
     label: 'Ontario - Wild Camping',
+    icon: '/assets/images/map-icons/marker-icon-potential-io.svg',
+    size: [12, 12],
+    anchor: [6, 11],
+    hideByDefault: false,
+    fade: true
+  },
+  "quebec-established": {
+    label: 'Quebec - Established Campground',
+    icon: '/assets/images/map-icons/marker-icon-potential-io.svg',
+    size: [12, 12],
+    anchor: [6, 11],
+    hideByDefault: false
+  },
+  "quebec-informal": {
+    label: 'Quebec - Informal Campsite',
+    icon: '/assets/images/map-icons/marker-icon-potential-io.svg',
+    size: [12, 12],
+    anchor: [6, 11],
+    hideByDefault: false,
+    fade: true
+  },
+  "quebec-wild": {
+    label: 'Quebec - Wild Camping',
     icon: '/assets/images/map-icons/marker-icon-potential-io.svg',
     size: [12, 12],
     anchor: [6, 11],
