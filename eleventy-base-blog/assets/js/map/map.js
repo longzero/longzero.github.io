@@ -1,6 +1,7 @@
 const DEBUG = false
 const urlParams = new URLSearchParams(window.location.search);
 const USE_CLUSTERS = urlParams.get('clusters') === '1' || urlParams.get('cluster') === '1'
+const SHOW_ONTARIO = urlParams.get('map') === 'ontario'
 let markerClusterGroup
 
 const SPOT_CONFIG = {
@@ -61,6 +62,29 @@ const SPOT_CONFIG = {
     size: [12, 16],
     anchor: [6, 15],
     hideByDefault: false
+  },
+  "ontario-established": {
+    label: 'Ontario - Established Campground',
+    icon: '/assets/images/map-icons/marker-icon-potential-io.svg',
+    size: [12, 12],
+    anchor: [6, 11],
+    hideByDefault: false
+  },
+  "ontario-informal": {
+    label: 'Ontario - Informal Campsite',
+    icon: '/assets/images/map-icons/marker-icon-potential-io.svg',
+    size: [12, 12],
+    anchor: [6, 11],
+    hideByDefault: false,
+    fade: true
+  },
+  "ontario-wild": {
+    label: 'Ontario - Wild Camping',
+    icon: '/assets/images/map-icons/marker-icon-potential-io.svg',
+    size: [12, 12],
+    anchor: [6, 11],
+    hideByDefault: false,
+    fade: true
   },
   "default": {
     label: 'Default',
@@ -482,7 +506,7 @@ function initMap(locations) {
 
 
   map.on('contextmenu', function (e) {
-    // 1. Prevent the browser's default right-click menu from showing up
+    // Prevent the browser's default right-click menu from showing up
     e.originalEvent.preventDefault();
 
     // Get the coordinates from the event object

@@ -46,8 +46,14 @@ eleventyNavigation:
     let file = "/assets/js/map/spots-free.json"
 
     const startMap = () => {
-      fetchJSON(file)
-        .then(data => {
+      const filesToFetch = [fetchJSON(file)]
+      if (SHOW_ONTARIO) {
+        filesToFetch.push(fetchJSON("/assets/js/map/spots-ontario.json"))
+      }
+
+      Promise.all(filesToFetch)
+        .then(datasets => {
+          const data = Object.assign({}, ...datasets);
           initMap(data);
         })
         .catch(err => {
