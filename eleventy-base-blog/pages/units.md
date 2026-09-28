@@ -7,10 +7,10 @@ title: Units
 #   key: Time
 #   order: 3
 
-exchange_rate: 1.4
+exchange_rate: 1.41
 # winter 2025: 1.44
 # 2025-12-24: 1.37
-exchange_rate_mxn: 17.6
+exchange_rate_mxn: 17.85
 ---
 
 
@@ -89,6 +89,17 @@ Enter a number, then click anywhere.
       <option selected>miles</option>
     </select>
   </div>
+</section>
+
+<section class="unit-conversion fuel-economy-section">
+  <label class="unit-group">
+    <input class="js-fuel-economy" id="l-100km" name="l-100km" type="number">
+    <span>L / 100 km</span>
+  </label>
+  <label class="unit-group">
+    <input class="js-fuel-economy" id="mpg" name="mpg" type="number">
+    <span>mpg</span>
+  </label>
 </section>
 
 <section class="unit-conversion liquid-volume-section">
@@ -264,6 +275,21 @@ Enter a number, then click anywhere.
       else if (this.getAttribute('id') == 'fahrenheit') {
         document.getElementById('celcius').value = getRound(getCelciusFromFahrenheit(this.value))
       }
+    })
+  })
+
+
+
+  const MPG_L100KM_FACTOR = 235.214583; // US mpg ↔ L/100 km
+  // Same formula both ways: mpg → L/100 km and L/100 km → mpg.
+  function convertFuelEconomy(value) {
+    return MPG_L100KM_FACTOR / value;
+  }
+  const fuelEconomyInput = document.querySelectorAll('.js-fuel-economy')
+  fuelEconomyInput.forEach((fuelEconomy) => {
+    fuelEconomy.addEventListener('change', function(){
+      const otherId = this.getAttribute('id') == 'mpg' ? 'l-100km' : 'mpg'
+      document.getElementById(otherId).value = this.value ? getRound(convertFuelEconomy(this.value)) : ''
     })
   })
 </script>
