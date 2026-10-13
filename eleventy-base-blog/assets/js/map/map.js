@@ -439,6 +439,26 @@ function handleDeepLink() {
   }
 }
 
+// NHC layer IDs for every storm slot (AT1-5, EP1-5, CP1-5): forecast points, track, cone and watch-warning, plus the 7-day outlook.
+const NHC_LAYERS = '2,398,3,6,7,8,9,32,33,34,35,58,59,60,61,84,85,86,87,110,111,112,113,136,137,138,139,162,163,164,165,188,189,190,191,214,215,216,217,240,241,242,243,266,267,268,269,292,293,294,295,318,319,320,321,344,345,346,347,370,371,372,373'
+
+/**
+ * Creates an empty GeoJSON overlay that fetches its data the first time it is turned on,
+ * so visitors who never enable it don't download it.
+ */
+function lazyGeoJsonOverlay(url, options) {
+  const layer = L.geoJSON(null, options);
+  let loaded = false;
+  layer.on('add', function () {
+    if (loaded) return;
+    loaded = true;
+    fetchJSON(url)
+      .then(data => layer.addData(data))
+      .catch(() => { loaded = false; }); // Allow a retry on the next toggle.
+  });
+  return layer;
+}
+
 function initMap(locations) {
   // DEBUG && console.log(locations)
 
@@ -495,7 +515,62 @@ function initMap(locations) {
       attribution: 'Labels &copy; Esri',
       opacity: 0.7,
       maxZoom: 20
-    })
+    }),
+
+    // NOAA/NHC active storms: forecast cones, tracks, points, watches/warnings and 7-day outlook (Atlantic, East & Central Pacific).
+    // Empty when no storms are active. Layer IDs: https://mapservices.weather.noaa.gov/tropical/rest/services/tropical/NHC_tropical_weather/MapServer
+    "Hurricanes": L.tileLayer.wms('https://mapservices.weather.noaa.gov/tropical/services/tropical/NHC_tropical_weather/MapServer/WMSServer', {
+      layers: NHC_LAYERS,
+      format: 'image/png',
+      transparent: true,
+      attribution: 'Tropical data &copy; <a href="https://www.nhc.noaa.gov/" target="_blank">NOAA/NHC</a>',
+      maxZoom: 20
+    }),
+
+    // Natural Resources Canada (CWFIS): satellite hotspots from the last 24h and estimated fire perimeters.
+    // Covers Canada, the US and northern Mexico.
+    "Wildfires (Canada & US)": L.tileLayer.wms('https://cwfis.cfs.nrcan.gc.ca/geoserver/public/wms', {
+      layers: 'm3_polygons_current,hotspots_last24hrs',
+      format: 'image/png',
+      transparent: true,
+      attribution: 'Fire data &copy; <a href="https://cwfis.cfs.nrcan.gc.ca/" target="_blank">NRCan CWFIS</a>',
+      maxZoom: 20
+    }),
+
+    // NIFC/WFIGS: official perimeters of current US wildfires. Fetched only when turned on.
+    "Wildfire perimeters (US)": lazyGeoJsonOverlay(
+      'https://services3.arcgis.com/T4QMspbfLg3qTGWY/arcgis/rest/services/WFIGS_Interagency_Perimeters_Current/FeatureServer/0/query?where=1%3D1&outFields=poly_IncidentName,poly_GISAcres,attr_PercentContained&outSR=4326&maxAllowableOffset=0.001&geometryPrecision=4&f=geojson',
+      {
+        attribution: 'Perimeters &copy; <a href="https://data-nifc.opendata.arcgis.com/" target="_blank">NIFC</a>',
+        style: { color: '#d7301f', fillOpacity: 0.25, weight: 1 },
+        onEachFeature: (feature, layer) => {
+          const p = feature.properties;
+          const acres = p.poly_GISAcres ? Math.round(p.poly_GISAcres).toLocaleString() + ' acres' : '';
+          const contained = p.attr_PercentContained != null ? p.attr_PercentContained + '% contained' : '';
+          layer.bindPopup(`<strong>${p.poly_IncidentName || 'Wildfire'}</strong><br>${[acres, contained].filter(Boolean).join(' · ')}`);
+        }
+      }
+    ),
+
+    // NASA VIIRS hotspots from the last 24h, via Esri Living Atlas. Fetched only when turned on.
+    // The query is a bounding box around Mexico, so it also includes some of the southern US border.
+    "Wildfires (Mexico)": lazyGeoJsonOverlay(
+      'https://services9.arcgis.com/RHVPKKiFTONKtxq3/arcgis/rest/services/Satellite_VIIRS_Thermal_Hotspots_and_Fire_Activity/FeatureServer/0/query?where=hours_old%3C%3D24&geometry=-118.5,14.5,-86.5,32.8&geometryType=esriGeometryEnvelope&inSR=4326&outFields=acq_date,confidence,frp&outSR=4326&f=geojson',
+      {
+        attribution: 'Hotspots &copy; <a href="https://firms.modaps.eosdis.nasa.gov/" target="_blank">NASA FIRMS</a>, Esri',
+        pointToLayer: (feature, latlng) => L.circleMarker(latlng, {
+          color: '#7f0000',
+          fillColor: '#fc8d59',
+          fillOpacity: 0.9,
+          radius: 4,
+          weight: 1
+        }),
+        onEachFeature: (feature, layer) => {
+          const p = feature.properties;
+          layer.bindPopup(`<strong>Fire hotspot</strong><br>${new Date(p.acq_date).toLocaleDateString()} · ${p.confidence} confidence`);
+        }
+      }
+    )
   };
 
   // CUSTOMIZE
@@ -518,6 +593,7 @@ function initMap(locations) {
   // Set defaults
   basemaps.Default.addTo(map);
   overlays["Weather Radar"].addTo(map);
+  overlays["Hurricanes"].addTo(map);
 
   // LEGEND AND MARKERS
   parseLocations(locations)
