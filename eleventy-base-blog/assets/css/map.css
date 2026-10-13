@@ -76,3 +76,6 @@ input {height: auto;}
 .marker-icon--fade {opacity: 1;}
 .marker-icon.hide {display: none;}
 .site-header {margin-bottom: 0;}
+
+.tiles-dark {filter: brightness(0.9) contrast(0.9) hue-rotate(180deg) invert(1);}
+.tiles-light {filter: brightness(1.05) contrast(0.85) grayscale(1);}
